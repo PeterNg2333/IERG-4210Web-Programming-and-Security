@@ -15,6 +15,6 @@ $(window).on("load", function() {
         RenderElement("#header", "./Snippet/Header.html");
         RenderElement("#main", "./Snippet/Main.html");
         RenderElement("#footer", "./Snippet/Footer.html");
-    }, 2500);
+    }, 1200);
 });
 
