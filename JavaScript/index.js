@@ -23,6 +23,8 @@ $(window).on("load", function() {
         for (let i = 0; i < 9; i++) {
             RenderElementAfter("#product_card", "./Snippet/Product_Card.html");
           }
+        
+        // RenderElement("#product", "./Snippet/Product.html");
     }, 1200);
 });
 
