@@ -15,3 +15,49 @@
     color: gray;
     font-weight: bold;
 }
+
+/* Navigator */
+#navigator{
+    background:radial-gradient(circle farthest-corner at left,#0d1449,#000000);
+    color: white;
+}
+
+.header1 {
+    font-size: 190%;
+    font-weight: bold;
+    display:inline-block
+}
+
+.header_searhing input, .header_searhing input::placeholder{
+    background-color: #0d14496c;
+    color: rgb(255, 255, 255);
+}
+
+.header_searhing button{
+    color: #fff;
+    background-color:#0d14496c;
+}
+
+#navlist, .navlist{
+    background-color:#000000;
+    color: white;
+    font-weight: bold;
+    border: 0;
+
+}
+
+/* Footer */
+.footerBg{
+    background:radial-gradient(circle farthest-corner at left,#0d1449,#000000);
+    color: white;
+}
+
+/********** Super extra small devices) **********/
+@media (max-width: 800px) {
+    /* Navigator */
+    .header1 {
+        font-size: 140%;
+    }
+
+
+}
