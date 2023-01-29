@@ -1,0 +1,18 @@
+#shopping_Detail{
+    width: 270px;
+    z-index:99999;
+}
+
+.checkoutButton{
+   margin-left: 60%;  
+}
+
+#shopping_List{
+    height: 35px;
+    overflow: hidden
+ }
+
+#shopping_List:hover{
+   height: 225px;
+   position: relative;
+}
