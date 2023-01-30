@@ -19,14 +19,57 @@ $(window).on("load", function() {
         $("#preloader").remove(); 
         RenderElement("#header", "./Snippet/Header.html");
         RenderElement("#main", "./Snippet/Main.html");
-        RenderElement("#footer", "./Snippet/Footer.html");
-        for (let i = 0; i < 9; i++) {
-            RenderElementAfter("#product_card", "./Snippet/Product_Card.html");
-          }
-        
+        // RenderElement("#footer", "./Snippet/Footer.html");
+        RenderElementAfter("#product_card", "./Snippet/Snippet_Statics/Product_Card_Food.html");
+        RenderElementAfter("#product_card", "./Snippet/Snippet_Statics/Product_Card_Electronic.html");
+        RenderElementAfter("#product_card", "./Snippet/Snippet_Statics/Product_Card_Clothing.html");
         // RenderElement("#product", "./Snippet/Product.html");
+
+        // Add button handler
+        
     }, 1200);
 });
+
+function loadCategory(){
+    url_id = ($(location).attr('href')).split("#")[1]
+    if (url_id == "Food_Category")
+        loadFood_Category();
+    else if (url_id == "Electric_Category")
+        loadElectric_Category();
+    else if (url_id == "Electric_Category")
+        loadClothing_Category
+    $("#productPath").addClass("d-none")
+}
+
+function loadFood_Category(){
+    $("#product").children().not(':first').remove()
+    $("#CatergoryPath a").text("Category: Food")
+    $("#CatergoryPath a").attr("href", "#Food_Category");
+    for (let i = 0; i < 3; i++) {
+        RenderElementAfter("#product_card", "./Snippet/Snippet_Statics/Product_Card_Food.html");
+      }
+    
+}
+
+function loadElectric_Category(){
+    $("#product").children().not(':first').remove()
+    $("#CatergoryPath a").text("Category: Electronics")
+    $("#CatergoryPath a").attr("href", "#Electric_Category");
+    for (let i = 0; i < 3; i++) {
+        RenderElementAfter("#product_card", "./Snippet/Snippet_Statics/Product_Card_Electronic.html");
+      }
+}
+
+function loadClothing_Category(){
+    $("#product").children().not(':first').remove()
+    $("#CatergoryPath a").text("Category: Clothing, Shoes, & Accessories")
+    $("#CatergoryPath a").attr("href", "#Clothing_Category");
+    for (let i = 0; i < 3; i++) {
+        RenderElementAfter("#product_card", "./Snippet/Snippet_Statics/Product_Card_Clothing.html");
+      }
+}
+
+
 
 
 

@@ -1,10 +1,15 @@
+
+
 #shopping_Detail{
+    background: white;
+    color: black;
     width: 270px;
-    z-index:99999;
 }
 
 .checkoutButton{
+   background-color: white;
    margin-left: 60%;  
+   margin-top: 5%;
 }
 
 #shopping_List{
@@ -12,11 +17,16 @@
     overflow: hidden
  }
 
-#shopping_List:hover{
-   height: 225px;
-   position: relative;
+#shopping_List:hover #shopping_Detail{
+   height: 182px;
+   position: absolute;
+   z-index:99999;
 }
 
 #path{
     font-size: 150%;
+}
+
+.card-img-top{
+    height: 200px;
 }
