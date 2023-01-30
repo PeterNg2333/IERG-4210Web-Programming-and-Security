@@ -35,15 +35,12 @@ function loadCategory(){
     current_category_path = $("#CatergoryPath a").attr("href");
     if (url_id == "Food_Category" || current_category_path=="#Food_Category"){
         loadFood_Category()
-        return true
     }
     else if (url_id == "Electric_Category" || current_category_path=="#Electric_Category"){
         loadElectric_Category();
-        return true
     }
     else if (url_id == "Clothing_Category"  || current_category_path=="#Clothing_Category"){
         loadClothing_Category();
-        return true
     }
 
     // Add id
@@ -55,9 +52,7 @@ function loadCategory(){
         $("#CatergoryPath a").text("You might like")
         $("#CatergoryPath a").attr("href", "#You_might_like");
         $("#productPath").addClass("d-none")
-        return true
     }
-    return false
 }
 
 // load category
@@ -69,7 +64,6 @@ function loadFood_Category(){
         RenderElementAfter("#product_card", "./Snippet/Snippet_Statics/Product_Card_Food.html");
       }
     $("#productPath").addClass("d-none")
-    
 }
 
 function loadElectric_Category(){
