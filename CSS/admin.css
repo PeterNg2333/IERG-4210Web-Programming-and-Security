@@ -1,0 +1,79 @@
+body {
+    background-color: #2E425D;
+}
+
+#loadingImg h5 {
+    margin-top: -3%;
+    text-align: center;
+    color: #01A78B;
+    font-weight: bold;
+}
+
+.afterLoading{
+    background-color: white
+}
+
+/* Admin header*/
+
+.circle-box{
+    height: 40px;
+    width: 40px;
+}
+
+.admin_header{
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    color: #528CD6;
+}
+
+.admin_header > i {
+    background-color: #528CD6;
+    color: white;
+}
+
+.nav_header{
+    height: 55px;
+}
+
+.nav_header .user{
+    float: right;
+}
+
+#title_and_button ul {
+    list-style-type: none;
+}
+
+/* list */
+#admin_product_list_header div{
+    font-weight: bold;
+    font-size: 120%;
+    background-color: #F9FBFC;
+    color: gray;
+    margin-top: 120%;
+    margin-bottom: 120%;
+}
+
+#list_of_record li form div{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.image_uploaded_display > p {
+    margin-bottom: 0px;
+    color: red;
+}
+
+.image_uploaded_display > img{
+    height: 65px;
+    width: 65px;
+    margin-top: 3px;
+    border: 1px solid;
+}
+
+
+
+
+
+

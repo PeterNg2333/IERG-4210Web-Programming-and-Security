@@ -18,7 +18,7 @@
 
 /* Navigator */
 #navigator{
-    background:radial-gradient(circle farthest-corner at left,#0d1449,#000000);
+    background:radial-gradient(circle farthest-corner at left,#0d1449,#051f5c);
     color: white;
 }
 
@@ -39,7 +39,7 @@
 }
 
 #navlist, .navlist{
-    background-color:#000000;
+    background-color:#051f5c;
     color: white;
     font-weight: bold;
     border: 0;
