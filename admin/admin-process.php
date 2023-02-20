@@ -20,6 +20,7 @@ try {
 		echo json_encode(array('failed'=>'1'));
 	}
 	echo 'while(1);' . json_encode(array('success' => $returnVal));
+	
 } catch(PDOException $e) {
 	error_log($e->getMessage());
 	echo json_encode(array('failed'=>'error-db'));

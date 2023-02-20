@@ -86,7 +86,15 @@ function ierg4210_prod_insert() {
 }
 
 // TODO: add other functions here to make the whole application complete
-function ierg4210_cat_insert() {}
+function ierg4210_cat_insert() {
+    if (!preg_match('/^[\w\-, ]+$/', $_POST['name']))
+        throw new Exception("invalid-name");
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("INSERT INTO categories (name) VALUES (?)");
+    return $q->execute(array($_POST['name']));
+}
 function ierg4210_cat_edit(){}
 function ierg4210_cat_delete(){}
 function ierg4210_prod_delete_by_cid(){}
