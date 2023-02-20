@@ -1,4 +1,6 @@
-
+#main{
+    margin-top: 85px;
+}
 
 #shopping_Detail{
     background: white;
@@ -29,4 +31,8 @@
 
 .card-img-top{
     height: 200px;
+}
+
+aside > h4 {
+    background-color: #051f5c;
 }
