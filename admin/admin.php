@@ -2,9 +2,9 @@
 require __DIR__.'/lib/db.inc.php';
 $res = ierg4210_cat_fetchall();
 $options = '';
-
+echo '<h1> Hello world </h1>'
 foreach ($res as $value){
-    $options .= '<option value="'.$value["cid"].'"> '.$value["name"].' </option>';
+    $options .= '<option value="'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].' </option>';
 }
 ?>
 
