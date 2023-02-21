@@ -43,12 +43,15 @@ function ierg4210_prod_insert() {
     $_POST['cid'] = (int) $_POST['cid'];
     if (!preg_match('/^[\w\- ]+$/', $_POST['name']))
         throw new Exception("invalid-name");
+    $_POST['name'] = (string) $_POST['name'];
     if (!preg_match('/^[\d\.]+$/', $_POST['price']))
         throw new Exception("invalid-price");
+    $_POST['price'] = (int) $_POST['price'];
     if (!preg_match('/^[\w\- ]+$/', $_POST['description']))
         throw new Exception("invalid-textt");
+    $_POST['description'] = (string) $_POST['description'];
 
-    $sql="INSERT INTO products (cid, product_name, inventory, price, description) VALUES (?, ?, ?, ?, ?)";
+    $sql="INSERT INTO products (cid, product_name, inventory, price, description, image) VALUES (?, ?, ?, ?, ?, ?);";
     $q = $db->prepare($sql);
 
     // Copy the uploaded file to a folder which can be publicly accessible at incl/img/[pid].jpg
@@ -62,13 +65,14 @@ function ierg4210_prod_insert() {
         $name = $_POST["name"];
         $price = $_POST["price"];
         $desc = $_POST["description"];
-        $sql="INSERT INTO products (cid, product_name, inventory, price, description) VALUES (?, ?, ?, ?, ?);";
+        $sql="INSERT INTO products (cid, product_name, inventory, price, description, image) VALUES (?, ?, ?, ?, ?, ?);";
         $q = $db->prepare($sql);
         $q->bindParam(1, $cid);
         $q->bindParam(2, $name);
         $q->bindParam(3, 50);
         $q->bindParam(4, $price);
         $q->bindParam(5, $desc);
+        $q->bindParam(6, "", );
         $q->execute();
         $lastId = $db->lastInsertId();
 

@@ -2,7 +2,6 @@
 include_once('lib/db.inc.php');
 
 header('Content-Type: application/json');
-echo '<h1> Hello world </h1>'
 // input validation
 if (empty($_REQUEST['action']) || !preg_match('/^\w+$/', $_REQUEST['action'])) {
 	echo json_encode(array('failed'=>'undefined'));
