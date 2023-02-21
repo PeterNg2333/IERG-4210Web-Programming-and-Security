@@ -10,8 +10,7 @@ foreach ($res as $value){
 <html>
     <fieldset>
         <legend> New Product</legend>
-        <form id="prod_insert" method="POST" action="admin-process.php?action=prod_insert"
-        enctype="multipart/form-data">
+        <form id="prod_insert" method="POST" action="admin-process.php?action=prod_insert" enctype="multipart/form-data">
             <label for="prod_cid"> Category *</label>
             <div> <select id="prod_cid" name="cid"><?php echo $options; ?></select></div>
             <label for="prod_name"> Name *</label>
