@@ -48,7 +48,7 @@ function ierg4210_prod_insert() {
     if (!preg_match('/^[\w\- ]+$/', $_POST['description']))
         throw new Exception("invalid-textt");
 
-    $sql="INSERT INTO products (cid, name, price, description) VALUES (?, ?, ?, ?)";
+    $sql="INSERT INTO products (cid, product_name, inventory, price, description) VALUES (?, ?, ?, ?, ?)";
     $q = $db->prepare($sql);
 
     // Copy the uploaded file to a folder which can be publicly accessible at incl/img/[pid].jpg
@@ -62,12 +62,13 @@ function ierg4210_prod_insert() {
         $name = $_POST["name"];
         $price = $_POST["price"];
         $desc = $_POST["description"];
-        $sql="INSERT INTO products (cid, name, price, description) VALUES (?, ?, ?, ?);";
+        $sql="INSERT INTO products (cid, product_name, inventory, price, description) VALUES (?, ?, ?, ?, ?);";
         $q = $db->prepare($sql);
         $q->bindParam(1, $cid);
         $q->bindParam(2, $name);
-        $q->bindParam(3, $price);
-        $q->bindParam(4, $desc);
+        $q->bindParam(3, 50);
+        $q->bindParam(4, $price);
+        $q->bindParam(5, $desc);
         $q->execute();
         $lastId = $db->lastInsertId();
 
