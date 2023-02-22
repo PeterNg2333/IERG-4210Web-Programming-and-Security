@@ -29,7 +29,7 @@ foreach ($res as $value){
         <div id="preloader" class="container">
             <div id="loadingImg" class="row">
                 <img src="../Resource/AdminPage_loading.gif"/>
-                <h5> Admin Panel Loading...... 1.1</h5>
+                <h5> Admin Panel Loading...... 1.2</h5>
             </div>
         </div>
         <!-- Header -->
@@ -38,7 +38,7 @@ foreach ($res as $value){
         <!-- Main Content -->
         <main id="main" class="container mt-3">
             <?php 
-                $main_html = htmlentities(file_get_contents('./Snippet_admin/main_admin.php'));
+                $main_html = file_get_contents('./Snippet_admin/main_admin.php');
                 echo $main_html;
             ?>
         </main>
