@@ -60,7 +60,7 @@ function edit_category(){
         alert("The category: " + new_name + " is already there");
         return ;
     }
-    if (new_name != NULL || new_name != " "){
+    if (new_name != null || new_name != " "){
         var temp__name = new_name.trim();
         var selectement = document.getElementById('Category_dropDown').value.trim();
         $.post("admin-process.php?action=cat_edit()", 
