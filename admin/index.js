@@ -111,7 +111,7 @@ function load_products_by_cid(){
     $.post("admin-process.php?action=prod_fetchAll_by_cid", 
             {CID: selectement},
             function(output){
-                console.log(output);
+                console.log(output.success);
                 var json = JSON.parse(output);
                 console.log(json);
                 
