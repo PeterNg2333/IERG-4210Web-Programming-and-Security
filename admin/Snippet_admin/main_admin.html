@@ -79,16 +79,16 @@
                     <input class="product_insert" id="product_name" name="name" type="text" placeholder="Name" pattern="^[\w\-]+$"/>
                 </div>
                 <div class="col-2">
-                    <input class="product_insert" id="product_price" type="number" name="price" placeholder="Price $" pattern="^[\d\.]+$"/>
+                    <input class="product_insert" id="product_price" name="price" type="number"  placeholder="Price $" pattern="^[\d\.]+$"/>
                 </div>
                 <div class="col-2">
-                    <input class="product_insert" id="product_inv" type="number" name="inventory" placeholder="Inventory" pattern="^[\d]+$"/>
+                    <input class="product_insert" id="product_inv" name="inventory" type="number" placeholder="Inventory" pattern="^[\d]+$"/>
                 </div>
                 <div class="col-3">
-                    <textarea class="product_insert" id="product_desc" type="textarea" name="description" cols="35" rows="5" placeholder="..." pattern="^[\w\-\.\,]+$"></textarea>
+                    <textarea class="product_insert" id="product_desc" name="description" type="textarea" cols="35" rows="5" placeholder="..." pattern="^[\w\-\.\,]+$"></textarea>
                 </div>
                 <div class="col-2">
-                    <input class="product_insert" id="product_image" type="file" placeholder="" accept="image/jpeg">
+                    <input class="product_insert" id="product_image" name="file" type="file" placeholder="" accept="image/jpeg">
                     <div class="image_uploaded_display">
                         <p> Image preview : </p>
                         <img class="image_uploaded_display" src="../Resource/Shoes.jpeg" alt="Girl in a jacket">
