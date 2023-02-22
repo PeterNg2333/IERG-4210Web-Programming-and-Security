@@ -110,11 +110,13 @@ function load_products_by_cid(){
     var selectement = document.getElementById('Category_dropDown').value;
     $.post("admin-process.php?action=prod_fetchAll_by_cid", 
             {CID: selectement},
-            function(json){
-                if (json.status == "Success"){
+            function(output){
+                var json = JSON.parse(output);
+                if (json.success){
                     alert("Edit Success!!");
-                    print(json)
-                    return ;
+                    for (var record of json.success){
+                        print(record);
+                    }
                 }
                 else {
                     alert("Edit Failed!!");
