@@ -37,7 +37,10 @@ foreach ($res as $value){
 
         <!-- Main Content -->
         <main id="main" class="container mt-3">
-            <?php echo readfile("/Snippet_admin/main_admin.php"); ?>
+            <?php 
+                $main_html = htmlentities(file_get_contents('./Snippet_admin/main_admin.php'));
+                echo $main_html;
+            ?>
         </main>
 
         <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
