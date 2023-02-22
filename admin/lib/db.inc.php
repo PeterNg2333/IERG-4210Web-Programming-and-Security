@@ -94,7 +94,7 @@ function ierg4210_prod_insert() {
 
 // TODO: add other functions here to make the whole application complete
 function ierg4210_cat_insert() {
-    if (!preg_match('/^[\w\-\&\_]+$/', $_POST['Cname']))
+    if (!preg_match('/^[\w\-\&\_\ ]+$/', $_POST['Cname']))
         throw new Exception("invalid-name");
     // DB manipulation
     global $db;
@@ -115,7 +115,7 @@ function ierg4210_cat_insert() {
     
 }
 function ierg4210_cat_edit(){
-    if (!preg_match('/^[\w\-\&\_" "]+$/', $_POST['Cname']))
+    if (!preg_match('/^[\w\-\&\_\ ]+$/', $_POST['Cname']))
         throw new Exception("invalid-name");
     if (!preg_match('/^[\d]+$/', $_POST['CID']))
         throw new Exception("invalid-id");

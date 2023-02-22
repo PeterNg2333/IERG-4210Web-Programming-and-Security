@@ -24,7 +24,7 @@ $(window).on("load", function() {
 });
 
 function add_category(){
-    var temp_name = document.querySelector("#modify_category > input").value;
+    var temp_name = document.querySelector("#modify_category > input").value.trim();
     $.post("admin-process.php?action=cat_insert", 
         {Cname: temp_name},
         function(output){
