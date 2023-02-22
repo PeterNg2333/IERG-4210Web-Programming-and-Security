@@ -31,11 +31,11 @@ function add_category(){
             var json = JSON.parse(output);
             if (json.status){
                 alert("Add Success");
-                console.log(json.status);
+                console.log(json);
             }
             else {
                 alert("Add Failed");
-                console.log(json.status);
+                console.log(json);
             }
         }
     );
