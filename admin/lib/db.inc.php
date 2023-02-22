@@ -106,7 +106,23 @@ function ierg4210_cat_insert() {
     header('Location: admin.php');
     exit();
 }
-function ierg4210_cat_edit(){}
+function ierg4210_cat_edit(){
+    if (!preg_match('/^[\w\-]+$/', $_POST['Cname']))
+        throw new Exception("invalid-name");
+    if (!preg_match('/^[\d]+$/', $_POST['CID']))
+        throw new Exception("invalid-id");
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("UPDATE CATEGORIES SET CATEGORY_NAME = ? WHERE CID = ?;");
+    $Cname = $_POST["Cname"];
+    $CID = $_POST["CID"];
+    $q->bindParam(1, $Cname);
+    $q->bindParam(2, $CID);
+    $q->execute();
+    header('Location: admin.php');
+    exit();
+}
 function ierg4210_cat_delete(){}
 function ierg4210_prod_delete_by_cid(){}
 function ierg4210_prod_fetchAll(){}

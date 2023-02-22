@@ -24,13 +24,15 @@ $(window).on("load", function() {
 });
 
 function add_category(){
-    $.post({ url: "admin-process.php?action=cat_insert", 
-        success:function(output){
+    var temp_name = document.querySelector("#modify_category > input").value;
+    $.post("admin-process.php?action=cat_insert", 
+        {Cname: temp_name},
+        function(output){
             var json = JSON.parse(output);
             if (json.success){alert("Add Success");}
             else {alert("Add Failed");}
         }
-    });
+    );
 
 }
 
