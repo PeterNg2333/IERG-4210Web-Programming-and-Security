@@ -14,7 +14,7 @@ $(window).on("load", function() {
           }
         var selectElement = document.getElementById('Category_dropDown');
         window.ierg4210_category_list = [...selectElement.options].map(opt => opt.text);
-        console.log(window.ierg4210_category_list);
+        // console.log(window.ierg4210_category_list);
 
 
 
@@ -25,9 +25,11 @@ $(window).on("load", function() {
 });
 
 function is_exist_category(text, array){
+    if (text != "All") 
+        return false;
     for (var element of array){
-        if (element.toLowerCase() == text.toLowerCase())
-            print(element);
+        if (element.toLowerCase() == text.toLowerCase());
+            // print(element);
             return true;
     }
     return false;
@@ -36,7 +38,7 @@ function is_exist_category(text, array){
 function add_category(){
     var temp_name = document.querySelector("#modify_category > input").value.trim();
     if (is_exist_category(temp_name, window.ierg4210_category_list)){
-        alert("The category is already there");
+        alert("The category: " + temp_name + " is already there");
         return ;
     }
     $.post("admin-process.php?action=cat_insert", 
