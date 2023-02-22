@@ -39,7 +39,7 @@ foreach ($res as $value){
         <main id="main" class="container mt-3">
             <?php 
                 $main_html = file_get_contents('./Snippet_admin/main_admin.html');
-                $main_html = str_replace('%DATA%', "<option value='All'>All</option>", $main_html);
+                $main_html = str_replace('%DATA%', $options, $main_html);
                 echo $main_html;
             ?>
         </main>
