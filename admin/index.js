@@ -109,21 +109,15 @@ function change_image(){
 function load_products_by_cid(){
     var selectement = document.getElementById('Category_dropDown').value;
     $.post("admin-process.php?action=prod_fetchAll_by_cid", 
-
             {CID: selectement},
             function(output){
                 console.log(output);
                 var json = JSON.parse(output);
                 console.log(json);
-                if (json.success){
-                    alert("Edit Success!!");
-                    for (var record of json.success[0]){
+                
+                alert("Edit Success!!");
+                for (var record of json.success[0]){
                         console.log(record);
-                    }
-                }
-                else {
-                    alert("Edit Failed!!");
-                    return ;
                 }
             }
         );
