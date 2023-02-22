@@ -23,7 +23,7 @@ function ierg4210_cat_fetchall() {
     // DB manipulation
     global $db;
     $db = ierg4210_DB();
-    $q = $db->prepare("SELECT * FROM categories LIMIT 100;");
+    $q = $db->prepare("SELECT * FROM categories ORDER BY CID LIMIT 100;");
     if ($q->execute())
         return $q->fetchAll();
 }
@@ -147,6 +147,26 @@ function ierg4210_cat_edit(){
 }
 function ierg4210_cat_delete(){}
 function ierg4210_prod_delete_by_cid(){}
+function ierg4210_prod_fetchAll_by_cid(){
+    if (!preg_match('/^[\d]+$/', $_POST['CID']))
+        throw new Exception("invalid-id");
+
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("SELECT * FROM PRODUCTS LEFT JOIN CATEGORIES USING(CID) WHERE CID = ? LIMIT 100;");
+    $CID = $_POST["CID"];
+    $q->bindParam(1, $CID);
+
+    if ($q->execute()){
+        return $q->fetchAll();
+    };
+
+    header("Content-Type: application/json");
+    $result = array("status" => "Failed");
+    echo json_encode($result);
+    exit();
+}
 function ierg4210_prod_fetchAll(){}
 function ierg4210_prod_fetchOne(){}
 function ierg4210_prod_edit(){}

@@ -16,15 +16,14 @@ $(window).on("load", function() {
         window.ierg4210_category_list = [...selectElement.options].map(opt => opt.text);
         // console.log(window.ierg4210_category_list);
 
-
+        
         document.querySelector("#add_category").addEventListener("click", add_category);
         document.querySelector("#edit_category").addEventListener("click", edit_category);
         document.querySelector("#Category_dropDown").addEventListener("change", change_category);
         document.querySelector("#product_image").addEventListener("change", change_image);
-        
         document.getElementById('cid_input').value = document.getElementById('Category_dropDown').value;
 
-        
+        load_products_by_cid();
     }, 1200);
 });
 
@@ -106,4 +105,20 @@ function change_image(){
     
 }
 
-
+function load_products_by_cid(){
+    var selectement = document.getElementById('Category_dropDown').value;
+    $.post("admin-process.php?action=cat_edit", 
+            {CID: selectement},
+            function(json){
+                if (json.status == "Success"){
+                    alert("Edit Success!!");
+                    print(json)
+                    return ;
+                }
+                else {
+                    alert("Edit Failed!!");
+                    return ;
+                }
+            }
+        );
+}
