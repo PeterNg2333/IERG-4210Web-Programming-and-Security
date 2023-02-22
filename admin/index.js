@@ -107,7 +107,7 @@ function change_image(){
 
 function load_products_by_cid(){
     var selectement = document.getElementById('Category_dropDown').value;
-    $.post("admin-process.php?action=cat_edit", 
+    $.post("admin-process.php?action=prod_fetchAll_by_cid", 
             {CID: selectement},
             function(json){
                 if (json.status == "Success"){
