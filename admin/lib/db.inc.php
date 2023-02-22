@@ -106,11 +106,15 @@ function ierg4210_cat_insert() {
     
     if ($q->execute()){
         header('Location: admin.php');
+        header("Content-Type: application/json");
+        $data = array("status" => "Success");
+        echo json_encode($data);
         exit();
     };
 
-    header('Content-Type: text/html; charset=utf-8');
-    echo 'Failed. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
+    header("Content-Type: application/json");
+    $data = array("status" => "Failed");
+    echo json_encode($data);
     exit();
     
 }
