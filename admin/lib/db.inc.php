@@ -99,8 +99,11 @@ function ierg4210_cat_insert() {
     // DB manipulation
     global $db;
     $db = ierg4210_DB();
-    $q = $db->prepare("INSERT INTO categories (name) VALUES (?)");
-    return $q->execute(array($_POST['name']));
+    $q = $db->prepare("INSERT INTO categories (category_name) VALUES (?)");
+    $q->bindParam(1, $name);
+    $q->execute();
+    header('Location: admin.php');
+    exit();
 }
 function ierg4210_cat_edit(){}
 function ierg4210_cat_delete(){}

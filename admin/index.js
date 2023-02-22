@@ -12,5 +12,28 @@ $(window).on("load", function() {
         for (let i = 0; i < 20; i++) {
             RenderElementAfter("#product_input", "./Snippet_admin/product_card_admin.html");
           }
+
+
+        
+
+
+
+        document.querySelector("#add_category").addEventListener("click", add_category);
+        
     }, 1200);
 });
+
+function add_category(){
+    $("#add_category").ajax({ url: "admin-process.php?action=prod_insert", 
+        success:function(output){
+            var json = JSON.parse(output);
+            if (json.success){alert("Add Success");}
+            else {alert("Add Failed");}
+        }
+    });
+
+}
+
+function type_in_category(){
+    document.querySelector("#add_category");
+}

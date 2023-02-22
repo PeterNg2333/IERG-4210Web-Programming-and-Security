@@ -29,7 +29,7 @@ foreach ($res as $value){
         <div id="preloader" class="container">
             <div id="loadingImg" class="row">
                 <img src="../Resource/AdminPage_loading.gif"/>
-                <h5> Admin Panel Loading...... 1.3</h5>
+                <h5> Admin Panel Loading...... 1.4</h5>
             </div>
         </div>
         <!-- Header -->
@@ -45,6 +45,8 @@ foreach ($res as $value){
             <?php 
                 $main_html = file_get_contents('./Snippet_admin/main_admin.html');
                 $main_html = str_replace('%category_options%', $options, $main_html);
+                $main_html = str_replace('<!--?PHP--> ', '', $main_html);
+                
                 echo $main_html;
             ?>
         </main>

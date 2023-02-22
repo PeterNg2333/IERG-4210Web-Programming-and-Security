@@ -1,13 +1,11 @@
 <!-- Title and add/delete categories button  -->
 <section class="row mb-1" id="title_and_button">
     <h4 class="col-7 ms-5 "></h4>
-
-
-    <form class="col-4 navbar navbar-expand-lg mx-2">
-
+    <form id="modify_category" class="col-4 navbar navbar-expand-lg mx-2">
         <input type="text" placeholder="Enter Category Name">
-        <button type="button" class="btn btn-primary btn-sm  mx-1 nav-item">Add Category</button>
-        <button type="button" class="btn btn-danger btn-sm mx-1 nav-item">Delete Category</button>
+        <button type="button" id="add_category" class="btn btn-secondary btn-sm mx-1 nav-item">Add New</button>
+        <button type="button" id="edit_category" class="btn btn-secondary btn-sm mx-1 nav-item">Edit</button>
+        <button type="button" id="delete_category" class="btn btn-secondary btn-sm mx-1 nav-item">Delete Category</button>
     </form>
 </section>
 
@@ -37,26 +35,25 @@
         <label for="Category_dropDown">Category: </label>
         <select id="Category_dropDown" class="text-primary">
             <option value="All">All</option>
-            <!--Add category option-->
-            %category_options%
+            <!--?PHP--> %category_options% <!--?PHP--> 
         </select>
     </form>
 
-    <!-- Sorting -->
-    <form class="col-3 ">
-        <label class="ps-3" for="Sort_by">Sort:</label>
-        <select id="Sort_by" class="text-primary">
-            <option value="All">Product Name</option>
-            <option value="asdas">Price</option>
-            <option value="asdas">Inventory</option>
-        </select>
-
-        <label class="ps-3" for="Order"> by: </label>
-        <select id="Order" class="text-primary">
-            <option value="All">A-Z</option>
-            <option value="asdas">Z-A</option>
-        </select>
-    </form>
+        <!-- Sorting -->
+        <!-- <form class="col-3 ">
+            <label class="ps-3" for="Sort_by">Sort:</label>
+            <select id="Sort_by" class="text-primary">
+                <option value="sort_by_product_name">Product Name</option>
+                <option value="sort_by_price">Price</option>
+                <option value="asdas">Inventory</option>
+            </select>
+    
+            <label class="ps-3" for="Order"> by: </label>
+            <select id="Order" class="text-primary">
+                <option value="All">A-Z</option>
+                <option value="asdas">Z-A</option>
+            </select>
+        </form> -->
 </section>
 
 <!-- Table of product -->
