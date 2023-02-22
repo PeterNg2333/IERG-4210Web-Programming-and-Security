@@ -6,6 +6,7 @@
     foreach ($res as $value){
         $options .= '<option value="'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].' </option>';
     }
+    $a = 123;
 ?>
 
 <!-- Title and add/delete categories button  -->

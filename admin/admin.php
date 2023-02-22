@@ -20,7 +20,7 @@
         <div id="preloader" class="container">
             <div id="loadingImg" class="row">
                 <img src="../Resource/AdminPage_loading.gif"/>
-                <h5> Admin Panel Loading...... 1.2</h5>
+                <h5> Admin Panel Loading...... 1.3</h5>
             </div>
         </div>
         <!-- Header -->
