@@ -29,17 +29,22 @@ foreach ($res as $value){
         <div id="preloader" class="container">
             <div id="loadingImg" class="row">
                 <img src="../Resource/AdminPage_loading.gif"/>
-                <h5> Admin Panel Loading...... 1.2</h5>
+                <h5> Admin Panel Loading...... 1.3</h5>
             </div>
         </div>
         <!-- Header -->
-        <header id="header" class="container-lg d-none"></header>
+        <header id="header" class="container-lg d-none">
+            <?php 
+                $header_html = file_get_contents('./Snippet_admin/header_admin.html');
+                echo $header_html;
+            ?>
+        </header>
 
         <!-- Main Content -->
         <main id="main" class="container mt-3 d-none">
             <?php 
                 $main_html = file_get_contents('./Snippet_admin/main_admin.html');
-                $main_html = str_replace('%DATA%', $options, $main_html);
+                $main_html = str_replace('%category_options%', $options, $main_html);
                 echo $main_html;
             ?>
         </main>
