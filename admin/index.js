@@ -19,6 +19,7 @@ $(window).on("load", function() {
 
         document.querySelector("#add_category").addEventListener("click", add_category);
         document.querySelector("#edit_category").addEventListener("click", edit_category);
+        document.querySelector("#edit_category").addEventListener("change", change_category);
         
     }, 1200);
 });
@@ -45,6 +46,7 @@ function add_category(){
         function(json){
             if (json.status == "Success"){
                 alert("Add Success!!");
+                location.reload()
             }
             else {
                 alert("Add Failed!!");
@@ -68,6 +70,7 @@ function edit_category(){
             function(json){
                 if (json.status == "Success"){
                     alert("Edit Success!!");
+                    location.reload()
                     return ;
                 }
                 else {
@@ -78,6 +81,12 @@ function edit_category(){
         );
     } 
     else alert("Edit Failed!!");
+}
+
+function change_category(){
+    var selectement = document.getElementById('Category_dropDown').value.trim();
+    document.getElementById('cid_input').value = selectement;
+    alert(document.getElementById('cid_input').value);
 }
 
 function type_in_category(){
