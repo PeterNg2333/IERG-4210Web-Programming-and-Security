@@ -101,7 +101,7 @@ function change_image(){
         $("#image_display").attr('src', e.target.result);
         $("#image_display").attr('alt', input.files[0].name);
      }
-    reader.readAsDataURL(input.files);
+    reader.readAsDataURL(input.files[0]);
     // image.src = uploaded_image.files;
     
 }
