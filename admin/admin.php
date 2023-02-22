@@ -1,12 +1,3 @@
-<?php
-require __DIR__.'/lib/db.inc.php';
-$res = ierg4210_cat_fetchall();
-$options = '';
-foreach ($res as $value){
-    $options .= '<option value="'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].' </option>';
-}
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
