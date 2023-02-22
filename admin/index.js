@@ -28,13 +28,12 @@ function add_category(){
     $.post("admin-process.php?action=cat_insert", 
         {Cname: temp_name},
         function(json){
-            if (json.status){
-                alert("Add Success");
-                console.log(json.status);
+            if (json.status == "Success"){
+                alert("Add Success !!");
             }
             else {
-                alert("Add Failed");
-                console.log(json.status);
+                alert("Add Failed !!");
+                window.location.replace("/admin/admin.php");
             }
         }
     );
