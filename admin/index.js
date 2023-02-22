@@ -5,8 +5,9 @@ $(window).on("load", function() {
     setTimeout(function(){
         $("#preloader").remove(); 
         document.body.className = "afterLoading";
-
-        RenderElement("#header", "./Snippet_admin/header_admin.html");
+        $("#header").removeClass("removeClass()")
+        $("#main").removeClass("removeClass()")
+        // RenderElement("#header", "./Snippet_admin/header_admin.html");
         // RenderElement("#main", "./Snippet_admin/main_admin.html");
         for (let i = 0; i < 20; i++) {
             RenderElementAfter("#product_input", "./Snippet_admin/product_card_admin.html");
