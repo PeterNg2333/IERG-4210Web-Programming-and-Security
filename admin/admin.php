@@ -1,3 +1,12 @@
+<?php
+require __DIR__.'/lib/db.inc.php';
+$res = ierg4210_cat_fetchall();
+$options = '';
+foreach ($res as $value){
+    $options .= '<option value="'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].' </option>';
+}
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +29,7 @@
         <div id="preloader" class="container">
             <div id="loadingImg" class="row">
                 <img src="../Resource/AdminPage_loading.gif"/>
-                <h5> Admin Panel Loading...... 1.3</h5>
+                <h5> Admin Panel Loading...... 1.2</h5>
             </div>
         </div>
         <!-- Header -->
@@ -29,7 +38,8 @@
         <!-- Main Content -->
         <main id="main" class="container mt-3">
             <?php 
-                $main_html = file_get_contents('./Snippet_admin/main_admin.php');
+                $main_html = file_get_contents('./Snippet_admin/main_admin.html');
+                $main_html = str_replace('%DATA%', "<option value='All'>All</option>", $main_html);
                 echo $main_html;
             ?>
         </main>
