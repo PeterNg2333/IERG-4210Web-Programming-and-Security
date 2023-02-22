@@ -29,8 +29,14 @@ function add_category(){
         {Cname: temp_name},
         function(output){
             var json = JSON.parse(output);
-            if (json.success){alert("Add Success");}
-            else {alert("Add Failed");}
+            if (json.success){
+                alert("Add Success");
+                console.log(json.success);
+            }
+            else {
+                alert("Add Failed");
+                console.log(json.success);
+            }
         }
     );
 
