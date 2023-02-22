@@ -98,10 +98,11 @@ function change_image(){
     var input = document.querySelector("#product_image");
     reader.onload = function (e) {
         $("#image_display").attr('src', e.target.result);
+        $("#image_display").attr('alt', input.files[0].name);
      }
     reader.readAsDataURL(input.files[0]);
     // image.src = uploaded_image.files;
-    image.alt = input.files[0].name;
+    
 }
 
 
