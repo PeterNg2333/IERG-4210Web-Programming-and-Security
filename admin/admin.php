@@ -9,7 +9,7 @@ foreach ($res as $value){
 
 <html>
     <fieldset>
-        <legend> New Product version 1.1 </legend>
+        <legend> New Product version 1.2 </legend>
         <form id="prod_insert" method="POST" action="admin-process.php?action=prod_insert" enctype="multipart/form-data">
             <label for="prod_cid"> Category *</label>
             <div> <select id="prod_cid" name="cid"><?php echo $options; ?></select></div>

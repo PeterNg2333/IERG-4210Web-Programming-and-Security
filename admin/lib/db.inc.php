@@ -79,12 +79,12 @@ function ierg4210_prod_insert() {
         $lastId = $db->lastInsertId();
 
         // Note: Take care of the permission of destination folder (hints: current user is apache)
-        $upload = move_uploaded_file($_FILES["file"]["tmp_name"], "/var/www/html/admin/lib/images/P" . $lastId . ".jpg");
-      
-        
-        if ($upload) {
+        $uploadResult = move_uploaded_file($_FILES["file"]["tmp_name"], "/var/www/html/admin/lib/images/P" . $lastId . ".jpg");
+        if ($uploadResult) {
             // redirect back to original page; you may comment it during debug
             header('Location: admin.php');
+            $success_msg = "Upload success!!!";
+            echo "<script>alert('$success_msg');</script>";
             exit();
         }
 
