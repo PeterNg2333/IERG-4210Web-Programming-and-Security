@@ -27,16 +27,14 @@ function add_category(){
     var temp_name = document.querySelector("#modify_category > input").value.trim();
     $.post("admin-process.php?action=cat_insert", 
         {Cname: temp_name},
-        function(output){
-            console.log(output);
-            var json = JSON.parse(output);
+        function(json){
             if (json.status){
                 alert("Add Success");
-                console.log(json);
+                console.log(json.status);
             }
             else {
                 alert("Add Failed");
-                console.log(json);
+                console.log(json.status);
             }
         }
     );
