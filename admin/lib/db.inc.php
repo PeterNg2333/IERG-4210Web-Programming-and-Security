@@ -101,7 +101,7 @@ function ierg4210_cat_insert() {
     $Cname = $_POST["Cname"];
 
     $db = ierg4210_DB();
-    $q = $db->prepare("INSERT INTO categories (CID, CATEGORIES_NAME) VALUES (NULL, ?)");
+    $q = $db->prepare("INSERT INTO categories (CID, CATEGORY_NAME) VALUES (NULL, ?)");
     $q->bindParam(1, $Cname);
     
     if ($q->execute()){
