@@ -94,7 +94,7 @@ function change_category(){
 }
 
 function change_image(){
-    document.querySelector("image_uploaded_display").src = document.querySelector("#product_image").files;
+    document.querySelector("image_display").src = document.querySelector("#product_image").files;
 }
 
 
