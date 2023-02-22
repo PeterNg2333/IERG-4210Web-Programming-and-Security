@@ -36,7 +36,9 @@ foreach ($res as $value){
         <header id="header" class="container-lg"></header>
 
         <!-- Main Content -->
-        <main id="main" class="container mt-3"></main>
+        <main id="main" class="container mt-3">
+            <?php echo readfile("/Snippet_admin/main_admin.php"); ?>
+        </main>
 
         <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
         <script src="../JavaScript/utity.js"></script>
