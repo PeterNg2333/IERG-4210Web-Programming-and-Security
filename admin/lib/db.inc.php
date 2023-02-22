@@ -84,9 +84,6 @@ function ierg4210_prod_insert() {
         if ($uploadResult) {
             // redirect back to original page; you may comment it during debug
             header('Location: admin.php');
-            header('Content-Type: text/html; charset=utf-8');
-            $success_msg = "Upload success!!!";
-            echo "<script>alert('$success_msg');</script>";
             exit();
         }
     }
