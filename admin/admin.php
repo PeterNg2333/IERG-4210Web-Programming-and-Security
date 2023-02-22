@@ -33,10 +33,10 @@ foreach ($res as $value){
             </div>
         </div>
         <!-- Header -->
-        <header id="header" class="container-lg"></header>
+        <header id="header" class="container-lg d-none"></header>
 
         <!-- Main Content -->
-        <main id="main" class="container mt-3">
+        <main id="main" class="container mt-3 d-none">
             <?php 
                 $main_html = file_get_contents('./Snippet_admin/main_admin.html');
                 $main_html = str_replace('%DATA%', $options, $main_html);
