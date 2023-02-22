@@ -90,6 +90,7 @@ function change_category(){
     var selectement = document.getElementById('Category_dropDown').value;
     document.getElementById('cid_input').value = selectement;
     // alert(document.getElementById('cid_input').value);
+    load_products_by_cid();
 }
 
 function change_image(){
