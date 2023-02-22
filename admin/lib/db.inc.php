@@ -43,15 +43,54 @@ function ierg4210_prod_insert() {
     $_POST['cid'] = (int) $_POST['cid'];
     if (!preg_match('/^[\w\- ]+$/', $_POST['name']))
         throw new Exception("invalid-name");
-    $_POST['name'] = (string) $_POST['name'];
     if (!preg_match('/^[\d\.]+$/', $_POST['price']))
         throw new Exception("invalid-price");
-    $_POST['price'] = (int) $_POST['price'];
     if (!preg_match('/^[\w\- ]+$/', $_POST['description']))
         throw new Exception("invalid-textt");
-    $_POST['description'] = (string) $_POST['description'];
 
     /////////////////////////////////////////////
+    $sql="INSERT INTO products (cid, product_name, inventory, price, description) VALUES (?, ?, ?, ?, ?);";
+    $q = $db->prepare($sql);
+
+    // Copy the uploaded file to a folder which can be publicly accessible at incl/img/[pid].jpg
+    if ($_FILES["file"]["error"] == 0
+        && $_FILES["file"]["type"] == "image/jpeg" 
+            || $_FILES["file"]["type"] == "image/png" 
+            || $_FILES["file"]["type"] == "image/jpg"
+        && mime_content_type($_FILES["file"]["tmp_name"]) == "image/jpeg" 
+            || mime_content_type($_FILES["file"]["tmp_name"]) == "image/png" 
+            || mime_content_type($_FILES["file"]["tmp_name"]) == "image/jpg" 
+        && $_FILES["file"]["size"] < 5000000) {
+
+        $cid = $_POST["cid"];
+        $name = $_POST["name"];
+        $price = $_POST["price"];
+        $desc = $_POST["description"];
+        $inv = 50;
+
+        $sql="INSERT INTO products (cid, product_name, inventory, price, description) VALUES (?, ?, ?, ?, ?);";
+        $q = $db->prepare($sql);
+        $q->bindParam(1, $cid);
+        $q->bindParam(2, $name);
+        $q->bindParam(3, $inv);
+        $q->bindParam(4, $price);
+        $q->bindParam(5, $desc);
+        $q->execute();
+        $lastId = $db->lastInsertId();
+
+        // Note: Take care of the permission of destination folder (hints: current user is apache)
+        $upload = move_uploaded_file($_FILES["file"]["tmp_name"], "/var/www/html/admin/lib/images/P" . $lastId . ".jpg");
+      
+        
+        if ($upload) {
+            // redirect back to original page; you may comment it during debug
+            header('Location: admin.php');
+            exit();
+        }
+
+    }
+
+
     header('Content-Type: text/html; charset=utf-8');
     echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
     exit();
