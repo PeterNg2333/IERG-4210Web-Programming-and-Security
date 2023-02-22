@@ -94,13 +94,14 @@ function ierg4210_prod_insert() {
 
 // TODO: add other functions here to make the whole application complete
 function ierg4210_cat_insert() {
-    if (!preg_match('/^[\w\-, ]+$/', $_POST['name']))
+    if (!preg_match('/^[\w\-\_]+$/', $_POST['Cname']))
         throw new Exception("invalid-name");
     // DB manipulation
     global $db;
     $db = ierg4210_DB();
     $q = $db->prepare("INSERT INTO categories (category_name) VALUES (?)");
-    $q->bindParam(1, $name);
+    $Cname = $_POST["Cname"];
+    $q->bindParam(1, $Cname);
     $q->execute();
     header('Location: admin.php');
     exit();
