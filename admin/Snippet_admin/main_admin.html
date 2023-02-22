@@ -1,11 +1,9 @@
 <!-- Title and add/delete categories button  -->
 <section class="row mb-1" id="title_and_button">
-    <h4 class="col-7 ms-5 me-2"></h4>
-    <form id="modify_category" class="col-4 navbar navbar-expand-lg mx-2">
+    <h4 class="col-9 ms-5 me-2"></h4>
+    <form id="modify_category" class="col-3 navbar navbar-expand-lg mx-2">
         <input type="text" name="Cname" placeholder="Enter Category Name" class="mx-1">
-        <button type="button" id="add_category" class="btn btn-secondary btn-sm mx-1 nav-item">Add New</button>
-        <button type="button" id="edit_category" class="btn btn-secondary btn-sm mx-1 nav-item">Edit</button>
-        <button type="button" id="delete_category" class="btn btn-secondary btn-sm mx-1 nav-item">Delete Category</button>
+        <button type="button" id="add_category" class="btn btn-primary btn-sm mx-1 nav-item">Add New</button>
     </form>
 </section>
 
@@ -37,6 +35,8 @@
             <option value="All">All</option>
             <!--?PHP--> %category_options% <!--?PHP--> 
         </select>
+        <button type="button" id="edit_category" class="btn btn-success btn-sm mx-1 nav-item">Edit</button>
+        <button type="button" id="delete_category" class="btn btn-danger btn-sm mx-1 nav-item">Delete Category</button>
     </form>
 
         <!-- Sorting -->

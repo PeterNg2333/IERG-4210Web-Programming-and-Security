@@ -33,7 +33,7 @@ function add_category(){
             }
             else {
                 alert("Add Failed !!");
-                window.location.replace("/admin/admin.php");
+                document.querySelector("#modify_category > input").value = "";
             }
         }
     );
