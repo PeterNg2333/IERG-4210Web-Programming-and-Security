@@ -56,7 +56,7 @@ function add_category(){
 
 function edit_category(){
     var new_name = prompt("Enter the new category name", "name")
-    if (is_exist_category(title, window.ierg4210_category_list)){
+    if (is_exist_category(new_name , window.ierg4210_category_list)){
         alert("The category: " + new_name + " is already there");
         return ;
     }
