@@ -131,8 +131,17 @@ function ierg4210_cat_edit(){
     $CID = $_POST["CID"];
     $q->bindParam(1, $Cname);
     $q->bindParam(2, $CID);
-    $q->execute();
-    header('Location: admin.php');
+    if ($q->execute()){
+        header('Location: admin.php');
+        header("Content-Type: application/json");
+        $data = array("status" => "Success");
+        echo json_encode($data);
+        exit();
+    };
+
+    header("Content-Type: application/json");
+    $data = array("status" => "Failed");
+    echo json_encode($data);
     exit();
 }
 function ierg4210_cat_delete(){}

@@ -17,9 +17,8 @@ $(window).on("load", function() {
         // console.log(window.ierg4210_category_list);
 
 
-
-
         document.querySelector("#add_category").addEventListener("click", add_category);
+        document.querySelector("#edit_category").addEventListener("click", edit_category);
         
     }, 1200);
 });
@@ -55,7 +54,29 @@ function add_category(){
     );
 }
 
-
+function edit_category(){
+    var new_name = prompt("Enter the new category name", "name")
+    if (is_exist_category(title, window.ierg4210_category_list)){
+        alert("The category: " + new_name + " is already there");
+        return ;
+    }
+    if (new_name != NULL || new_name != " "){
+        var temp__name = new_name.trim();
+        var selectement = document.getElementById('Category_dropDown').value.trim();
+        $.post("admin-process.php?action=cat_edit()", 
+            {Cname: temp_name, CID: selectement},
+            function(json){
+                if (json.status == "Success"){
+                    alert("Edit Success!!");
+                }
+                else {
+                    alert("Edit Failed!!");
+                }
+            }
+        );
+    } 
+    else alert("Edit Failed!!");
+}
 
 function type_in_category(){
     document.querySelector("#add_category");
