@@ -1,3 +1,13 @@
+
+<?php
+require __DIR__.'/lib/db.inc.php';
+$res = ierg4210_cat_fetchall();
+$options = '';
+foreach ($res as $value){
+    $options .= '<option value="'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].' </option>';
+}
+?>
+
 <!-- Title and add/delete categories button  -->
 <section class="row mb-1" id="title_and_button">
     <h4 class="col-7 ms-5 "></h4>
@@ -37,6 +47,7 @@
         <label for="Category_dropDown">Category: </label>
         <select id="Category_dropDown" class="text-primary">
             <option value="All">All</option>
+            <?php echo $options; ?>
         </select>
     </form>
 
