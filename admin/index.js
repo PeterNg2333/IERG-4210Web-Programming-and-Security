@@ -63,7 +63,7 @@ function edit_category(){
     if (new_name != null || new_name != " "){
         var temp_name = new_name.trim();
         var selectement = document.getElementById('Category_dropDown').value.trim();
-        $.post("admin-process.php?action=cat_edit()", 
+        $.post("admin-process.php?action=cat_edit", 
             {Cname: temp_name, CID: selectement},
             function(json){
                 if (json.status == "Success"){

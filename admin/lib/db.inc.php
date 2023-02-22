@@ -107,14 +107,14 @@ function ierg4210_cat_insert() {
     if ($q->execute()){
         header('Location: admin.php');
         header("Content-Type: application/json");
-        $data = array("status" => "Success");
-        echo json_encode($data);
+        $result = array("status" => "Success");
+        echo json_encode($result);
         exit();
     };
 
     header("Content-Type: application/json");
-    $data = array("status" => "Failed");
-    echo json_encode($data);
+    $result = array("status" => "Failed");
+    echo json_encode($result);
     exit();
     
 }
@@ -134,14 +134,14 @@ function ierg4210_cat_edit(){
     if ($q->execute()){
         header('Location: admin.php');
         header("Content-Type: application/json");
-        $data = array("status" => "Success");
-        echo json_encode($data);
+        $result = array("status" => "Success");
+        echo json_encode($result);
         exit();
     };
 
     header("Content-Type: application/json");
-    $data = array("status" => "Failed");
-    echo json_encode($data);
+    $result = array("status" => "Failed");
+    echo json_encode($result);
     exit();
 }
 function ierg4210_cat_delete(){}
