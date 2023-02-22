@@ -61,7 +61,7 @@ function ierg4210_prod_insert() {
             || mime_content_type($_FILES["file"]["tmp_name"]) == "image/png" 
             || mime_content_type($_FILES["file"]["tmp_name"]) == "image/jpg" 
         && $_FILES["file"]["size"] < 5000000) 
-        
+
     {
         $cid = $_POST["cid"];
         $name = $_POST["name"];
@@ -84,6 +84,7 @@ function ierg4210_prod_insert() {
         if ($uploadResult) {
             // redirect back to original page; you may comment it during debug
             header('Location: admin.php');
+            header('Content-Type: text/html; charset=utf-8');
             $success_msg = "Upload success!!!";
             echo "<script>alert('$success_msg');</script>";
             exit();
