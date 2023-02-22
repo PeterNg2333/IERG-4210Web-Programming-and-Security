@@ -12,9 +12,9 @@ $(window).on("load", function() {
         for (let i = 0; i < 20; i++) {
             RenderElementAfter("#product_input", "./Snippet_admin/product_card_admin.html");
           }
-
-
-        
+        var selectElement = document.getElementById('#Category_dropDown');
+        window.ierg4210_category_list = [...selectElement.options].map(o => o.value);
+        console.log(window.ierg4210_category_list);
 
 
 
