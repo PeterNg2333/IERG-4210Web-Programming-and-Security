@@ -13,7 +13,7 @@ $(window).on("load", function() {
             RenderElementAfter("#product_input", "./Snippet_admin/product_card_admin.html");
           }
         var selectElement = document.getElementById('Category_dropDown');
-        window.ierg4210_category_list = [...selectElement.options].map(opt => {opt.value, opt.text});
+        window.ierg4210_category_list = [...selectElement.options].map(opt => opt.text);
         console.log(window.ierg4210_category_list);
 
 
@@ -24,31 +24,36 @@ $(window).on("load", function() {
     }, 1200);
 });
 
+function is_exist_category(text, array){
+    for (var element of array){
+        if (element.toLowerCase() == text.toLowerCase())
+            print(element);
+            return true;
+    }
+    return false;
+}
+
 function add_category(){
     var temp_name = document.querySelector("#modify_category > input").value.trim();
+    if (is_exist_category(temp_name, window.ierg4210_category_list)){
+        alert("The category is already there");
+        return ;
+    }
     $.post("admin-process.php?action=cat_insert", 
         {Cname: temp_name},
         function(json){
             if (json.status == "Success"){
-                alert("Add Success !!");
+                alert("Add Success!!");
             }
             else {
-                alert("Add Failed !!");
+                alert("Add Failed!!");
                 document.querySelector("#modify_category > input").value = "";
             }
         }
     );
 }
 
-function is_exist_category(text, array){
-    for (var element of array){
-        if (element[1].toLowerCase() == text.toLowerCase())
-            print(element[0]);
-            print(element[1]);
-            return true;
-    }
-    return false;
-}
+
 
 function type_in_category(){
     document.querySelector("#add_category");
