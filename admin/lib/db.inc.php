@@ -45,6 +45,8 @@ function ierg4210_prod_insert() {
         throw new Exception("invalid-name");
     if (!preg_match('/^[\d\.]+$/', $_POST['price']))
         throw new Exception("invalid-price");
+    if (!preg_match('/^[\d]+$/', $_POST['inventory']))
+        throw new Exception("invalid-inventory");
     if (!preg_match('/^[\w\- ]+$/', $_POST['description']))
         throw new Exception("invalid-textt");
 
@@ -67,7 +69,7 @@ function ierg4210_prod_insert() {
         $name = $_POST["name"];
         $price = $_POST["price"];
         $desc = $_POST["description"];
-        $inv = 50;
+        $inv = $_POST["inventory"];
 
         $sql="INSERT INTO products (cid, product_name, inventory, price, description) VALUES (?, ?, ?, ?, ?);";
         $q = $db->prepare($sql);
