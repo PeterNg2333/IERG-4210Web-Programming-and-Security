@@ -61,7 +61,7 @@ function edit_category(){
         return ;
     }
     if (new_name != null || new_name != " "){
-        var temp__name = new_name.trim();
+        var temp_name = new_name.trim();
         var selectement = document.getElementById('Category_dropDown').value.trim();
         $.post("admin-process.php?action=cat_edit()", 
             {Cname: temp_name, CID: selectement},
