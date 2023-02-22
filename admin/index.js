@@ -24,7 +24,7 @@ $(window).on("load", function() {
 });
 
 function add_category(){
-    $.post({ url: "admin-process.php?action=prod_insert", 
+    $.post({ url: "admin-process.php?action=cat_insert", 
         success:function(output){
             var json = JSON.parse(output);
             if (json.success){alert("Add Success");}
