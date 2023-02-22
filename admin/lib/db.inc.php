@@ -60,8 +60,9 @@ function ierg4210_prod_insert() {
         && mime_content_type($_FILES["file"]["tmp_name"]) == "image/jpeg" 
             || mime_content_type($_FILES["file"]["tmp_name"]) == "image/png" 
             || mime_content_type($_FILES["file"]["tmp_name"]) == "image/jpg" 
-        && $_FILES["file"]["size"] < 5000000) {
-
+        && $_FILES["file"]["size"] < 5000000) 
+        
+    {
         $cid = $_POST["cid"];
         $name = $_POST["name"];
         $price = $_POST["price"];
@@ -87,52 +88,10 @@ function ierg4210_prod_insert() {
             echo "<script>alert('$success_msg');</script>";
             exit();
         }
-
     }
-
-
     header('Content-Type: text/html; charset=utf-8');
     echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
     exit();
-    /////////////////////////////////////////////
-
-    // $sql="INSERT INTO products (cid, product_name, inventory, price, description, image) VALUES (?, ?, ?, ?, ?, ?);";
-    // $q = $db->prepare($sql);
-
-    // // Copy the uploaded file to a folder which can be publicly accessible at incl/img/[pid].jpg
-    // if ($_FILES["file"]["error"] == 0
-    //     && $_FILES["file"]["type"] == "image/jpeg"
-    //     && mime_content_type($_FILES["file"]["tmp_name"]) == "image/jpeg"
-    //     && $_FILES["file"]["size"] < 5000000) {
-
-
-    //     $cid = $_POST["cid"];
-    //     $name = $_POST["name"];
-    //     $price = $_POST["price"];
-    //     $desc = $_POST["description"];
-    //     $sql="INSERT INTO products (cid, product_name, inventory, price, description, image) VALUES (?, ?, ?, ?, ?, ?);";
-    //     $q = $db->prepare($sql);
-    //     $q->bindParam(1, $cid);
-    //     $q->bindParam(2, $name);
-    //     $q->bindParam(3, 50);
-    //     $q->bindParam(4, $price);
-    //     $q->bindParam(5, $desc);
-    //     $q->bindParam(6, "", );
-    //     $q->execute();
-    //     $lastId = $db->lastInsertId();
-
-    //     // Note: Take care of the permission of destination folder (hints: current user is apache)
-    //     if (move_uploaded_file($_FILES["file"]["tmp_name"], "/var/www/html/admin/lib/images/" . $lastId . ".jpg")) {
-    //         // redirect back to original page; you may comment it during debug
-    //         header('Location: admin.php');
-    //         exit();
-    //     }
-    // }
-    // // Only an invalid file will result in the execution below
-    // // To replace the content-type header which was json and output an error message
-    // header('Content-Type: text/html; charset=utf-8');
-    // echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
-    // exit();
 }
 
 // TODO: add other functions here to make the whole application complete
