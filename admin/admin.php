@@ -51,25 +51,6 @@ foreach ($res as $value){
             ?>
         </main>
 
-        <fieldset>
-        <legend> New Product version 1.2 </legend>
-        <form id="prod_insert" method="POST" action="admin-process.php?action=prod_insert" enctype="multipart/form-data">
-            <label for="prod_cid"> Category *</label>
-            <div> <select id="prod_cid" name="cid"> <?php echo $options; ?></select></div>
-            <label for="prod_name"> Name *</label>
-            <div> <input id="prod_name" type="text" name="name" required="required" pattern="^[\w\-]+$"/></div>
-            <label for="prod_price"> Price *</label>
-            <div> <input id="prod_inv" type="text" name="price" required="required" pattern="^[\d+]+$"/></div>
-            <label for="prod_inv"> Inventory </label>
-            <div> <input id="prod_price" type="text" name="inventory" required="required" pattern="^[d+]+$"/></div>
-            <label for="prod_desc"> Description *</label>
-            <div> <input id="prod_desc" type="text" name="description"/> </div>
-            <label for="prod_image"> Image * </label>
-            <div> <input type="file" name="file" required="true" accept="image/jpeg"/> </div>
-            <input type="submit" value="Submit"/>
-        </form>
-        </fieldset>
-
         <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
         <script src="../JavaScript/utity.js"></script>
         <script src="./index.js"></script>
@@ -77,5 +58,22 @@ foreach ($res as $value){
 </html>
 
 <!-- <html>
-
+    <fieldset>
+        <legend> New Product version 1.2 </legend>
+        <form id="prod_insert" method="POST" action="admin-process.php?action=prod_insert" enctype="multipart/form-data">
+            <label for="prod_cid"> Category *</label>
+            <div> <select id="prod_cid" name="cid"> <php echo $options; ?></select></div>
+            <label for="prod_name"> Name *</label>
+            <div> <input id="prod_name" type="text" name="name" required="required" pattern="^[\w\-]+$"/></div>
+            <label for="prod_price"> Price *</label>
+            <div> <input id="prod_inv" type="text" name="price" required="required" pattern="^[\d+]+$"/></div>
+            <label for="prod_inv"> Inventory </label>
+            <div> <input id="prod_price" type="text" name="price" required="required" pattern="^\d+\.?\d*$"/></div>
+            <label for="prod_desc"> Description *</label>
+            <div> <input id="prod_desc" type="text" name="description"/> </div>
+            <label for="prod_image"> Image * </label>
+            <div> <input type="file" name="file" required="true" accept="image/jpeg"/> </div>
+            <input type="submit" value="Submit"/>
+        </form>
+    </fieldset>
 </html> -->
