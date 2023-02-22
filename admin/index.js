@@ -5,8 +5,8 @@ $(window).on("load", function() {
     setTimeout(function(){
         $("#preloader").remove(); 
         document.body.className = "afterLoading";
-        $("#header").removeClass("removeClass()")
-        $("#main").removeClass("removeClass()")
+        $("#header").removeClass("d-none");
+        $("#main").removeClass("d-none");
         // RenderElement("#header", "./Snippet_admin/header_admin.html");
         // RenderElement("#main", "./Snippet_admin/main_admin.html");
         for (let i = 0; i < 20; i++) {
