@@ -48,7 +48,7 @@ function ierg4210_prod_insert() {
     if (!preg_match('/^[\d]+$/', $_POST['inventory']))
         throw new Exception("invalid-inventory");
     if (!preg_match('/^[\w\- ]+$/', $_POST['description']))
-        throw new Exception("invalid-textt");
+        throw new Exception("invalid-description");
 
     /////////////////////////////////////////////
     $sql="INSERT INTO products (cid, product_name, inventory, price, description) VALUES (?, ?, ?, ?, ?);";
