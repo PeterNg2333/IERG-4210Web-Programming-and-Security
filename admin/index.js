@@ -112,11 +112,12 @@ function load_products_by_cid(){
 
             {CID: selectement},
             function(output){
-                var json = JSON.parse(output);
                 console.log(output);
+                var json = JSON.parse(output);
+                console.log(json);
                 if (json.success){
                     alert("Edit Success!!");
-                    for (var record of json.success){
+                    for (var record of json.success[0]){
                         console.log(record);
                     }
                 }
