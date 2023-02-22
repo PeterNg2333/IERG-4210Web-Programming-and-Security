@@ -19,7 +19,7 @@ $(window).on("load", function() {
 
         document.querySelector("#add_category").addEventListener("click", add_category);
         document.querySelector("#edit_category").addEventListener("click", edit_category);
-        document.querySelector("#edit_category").addEventListener("change", change_category);
+        document.querySelector("#Category_dropDown").addEventListener("change", change_category);
         document.getElementById('cid_input').value = document.getElementById('Category_dropDown').value;
         
     }, 1200);
