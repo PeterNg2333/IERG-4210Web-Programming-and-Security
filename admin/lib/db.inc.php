@@ -105,7 +105,6 @@ function ierg4210_cat_insert() {
     $q->bindParam(1, $Cname);
     
     if ($q->execute()){
-        header('Location: admin.php');
         header("Content-Type: application/json");
         $result = array("status" => "Success");
         echo json_encode($result);
@@ -131,8 +130,8 @@ function ierg4210_cat_edit(){
     $CID = $_POST["CID"];
     $q->bindParam(1, $Cname);
     $q->bindParam(2, $CID);
+
     if ($q->execute()){
-        header('Location: admin.php');
         header("Content-Type: application/json");
         $result = array("status" => "Success");
         echo json_encode($result);

@@ -68,9 +68,11 @@ function edit_category(){
             function(json){
                 if (json.status == "Success"){
                     alert("Edit Success!!");
+                    return ;
                 }
                 else {
                     alert("Edit Failed!!");
+                    return ;
                 }
             }
         );
