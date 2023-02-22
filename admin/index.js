@@ -20,7 +20,10 @@ $(window).on("load", function() {
         document.querySelector("#add_category").addEventListener("click", add_category);
         document.querySelector("#edit_category").addEventListener("click", edit_category);
         document.querySelector("#Category_dropDown").addEventListener("change", change_category);
+        document.querySelector("#product_image").addEventListener("change", change_image);
+        
         document.getElementById('cid_input').value = document.getElementById('Category_dropDown').value;
+
         
     }, 1200);
 });
@@ -90,6 +93,8 @@ function change_category(){
     // alert(document.getElementById('cid_input').value);
 }
 
-function type_in_category(){
-    document.querySelector("#add_category");
+function change_image(){
+    document.querySelector("image_uploaded_display").src = document.querySelector("#product_image").files;
 }
+
+
