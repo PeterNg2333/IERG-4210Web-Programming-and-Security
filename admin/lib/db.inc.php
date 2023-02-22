@@ -102,9 +102,16 @@ function ierg4210_cat_insert() {
     $q = $db->prepare("INSERT INTO categories (category_name) VALUES (?)");
     $Cname = $_POST["Cname"];
     $q->bindParam(1, $Cname);
-    $q->execute();
-    header('Location: admin.php');
+    
+    if ($q->execute()){
+        header('Location: admin.php');
+        exit();
+    };
+
+    header('Content-Type: text/html; charset=utf-8');
+    echo 'Failed. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
     exit();
+    
 }
 function ierg4210_cat_edit(){
     if (!preg_match('/^[\w\-]+$/', $_POST['Cname']))
