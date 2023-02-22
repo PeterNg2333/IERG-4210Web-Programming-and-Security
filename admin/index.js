@@ -13,8 +13,9 @@ $(window).on("load", function() {
             RenderElementAfter("#product_input", "./Snippet_admin/product_card_admin.html");
           }
         var selectElement = document.getElementById('Category_dropDown');
-        window.ierg4210_category_list = [...selectElement.options].map(opt => opt.value);
+        window.ierg4210_category_list = [...selectElement.options].map(opt => {opt.value, opt.text});
         console.log(window.ierg4210_category_list);
+
 
 
 
@@ -37,7 +38,16 @@ function add_category(){
             }
         }
     );
+}
 
+function is_exist_category(text, array){
+    for (var element of array){
+        if (element[1].toLowerCase() == text.toLowerCase())
+            print(element[0]);
+            print(element[1]);
+            return true;
+    }
+    return false;
 }
 
 function type_in_category(){
