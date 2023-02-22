@@ -94,7 +94,14 @@ function change_category(){
 }
 
 function change_image(){
-    document.querySelector("#image_display").src = document.querySelector("#product_image").files;
+    var reader = new FileReader();
+    var input = document.querySelector("#product_image");
+    reader.onload = function (e) {
+        $("#image_display").attr('src', e.target.result);
+     }
+    reader.readAsDataURL(input.files[0]);
+    // image.src = uploaded_image.files;
+    image.alt = input.files[0].name;
 }
 
 
