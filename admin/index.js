@@ -153,6 +153,8 @@ function dropHandler(e){
     var reader = new FileReader();
     reader.onload = function (e) {
         $("#image_display").attr('src', e.target.result);
+        print(e.target.result);
+        print(file.name);
         $("#image_display").attr('alt', file.name);
      }
     reader.readAsDataURL(file);
