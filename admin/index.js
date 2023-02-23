@@ -87,10 +87,10 @@ function edit_category(){
 }
 
 function change_category(){
-    var selectement = document.getElementById('Category_dropDown');
-    document.getElementById('cid_input').value = selectement.value;
+    var selectedOpt = document.getElementById('Category_dropDown');
+    document.getElementById('cid_input').value = selectedOpt.value;
     // document.getElementById('cid_display_name').value = selectement.name;
-    document.getElementById('cid_display_name').value = selectement.text;
+    document.getElementById('cid_display_name').value = selectedOpt.options[selectedOpt.selectedIndex].text;
     // alert(document.getElementById('cid_input').value);
     load_products_by_cid();
 }
