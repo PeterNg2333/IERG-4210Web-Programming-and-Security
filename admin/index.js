@@ -147,7 +147,7 @@ function dropHandler(e){
     document.querySelector("#image_uploaded_display_section").parentNode.children[0].files[0] = file;
     print(file);
     print(document.querySelector("#image_uploaded_display_section").parentNode.children[0].files[0]);
-    change_image();
+    e.preventDefault(); 
     $("#"+ temp_id + " p").removeClass("invisible");
     $("#"+ temp_id + " img").removeClass("invisible");
 }
