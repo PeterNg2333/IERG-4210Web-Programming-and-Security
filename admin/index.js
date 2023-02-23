@@ -157,7 +157,7 @@ function dropHandler(e){
         $("#image_display").attr('src', e.target.result);
         // print(e.target.result);
         // print(file.name);
-        $("#image_display").attr('alt', file.name);
+        $("#image_display").attr('alt', input.files[0].name);
      }
     reader.readAsDataURL(input.files[0]);
     $("#"+ temp_id + " p").removeClass("invisible");
