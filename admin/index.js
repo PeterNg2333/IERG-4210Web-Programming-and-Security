@@ -193,15 +193,15 @@ function load_productsCard_by_cid(){
 }
 
 function change_image_for_productCard(e){
-    print(e)
-    print(e.target.id);
+    var text_array = e.target.id.split("-")
+    print(text_array[1]);
     print (e.target);
     var reader = new FileReader();
     var input = document.querySelector("#product_image");
+    var image_id = "#" +  "image_uploaded-" + text_array[1];
     reader.onload = function () {
-        $("#image_uploaded_display_section").removeClass("d-none");
         $("#image_display").attr('src', e.target.result);
-        $("#image_display").attr('alt', input.files[0].name);
+        $("#image_display").attr('alt', e.target.files[0].name);
      }
     reader.readAsDataURL(input.files[0]);
     // image.src = uploaded_image.files;
