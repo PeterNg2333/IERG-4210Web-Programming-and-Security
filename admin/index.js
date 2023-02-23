@@ -184,7 +184,7 @@ function load_productsCard_by_cid(){
 
                             // Event
 
-                            document.querySelector("#"+ image_input_url).addEventListener("change", change_image_for_productCard())
+                            document.querySelector("#"+ image_input_url).addEventListener("change", change_image_for_productCard(e))
                         }
                     );
                 });
@@ -192,8 +192,8 @@ function load_productsCard_by_cid(){
         );
 }
 
-function change_image_for_productCard(){
-    print(this);
+function change_image_for_productCard(e){
+    print(e.target.id);
     print (e.target);
     var reader = new FileReader();
     var input = document.querySelector("#product_image");
