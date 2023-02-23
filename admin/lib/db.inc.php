@@ -19,24 +19,23 @@ function ierg4210_DB() {
 	return $db;
 }
 
-function ierg4210_get_image(){
-    if (empty($_REQUEST['imageName']) || !preg_match('/^\w+$/', $_REQUEST['imageName'])) {
-        echo json_encode(array('failed'=>'undefined'));
-        exit();
-    }
-    $image_name = $_REQUEST['imageName'];
-    // echo json_encode(array($image_name ));
-    $file_url = "/var/www/html/admin/lib/images/P" . $image_name . ".jpg";
-    // if (file_exists($file_url)){
-        header("Content-type: image/jpg"); 
-        header('Content-Length: '.filesize($file_url));
-        $img = file_get_contents($file_url);
-        echo $img;
-        exit();
-        // }
-    // echo json_encode(array($file_url));
-    // exit();
-}
+// function ierg4210_get_image(){
+//     if (empty($_REQUEST['imageName']) || !preg_match('/^\w+$/', $_REQUEST['imageName'])) {
+//         echo json_encode(array('failed'=>'undefined'));
+//         exit();
+//     }
+//     $image_name = $_REQUEST['imageName'];
+//     // echo json_encode(array($image_name ));
+//     $file_url = "/var/www/html/admin/lib/images/P" . $image_name . ".jpg";
+//     // if (file_exists($file_url)){
+//         header("Content-type: image/jpg"); 
+//         $img = imagecreatefromjpeg()
+//         echo $img;
+//         exit();
+//         // }
+//     // echo json_encode(array($file_url));
+//     // exit();
+// }
     
     
 //     try {
@@ -120,7 +119,7 @@ function ierg4210_prod_insert() {
         $lastId = $db->lastInsertId();
 
         // Note: Take care of the permission of destination folder (hints: current user is apache)
-        $uploadResult = move_uploaded_file($_FILES["file"]["tmp_name"], "/var/www/html/admin/lib/images/P" . $lastId . ".jpg");
+        $uploadResult = move_uploaded_file($_FILES["file"]["tmp_name"], "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" . $lastId . ".jpg");
         if ($uploadResult) {
             // redirect back to original page; you may comment it during debug
             header('Location: admin.php');
