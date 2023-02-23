@@ -27,7 +27,7 @@ function ierg4210_get_image(){
     $image_name = $_REQUEST['imageName'];
     // echo json_encode(array($image_name ));
     $file_url = "/var/www/html/admin/lib/images/P" . $image_name . ".jpg";
-    if (file_exists($file_url )){
+    if (file_exists($file_url)){
         $size = getimagesize($file_url);
         $fileOpen = fopen($file_url, 'rb');
         header('Content-Type: '.$size['mime']);
@@ -35,8 +35,7 @@ function ierg4210_get_image(){
         fpassthru($fileOpen);
         exit();
         }
-    header('Content-Type: text/html; charset=utf-8');
-    echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
+    echo json_encode(array($file_url));
     exit();
 }
     
