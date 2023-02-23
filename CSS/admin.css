@@ -74,7 +74,7 @@ body {
 
 .drag_and_drop{
     margin-top: 4px;
-    border:1px dashed #000;
+    border:1px dashed #000 !important;; 
     background-image: url(../Resource/drag_and_drop.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
