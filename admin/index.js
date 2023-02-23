@@ -116,7 +116,7 @@ function load_productsCard_by_cid(){
             function(p_res){
                 $(".product_record").remove();
                 console.log("1");
-                $.post("admin-process.php?action=cat_fetchall", function(c_res){
+                $.get("admin-process.php?action=cat_fetchall", function(c_res){
                     console.log("2");
                     console.log(typeof c_res);
                     console.log(c_res[0]);
