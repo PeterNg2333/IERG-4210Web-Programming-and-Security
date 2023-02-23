@@ -189,7 +189,7 @@ function load_productsCard_by_cid(){
                             delete_button.attr('id', "delete_button-" + pid);
 
                             // Event
-
+                            document.querySelector("#"+ "delete_button-" + pid).addEventListener("click", delete_product)
                             document.querySelector("#"+ image_input_url).addEventListener("change", change_image_for_productCard)
                         }
                     );
