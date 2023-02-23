@@ -118,7 +118,7 @@ function load_productsCard_by_cid(){
                 console.log("1");
                     for (var record of p_res[0]){
                         var cid = record["CID"];
-                        var Cname = record["CATEGORY_NAME"];
+                        // var Cname = record["CATEGORY_NAME"];
                         var pid = record["PID"];
                         var Pname = record["PRODUCT_NAME"];
                         var price = record["PRICE"];
@@ -128,6 +128,7 @@ function load_productsCard_by_cid(){
                             , "./Snippet_admin/product_card_admin.html"
                             , function(){
                             var options = document.getElementById('Category_dropDown').children;
+                            // Cateogory Selection
                             for (var i = 0; i < options.length; i++){
                                 var clone = options[i].cloneNode(true)
                                 if (clone.value == cid){
@@ -141,6 +142,16 @@ function load_productsCard_by_cid(){
                                 select_dropdown.removeAttr('id');
                                 select_dropdown.attr('id', "#Category_dropDown_for_each_record-" + pid);
                             }
+
+                            // list item id
+                            
+                            // Name
+                            // PID
+                            // Product Name
+                            // Price
+                            // Inventory
+                            // Description
+                            // Event
                         );
                     }
             }
