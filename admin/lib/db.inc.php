@@ -232,7 +232,7 @@ function ierg4210_prod_edit(){
                     unlink($filePath);
                 };
                 $uploadResult = move_uploaded_file($_FILES["file"]["tmp_name"], $filePath);
-                if ($uploadResult) {
+                if ($uploadResult){
                     // redirect back to original page; you may comment it during debug
                     header('Location: admin.php');
                     exit();
