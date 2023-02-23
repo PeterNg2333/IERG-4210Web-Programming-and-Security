@@ -9,7 +9,7 @@ $(window).on("load", function() {
         $("#main").removeClass("d-none");
         // RenderElement("#header", "./Snippet_admin/header_admin.html");
         // RenderElement("#main", "./Snippet_admin/main_admin.html");
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 3; i++) {
             RenderElementAfter("#product_input", "./Snippet_admin/product_card_admin.html");
           }
         var selectElement = document.getElementById('Category_dropDown');
@@ -22,9 +22,10 @@ $(window).on("load", function() {
         document.querySelector("#Category_dropDown").addEventListener("change", change_category);
         document.querySelector("#product_image").addEventListener("change", change_image);
         document.getElementById('cid_input').value = document.getElementById('Category_dropDown').value;
-
-        change_category();
-    }, 1200);
+        setTimeout(function(){
+            change_category();
+        }, 600);
+    }, 600);
 });
 
 function is_exist_category(text, array){
