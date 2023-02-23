@@ -117,7 +117,7 @@ function change_image(){
     var reader = new FileReader();
     var input = document.querySelector("#product_image");
     reader.onload = function (e) {
-        $("#image_uploaded_display_section").removeClass("d-none");
+        $("#image_uploaded_display_section p").removeClass("d-none");
         $("#image_display").attr('src', e.target.result);
         $("#image_display").attr('alt', input.files[0].name);
      }
