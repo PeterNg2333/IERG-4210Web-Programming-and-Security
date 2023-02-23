@@ -141,13 +141,13 @@ function dragLeaveHandler(e){
     document.querySelector("#" + temp_id).classList.remove("bg-secondary");
 }
 function dropHandler(e){
+    e.preventDefault(); 
     var temp_id = e.target.id;
     var dt = e.dataTransfer
     var file = dt.files[0]
-    document.querySelector("#image_uploaded_display_section").parentNode.children[0].files[0] = file;
-    print(file);
+    
+    print(typeof file);
     print(document.querySelector("#image_uploaded_display_section").parentNode.children[0].files[0]);
-    e.preventDefault(); 
     $("#"+ temp_id + " p").removeClass("invisible");
     $("#"+ temp_id + " img").removeClass("invisible");
 }
