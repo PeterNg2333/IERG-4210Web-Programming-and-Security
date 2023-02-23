@@ -21,10 +21,17 @@ function ierg4210_DB() {
 
 function ierg4210_get_image(){
     if (empty($_REQUEST['imageName']) || !preg_match('/^\w+$/', $_REQUEST['imageName'])) {
-        echo json_encode(array('failed'=>'true'));
+        echo json_encode(array('failed'=>'undefined'));
+        exit();
     }
-    echo json_encode(array($_REQUEST['imageName']));
-    exit();
+    try {
+        $image_name = $_REQUEST['imageName'];
+        echo json_encode(array($image_name ));
+        echo json_encode(array("found"));
+        exit();
+    }
+    
+    
 
 //     try {
 //         $image_name = $_REQUEST['imageName'];
