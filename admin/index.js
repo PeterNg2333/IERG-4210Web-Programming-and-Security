@@ -24,6 +24,7 @@ $(window).on("load", function() {
         document.getElementById('cid_input').value = document.getElementById('Category_dropDown').value;
 
         load_products_by_cid();
+        change_category();
     }, 1200);
 });
 
