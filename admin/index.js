@@ -234,6 +234,7 @@ function enable_modify(e){
     var nodeArray = document.querySelectorAll(temp_id + " .product_input")
     nodeArray.forEach(element => {
         element.removeAttribute("disabled");
+        print(element);
     });
     document.querySelector(temp_id + " #create_button").classList.remove("btn-secondary");
     document.querySelector(temp_id + " #create_button").classList.add("btn-success");
