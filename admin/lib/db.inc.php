@@ -156,15 +156,13 @@ function ierg4210_cat_delete(){
     $q_get_product ->bindParam(1, $CID);
     if ($q_get_product->execute()){
         $product_array = array($q_get_product->fetchAll());
-        return $product_array;
-    }
-    //     $q_delete_product = $db->prepare("DROP FROM PRODUCTS WHERE CID = ?;");
-    //     $q_delete_product ->bindParam(1, $CID);
-    //     if ($q_delete_product->execute()){
-    //         foreach ($product_array as $value){
-    //             $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" .$value["PID"]. ".jpg";
-    //             unlink($filePath);
-    //         }
+        $q_delete_product = $db->prepare("DROP FROM PRODUCTS WHERE CID = ?;");
+        $q_delete_product ->bindParam(1, $CID);
+        if ($q_delete_product->execute()){
+            foreach ($product_array as $value){
+                $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" .$value["PID"]. ".jpg";
+                unlink($filePath);
+            }
     //     $q = $db->prepare("DROP FROM CATEGORIES WHERE CID = ?;");
     //     $q->bindParam(1, $CID);
     //     if (($q->execute())){
@@ -173,7 +171,8 @@ function ierg4210_cat_delete(){
     //         exit();
     //         };
     //     }
-    // }
+        }
+    }
     header("Content-Type: application/json");
     $result = array("status" => "Failed");
     echo json_encode($result);
