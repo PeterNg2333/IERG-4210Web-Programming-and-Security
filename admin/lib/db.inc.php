@@ -27,7 +27,6 @@ function ierg4210_get_image(){
     try {
         $image_name = $_REQUEST['imageName'];
         echo json_encode(array($image_name ));
-        echo json_encode(array("found"));
         exit();
     }
     
