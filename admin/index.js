@@ -148,6 +148,7 @@ function dropHandler(e){
     
     print(file);
     var input = document.querySelector("#product_image");
+    document.querySelector('#product_image').files = ev.dataTransfer.files;
     input.files[0] = file;
 
     var reader = new FileReader();
