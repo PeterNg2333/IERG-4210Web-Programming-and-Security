@@ -23,7 +23,7 @@ function ierg4210_cat_fetchall() {
     // DB manipulation
     global $db;
     $db = ierg4210_DB();
-    $q = $db->prepare("SELECT * FROM categories ORDER BY CID LIMIT 100;");
+    $q = $db->prepare("SELECT * FROM categories LIMIT 100;");
     if ($q->execute())
         return $q->fetchAll();
 }

@@ -1,11 +1,11 @@
 <?php
-// require __DIR__.'/lib/db.inc.php';
-// $res_cat_fetchall = ierg4210_cat_fetchall();
-// $options = '';
+require __DIR__.'/lib/db.inc.php';
+$res_cat_fetchall = ierg4210_cat_fetchall();
+$options = '';
 
-// foreach ($res_cat_fetchall as $value){
-//     $options .= '<option value="'.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </option>';
-// }
+foreach ($res_cat_fetchall as $value){
+    $options .= '<option value="'.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </option>';
+}
 ?>
 
 
