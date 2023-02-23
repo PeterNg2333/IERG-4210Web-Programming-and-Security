@@ -174,7 +174,6 @@ function ierg4210_prod_fetchAll_by_cid(){
 function ierg4210_prod_fetchAll(){}
 function ierg4210_prod_fetchOne(){}
 function ierg4210_prod_edit(){
-    function ierg4210_prod_insert() {
         // input validation or sanitization
         // DB manipulation
         global $db;
@@ -248,7 +247,6 @@ function ierg4210_prod_edit(){
         header('Content-Type: text/html; charset=utf-8');
         echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
         exit();
-    }
 }
 function ierg4210_prod_delete(){
     if (!preg_match('/^[\d]+$/', $_POST['pid']))
