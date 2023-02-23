@@ -182,6 +182,12 @@ function load_productsCard_by_cid(){
                             image_uploaded.attr("src", image_url);
                             image_uploaded.attr("alt", Pname);
 
+                            // button 
+                            
+                            var delete_button = $("#delete_button-000");
+                            delete_button.removeAttr('id');
+                            delete_button.attr('id', "delete_button-" + pid);
+
                             // Event
 
                             document.querySelector("#"+ image_input_url).addEventListener("change", change_image_for_productCard)
@@ -194,8 +200,6 @@ function load_productsCard_by_cid(){
 
 function change_image_for_productCard(e){
     var text_array = e.target.id.split("-")
-    print(text_array[1]);
-    print (e.target);
     var reader = new FileReader();
     var image_id = "#" +  "image_uploaded-" + text_array[1];
     $(image_id).removeAttr('src');
@@ -205,6 +209,23 @@ function change_image_for_productCard(e){
         $(image_id).attr('alt', e.target.files[0].name);
      }
     reader.readAsDataURL(e.target.files[0]);
+}
+
+function delete_product(e){
+    var text_array = e.target.id.split("-")
+    var temp_id  = text_array[1].trim();
+    $.post("admin-process.php?action=cat_insert", 
+        {pid: temp_id},
+        function(json){
+            if (json.status == "Success"){
+                alert("Delete Success!!");
+                location.reload()
+            }
+            else {
+                alert("Delete Failed!!");
+            }
+        }
+    );
 }
 
 

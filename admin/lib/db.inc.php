@@ -177,4 +177,26 @@ function ierg4210_prod_fetchOne(){}
 function ierg4210_prod_edit(){
     
 }
-function ierg4210_prod_delete(){}
+function ierg4210_prod_delete(){
+    if (!preg_match('/^[\d]+$/', $_POST['pid']))
+        throw new Exception("invalid-id");
+    // DB manipulation
+    global $db;
+    $pid = $_POST["pid"];
+
+    $db = ierg4210_DB();
+    $q = $db->prepare("DELETE FROM products where PID = ?;");
+    $q->bindParam(1, $pid);
+
+    if ($q->execute()){
+        header("Content-Type: application/json");
+        $result = array("status" => "Success");
+        echo json_encode($result);
+        exit();
+    };
+
+    header("Content-Type: application/json");
+    $result = array("status" => "Failed");
+    echo json_encode($result);
+    exit();
+}
