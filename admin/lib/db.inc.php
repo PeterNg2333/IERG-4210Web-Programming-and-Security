@@ -145,7 +145,9 @@ function ierg4210_cat_edit(){
     exit();
 }
 function ierg4210_cat_delete(){}
+
 function ierg4210_prod_delete_by_cid(){}
+
 function ierg4210_prod_fetchAll_by_cid(){
     if (!preg_match('/^[\d]+$/', $_POST['CID']))
         throw new Exception("invalid-id");
@@ -172,5 +174,7 @@ function ierg4210_prod_fetchAll_by_cid(){
 
 function ierg4210_prod_fetchAll(){}
 function ierg4210_prod_fetchOne(){}
-function ierg4210_prod_edit(){}
+function ierg4210_prod_edit(){
+    
+}
 function ierg4210_prod_delete(){}

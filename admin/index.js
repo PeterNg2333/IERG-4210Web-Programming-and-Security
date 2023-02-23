@@ -171,8 +171,9 @@ function load_productsCard_by_cid(){
                             product_description.attr('id', "product_desc-" + pid);
                             // Image
                             var image_input = $("#image_input-000");
+                            var image_input_url = "image_input-" + pid;
                             image_input.removeAttr('id');
-                            image_input.attr('id', "image_input-" + pid);
+                            image_input.attr('id', image_input_url);
 
                             var image_uploaded = $("#image_uploaded-000");
                             image_uploaded.removeAttr('id');
@@ -180,10 +181,28 @@ function load_productsCard_by_cid(){
                             var image_url = "./lib/images/P" + pid + ".jpg?width=10&height=5";
                             image_uploaded.attr("src", image_url);
                             image_uploaded.attr("alt", Pname);
+
                             // Event
+
+                            document.querySelector("#"+ image_input_url).addEventListener("change", change_image_for_productCard())
                         }
                     );
                 });
             }
         );
+}
+
+function change_image_for_productCard(){
+    print(this);
+    print (e.target);
+    var reader = new FileReader();
+    var input = document.querySelector("#product_image");
+    reader.onload = function () {
+        $("#image_uploaded_display_section").removeClass("d-none");
+        $("#image_display").attr('src', e.target.result);
+        $("#image_display").attr('alt', input.files[0].name);
+     }
+    reader.readAsDataURL(input.files[0]);
+    // image.src = uploaded_image.files;
+    
 }
