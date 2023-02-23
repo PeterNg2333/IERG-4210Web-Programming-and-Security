@@ -131,6 +131,7 @@ function load_productsCard_by_cid(){
                                 if (clone.value == cid){
                                     clone.setAttribute("selected", true);
                                 }
+                                print(clone);
                                 document.querySelector("#Category_dropDown_for_each_record-000").appendChild(clone);
                             }
                             var select_dropdown = $("#Category_dropDown_for_each_record-000");
