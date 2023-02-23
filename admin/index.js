@@ -230,7 +230,7 @@ function delete_product(e){
 }
 
 function enable_modify(e){
-    var temp_id = "#" + e.target.id
+    var temp_id = "#P-" + e.target.id
     var nodeArray = document.querySelectorAll(temp_id + " .product_input")
     nodeArray.forEach(element => {
         element.removeAttribute("disabled");
