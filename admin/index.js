@@ -135,11 +135,11 @@ function change_image(){
 
 function dragEnterHandler(e){
     var temp_id = e.target.id;
-    print("dragEnder" + temp_id);
+    document.querySelector("#" + temp_id).classList.add("bg-light");
 }
 function dragLeaveHandler(e){
     var temp_id = e.target.id;
-    print("dragLeave" + temp_id);
+    document.querySelector("#" + temp_id).classList.remove("bg-light");
 }
 function dragOverHandler(e){
     var temp_id = e.target.id;
