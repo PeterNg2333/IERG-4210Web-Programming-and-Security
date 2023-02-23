@@ -24,20 +24,21 @@ function ierg4210_get_image(){
         echo json_encode(array('failed'=>'undefined'));
         exit();
     }
-    
-        $image_name = $_REQUEST['imageName'];
-        // echo json_encode(array($image_name ));
-        $file_url = "/var/www/html/admin/lib/images/P" . $image_name . ".jpg";
-        if (file_exists($file_url )){
-            $size = getimagesize($file_url);
-            $fileOpen = fopen($file_url, 'rb');
-            header('Content-Type: '.$size['mime']);
-            header('Content-Length: '.filesize($file_url));
-            fpassthru($fileOpen);
-            exit();
-        }
-
+    $image_name = $_REQUEST['imageName'];
+    // echo json_encode(array($image_name ));
+    $file_url = "/var/www/html/admin/lib/images/P" . $image_name . ".jpg";
+    if (file_exists($file_url )){
+        $size = getimagesize($file_url);
+        $fileOpen = fopen($file_url, 'rb');
+        header('Content-Type: '.$size['mime']);
+        header('Content-Length: '.filesize($file_url));
+        fpassthru($fileOpen);
         exit();
+        }
+    header('Content-Type: text/html; charset=utf-8');
+    echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
+    exit();
+}
     
     
     
