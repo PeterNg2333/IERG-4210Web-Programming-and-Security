@@ -163,14 +163,13 @@ function ierg4210_cat_delete(){
                 $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" .$value["PID"]. ".jpg";
                 unlink($filePath);
             }
-        $q = $db->prepare("DELETE FROM CATEGORIES WHERE CID = ?;");
-        $q->bindParam(1, $CID);
-        if (($q->execute())){
-            $result = array("status" => "Success");
-            echo json_encode($result);
-            exit();
-            };
-        }
+            $q = $db->prepare("DELETE FROM CATEGORIES WHERE CID = ?;");
+            $q->bindParam(1, $CID);
+            if (($q->execute())){
+                $result = array("status" => "Success");
+                echo json_encode($result);
+                exit();
+                };
         }
     }
     header("Content-Type: application/json");
