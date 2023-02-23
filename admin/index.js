@@ -142,6 +142,7 @@ function dragLeaveHandler(e){
 }
 function dropHandler(e){
     var temp_id = e.target.id;
+    print(e.dataTransfer);
     print("drop" + temp_id);
 }
 
