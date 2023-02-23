@@ -16,7 +16,6 @@ $(window).on("load", function() {
         window.ierg4210_category_list = [...selectElement.options].map(opt => opt.text);
         // console.log(window.ierg4210_category_list);
 
-        
         document.querySelector("#add_category").addEventListener("click", add_category);
         document.querySelector("#edit_category").addEventListener("click", edit_category);
         document.querySelector("#Category_dropDown").addEventListener("change", change_category);
@@ -149,6 +148,11 @@ function load_productsCard_by_cid(){
                             var list_item = $("#P-000");
                             list_item.removeAttr('id');
                             list_item.attr('id', "P-" + pid);
+                            // Pid
+                            var product_pid = $("#pid_input-000");
+                            product_pid.val(pid);
+                            product_pid.removeAttr('id');
+                            product_pid.attr('id', "pid_input-" + pid);
                             // Product Name
                             var product_name = $("#product_name-000");
                             product_name.val(Pname);
