@@ -115,7 +115,7 @@ function load_productsCard_by_cid(){
             {CID: selectement},
             function(p_res){
                 $(".product_record").remove();
-                console.log("1");
+                // console.log("1");
                     var res_array = p_res[0]
                     res_array.forEach(function(record, i){
                         var cid = record["CID"];
@@ -125,7 +125,7 @@ function load_productsCard_by_cid(){
                         var price = record["PRICE"];
                         var inv = record["INVENTORY"];
                         var description = record["DESCRIPTION"];
-                        print(record);
+                        // print(record);
                         RenderElementAfter("#product_input"
                             , "./Snippet_admin/product_card_admin.html"
                             , function(){
@@ -232,12 +232,13 @@ function delete_product(e){
 function enable_modify(e){
     var temp_id = "#P-" + e.target.id
     var nodeArray = document.querySelectorAll(temp_id + " .product_input")
+    print (nodeArray);
     nodeArray.forEach(element => {
         element.removeAttribute("disabled");
         print(element);
     });
-    document.querySelector(temp_id + " #create_button").classList.remove("btn-secondary");
-    document.querySelector(temp_id + " #create_button").classList.add("btn-success");
+    // document.querySelector(temp_id + " #create_button").classList.remove("btn-secondary");
+    // document.querySelector(temp_id + " #create_button").classList.add("btn-success");
 
 }
 
