@@ -25,11 +25,7 @@ function ierg4210_cat_fetchall() {
     $db = ierg4210_DB();
     $q = $db->prepare("SELECT * FROM categories ORDER BY CID LIMIT 100;");
     if ($q->execute())
-        {   header("Content-Type: application/json");
-            $result = $q->fetchAll();
-            echo json_encode(array($result));
-            exit();}
-        // return $q->fetchAll();
+        return $q->fetchAll();
 }
 
 // Since this form will take file upload, we use the tranditional (simpler) rather than AJAX form submission.
