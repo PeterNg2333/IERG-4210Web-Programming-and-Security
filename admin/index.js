@@ -142,13 +142,16 @@ function dragLeaveHandler(e){
 }
 function dropHandler(e){
     var temp_id = e.target.id;
-    document.querySelector('#product_image').files = e.dataTransfer.files;
-    var input = document.querySelector("#image_uploaded_display_section").parentNode.children[0];
-    print("datatranfer");
-    print(e.dataTransfer.files);
-    print("")
-    print("input_file")
-    print(input.files[0]);
+
+    
+    var input = document.querySelector("#" + temp_id).parentNode.children[0];
+    input.files = e.dataTransfer.files;
+    print(temp_id)
+    // print("datatranfer");
+    // print(e.dataTransfer.files);
+    // print("")
+    // print("input_file")
+    // print(input.files[0]);
 
     var reader = new FileReader();
     reader.onload = function (e) {
