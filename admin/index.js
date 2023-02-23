@@ -116,7 +116,13 @@ function load_productsCard_by_cid(){
                 console.log(output);
                 
                 for (var record of output){
-                        console.log(record);
+                        console.log(record.CID);
+                        console.log(record.CATEGORY_NAME);
+                        console.log(record.PID);
+                        console.log(record.PRODUCT_NAME);
+                        console.log(record.PRICE);
+                        console.log(record.INVENTORY);
+                        console.log(record.DESCRIPTION);
                 }
             }
         );
