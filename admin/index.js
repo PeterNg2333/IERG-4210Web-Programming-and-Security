@@ -200,8 +200,8 @@ function change_image_for_productCard(e){
     var input = document.querySelector("#product_image");
     var image_id = "#" +  "image_uploaded-" + text_array[1];
     reader.onload = function () {
-        $("#image_display").attr('src', e.target.result);
-        $("#image_display").attr('alt', e.target.files[0].name);
+        $(image_id).attr('src', e.target.result);
+        $(image_id).attr('alt', e.target.files[0].name);
      }
     reader.readAsDataURL(e.target.files[0]);
 }
