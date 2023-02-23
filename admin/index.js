@@ -135,11 +135,11 @@ function change_image(){
 
 function dragEnterHandler(e){
     var temp_id = e.target.id;
-    document.querySelector("#" + temp_id).classList.add("bg-light");
+    document.querySelector("#" + temp_id).classList.add("bg-secondary");
 }
 function dragLeaveHandler(e){
     var temp_id = e.target.id;
-    // document.querySelector("#" + temp_id).classList.remove("bg-light");
+    // document.querySelector("#" + temp_id).classList.remove("bg-secondary");
 }
 // function dragOverHandler(e){
 //     var temp_id = e.target.id;
