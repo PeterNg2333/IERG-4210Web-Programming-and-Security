@@ -116,8 +116,8 @@ function load_productsCard_by_cid(){
             function(p_res){
                 $(".product_record").remove();
                 $.post("admin-process.php?action=cat_fetchall", function(c_res){
-                    console.log(c_res.success);
-                    console.log(c_res.success[0]);
+                    console.log(typeof c_res);
+                    console.log(c_res[0]);
                     for (var record of p_res[0]){
                             var cid = record["CID"];
                             var Cname = record["CATEGORY_NAME"];
