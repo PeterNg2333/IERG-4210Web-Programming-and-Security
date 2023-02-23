@@ -178,7 +178,7 @@ function load_productsCard_by_cid(){
                             var image_uploaded = $("#image_uploaded-000");
                             image_uploaded.removeAttr('id');
                             image_uploaded.attr('id', "image_uploaded-" + pid);
-                            var image_url = "./lib/images/P" + pid + ".jpg?width=10&height=5";
+                            var image_url = "./lib/images/P" + pid + ".jpg";
                             image_uploaded.attr("src", image_url);
                             image_uploaded.attr("alt", Pname);
 
@@ -193,6 +193,7 @@ function load_productsCard_by_cid(){
 }
 
 function change_image_for_productCard(e){
+    print(e)
     print(e.target.id);
     print (e.target);
     var reader = new FileReader();
