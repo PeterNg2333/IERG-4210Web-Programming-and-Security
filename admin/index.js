@@ -137,10 +137,11 @@ function load_productsCard_by_cid(){
                                 }
                                     // print(clone);
                                     // print(document.querySelector("#Category_dropDown_for_each_record-000"));
-                                    document.querySelector("#Category_dropDown_for_each_record-000").appendChild(clone);
+                                document.querySelector("#Category_dropDown_for_each_record-000").appendChild(clone);
                                 }
                                 var select_dropdown = $("#Category_dropDown_for_each_record-000");
                                 select_dropdown.removeAttr('id');
+                                print(pid);
                                 select_dropdown.attr('id', "#Category_dropDown_for_each_record-" + pid);
                             }
 
