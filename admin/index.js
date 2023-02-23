@@ -117,6 +117,7 @@ function load_productsCard_by_cid(){
                 $(".product_record").remove();
                 console.log("1");
                 var options = document.getElementById('Category_dropDown').children;
+                var select = document.querySelector("#Category_dropDown_for_each_record-000");
                     for (var record of p_res[0]){
                             var cid = record["CID"];
                             var Cname = record["CATEGORY_NAME"];
@@ -126,7 +127,15 @@ function load_productsCard_by_cid(){
                             var inv = record["INVENTORY"];
                             var description= record["DESCRIPTION"];
                             RenderElementAfter("#product_input", "./Snippet_admin/product_card_admin.html");
-                            document.querySelector("#Category_dropDown_for_each_record-000").innerHTML = options 
+                            for (option of options){
+                                select.appendChild(option)
+                                if (option.value == cid){
+                                    option.setAttribute("selected", true);
+                                }
+                            }
+                            var select_dropdown = $("#Category_dropDown_for_each_record-000");
+                            select_dropdown.removeAttr('id');
+                            select_dropdown.Attr('id', ("#Category_dropDown_for_each_record-" + pid));
                     }
             }
         );
