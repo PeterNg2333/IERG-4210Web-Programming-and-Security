@@ -127,10 +127,10 @@ function load_productsCard_by_cid(){
                             var description= record["DESCRIPTION"];
                             RenderElementAfter("#product_input", "./Snippet_admin/product_card_admin.html");
                             var select = document.querySelector("#Category_dropDown_for_each_record-000");
-                            for (option of options){
-                                select.appendChild(option);
-                                if (option.value == cid){
-                                    option.setAttribute("selected", true);
+                            for (var i = 0; i < options.length; i++){
+                                select.appendChild(options[i]);
+                                if (option[i].value == cid){
+                                    option[i].setAttribute("selected", true);
                                 }
                             }
                             var select_dropdown = $("#Category_dropDown_for_each_record-000");
