@@ -187,8 +187,9 @@ function ierg4210_prod_delete(){
     $db = ierg4210_DB();
     $q = $db->prepare("DELETE FROM products where PID = ?;");
     $q->bindParam(1, $pid);
-
-    if ($q->execute()){
+    $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" . $pid . ".jpg";
+    if (($q->execute()) && (file_exists($filePath))){
+        unlink($filePath);
         header("Content-Type: application/json");
         $result = array("status" => "Success");
         echo json_encode($result);
