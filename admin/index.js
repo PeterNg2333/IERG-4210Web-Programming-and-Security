@@ -197,9 +197,10 @@ function change_image_for_productCard(e){
     print(text_array[1]);
     print (e.target);
     var reader = new FileReader();
-    var image_id = "#" +  "image_uploaded-" + text_array[1];
+    var image_id = "#" +  "image_uploaded-" + text_array[1] + "+ div";
     reader.onload = function () {
         $(image_id).attr('src', e.target.result);
+        print($(image_id))
         print( e.target.result);
         $(image_id).attr('alt', e.target.files[0].name);
         print(e.target.files[0].name)
