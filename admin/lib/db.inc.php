@@ -147,31 +147,31 @@ function ierg4210_cat_delete(){
     if (!preg_match('/^[\d]+$/', $_POST['CID']))
     throw new Exception("invalid-id");
 
-    // DB manipulation
-    global $db;
-    $db = ierg4210_DB();
-    $CID = $_POST["CID"];
+    // // DB manipulation
+    // global $db;
+    // $db = ierg4210_DB();
+    // $CID = $_POST["CID"];
 
-    $q_get_product = $db->prepare("SELECT PID FROM PRODUCTS LEFT JOIN CATEGORIES USING(CID) WHERE CID = ? LIMIT 100;");
-    $q_get_product ->bindParam(1, $CID);
-    if ($q_get_product->execute()){
-        $product_array = array($q_get_product->fetchAll());
-        $q_delete_product = $db->prepare("DROP FROM PRODUCTS WHERE CID = ?;");
-        $q_delete_product ->bindParam(1, $CID);
-        if ($q_delete_product->execute()){
-            foreach ($product_array as $value){
-                $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" .$value["PID"]. ".jpg";
-                unlink($filePath);
-            }
-        $q = $db->prepare("DROP FROM CATEGORIES WHERE CID = ?;");
-        $q->bindParam(1, $CID);
-        if (($q->execute())){
-            $result = array("status" => "Success");
-            echo json_encode($result);
-            exit();
-            };
-        }
-    }
+    // $q_get_product = $db->prepare("SELECT PID FROM PRODUCTS LEFT JOIN CATEGORIES USING(CID) WHERE CID = ? LIMIT 100;");
+    // $q_get_product ->bindParam(1, $CID);
+    // if ($q_get_product->execute()){
+    //     $product_array = array($q_get_product->fetchAll());
+    //     $q_delete_product = $db->prepare("DROP FROM PRODUCTS WHERE CID = ?;");
+    //     $q_delete_product ->bindParam(1, $CID);
+    //     if ($q_delete_product->execute()){
+    //         foreach ($product_array as $value){
+    //             $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" .$value["PID"]. ".jpg";
+    //             unlink($filePath);
+    //         }
+    //     $q = $db->prepare("DROP FROM CATEGORIES WHERE CID = ?;");
+    //     $q->bindParam(1, $CID);
+    //     if (($q->execute())){
+    //         $result = array("status" => "Success");
+    //         echo json_encode($result);
+    //         exit();
+    //         };
+    //     }
+    // }
     header("Content-Type: application/json");
     $result = array("status" => "Failed");
     echo json_encode($result);
