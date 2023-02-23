@@ -32,7 +32,7 @@ foreach ($res_cat_fetchall as $value){
         <div id="preloader" class="container">
             <div id="loadingImg" class="row">
                 <img src="../Resource/AdminPage_loading.gif"/>
-                <h5> Admin Panel Loading...... 1.6</h5>
+                <h5> Admin Panel Loading...... 1.7</h5>
             </div>
         </div>
         <!-- Header -->

@@ -87,8 +87,9 @@ function edit_category(){
 }
 
 function change_category(){
-    var selectement = document.getElementById('Category_dropDown').value;
-    document.getElementById('cid_input').value = selectement;
+    var selectement = document.getElementById('Category_dropDown');
+    document.getElementById('cid_input').value = selectement.value;
+    document.getElementById('cid_display_name').value = selectement.name;
     // alert(document.getElementById('cid_input').value);
     load_products_by_cid();
 }
