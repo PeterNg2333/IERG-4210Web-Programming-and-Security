@@ -200,7 +200,7 @@ function change_image_for_productCard(e){
     var image_id = "#" +  "image_uploaded-" + text_array[1];
     $(image_id).removeAttr('src');
     $(image_id).removeAttr('alt');
-    reader.onload = function () {
+    reader.onload = function (e) {
         $(image_id).attr('src', e.target.result);
         $(image_id).attr('alt', e.target.files[0].name);
      }
@@ -208,11 +208,4 @@ function change_image_for_productCard(e){
 }
 
 
-var reader = new FileReader();
-var input = document.querySelector("#product_image");
-reader.onload = function (e) {
-    $("#image_uploaded_display_section").removeClass("d-none");
-    $("#image_display").attr('src', e.target.result);
-    $("#image_display").attr('alt', input.files[0].name);
- }
-reader.readAsDataURL(input.files[0]);
+
