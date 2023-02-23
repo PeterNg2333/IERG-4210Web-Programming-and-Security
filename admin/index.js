@@ -203,7 +203,5 @@ function change_image_for_productCard(e){
         $("#image_display").attr('src', e.target.result);
         $("#image_display").attr('alt', e.target.files[0].name);
      }
-    reader.readAsDataURL(input.files[0]);
-    // image.src = uploaded_image.files;
-    
+    reader.readAsDataURL(e.target.files[0]);
 }
