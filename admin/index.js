@@ -9,7 +9,7 @@ $(window).on("load", function() {
         $("#main").removeClass("d-none");
         // RenderElement("#header", "./Snippet_admin/header_admin.html");
         // RenderElement("#main", "./Snippet_admin/main_admin.html");
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 4; i++) {
             RenderElementAfter("#product_input", "./Snippet_admin/product_card_admin.html");
           }
         var selectElement = document.getElementById('Category_dropDown');
@@ -114,17 +114,19 @@ function load_productsCard_by_cid(){
     $.post("admin-process.php?action=prod_fetchAll_by_cid", 
             {CID: selectement},
             function(output){
-                console.log(output[1]);
                 $(".product_record").remove();
-                for (var record of output[0]){
-                        var cid = record["CID"];
-                        var Cname = record["CATEGORY_NAME"];
-                        var pid = record["PID"];
-                        var Pname = record["PRODUCT_NAME"];
-                        var price = record["PRICE"];
-                        var inv = record["INVENTORY"];
-                        var description= record["DESCRIPTION"];
-                }
+                $.post("admin-process.php?action=prod_fetchAll_by_cid", function(res){
+                    console.log(res);
+                    for (var record of output[0]){
+                            var cid = record["CID"];
+                            var Cname = record["CATEGORY_NAME"];
+                            var pid = record["PID"];
+                            var Pname = record["PRODUCT_NAME"];
+                            var price = record["PRICE"];
+                            var inv = record["INVENTORY"];
+                            var description= record["DESCRIPTION"];
+                    }
+                });
             }
         );
 }
