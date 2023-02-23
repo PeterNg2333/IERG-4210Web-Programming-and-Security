@@ -6,8 +6,6 @@ $options = '';
 foreach ($res_cat_fetchall as $value){
     $options .= '<option value="'.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </option>';
 }
-
-
 ?>
 
 
