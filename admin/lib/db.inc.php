@@ -196,27 +196,27 @@ function ierg4210_prod_edit(){
             throw new Exception("invalid-id");
     
         /////////////////////////////////////////////
-        $sql="UPDATE PRODUCTS SET cid = ?, product_name = ?, inventory = ?, price =?, description = ? Where pid = ?;";
-        $q = $db->prepare($sql);
+        // $sql="UPDATE PRODUCTS SET cid = ?, product_name = ?, inventory = ?, price =?, description = ? Where pid = ?;";
+        // $q = $db->prepare($sql);
     
-            $cid = $_POST["cid"];
-            $name = $_POST["name"];
-            $price = $_POST["price"];
-            $desc = $_POST["description"];
-            $inv = $_POST["inventory"];
-            $pid = $_POST["pid"];
+        //     $cid = $_POST["cid"];
+        //     $name = $_POST["name"];
+        //     $price = $_POST["price"];
+        //     $desc = $_POST["description"];
+        //     $inv = $_POST["inventory"];
+        //     $pid = $_POST["pid"];
     
-            $sql="UPDATE PRODUCTS SET cid = ?, product_name = ?, inventory = ?, price =?, description = ? Where pid = ?;";
-            $q = $db->prepare($sql);
-            $q->bindParam(1, $cid);
-            $q->bindParam(2, $name);
-            $q->bindParam(3, $inv);
-            $q->bindParam(4, $price);
-            $q->bindParam(5, $desc);
-            $q->bindParam(6, $pid);
+        //     $sql="UPDATE PRODUCTS SET cid = ?, product_name = ?, inventory = ?, price =?, description = ? Where pid = ?;";
+        //     $q = $db->prepare($sql);
+        //     $q->bindParam(1, $cid);
+        //     $q->bindParam(2, $name);
+        //     $q->bindParam(3, $inv);
+        //     $q->bindParam(4, $price);
+        //     $q->bindParam(5, $desc);
+        //     $q->bindParam(6, $pid);
 
-            $q->execute();
-            $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" . $pid . ".jpg";
+        //     $q->execute();
+        //     $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" . $pid . ".jpg";
     
 
             // // Copy the uploaded file to a folder which can be publicly accessible at incl/img/[pid].jpg
