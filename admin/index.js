@@ -23,7 +23,7 @@ $(window).on("load", function() {
         document.querySelector("#product_image").addEventListener("change", change_image);
         document.getElementById('cid_input').value = document.getElementById('Category_dropDown').value;
 
-        load_products_by_cid();
+        load_productsCard_by_cid()
         change_category();
     }, 1200);
 });
