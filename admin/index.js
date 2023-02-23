@@ -213,7 +213,7 @@ function change_image_for_productCard(e){
 
 function delete_product(e){
     var text_array = e.target.id.split("-")
-    var temp_id  = text_array[1].trim();
+    var temp_id  = text_array[1];
     $.post("admin-process.php?action=cat_insert", 
         {pid: temp_id},
         function(json){
