@@ -230,7 +230,8 @@ function delete_product(e){
 }
 
 function enable_modify(e){
-    var temp_id = "#P-" + e.target.id
+    var text_array = e.target.id.split("-");
+    var temp_id = "#P-" + text_array[1];
     print (temp_id)
     var nodeArray = document.querySelectorAll(temp_id + " .product_input")
     print (nodeArray);
@@ -238,8 +239,8 @@ function enable_modify(e){
         element.removeAttribute("disabled");
         print(element);
     });
-    // document.querySelector(temp_id + " #create_button").classList.remove("btn-secondary");
-    // document.querySelector(temp_id + " #create_button").classList.add("btn-success");
+    document.querySelector(temp_id + " #create_button").classList.remove("btn-secondary");
+    document.querySelector(temp_id + " #create_button").classList.add("btn-success");
 
 }
 
