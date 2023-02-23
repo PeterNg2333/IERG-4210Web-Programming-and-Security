@@ -3,7 +3,7 @@ function ierg4210_get_image(){
     if (empty($_REQUEST['imageName']) || !preg_match('/^\w+$/', $_REQUEST['imageName'])) {
         $image_name = $_REQUEST['imageName'];
         echo "found".$image_name ;
-        $file_url = "/var/www/html/admin/lib/images/P" . $lastId . ".jpg";
+        $file_url = "/var/www/html/admin/lib/images/P" . $image_name . ".jpg";
         if (file_exists($file_url )){
             $size = getimagesize($file_url);
             $fileOpen = fopen($file_url, 'rb');
