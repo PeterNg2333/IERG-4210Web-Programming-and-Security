@@ -124,6 +124,7 @@ function load_productsCard_by_cid(){
                         var price = record["PRICE"];
                         var inv = record["INVENTORY"];
                         var description= record["DESCRIPTION"];
+                        print(record);
                         RenderElementAfter("#product_input"
                             , "./Snippet_admin/product_card_admin.html"
                             , function(){
@@ -134,8 +135,8 @@ function load_productsCard_by_cid(){
                                 if (clone.value == cid){
                                     clone.setAttribute("selected", true);
                                 }
-                                    print(clone);
-                                    print(document.querySelector("#Category_dropDown_for_each_record-000"));
+                                    // print(clone);
+                                    // print(document.querySelector("#Category_dropDown_for_each_record-000"));
                                     document.querySelector("#Category_dropDown_for_each_record-000").appendChild(clone);
                                 }
                                 var select_dropdown = $("#Category_dropDown_for_each_record-000");
