@@ -5,9 +5,11 @@ function RenderElement(className, HTMLText_Url){
    });
 }
 
-function RenderElementAfter(className, HTMLText_Url){
+function RenderElementAfter(className, HTMLText_Url, callback_function=null){
     $.get(HTMLText_Url, function (html_text) {
         $(className).after(html_text);
+        if (callback_function)
+            callback_function();
    });
 }
 

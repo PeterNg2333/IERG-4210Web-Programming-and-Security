@@ -117,26 +117,31 @@ function load_productsCard_by_cid(){
                 $(".product_record").remove();
                 console.log("1");
                     for (var record of p_res[0]){
-                            var cid = record["CID"];
-                            var Cname = record["CATEGORY_NAME"];
-                            var pid = record["PID"];
-                            var Pname = record["PRODUCT_NAME"];
-                            var price = record["PRICE"];
-                            var inv = record["INVENTORY"];
-                            var description= record["DESCRIPTION"];
-                            RenderElementAfter("#product_input", "./Snippet_admin/product_card_admin.html");
+                        var cid = record["CID"];
+                        var Cname = record["CATEGORY_NAME"];
+                        var pid = record["PID"];
+                        var Pname = record["PRODUCT_NAME"];
+                        var price = record["PRICE"];
+                        var inv = record["INVENTORY"];
+                        var description= record["DESCRIPTION"];
+                        RenderElementAfter("#product_input"
+                            , "./Snippet_admin/product_card_admin.html"
+                            , function(){
                             var options = document.getElementById('Category_dropDown').children;
                             for (var i = 0; i < options.length; i++){
                                 var clone = options[i].cloneNode(true)
                                 if (clone.value == cid){
                                     clone.setAttribute("selected", true);
                                 }
-                                print(clone);
-                                document.querySelector("#Category_dropDown_for_each_record-000").appendChild(clone);
+                                    print(clone);
+                                    print(document.querySelector("#Category_dropDown_for_each_record-000"));
+                                    document.querySelector("#Category_dropDown_for_each_record-000").appendChild(clone);
+                                }
+                                var select_dropdown = $("#Category_dropDown_for_each_record-000");
+                                select_dropdown.removeAttr('id');
+                                select_dropdown.Attr('id', ("#Category_dropDown_for_each_record-" + pid));
                             }
-                            var select_dropdown = $("#Category_dropDown_for_each_record-000");
-                            select_dropdown.removeAttr('id');
-                            select_dropdown.Attr('id', ("#Category_dropDown_for_each_record-" + pid));
+                        );
                     }
             }
         );
