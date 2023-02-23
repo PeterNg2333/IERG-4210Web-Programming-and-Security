@@ -142,11 +142,10 @@ function dragLeaveHandler(e){
 }
 function dropHandler(e){
     var temp_id = e.target.id;
-
-    
     var input = document.querySelector("#" + temp_id).parentNode.children[0];
     input.files = e.dataTransfer.files;
     print(temp_id)
+    print( input.files[0])
     // print("datatranfer");
     // print(e.dataTransfer.files);
     // print("")
