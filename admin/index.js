@@ -113,11 +113,11 @@ function load_productsCard_by_cid(){
     var selectement = document.getElementById('Category_dropDown').value;
     $.post("admin-process.php?action=prod_fetchAll_by_cid", 
             {CID: selectement},
-            function(output){
+            function(p_res){
                 $(".product_record").remove();
-                $.post("admin-process.php?action=prod_fetchAll_by_cid", function(res){
-                    console.log(res);
-                    for (var record of output[0]){
+                $.post("admin-process.php?action=cat_fetchall", function(c_res){
+                    console.log(c_res);
+                    for (var record of p_res[0]){
                             var cid = record["CID"];
                             var Cname = record["CATEGORY_NAME"];
                             var pid = record["PID"];
