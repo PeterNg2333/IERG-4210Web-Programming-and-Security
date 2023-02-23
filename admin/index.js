@@ -149,8 +149,13 @@ function dropHandler(e){
     print(file);
     var input = document.querySelector("#product_image");
     input.files[0] = file;
-    print (input.files[0]);
 
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $("#image_display").attr('src', e.target.result);
+        $("#image_display").attr('alt', file.name);
+     }
+    reader.readAsDataURL(file);
     $("#"+ temp_id + " p").removeClass("invisible");
     $("#"+ temp_id + " img").removeClass("invisible");
 }
