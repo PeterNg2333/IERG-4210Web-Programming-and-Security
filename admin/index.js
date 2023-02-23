@@ -150,6 +150,10 @@ function dropHandler(e){
     // 
     document.querySelector('#product_image').files = e.dataTransfer.files;
     var input = document.querySelector("#product_image");
+    print("datatranfer");
+    print(e.dataTransfer.files);
+    print("")
+    print("input_file")
     print(input.files[0]);
 
     var reader = new FileReader();
