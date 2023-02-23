@@ -147,9 +147,18 @@ function dropHandler(e){
     document.querySelector("#image_uploaded_display_section").parentNode.children[0].files[0] = file;
     print(document.querySelector("#image_uploaded_display_section").parentNode.children[0].files[0]);
     print(file);
+
+    var reader = new FileReader();
+    var input = document.querySelector("#product_image");
+    reader.onload = function (e) {
+        $("#image_uploaded_display_section p").removeClass("invisible");
+        $("#image_uploaded_display_section img").removeClass("invisible");
+        $("#image_display").attr('src', e.target.result);
+        $("#image_display").attr('alt', document.querySelector("#image_uploaded_display_section").parentNode.children[0].files[0].name);
+     }
+    reader.readAsDataURL(document.querySelector("#image_uploaded_display_section").parentNode.children[0].files[0]);
+
     e.preventDefault();
-    change_image();
-    change_image_for_productCard();
 }
 
 function load_productsCard_by_cid(){
