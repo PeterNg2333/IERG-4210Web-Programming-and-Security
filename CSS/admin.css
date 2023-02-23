@@ -73,8 +73,6 @@ body {
 }
 
 #drag_and_drop{
-    height: 65px;
-    width: 65px;
     margin-top: 4px;
     border:1px dashed #000;
 }
