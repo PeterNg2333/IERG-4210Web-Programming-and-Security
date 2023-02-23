@@ -124,7 +124,7 @@ function load_productsCard_by_cid(){
                         var Pname = record["PRODUCT_NAME"];
                         var price = record["PRICE"];
                         var inv = record["INVENTORY"];
-                        var description= record["DESCRIPTION"];
+                        var description = record["DESCRIPTION"];
                         print(record);
                         RenderElementAfter("#product_input"
                             , "./Snippet_admin/product_card_admin.html"
@@ -142,20 +142,37 @@ function load_productsCard_by_cid(){
                                 }
                                 var select_dropdown = $("#Category_dropDown_for_each_record-000");
                                 select_dropdown.removeAttr('id');
-                                print(pid);
-                                select_dropdown.attr('id', "#Category_dropDown_for_each_record-" + pid);
-                            }
+                                select_dropdown.attr('id', "Category_dropDown_for_each_record-" + pid);
+                            
 
                             // list item id
-                            
-                            // Name
-                            // PID
+                            var list_item = $("#P-000");
+                            list_item.removeAttr('id')
+                            list_item.attr('id', "P-" + pid);
                             // Product Name
+                            var product_name = $("#product_name-000");
+                            product_name.value = Pname;
+                            product_name.removeAttr('id')
+                            product_name.attr('id', "product_name-" + pid);
                             // Price
+                            var product_price = $("#product_price-000");
+                            product_price.value = price;
+                            product_price.removeAttr('id')
+                            product_price.attr('id', "product_price-" + pid);
                             // Inventory
+                            var product_inv = $("#product_inv-000");
+                            product_inv.value = inv;
+                            product_inv.removeAttr('id')
+                            product_inv.attr('id', "product_inv-" + pid);
                             // Description
+                            var product_description = $("#description-000");
+                            product_description.value = description;
+                            product_description.removeAttr('id')
+                            product_description.attr('id', "description-" + pid);
+                            // Image
                             // Event
-                        );
+                        }
+                    );
                 });
             }
         );
