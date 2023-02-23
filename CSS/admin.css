@@ -72,14 +72,24 @@ body {
     border: 1px solid;
 }
 
-#drag_and_drop{
+.drag_and_drop{
     margin-top: 4px;
     border:1px dashed #000;
+    background-image: url(../Resource/drag_and_drop.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
 }
 
 #drag_and_dropFile{
     margin-top: 4px;
     border:1px dashed #000;
+    background-image: url(../Resource/drag_and_drop.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
 }
 
 
