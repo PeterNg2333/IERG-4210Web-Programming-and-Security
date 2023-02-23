@@ -196,7 +196,7 @@ function ierg4210_prod_edit(){
             throw new Exception("invalid-id");
     
         /////////////////////////////////////////////
-        $sql="UPDATE SET cid = ?, product_name = ?, inventory = ?, price =?, description = ? Where pid = ?;";
+        $sql="UPDATE PRODUCTS SET cid = ?, product_name = ?, inventory = ?, price =?, description = ? Where pid = ?;";
         $q = $db->prepare($sql);
     
             $cid = $_POST["cid"];
@@ -206,7 +206,7 @@ function ierg4210_prod_edit(){
             $inv = $_POST["inventory"];
             $pid = $_POST["pid"];
     
-            $sql="UPDATE SET cid = ?, product_name = ?, inventory = ?, price =?, description = ? Where pid = ?;";
+            $sql="UPDATE PRODUCTS SET cid = ?, product_name = ?, inventory = ?, price =?, description = ? Where pid = ?;";
             $q = $db->prepare($sql);
             $q->bindParam(1, $cid);
             $q->bindParam(2, $name);
