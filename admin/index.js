@@ -184,7 +184,7 @@ function load_productsCard_by_cid(){
 
                             // Event
 
-                            document.querySelector("#"+ image_input_url).addEventListener("change", change_image_for_productCard(e))
+                            document.querySelector("#"+ image_input_url).addEventListener("change", change_image_for_productCard())
                         }
                     );
                 });
