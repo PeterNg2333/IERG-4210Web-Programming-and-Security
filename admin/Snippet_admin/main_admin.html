@@ -30,7 +30,7 @@
 <section class="row mb-1 mt-5 ms-5">
     <!-- Category-->
     <form class="col-8">
-        <label for="Category_dropDown">Current category: </label>
+        <label for="Category_dropDown">Show & Create By: </label>
         <select id="Category_dropDown" class="text-primary">
             <!--?PHP--> %category_options% <!--?PHP--> 
         </select>
@@ -72,11 +72,9 @@
         <!-- Empty List-->
         <il id="product_input" class=" mb-2">
             <form class="form-group row" id="prod_insert" method="POST" action="admin-process.php?action=prod_insert" enctype="multipart/form-data">
-                <div>
-                    <input class="product_insert"  id="cid_input" name="cid" type="hidden">
-                </div>
                 <div class="col-2">
                     <input class="product_insert" id="product_name" name="name" type="text" placeholder="Name" pattern="^[\w\-]+$"/>
+                    <input class="product_insert"  id="cid_input" name="cid" type="input" disabled/>
                 </div>
                 <div class="col-2">
                     <input class="product_insert" id="product_price" name="price" type="number"  placeholder="Price $" pattern="^[\d\.]+$"/>
