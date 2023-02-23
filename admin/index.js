@@ -121,7 +121,6 @@ function change_category(){
 function change_image(){
     var reader = new FileReader();
     var input = document.querySelector("#product_image");
-    print(input.files[0]);
     reader.onload = function (e) {
         $("#image_uploaded_display_section p").removeClass("invisible");
         $("#image_uploaded_display_section img").removeClass("invisible");
@@ -143,13 +142,8 @@ function dragLeaveHandler(e){
 }
 function dropHandler(e){
     var temp_id = e.target.id;
-    // var dt = e.dataTransfer
-    // var file = dt.files[0]
-    
-    // print(file);
-    // 
     document.querySelector('#product_image').files = e.dataTransfer.files;
-    var input = document.querySelector("#product_image");
+    var input = document.querySelector("#image_uploaded_display_section").parentNode.children[0];
     print("datatranfer");
     print(e.dataTransfer.files);
     print("")
@@ -158,10 +152,8 @@ function dropHandler(e){
 
     var reader = new FileReader();
     reader.onload = function (e) {
-        $("#image_display").attr('src', e.target.result);
-        // print(e.target.result);
-        // print(file.name);
-        $("#image_display").attr('alt', input.files[0].name);
+        $("#" + input.id).attr('src', e.target.result);
+        $("#" + input.id).attr('alt', input.files[0].name);
      }
     reader.readAsDataURL(input.files[0]);
     $("#"+ temp_id + " p").removeClass("invisible");
