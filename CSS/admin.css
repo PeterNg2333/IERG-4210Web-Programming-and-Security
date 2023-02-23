@@ -72,6 +72,10 @@ body {
     border: 1px solid;
 }
 
+#list_of_record {
+    max-height: 500px;
+}
+
 
 
 
