@@ -116,7 +116,8 @@ function load_productsCard_by_cid(){
             function(p_res){
                 $(".product_record").remove();
                 console.log("1");
-                    for (var record of p_res[0]){
+                    var res_array = p_res[0].length
+                    res_array.forEach(function(record, i){
                         var cid = record["CID"];
                         // var Cname = record["CATEGORY_NAME"];
                         var pid = record["PID"];
@@ -155,7 +156,7 @@ function load_productsCard_by_cid(){
                             // Description
                             // Event
                         );
-                    }
+                });
             }
         );
 }
