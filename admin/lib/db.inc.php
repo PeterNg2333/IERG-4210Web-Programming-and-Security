@@ -10,9 +10,13 @@ function ierg4210_get_image(){
             header('Content-Type: '.$size['mime']);
             header('Content-Length: '.filesize($file_url));
             fpassthru($$fileOpen);
+            exit();
         }
-        exit();
     }
+    header('Content-Type: text/html; charset=utf-8');
+    echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
+    exit();
+
 }
 
 function ierg4210_DB() {
