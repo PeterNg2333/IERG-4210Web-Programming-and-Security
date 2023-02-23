@@ -1,4 +1,24 @@
 <?php
+function ierg4210_DB() {
+	// connect to the database
+	// TODO: change the following path if needed
+	// Warning: NEVER put your db in a publicly accessible location
+	$db = new PDO('sqlite:/var/www/cart.db');
+
+	// enable foreign key support
+	$db->query('PRAGMA foreign_keys = ON;');
+
+	// FETCH_ASSOC:
+	// Specifies that the fetch method shall return each row as an
+	// array indexed by column name as returned in the corresponding
+	// result set. If the result set contains multiple columns with
+	// the same name, PDO::FETCH_ASSOC returns only a single value
+	// per column name.
+	$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+	return $db;
+}
+
 function ierg4210_get_image(){
     if (empty($_REQUEST['imageName']) || !preg_match('/^\w+$/', $_REQUEST['imageName'])) {
         echo json_encode(array('failed'=>'undefined'));
@@ -22,28 +42,6 @@ function ierg4210_get_image(){
     echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
     exit();
     }
-
-
-}
-
-function ierg4210_DB() {
-	// connect to the database
-	// TODO: change the following path if needed
-	// Warning: NEVER put your db in a publicly accessible location
-	$db = new PDO('sqlite:/var/www/cart.db');
-
-	// enable foreign key support
-	$db->query('PRAGMA foreign_keys = ON;');
-
-	// FETCH_ASSOC:
-	// Specifies that the fetch method shall return each row as an
-	// array indexed by column name as returned in the corresponding
-	// result set. If the result set contains multiple columns with
-	// the same name, PDO::FETCH_ASSOC returns only a single value
-	// per column name.
-	$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
-	return $db;
 }
 
 function ierg4210_cat_fetchall() {
