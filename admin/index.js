@@ -231,6 +231,7 @@ function delete_product(e){
 
 function enable_modify(e){
     var temp_id = "#P-" + e.target.id
+    print (temp_id)
     var nodeArray = document.querySelectorAll(temp_id + " .product_input")
     print (nodeArray);
     nodeArray.forEach(element => {
