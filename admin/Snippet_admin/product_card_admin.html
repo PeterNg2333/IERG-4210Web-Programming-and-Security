@@ -19,7 +19,7 @@
             <textarea id="product_desc-000" class="product_input" name="description" type="textarea" cols="35" rows="4" placeholder="" disabled pattern="^[\w\-\.\,\ ]+$"></textarea>
         </div>
         <div class="col-2 border-0">
-            <input class="product_image_input" id="image_input-000" name="file" type="file" accept="image/jpeg">
+            <input class="product_image_input" id="image_input-000" name="file" type="file" accept="image/jpeg" disabled>
             <div class="image_uploaded_display">
                 <img class="image_uploaded_display" id="image_uploaded-000">
             </div>
@@ -28,7 +28,7 @@
             <!-- <button type="button" class="btn btn-success btn-sm mb-1 ms-1 nav-item">
                 <i class="fa-sharp fa-regular fa-pen-to-square"></i>
             </button> -->
-            <button type="submit" class="btn btn-secondary btn-sm mb-1 ms-1 nav-item product_input" disabled>
+            <input type="submit" id="create_button" class="btn btn-secondary btn-sm mb-1 ms-1 nav-item product_input" disabled/>
                 <i class="fa-regular fa-floppy-disk"></i>
             </button>
             <button type="button" id="delete_button-000" class="btn btn-danger btn-sm mb-1 ms-1 nav-item">

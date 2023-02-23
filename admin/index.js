@@ -191,7 +191,7 @@ function load_productsCard_by_cid(){
                             // Event
                             document.querySelector("#"+ "delete_button-" + pid).addEventListener("click", delete_product)
                             document.querySelector("#"+ image_input_url).addEventListener("change", change_image_for_productCard)
-                            document.querySelector("#" + "P-" + pid).addEventListener("change", enable_modify)
+                            document.querySelector("#" + "P-" + pid).addEventListener("click", enable_modify)
                         }
                     );
                 });
@@ -231,6 +231,12 @@ function delete_product(e){
 
 function enable_modify(e){
     var temp_id = "#" + e.target.id
-    document.querySelectorAll(temp_id + " div")
+    var nodeArray = document.querySelectorAll(temp_id + " .product_input")
+    nodeArray.forEach(element => {
+        element.removeAttribute("disabled");
+    });
+    document.querySelectorAll(temp_id + " #create_button").classList.remove("btn-secondary");
+    document.querySelectorAll(temp_id + " #create_button").classList.add("btn-success");
+
 }
 
