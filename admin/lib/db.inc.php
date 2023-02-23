@@ -41,8 +41,6 @@ function ierg4210_get_image(){
 }
     
     
-    
-
 //     try {
 //         $image_name = $_REQUEST['imageName'];
 //         echo "found";
@@ -60,7 +58,6 @@ function ierg4210_get_image(){
 //     echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
 //     exit();
 //     }
-}
 
 function ierg4210_cat_fetchall() {
     // DB manipulation
