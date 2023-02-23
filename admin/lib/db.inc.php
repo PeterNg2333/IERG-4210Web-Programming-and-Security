@@ -197,6 +197,7 @@ function ierg4210_prod_edit(){
         /////////////////////////////////////////////
         $sql="UPDATE PRODUCTS SET cid = ?, product_name = ?, inventory = ?, price =?, description = ? Where pid = ?;";
         $q = $db->prepare($sql);
+
     
             $cid = $_POST["cid"];
             $name = $_POST["name"];
@@ -214,7 +215,10 @@ function ierg4210_prod_edit(){
             $q->bindParam(5, $desc);
             $q->bindParam(6, $pid);
 
-            $q->execute();
+            if($q->execute()) {
+                header('Location: admin.php');
+                exit();
+            }
             $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" . $pid . ".jpg";
     
 
