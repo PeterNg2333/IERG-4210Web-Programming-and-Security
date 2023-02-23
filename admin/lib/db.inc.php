@@ -215,36 +215,36 @@ function ierg4210_prod_edit(){
             $q->bindParam(5, $desc);
             $q->bindParam(6, $pid);
 
-            // $q->execute();
+            $q->execute();
             $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" . $pid . ".jpg";
     
 
-            // Copy the uploaded file to a folder which can be publicly accessible at incl/img/[pid].jpg
-            if ($_FILES["file"]["error"] == 0
-                && $_FILES["file"]["type"] == "image/jpeg" 
-                    || $_FILES["file"]["type"] == "image/png" 
-                    || $_FILES["file"]["type"] == "image/jpg"
-                && mime_content_type($_FILES["file"]["tmp_name"]) == "image/jpeg" 
-                    || mime_content_type($_FILES["file"]["tmp_name"]) == "image/png" 
-                    || mime_content_type($_FILES["file"]["tmp_name"]) == "image/jpg" 
-                && $_FILES["file"]["size"] < 5000000) 
+            // // Copy the uploaded file to a folder which can be publicly accessible at incl/img/[pid].jpg
+            // if ($_FILES["file"]["error"] == 0
+            //     && $_FILES["file"]["type"] == "image/jpeg" 
+            //         || $_FILES["file"]["type"] == "image/png" 
+            //         || $_FILES["file"]["type"] == "image/jpg"
+            //     && mime_content_type($_FILES["file"]["tmp_name"]) == "image/jpeg" 
+            //         || mime_content_type($_FILES["file"]["tmp_name"]) == "image/png" 
+            //         || mime_content_type($_FILES["file"]["tmp_name"]) == "image/jpg" 
+            //     && $_FILES["file"]["size"] < 5000000) 
 
-            {
-            // Note: Take care of the permission of destination folder (hints: current user is apache)
-                if (($q->execute()) && (file_exists($filePath))){
-                    unlink($filePath);
-                };
-                $uploadResult = move_uploaded_file($_FILES["file"]["tmp_name"], $filePath);
-                if ($uploadResult) {
-                    // redirect back to original page; you may comment it during debug
-                    header('Location: admin.php');
-                    exit();
-                }
-            } 
-            else if($q->execute()) {
-                header('Location: admin.php');
-                exit();
-            }
+            // {
+            // // Note: Take care of the permission of destination folder (hints: current user is apache)
+            //     if (($q->execute()) && (file_exists($filePath))){
+            //         unlink($filePath);
+            //     };
+            //     $uploadResult = move_uploaded_file($_FILES["file"]["tmp_name"], $filePath);
+            //     if ($uploadResult) {
+            //         // redirect back to original page; you may comment it during debug
+            //         header('Location: admin.php');
+            //         exit();
+            //     }
+            // } 
+            // else if($q->execute()) {
+            //     header('Location: admin.php');
+            //     exit();
+            // }
         header('Content-Type: text/html; charset=utf-8');
         echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
         exit();
