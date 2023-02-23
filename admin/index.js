@@ -134,24 +134,20 @@ function change_image(){
 }
 
 function dragEnterHandler(e){
-    var text_array = e.target.id.split("-");
-    var temp_id = text_array[1];
+    var temp_id = e.target.id;
     print("dragEnder" + temp_id);
 }
 function dragLeaveHandler(e){
-    var text_array = e.target.id.split("-");
-    var temp_id = text_array[1];
+    var temp_id = e.target.id;
     print("dragLeave" + temp_id);
 }
 function dragOverHandler(e){
-    var text_array = e.target.id.split("-");
-    var temp_id = text_array[1];
-    alert("dragOver" + temp_id);
+    var temp_id = e.target.id;
+    print("dragOver" + temp_id);
 }
 function dropHandler(e){
-    var text_array = e.target.id.split("-");
-    var temp_id = text_array[1];
-    alert("drop" + temp_id);
+    var temp_id = e.target.id;
+    print("drop" + temp_id);
 }
 
 function load_productsCard_by_cid(){

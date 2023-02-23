@@ -17,3 +17,8 @@ function RenderElementAfter(className, HTMLText_Url, callback_function=null){
 function print(textToBePrinted){
     console.log(textToBePrinted);
 };
+
+
+function getid(event){
+    return
+};
