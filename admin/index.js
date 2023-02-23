@@ -116,10 +116,7 @@ function load_productsCard_by_cid(){
             function(p_res){
                 $(".product_record").remove();
                 console.log("1");
-                $.get("admin-process.php?action=cat_fetchall", function(c_res){
-                    console.log("2");
-                    console.log(typeof c_res);
-                    console.log(c_res[0]);
+                var options = document.getElementById('Category_dropDown').children;
                     for (var record of p_res[0]){
                             var cid = record["CID"];
                             var Cname = record["CATEGORY_NAME"];
@@ -128,8 +125,9 @@ function load_productsCard_by_cid(){
                             var price = record["PRICE"];
                             var inv = record["INVENTORY"];
                             var description= record["DESCRIPTION"];
+                            RenderElementAfter("#product_input", "./Snippet_admin/product_card_admin.html");
+                            document.querySelector("#Category_dropDown_for_each_record-000").innerHTML = options 
                     }
-                });
             }
         );
 }
