@@ -9,7 +9,7 @@ $(window).on("load", function() {
         $("#main").removeClass("d-none");
         // RenderElement("#header", "./Snippet_admin/header_admin.html");
         // RenderElement("#main", "./Snippet_admin/main_admin.html");
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 5; i++) {
             RenderElementAfter("#product_input", "./Snippet_admin/product_card_admin.html");
           }
         var selectElement = document.getElementById('Category_dropDown');
@@ -114,15 +114,15 @@ function load_productsCard_by_cid(){
             {CID: selectement},
             function(output){
                 console.log(output[1]);
-                
+                $(".product_record").remove();
                 for (var record of output[0]){
-                        console.log(record["CID"]);
-                        console.log(record["CATEGORY_NAME"]);
-                        console.log(record["PID"]);
-                        console.log(record["PRODUCT_NAME"]);
-                        console.log(record["PRICE"]);
-                        console.log(record["INVENTORY"]);
-                        console.log(record["DESCRIPTION"]);
+                        var cid = record["CID"];
+                        var Cname = record["CATEGORY_NAME"];
+                        var pid = record["PID"];
+                        var Pname = record["PRODUCT_NAME"];
+                        var price = record["PRICE"];
+                        var inv = record["INVENTORY"];
+                        var description= record["DESCRIPTION"];
                 }
             }
         );
