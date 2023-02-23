@@ -142,7 +142,7 @@ function dragLeaveHandler(e){
 }
 function dropHandler(e){
     // e.preventDefault(); 
-    // var temp_id = e.target.id;
+    var temp_id = e.target.id;
     // var dt = e.dataTransfer
     // var file = dt.files[0]
     
