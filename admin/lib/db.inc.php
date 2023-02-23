@@ -27,15 +27,15 @@ function ierg4210_get_image(){
     $image_name = $_REQUEST['imageName'];
     // echo json_encode(array($image_name ));
     $file_url = "/var/www/html/admin/lib/images/P" . $image_name . ".jpg";
-    if (file_exists($file_url)){
+    // if (file_exists($file_url)){
         header("Content-type: image/jpg"); 
         header('Content-Length: '.filesize($file_url));
         $img = file_get_contents($file_url);
         echo $img;
         exit();
-        }
-    echo json_encode(array($file_url));
-    exit();
+        // }
+    // echo json_encode(array($file_url));
+    // exit();
 }
     
     
