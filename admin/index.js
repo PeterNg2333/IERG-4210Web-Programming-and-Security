@@ -67,9 +67,9 @@ function edit_category(){
     }
     if (new_name != null || new_name != " "){
         var temp_name = new_name.trim();
-        var selectement = document.getElementById('Category_dropDown').value.trim();
+        var selectelement = document.getElementById('Category_dropDown').value.trim();
         $.post("admin-process.php?action=cat_edit", 
-            {Cname: temp_name, CID: selectement},
+            {Cname: temp_name, CID: selectelement},
             function(json){
                 if (json.status == "Success"){
                     alert("Edit Success!!");
@@ -85,6 +85,23 @@ function edit_category(){
     } 
     else alert("Edit Failed!!");
 }
+
+function delete_category(){
+    var selectelement = document.getElementById('Category_dropDown').value.trim();
+    $.post("admin-process.php?action=cat_delete", 
+        {CID: selectelement},
+        function(json){
+            if (json.status == "Success"){
+                alert("Delete Success!!");
+                location.reload()
+            }
+            else {
+                alert("Delete Failed!!");
+            }
+        }
+    );
+}
+
 
 function change_category(){
     var selectedOpt = document.getElementById('Category_dropDown');

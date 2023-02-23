@@ -143,7 +143,40 @@ function ierg4210_cat_edit(){
     echo json_encode($result);
     exit();
 }
-function ierg4210_cat_delete(){}
+function ierg4210_cat_delete(){
+    if (!preg_match('/^[\d]+$/', $_POST['CID']))
+    throw new Exception("invalid-id");
+
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $CID = $_POST["CID"];
+
+    $q_get_product = $db->prepare("SELECT PID FROM PRODUCTS LEFT JOIN CATEGORIES USING(CID) WHERE CID = ? LIMIT 100;");
+    $q_get_product ->bindParam(1, $CID);
+    if ($q_get_product->execute()){
+        $product_array = array($q_get_product->fetchAll());
+        $q_delete_product = $db->prepare("DROP FROM PRODUCTS WHERE CID = ?;");
+        $q_delete_product ->bindParam(1, $CID);
+        if ($q_delete_product->execute()){
+            foreach ($product_array as $value){
+                $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" .$value["PID"]. ".jpg";
+                unlink($filePath);
+            }
+        $q = $db->prepare("DROP FROM CATEGORIES WHERE CID = ?;");
+        $q->bindParam(1, $CID);
+        if (($q->execute())){
+            $result = array("status" => "Success");
+            echo json_encode($result);
+            exit();
+            };
+        }
+    }
+    header("Content-Type: application/json");
+    $result = array("status" => "Failed");
+    echo json_encode($result);
+    exit();
+}
 
 function ierg4210_prod_delete_by_cid(){}
 
@@ -171,8 +204,39 @@ function ierg4210_prod_fetchAll_by_cid(){
     exit();
 }
 
-function ierg4210_prod_fetchAll(){}
-function ierg4210_prod_fetchOne(){}
+function ierg4210_prod_fetchAll(){
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("SELECT * FROM PRODUCTS ORDER BY PID LIMIT 100;");
+    if ($q->execute())
+         return $q->fetchAll();
+}
+
+function ierg4210_prod_fetchOne(){
+    if (!preg_match('/^[\d]+$/', $_POST['pid']))
+        throw new Exception("invalid-id");
+
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("SELECT * FROM PRODUCTS PID = ? LIMIT 1;");
+    $pid = $_POST["pid"];
+    $q->bindParam(1, $pid);
+
+    if ($q->execute()){
+        header("Content-Type: application/json");
+        $result = $q->fetchAll();
+        echo json_encode(array($result));
+        exit();
+    };
+
+    header("Content-Type: application/json");
+    $result = array("status" => "Failed");
+    echo json_encode($result);
+    exit();
+    }
+
 function ierg4210_prod_edit(){
         // input validation or sanitization
         // DB manipulation
