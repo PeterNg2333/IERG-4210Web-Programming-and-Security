@@ -148,6 +148,8 @@ function dropHandler(e){
     print(document.querySelector("#image_uploaded_display_section").parentNode.children[0].files[0]);
     print(file);
     e.preventDefault();
+    change_image();
+    change_image_for_productCard();
 }
 
 function load_productsCard_by_cid(){
