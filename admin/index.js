@@ -146,8 +146,11 @@ function dropHandler(e){
     var dt = e.dataTransfer
     var file = dt.files[0]
     
-    print(typeof file);
-    print(document.querySelector("#image_uploaded_display_section").parentNode.children[0].files[0]);
+    print(file);
+    var input = document.querySelector("#product_image");
+    input.files[0] = file;
+    print (input.files[0]);
+
     $("#"+ temp_id + " p").removeClass("invisible");
     $("#"+ temp_id + " img").removeClass("invisible");
 }
