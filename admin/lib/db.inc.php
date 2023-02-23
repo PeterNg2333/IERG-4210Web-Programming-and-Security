@@ -161,7 +161,8 @@ function ierg4210_prod_fetchAll_by_cid(){
     if ($q->execute()){
         header("Content-Type: application/json");
         $result = $q->fetchAll();
-        echo json_encode($result);
+        echo json_encode(array($result));
+        exit();
     };
 
     header("Content-Type: application/json");
