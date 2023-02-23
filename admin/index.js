@@ -93,7 +93,7 @@ function change_category(){
     // document.getElementById('cid_display_name').value = selectement.name;
     document.getElementById('cid_display_name').value = selectedOpt.options[selectedOpt.selectedIndex].text;
     // alert(document.getElementById('cid_input').value);
-    load_products_by_cid();
+    load_productsCard_by_cid();
 }
 
 function change_image(){
@@ -115,11 +115,9 @@ function load_productsCard_by_cid(){
             {CID: selectement},
             function(output){
                 console.log(output);
-                var json = JSON.parse(output);
-                console.log(json);
                 
                 alert("Edit Success!!");
-                for (var record of json.success[0]){
+                for (var record of output){
                         console.log(record);
                 }
             }
