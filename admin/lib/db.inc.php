@@ -9,7 +9,7 @@ function ierg4210_get_image(){
             $fileOpen = fopen($file_url, 'rb');
             header('Content-Type: '.$size['mime']);
             header('Content-Length: '.filesize($file_url));
-            fpassthru($$fileOpen);
+            fpassthru($fileOpen);
             exit();
         }
     }
