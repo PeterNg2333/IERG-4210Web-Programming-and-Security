@@ -156,7 +156,7 @@ function ierg4210_cat_delete(){
     $q_get_product ->bindParam(1, $CID);
     if ($q_get_product->execute()){
         $product_array = array($q_get_product->fetchAll());
-        $q_delete_product = $db->prepare("DROP FROM PRODUCTS WHERE CID = ?;");
+        $q_delete_product = $db->prepare("DELETE FROM PRODUCTS WHERE CID = ?;");
         $q_delete_product ->bindParam(1, $CID);
         if ($q_delete_product->execute()){
             foreach ($product_array as $value){
