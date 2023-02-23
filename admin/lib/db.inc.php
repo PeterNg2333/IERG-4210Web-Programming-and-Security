@@ -159,7 +159,6 @@ function ierg4210_cat_delete(){
         $q_delete_product = $db->prepare("DELETE FROM PRODUCTS WHERE CID = ?;");
         $q_delete_product ->bindParam(1, $CID);
         if ($q_delete_product->execute()){
-            echo json_encode($product_array);
             foreach ($product_array as $value){
                 $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" .$value["PID"]. ".jpg";
                 unlink($filePath);
