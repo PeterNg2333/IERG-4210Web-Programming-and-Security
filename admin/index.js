@@ -21,6 +21,7 @@ $(window).on("load", function() {
         document.querySelector("#Category_dropDown").addEventListener("change", change_category);
         document.querySelector("#product_image").addEventListener("change", change_image);
         document.getElementById('cid_input').value = document.getElementById('Category_dropDown').value;
+        document.getElementById('delete_category').addEventListener("click", delete_category);
         setTimeout(function(){
             change_category();
         }, 500);
