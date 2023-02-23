@@ -24,7 +24,7 @@ $(window).on("load", function() {
         document.getElementById('cid_input').value = document.getElementById('Category_dropDown').value;
         setTimeout(function(){
             change_category();
-        }, 600);
+        }, 1000);
     }, 600);
 });
 
@@ -125,13 +125,13 @@ function load_productsCard_by_cid(){
                             var inv = record["INVENTORY"];
                             var description= record["DESCRIPTION"];
                             RenderElementAfter("#product_input", "./Snippet_admin/product_card_admin.html");
-                            var select = document.querySelector("#Category_dropDown_for_each_record-000");
                             var options = document.getElementById('Category_dropDown').children;
                             for (var i = 0; i < options.length; i++){
-                                select.appendChild(options[i]);
-                                if (option[i].value == cid){
-                                    option[i].setAttribute("selected", true);
+                                var clone = options[i].cloneNode(true)
+                                if (clone.value == cid){
+                                    clone.setAttribute("selected", true);
                                 }
+                                document.querySelector("#Category_dropDown_for_each_record-000").appendChild(clone);
                             }
                             var select_dropdown = $("#Category_dropDown_for_each_record-000");
                             select_dropdown.removeAttr('id');
