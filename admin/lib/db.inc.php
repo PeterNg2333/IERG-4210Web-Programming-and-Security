@@ -1,4 +1,20 @@
 <?php
+function ierg4210_get_image(){
+    if (empty($_REQUEST['imageName']) || !preg_match('/^\w+$/', $_REQUEST['imageName'])) {
+        $image_name = $_REQUEST['imageName'];
+        echo "found".$image_name ;
+        $file_url = "/var/www/html/admin/lib/images/P" . $lastId . ".jpg";
+        if (file_exists($file_url )){
+            $size = getimagesize($file_url);
+            $fileOpen = fopen($file_url, 'rb');
+            header('Content-Type: '.$size['mime']);
+            header('Content-Length: '.filesize($file_url));
+            fpassthru($$fileOpen);
+        }
+        exit();
+    }
+}
+
 function ierg4210_DB() {
 	// connect to the database
 	// TODO: change the following path if needed
@@ -93,7 +109,6 @@ function ierg4210_prod_insert() {
     echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
     exit();
 }
-
 // TODO: add other functions here to make the whole application complete
 function ierg4210_cat_insert() {
     if (!preg_match('/^[\w\-\&\_\ ]+$/', $_POST['Cname']))
@@ -170,6 +185,7 @@ function ierg4210_prod_fetchAll_by_cid(){
     echo json_encode($result);
     exit();
 }
+
 function ierg4210_prod_fetchAll(){}
 function ierg4210_prod_fetchOne(){}
 function ierg4210_prod_edit(){}
