@@ -4,19 +4,19 @@
             <input class="product_input" id="pid_input-000" name="pid" type="hidden">
         </div>
         <div class="col-2 border-0">
-            <input id="product_name-000" name="name" type="text" placeholder="" disabled pattern="^[\w\-]+$">
+            <input id="product_name-000" class="product_input" name="name" type="text" placeholder="" disabled pattern="^[\w\-]+$">
             <select id="Category_dropDown_for_each_record-000" 
-                class="text-primary mt-2">
+                class="text-primary mt-2 product_input" disabled>
             </select>
         </div>
         <div class="col-2 border-0">
-            <input id="product_price-000" name="price" type="number" placeholder="" disabled pattern="^[\d\.]+$">
+            <input id="product_price-000" class="product_input" name="price" type="number" placeholder="" disabled pattern="^[\d\.]+$">
         </div>
         <div class="col-2 border-0" >
-            <input id="product_inv-000" name="inventory" type="number" placeholder="" disabled pattern="^[\d]+$">
+            <input id="product_inv-000" class="product_input" name="inventory" type="number" placeholder="" disabled pattern="^[\d]+$">
         </div>
         <div class="col-3 border-0">
-            <textarea id="product_desc-000" name="description" type="textarea" cols="35" rows="4" placeholder="" disabled pattern="^[\w\-\.\,\ ]+$"></textarea>
+            <textarea id="product_desc-000" class="product_input" name="description" type="textarea" cols="35" rows="4" placeholder="" disabled pattern="^[\w\-\.\,\ ]+$"></textarea>
         </div>
         <div class="col-2 border-0">
             <input class="product_image_input" id="image_input-000" name="file" type="file" accept="image/jpeg">
@@ -28,7 +28,7 @@
             <!-- <button type="button" class="btn btn-success btn-sm mb-1 ms-1 nav-item">
                 <i class="fa-sharp fa-regular fa-pen-to-square"></i>
             </button> -->
-            <button type="submit" class="btn btn-secondary btn-sm mb-1 ms-1 nav-item" disabled>
+            <button type="submit" class="btn btn-secondary btn-sm mb-1 ms-1 nav-item product_input" disabled>
                 <i class="fa-regular fa-floppy-disk"></i>
             </button>
             <button type="button" id="delete_button-000" class="btn btn-danger btn-sm mb-1 ms-1 nav-item">

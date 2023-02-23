@@ -191,6 +191,7 @@ function load_productsCard_by_cid(){
                             // Event
                             document.querySelector("#"+ "delete_button-" + pid).addEventListener("click", delete_product)
                             document.querySelector("#"+ image_input_url).addEventListener("change", change_image_for_productCard)
+                            document.querySelector("#" + "P-" + pid).addEventListener("change", enable_modify)
                         }
                     );
                 });
@@ -228,5 +229,8 @@ function delete_product(e){
     );
 }
 
-
+function enable_modify(e){
+    var temp_id = "#" + e.target.id
+    document.querySelectorAll(temp_id + " div")
+}
 
