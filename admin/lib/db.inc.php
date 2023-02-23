@@ -19,7 +19,8 @@ function ierg4210_DB() {
 	return $db;
 }
 
-// function ierg4210_get_image(){
+function ierg4210_get_image(){
+    echo json_encode(array('failed'=>'undefined'));
 //     if (empty($_REQUEST['imageName']) || !preg_match('/^\w+$/', $_REQUEST['imageName'])) {
 //         echo json_encode(array('failed'=>'undefined'));
 //         exit();
@@ -42,7 +43,7 @@ function ierg4210_DB() {
 //     echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
 //     exit();
 //     }
-// }
+}
 
 function ierg4210_cat_fetchall() {
     // DB manipulation
