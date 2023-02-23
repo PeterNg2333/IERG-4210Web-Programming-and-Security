@@ -117,7 +117,6 @@ function load_productsCard_by_cid(){
                 $(".product_record").remove();
                 console.log("1");
                 var options = document.getElementById('Category_dropDown').children;
-                var select = document.querySelector("#Category_dropDown_for_each_record-000");
                     for (var record of p_res[0]){
                             var cid = record["CID"];
                             var Cname = record["CATEGORY_NAME"];
@@ -127,8 +126,9 @@ function load_productsCard_by_cid(){
                             var inv = record["INVENTORY"];
                             var description= record["DESCRIPTION"];
                             RenderElementAfter("#product_input", "./Snippet_admin/product_card_admin.html");
+                            var select = document.querySelector("#Category_dropDown_for_each_record-000");
                             for (option of options){
-                                select.appendChild(option)
+                                select.appendChild(option);
                                 if (option.value == cid){
                                     option.setAttribute("selected", true);
                                 }
