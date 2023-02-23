@@ -177,7 +177,7 @@ function load_productsCard_by_cid(){
                             var image_uploaded = $("#image_uploaded-000");
                             image_uploaded.removeAttr('id');
                             image_uploaded.attr('id', "image_uploaded-" + pid);
-                            var image_url = "/lib/images/" + pid + ".jpg";
+                            var image_url = "./lib/images/" + pid + ".jpg";
                             image_uploaded.attr("src", image_url);
                             image_uploaded.attr("alt", Pname);
                             // Event
