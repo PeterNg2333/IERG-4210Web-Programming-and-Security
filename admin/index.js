@@ -136,12 +136,12 @@ function change_image(){
 function dragEnterHandler(e){
     var text_array = e.target.id.split("-");
     var temp_id = text_array[1];
-    alert("dragEnder" + temp_id);
+    print("dragEnder" + temp_id);
 }
 function dragLeaveHandler(e){
     var text_array = e.target.id.split("-");
     var temp_id = text_array[1];
-    alert("dragLeave" + temp_id);
+    print("dragLeave" + temp_id);
 }
 function dragOverHandler(e){
     var text_array = e.target.id.split("-");
