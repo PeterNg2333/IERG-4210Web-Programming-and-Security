@@ -142,7 +142,6 @@ function dragLeaveHandler(e){
     document.querySelector("#" + temp_id).classList.remove("bg-secondary");
 }
 function dropHandler(e){
-    // e.preventDefault(); 
     var temp_id = e.target.id;
     // var dt = e.dataTransfer
     // var file = dt.files[0]
@@ -167,6 +166,8 @@ function dropHandler(e){
     reader.readAsDataURL(input.files[0]);
     $("#"+ temp_id + " p").removeClass("invisible");
     $("#"+ temp_id + " img").removeClass("invisible");
+    document.querySelector("#" + temp_id).classList.remove("bg-secondary");
+    e.preventDefault(); 
 }
 
 function load_productsCard_by_cid(){
