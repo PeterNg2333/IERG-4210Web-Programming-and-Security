@@ -141,17 +141,18 @@ function dragLeaveHandler(e){
     document.querySelector("#" + temp_id).classList.remove("bg-secondary");
 }
 function dropHandler(e){
-    e.preventDefault(); 
-    var temp_id = e.target.id;
-    var dt = e.dataTransfer
-    var file = dt.files[0]
+    // e.preventDefault(); 
+    // var temp_id = e.target.id;
+    // var dt = e.dataTransfer
+    // var file = dt.files[0]
     
-    print(file);
+    // print(file);
+    // 
+    document.querySelector('#product_image').files = e.dataTransfer.files;
     var input = document.querySelector("#product_image");
-    document.querySelector('#product_image').files = ev.dataTransfer.files;
     input.files[0] = file;
 
-    var reader = new FileReader();
+    // var reader = new FileReader();
     reader.onload = function (e) {
         $("#image_display").attr('src', e.target.result);
         print(e.target.result);
