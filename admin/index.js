@@ -116,7 +116,7 @@ function load_productsCard_by_cid(){
             function(p_res){
                 $(".product_record").remove();
                 console.log("1");
-                    var res_array = p_res[0].length
+                    var res_array = p_res[0]
                     res_array.forEach(function(record, i){
                         var cid = record["CID"];
                         // var Cname = record["CATEGORY_NAME"];
