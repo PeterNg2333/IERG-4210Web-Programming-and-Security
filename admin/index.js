@@ -28,7 +28,6 @@ $(window).on("load", function() {
                 var insert_dnd_ele= document.querySelector("#image_uploaded_display_section")
                 insert_dnd_ele.addEventListener('dragenter', dragEnterHandler, false)
                 insert_dnd_ele.addEventListener('dragleave', dragLeaveHandler, false)
-                // insert_dnd_ele.addEventListener('dragover', dragOverHandler, false)
                 insert_dnd_ele.addEventListener('drop', dropHandler, false)
             }, 300);
         }, 500);
@@ -139,12 +138,8 @@ function dragEnterHandler(e){
 }
 function dragLeaveHandler(e){
     var temp_id = e.target.id;
-    // document.querySelector("#" + temp_id).classList.remove("bg-secondary");
+    document.querySelector("#" + temp_id).classList.remove("bg-secondary");
 }
-// function dragOverHandler(e){
-//     var temp_id = e.target.id;
-//     print("dragOver" + temp_id);
-// }
 function dropHandler(e){
     var temp_id = e.target.id;
     print("drop" + temp_id);
@@ -245,7 +240,6 @@ function load_productsCard_by_cid(){
                             var existing_dnd_ele = document.querySelector("#drag_and_drop-" + pid)
                             existing_dnd_ele.addEventListener('dragenter', dragEnterHandler, false)
                             existing_dnd_ele.addEventListener('dragleave', dragLeaveHandler, false)
-                            // existing_dnd_ele.addEventListener('dragover', dragOverHandler, false)
                             existing_dnd_ele.addEventListener('drop', dropHandler, false)
                         }
                     );
