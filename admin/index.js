@@ -197,14 +197,21 @@ function change_image_for_productCard(e){
     print(text_array[1]);
     print (e.target);
     var reader = new FileReader();
-    var image_id = "#" +  "image_uploaded-" + text_array[1] + "+ div";
+    var image_id = "#" +  "image_uploaded-" + text_array[1];
+    print(image_id);
     reader.onload = function () {
         $(image_id).attr('src', e.target.result);
-        print($(image_id))
-        print( e.target.result);
         $(image_id).attr('alt', e.target.files[0].name);
-        print(e.target.files[0].name)
-
      }
     reader.readAsDataURL(e.target.files[0]);
 }
+
+
+var reader = new FileReader();
+var input = document.querySelector("#product_image");
+reader.onload = function (e) {
+    $("#image_uploaded_display_section").removeClass("d-none");
+    $("#image_display").attr('src', e.target.result);
+    $("#image_display").attr('alt', input.files[0].name);
+ }
+reader.readAsDataURL(input.files[0]);
