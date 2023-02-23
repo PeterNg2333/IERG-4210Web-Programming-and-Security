@@ -24,6 +24,13 @@ $(window).on("load", function() {
         document.getElementById('delete_category').addEventListener("click", delete_category);
         setTimeout(function(){
             change_category();
+            setTimeout(function(){
+                var insert_dnd_ele= document.querySelector("#image_uploaded_display_section")
+                insert_dnd_ele.addEventListener('dragenter', dragEnterHandler, false)
+                insert_dnd_ele.addEventListener('dragleave', dragLeaveHandler, false)
+                insert_dnd_ele.addEventListener('dragover', dragOverHandler, false)
+                insert_dnd_ele.addEventListener('drop', dropHandler, false)
+            }, 300);
         }, 500);
     }, 600);
 });
@@ -103,7 +110,6 @@ function delete_category(){
     );
 }
 
-
 function change_category(){
     var selectedOpt = document.getElementById('Category_dropDown');
     document.getElementById('cid_input').value = selectedOpt.value;
@@ -125,6 +131,27 @@ function change_image(){
     reader.readAsDataURL(input.files[0]);
     // image.src = uploaded_image.files;
     
+}
+
+function dragEnterHandler(e){
+    var text_array = e.target.id.split("-");
+    var temp_id = text_array[1];
+    alert("dragEnder" + temp_id);
+}
+function dragLeaveHandler(e){
+    var text_array = e.target.id.split("-");
+    var temp_id = text_array[1];
+    alert("dragLeave" + temp_id);
+}
+function dragOverHandler(e){
+    var text_array = e.target.id.split("-");
+    var temp_id = text_array[1];
+    alert("dragOver" + temp_id);
+}
+function dropHandler(e){
+    var text_array = e.target.id.split("-");
+    var temp_id = text_array[1];
+    alert("drop" + temp_id);
 }
 
 function load_productsCard_by_cid(){
@@ -206,7 +233,6 @@ function load_productsCard_by_cid(){
                             image_uploaded.attr("alt", Pname);
 
                             // button 
-                            
                             var delete_button = $("#delete_button-000");
                             delete_button.removeAttr('id');
                             delete_button.attr('id', "delete_button-" + pid);
@@ -215,6 +241,16 @@ function load_productsCard_by_cid(){
                             document.querySelector("#"+ "delete_button-" + pid).addEventListener("click", delete_product)
                             document.querySelector("#"+ image_input_url).addEventListener("change", change_image_for_productCard)
                             document.querySelector("#" + "P-" + pid).addEventListener("click", enable_modify)
+
+                            // Drag and Drop
+                            var dnd = $("#drag_and_drop-000");
+                            dnd.removeAttr('id');
+                            dnd.attr('id', "drag_and_drop-" + pid);
+                            var existing_dnd_ele = document.querySelector("#drag_and_drop-" + pid)
+                            existing_dnd_ele.addEventListener('dragenter', dragEnterHandler, false)
+                            existing_dnd_ele.addEventListener('dragleave', dragLeaveHandler, false)
+                            existing_dnd_ele.addEventListener('dragover', dragOverHandler, false)
+                            existing_dnd_ele.addEventListener('drop', dropHandler, false)
                         }
                     );
                 });
