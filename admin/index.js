@@ -145,7 +145,7 @@ function dropHandler(e){
     var input = document.querySelector("#" + temp_id).parentNode.children[0];
     input.files = e.dataTransfer.files;
     print(temp_id)
-    print( input.files[0])
+    print(input.files[0])
     // print("datatranfer");
     // print(e.dataTransfer.files);
     // print("")
@@ -154,8 +154,8 @@ function dropHandler(e){
 
     var reader = new FileReader();
     reader.onload = function (e) {
-        $("#" + input.id).attr('src', e.target.result);
-        $("#" + input.id).attr('alt', input.files[0].name);
+        $("#"+ temp_id + " img").attr('src', e.target.result);
+        $("#"+ temp_id + " img").attr('alt', input.files[0].name);
      }
     reader.readAsDataURL(input.files[0]);
     $("#"+ temp_id + " p").removeClass("invisible");
