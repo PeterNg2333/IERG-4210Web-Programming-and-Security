@@ -215,7 +215,7 @@ function ierg4210_prod_edit(){
             $q->bindParam(5, $desc);
             $q->bindParam(6, $pid);
 
-            $q->execute();
+            // $q->execute();
             $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" . $pid . ".jpg";
     
 
