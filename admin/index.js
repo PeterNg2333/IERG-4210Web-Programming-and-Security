@@ -165,10 +165,10 @@ function load_productsCard_by_cid(){
                             product_inv.removeAttr('id');
                             product_inv.attr('id', "product_inv-" + pid);
                             // Description
-                            var product_description = $("#description-000");
+                            var product_description = $("#product_desc-000");
                             product_description.val(description);
                             product_description.removeAttr('id');
-                            product_description.attr('id', "description-" + pid);
+                            product_description.attr('id', "product_desc-" + pid);
                             // Image
                             var image_input = $("#image_input-000");
                             image_input.removeAttr('id');
@@ -176,7 +176,8 @@ function load_productsCard_by_cid(){
                             var image_uploaded = $("#image_uploaded-000");
                             image_uploaded.removeAttr('id');
                             image_uploaded.attr('id', "image_uploaded-" + pid);
-                            image_uploaded.attr("src", "/lib/images/" + pid + ".jpg");
+                            var image_url = "/lib/images/" + pid + ".jpg"
+                            image_uploaded.attr("src", image_url);
                             image_uploaded.attr("alt", Pname);
                             // Event
                         }
