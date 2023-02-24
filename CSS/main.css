@@ -50,7 +50,7 @@ aside > h4 {
     height: 380px !important;
 }
 
-.product_card_display image{
+.product_card_display a img{
     height: 200px !important;
     width: 200px !important;
 }
