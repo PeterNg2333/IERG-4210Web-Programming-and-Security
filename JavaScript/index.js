@@ -20,6 +20,10 @@ $(window).on("load", function() {
 });
 
 function loadProrduct(e){
+    
+    print("e.target.id");
+    url_id = ($(location).attr('href')).split("#")[1];
+    alert(url_id);
     e.preventDefault(); 
 }
 
