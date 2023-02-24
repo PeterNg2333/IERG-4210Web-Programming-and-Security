@@ -3,13 +3,12 @@ require __DIR__.'/admin/lib/db.inc.php';
 $res = ierg4210_cat_fetchall();
 
 $category = '';
-$category_temp = file_get_contents('./Snippet/Category_item');
 
 foreach ($res as $value){
     // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
     //
     
-    $category = htmlspecialchars($category_temp);
+    $category .= '<il><a href="'.$value["CID"].'" id="cid-'.$value["CID"].'" class="list-group-item list-group-item-action">'.$value["CATEGORIES_NAME"].'</a></il>';
 }
 
 $category .= '';
