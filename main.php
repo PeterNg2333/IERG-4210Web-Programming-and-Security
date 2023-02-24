@@ -15,7 +15,7 @@ foreach ($c_res as $value){
 $category .= '';
 
 
-if ($get_cid == null || $get_cid="0"){
+if ($get_cid == null || $get_cid == 0){
     $p_res = ierg4210_prod_fetchAll();
     $category_url .= '<span id="CatergoryPath">> You might like it</span>';
 }
