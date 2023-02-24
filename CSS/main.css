@@ -49,3 +49,7 @@ aside > h4 {
 .product_card_display{
     height: 380px !important;
 }
+
+.product_card_display_button{
+    height: 30px !important;
+}
