@@ -14,16 +14,16 @@ $category .= '';
 $product .='';
 foreach ($p_res as $value){
     // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
-    $category .= '<div class="col-lg-4 col-md-6 col-sm-12 mb-3 px-0">';
-    $category .= '    <div class="card mx-2">';
-    $category .= '        <a href="./?pid='.$value["PID"].'"><img class="card-img-top" src="./admin/lib/images/P'.$value["PID"].'" alt="'.$value["PRODUCT_NAME"].'"></a>';
-    $category .= '        <div class="card-body row">';
-    $category .= '            <h5 class="card-title col-8"><a href="./?pid='.$value["PID"].'">'.$value["PRODUCT_NAME"].'</a></h5>';
-    $category .= '            <p class="card-text col-4">$15</p>';
-    $category .= '            <button type="button" class="btn btn-primary"> Add to Shopping Cart</button>';
-    $category .= '        </div>';
-    $category .= '   </div>';
-    $category .= '</div>';
+    $product .= '<div class="col-lg-4 col-md-6 col-sm-12 mb-3 px-0">';
+    $product .= '    <div class="card mx-2">';
+    $product .= '        <a href="./?pid='.$value["PID"].'"><img class="card-img-top" src="./admin/lib/images/P'.$value["PID"].'" alt="'.$value["PRODUCT_NAME"].'"></a>';
+    $product .= '        <div class="card-body row">';
+    $product .= '            <h5 class="card-title col-8"><a href="./?pid='.$value["PID"].'">'.$value["PRODUCT_NAME"].'</a></h5>';
+    $product .= '            <p class="card-text col-4">$15</p>';
+    $product .= '            <button type="button" class="btn btn-primary"> Add to Shopping Cart</button>';
+    $product .= '        </div>';
+    $product .= '   </div>';
+    $product .= '</div>';
 }
 $product .='';
 
@@ -68,7 +68,7 @@ $product .='';
             <?php 
                 $main_html = file_get_contents('./Snippet/Main.html');
                 // $main_html = str_replace('%category_list%', $category, $main_html);
-                $main_html = str_replace('%product_list%', $product, $main_html);
+                // $main_html = str_replace('%product_list%', $product, $main_html);
                 $main_html = str_replace('<!--?PHP--> ', '', $main_html);
                 echo $main_html;
             ?>
