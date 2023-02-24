@@ -2,15 +2,16 @@
 require __DIR__.'/admin/lib/db.inc.php';
 $res = ierg4210_cat_fetchall();
 
-$products = '<ul>';
+$category = '';
 
 foreach ($res as $value){
     // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
     //
-    $products .= '<li><a href = "./#Food_Category"> '.$value["CATEGORIES_NAME"].'</a></li>';
+    $category_temp = file_get_contents('./Snippet/Category_item');
+    $category .= $category_temp;
 }
 
-$products .= '</ul>';
+$category .= '';
 
 // echo '<div id = "maincontent">
 // <div id = "products">'.$products.'
@@ -56,6 +57,8 @@ $products .= '</ul>';
         <main id="main" class="container d-none">
             <?php 
                 $main_html = file_get_contents('./Snippet/Main.html');
+                $main_html = str_replace('%category_list%', $category, $main_html);
+                $main_html = str_replace('<!--?PHP--> ', '', $main_html);
                 echo $main_html;
             ?>
         </main>
