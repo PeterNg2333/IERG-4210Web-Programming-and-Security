@@ -203,6 +203,25 @@ function ierg4210_prod_fetchAll_by_cid(){
     echo json_encode($result);
     exit();
 }
+function ierg4210_prod_fetchAll_by_cid_page($CID){
+    if (!preg_match('/^[\d]+$/', $_POST['CID']))
+        throw new Exception("invalid-id");
+
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("SELECT * FROM PRODUCTS LEFT JOIN CATEGORIES USING(CID) WHERE CID = ? LIMIT 100;");
+    $q->bindParam(1, $CID);
+
+    if ($q->execute()){
+         return $q->fetchAll();
+    }
+
+    header("Content-Type: application/json");
+    $result = array("status" => "Failed");
+    echo json_encode($result);
+    exit();
+}
 
 function ierg4210_prod_fetchAll(){
     // DB manipulation

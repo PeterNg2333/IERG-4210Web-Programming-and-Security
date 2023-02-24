@@ -2,16 +2,21 @@
 require __DIR__.'/admin/lib/db.inc.php';
 $c_res = ierg4210_cat_fetchall();
 $p_res = ierg4210_prod_fetchAll();
-
+$get_cid = (int) htmlspecialchars(($_GET['cid']));
 $category = '';
-foreach ($c_res as $value){
-    // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
-    $category .= '<il><a href="./?cid='.$value["CID"].'" id="cid-'.$value["CID"].'" class="list-group-item list-group-item-action">'.$value["CATEGORY_NAME"].'</a></il>';
-}
-$category .= '';
-
-
 $product .='';
+if ($get_cid != null){
+    
+}
+else{
+    foreach ($c_res as $value){
+        // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
+        $category .= '<il><a href="./?cid='.$value["CID"].'" id="cid-'.$value["CID"].'" class="list-group-item list-group-item-action">'.$value["CATEGORY_NAME"].'</a></il>';
+    }
+    $category .= '';
+}
+
+
 foreach ($p_res as $value){
     // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
     $product .= '<div class="col-lg-3 mb-3 px-0" id="P-'.$value["PID"].'">';
