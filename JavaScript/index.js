@@ -37,7 +37,7 @@ function loadProrduct(e){
 function loadProductHelper(){
     const url = new URL(window.location);
     var get_pid = url.searchParams.get("pid");
-    if (get_pid == null){
+    if (get_pid != null || get_pid != undefined){
         $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
             {pid: get_pid},
             function(p_res){
