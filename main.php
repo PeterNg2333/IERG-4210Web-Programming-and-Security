@@ -3,6 +3,7 @@ require __DIR__.'/admin/lib/db.inc.php';
 $c_res = ierg4210_cat_fetchall();
 $p_res = ierg4210_prod_fetchAll();
 $get_cid = (int) htmlspecialchars(($_GET['cid']));
+echo $_GET['cid'];
 $category = '';
 $product .='';
 if ($get_cid != null){
