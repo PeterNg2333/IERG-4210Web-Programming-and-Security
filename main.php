@@ -3,16 +3,15 @@ require __DIR__.'/admin/lib/db.inc.php';
 $c_res = ierg4210_cat_fetchall();
 $p_res = ierg4210_prod_fetchAll();
 $get_cid = (int) htmlspecialchars(($_GET['cid']));
-echo $_GET['cid'];
 $category = '';
 $product .='';
-if ($get_cid != null){
+if ($get_cid == null){
     
 }
 else{
     foreach ($c_res as $value){
         // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
-        $category .= '<il><a href="./?cid='.$value["CID"].'" id="cid-'.$value["CID"].'" class="list-group-item list-group-item-action">'.$value["CATEGORY_NAME"].'</a></il>';
+        $category .= '<il><a href="../?cid='.$value["CID"].'" id="cid-'.$value["CID"].'" class="list-group-item list-group-item-action">'.$value["CATEGORY_NAME"].'</a></il>';
     }
     $category .= '';
 }
@@ -59,7 +58,7 @@ $product .='';
         <div id="preloader" class="container">
             <div id="loadingImg" class="row">
                 <img src="./Resource/loading-gif.gif"/>
-                <h5> Loading...... <?php $get_cid ?></h5>
+                <h5> Loading...... <?php echo $get_cid ?></h5>
             </div>
         </div>
 
