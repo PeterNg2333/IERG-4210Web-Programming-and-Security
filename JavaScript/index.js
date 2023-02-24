@@ -12,7 +12,7 @@ $(window).on("load", function() {
         product_detail_button.forEach(element => {
             element.addEventListener("click", loadProrduct);
         });
-        
+        loadProductHelper()
         // setTimeout(function(){
         //     if (! loadProduct()){
         //         loadCategory();
