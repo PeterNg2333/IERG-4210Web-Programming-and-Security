@@ -52,18 +52,17 @@ function loadProductHelper(){
                 var get_pid = record.PID;
                 var get_price = record.PRICE;
                 var get_pName = record.PRODUCT_NAME;
-                print(get_cid);
-                print(get_cName);
-                print(get_desc);
-                print(get_inv);
-                print(get_pid);
-                print(get_pName);
-                print(get_price);
                 document.getElementById("product").innerHTML="<h4>Testing</h4>"
                 RenderElementInside("#product",
-                     "./Snippet/Product_Card.html",
+                     "./Snippet/Product.html",
                     function(){
-                        
+                        print(get_cid);
+                        print(get_cName);
+                        print(get_desc);
+                        print(get_inv);
+                        print(get_pid);
+                        print(get_pName);
+                        print(get_price);
                     })
             });
         });
