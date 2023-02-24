@@ -27,13 +27,13 @@ if ($get_cid == null || $get_cid == 0){
     $preload .= '    </div>';
     $preload .= '</div>';
     $p_res = ierg4210_prod_fetchAll();
-    $category_url .= '<span id="CatergoryPath">> You might like it</span>';
+    $category_url .= '<span id="CatergoryPath">> <span id="cPathRemove"> You might like it</span></span>';
 }
 else{
     $p_res = ierg4210_prod_fetchAll_by_cid_page($get_cid);
     $cName_res = ierg4210_cat_fetch_by_cid_page($get_cid);
     foreach ($cName_res as $value){
-        $category_url = '<span id="CatergoryPath">> <a href="/main.php?cid='.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </a></span>';
+        $category_url = '<span id="CatergoryPath">> <a id="cPathRemove href="/main.php?cid='.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </a></span>';
     }
 }
 
