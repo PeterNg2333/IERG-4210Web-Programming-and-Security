@@ -12,10 +12,10 @@ foreach ($res as $value){
 
 $products .= '</ul>';
 
-echo '<div id = "maincontent">
-<div id = "products">'.$products.'
-</div>
-</div>';
+// echo '<div id = "maincontent">
+// <div id = "products">'.$products.'
+// </div>
+// </div>';
 
 ?>
 
