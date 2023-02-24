@@ -344,7 +344,6 @@ function ierg4210_prod_fetchAll_by_cid_page($CID){
     $q->bindParam(1, $CID);
 
     if ($q->execute()){
-        echo json_encode($CID);
          return $q->fetchAll();
     }
 

@@ -8,6 +8,7 @@ $get_cid = (int) htmlspecialchars(($_GET['cid']));
 $category = '';
 $product = '';
 $category_url = '';
+$preload = "";
 foreach ($c_res as $value){
     // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
     $category .= '<il><a href="main.php?cid='.$value["CID"].'" id="cid-'.$value["CID"].'" class="list-group-item list-group-item-action">'.$value["CATEGORY_NAME"].'</a></il>';
@@ -16,6 +17,12 @@ $category .= '';
 
 
 if ($get_cid == null || $get_cid == 0){
+    $preload .= '<div id="preloader" class="container">';
+    $preload .= '    <div id="loadingImg" class="row">';
+    $preload .= '        <img src="./Resource/loading-gif.gif"/>';
+    $preload .= '        <h5> Loading...... </h5>';
+    $preload .= '    </div>';
+    $preload .= '</div>';
     $p_res = ierg4210_prod_fetchAll();
     $category_url .= '<span id="CatergoryPath">> You might like it</span>';
 }
@@ -64,12 +71,7 @@ $product .='';
     </head>
     <body>
         <!-- Preload-->
-        <div id="preloader" class="container">
-            <div id="loadingImg" class="row">
-                <img src="./Resource/loading-gif.gif"/>
-                <h5> Loading...... <?php echo $get_cid ?></h5>
-            </div>
-        </div>
+        <?php echo $preload ?>
 
         <!-- Header -->
         <header id="header" class="container-fiuld d-none">
