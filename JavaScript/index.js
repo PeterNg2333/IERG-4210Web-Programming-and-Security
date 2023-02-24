@@ -23,17 +23,20 @@ $(window).on("load", function() {
 });
 
 function loadProrduct(e){
-    
+    e.preventDefault();
     print(e.target.id);
     print(e);
+    var text_array = e.target.id.split("-");
+    var id = text_array[1];
+    const url = new URL(window.location);
+    url.searchParams.set('pid', id);
+    window.history.pushState({}, '', url);
     loadProductHelper();
 }
 
-function loadProductHelper(id=null){
-    if (id==null){
-        url_id = ($(location).attr('href')).split("#")[1];
-        alert(url_id);
-    }
+function loadProductHelper(){
+    const url = new URL(window.location);
+    alert(url.searchParams.get("pid"));
 }
 
 // // load category

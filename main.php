@@ -43,7 +43,7 @@ if ($get_pid == null || $get_pid == 0){
         $product .= '<div class="col-lg-3 mb-3 px-0" id="P-'.$value["PID"].'">';
         $product .= '    <div class="card mx-2 product_card_display">';
         $product .= '        <a href="/main.php?pid='.$value["PID"].'" class="product_detail_button">';
-        $product .= '             <img class="card-img-top" src="./admin/lib/images/P'.$value["PID"].'.jpg" alt="'.$value["PRODUCT_NAME"].'" id="imageP'.$value["PID"].'">';
+        $product .= '             <img class="card-img-top" src="./admin/lib/images/P'.$value["PID"].'.jpg" alt="'.$value["PRODUCT_NAME"].'" id="imageP-'.$value["PID"].'">';
         $product .= '        </a>';
         $product .= '        <div class="card-body card_display_body row">';
         $product .= '           <div class="row">';
