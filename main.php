@@ -17,10 +17,12 @@ foreach ($p_res as $value){
     $product .= '<div class="col-lg-3 mb-3 px-0" id="P-'.$value["PID"].'">';
     $product .= '    <div class="card mx-2 product_card_display">';
     $product .= '        <a href="./?pid='.$value["PID"].'"><img class="card-img-top" src="./admin/lib/images/P'.$value["PID"].'.jpg" alt="'.$value["PRODUCT_NAME"].'"></a>';
-    $product .= '        <div class="card-body row">';
-    $product .= '            <h5 class="card-title col-8"><a href="./?pid='.$value["PID"].'">'.$value["PRODUCT_NAME"].'</a></h5>';
-    $product .= '            <p class="card-text col-4">$15</p>';
-    $product .= '            <button type="button" class="btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
+    $product .= '        <div class="card-body card_display_body row">';
+    $product .= '           <div>';
+    $product .= '               <h5 class="card-title col-8"><a href="./?pid='.$value["PID"].'">'.$value["PRODUCT_NAME"].'</a></h5>';
+    $product .= '               <p class="card-text col-4">$15</p>';
+    $product .= '           </div>';
+    $product .= '           <button type="button" class="btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
     $product .= '        </div>';
     $product .= '   </div>';
     $product .= '</div>';
