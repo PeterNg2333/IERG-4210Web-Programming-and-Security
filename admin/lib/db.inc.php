@@ -213,30 +213,6 @@ function ierg4210_prod_fetchAll(){
          return $q->fetchAll();
 }
 
-function ierg4210_prod_fetchOne(){
-    if (!preg_match('/^[\d]+$/', $_POST['pid']))
-        throw new Exception("invalid-id");
-
-    // DB manipulation
-    global $db;
-    $db = ierg4210_DB();
-    $q = $db->prepare("SELECT * FROM PRODUCTS PID = ? LIMIT 1;");
-    $pid = $_POST["pid"];
-    $q->bindParam(1, $pid);
-
-    if ($q->execute()){
-        header("Content-Type: application/json");
-        $result = $q->fetchAll();
-        echo json_encode(array($result));
-        exit();
-    };
-
-    header("Content-Type: application/json");
-    $result = array("status" => "Failed");
-    echo json_encode($result);
-    exit();
-    }
-
 function ierg4210_prod_edit(){
         // input validation or sanitization
         // DB manipulation
@@ -335,7 +311,7 @@ function ierg4210_prod_delete(){
     exit();
 }
 
-///////////////// Webpage???????????????????????
+///////////////// Webpage////////////////////////////////////
 function ierg4210_prod_fetchAll_by_cid_page($CID){
     // DB manipulation
     global $db;
@@ -369,3 +345,27 @@ function ierg4210_cat_fetch_by_cid_page($CID){
     echo json_encode($result);
     exit();
 }
+
+function ierg4210_prod_fetchOne_by_cid_page(){
+    if (!preg_match('/^[\d]+$/', $_POST['pid']))
+        throw new Exception("invalid-id");
+
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("SELECT * FROM PRODUCTS PID = ? LIMIT 1;");
+    $pid = $_POST["pid"];
+    $q->bindParam(1, $pid);
+
+    if ($q->execute()){
+        header("Content-Type: application/json");
+        $result = $q->fetchAll();
+        echo json_encode(array($result));
+        exit();
+    };
+
+    header("Content-Type: application/json");
+    $result = array("status" => "Failed");
+    echo json_encode($result);
+    exit();
+    }

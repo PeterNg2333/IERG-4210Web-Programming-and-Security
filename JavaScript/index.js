@@ -36,7 +36,16 @@ function loadProrduct(e){
 
 function loadProductHelper(){
     const url = new URL(window.location);
-    alert(url.searchParams.get("pid"));
+    var get_pid = url.searchParams.get("pid");
+    $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
+        {pid: get_pid},
+        function(p_res){
+            var res_array = p_res[0]
+            res_array.forEach(function(record, i){
+                print(reocrd);
+            });
+        });
+    // alert();
 }
 
 // // load category
