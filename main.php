@@ -4,8 +4,8 @@ $c_res = ierg4210_cat_fetchall();
 $p_res = ierg4210_prod_fetchAll();
 $get_cid = (int) htmlspecialchars(($_GET['cid']));
 $category = '';
-$product ='';
-$category_url = "";
+$product = '';
+$category_url = '';
 foreach ($c_res as $value){
     // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
     $category .= '<il><a href="main.php/?cid='.$value["CID"].'" id="cid-'.$value["CID"].'" class="list-group-item list-group-item-action">'.$value["CATEGORY_NAME"].'</a></il>';
