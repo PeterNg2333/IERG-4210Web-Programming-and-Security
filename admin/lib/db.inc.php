@@ -353,7 +353,7 @@ function ierg4210_prod_fetchOne_by_cid_page(){
     // DB manipulation
     global $db;
     $db = ierg4210_DB();
-    $q = $db->prepare("SELECT * FROM PRODUCTS PID = ? LIMIT 1;");
+    $q = $db->prepare("SELECT * FROM PRODUCTS WHERE PID = ? LIMIT 1;");
     $pid = $_POST["pid"];
     $q->bindParam(1, $pid);
 
