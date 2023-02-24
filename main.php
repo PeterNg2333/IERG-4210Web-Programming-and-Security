@@ -57,7 +57,8 @@ $category .= '';
         <main id="main" class="container d-none">
             <?php 
                 $main_html = file_get_contents('./Snippet/Main.html');
-                echo $category;
+                $category_temp = file_get_contents('./Snippet/Category_item');
+                echo $category_temp;
                 $main_html = str_replace('%category_list%', $category, $main_html);
                 $main_html = str_replace('<!--?PHP--> ', '', $main_html);
                 echo $main_html;
