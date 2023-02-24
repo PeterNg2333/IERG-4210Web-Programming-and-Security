@@ -14,8 +14,8 @@ $category .= '';
 $product .='';
 foreach ($p_res as $value){
     // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
-    $product .= '<div class="col-lg-4 col-md-6 col-sm-12 mb-3 px-0">';
-    $product .= '    <div class="card mx-2">';
+    $product .= '<div class="col-lg-4 col-md-6 col-sm-12 mb-3 px-0" id="P-'.$value["PID"].'">';
+    $product .= '    <div class="card mx-2 product_card_display">';
     $product .= '        <a href="./?pid='.$value["PID"].'"><img class="card-img-top" src="./admin/lib/images/P'.$value["PID"].'.jpg" alt="'.$value["PRODUCT_NAME"].'"></a>';
     $product .= '        <div class="card-body row">';
     $product .= '            <h5 class="card-title col-8"><a href="./?pid='.$value["PID"].'">'.$value["PRODUCT_NAME"].'</a></h5>';

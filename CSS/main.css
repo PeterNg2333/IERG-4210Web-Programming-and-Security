@@ -45,3 +45,9 @@ aside > h4 {
 .shopping_detail_amount{
     margin-top: 4px;
 }
+
+.product_card_display{
+    height: 380px;
+    width: 250px;
+
+}
