@@ -13,17 +13,17 @@ foreach ($c_res as $value){
 $category .= '';
 
 
-if ($get_cid == null){
+// if ($get_cid == null){
     $p_res = ierg4210_prod_fetchAll();
     $category_url .= '<span id="CatergoryPath">> You might like it</span>';
-}
-else{
-    $p_res = ierg4210_prod_fetchAll_by_cid_page($get_cid);
-    $cName_res = ierg4210_cat_fetch_by_cid_page($get_cid);
-    foreach ($cName_res as $value){
-        $category_url .= '<span id="CatergoryPath">> <a href="/main.php/?cid='.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </a></span>';
-    }
-}
+// }
+// else{
+//     $p_res = ierg4210_prod_fetchAll_by_cid_page($get_cid);
+//     $cName_res = ierg4210_cat_fetch_by_cid_page($get_cid);
+//     foreach ($cName_res as $value){
+//         $category_url .= '<span id="CatergoryPath">> <a href="/main.php/?cid='.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </a></span>';
+//     }
+// }
 foreach ($p_res as $value){
     // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
     $product .= '<div class="col-lg-3 mb-3 px-0" id="P-'.$value["PID"].'">';
