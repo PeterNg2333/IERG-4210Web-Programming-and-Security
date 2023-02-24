@@ -13,6 +13,14 @@ function RenderElementAfter(className, HTMLText_Url, callback_function=null){
    });
 }
 
+function RenderElementInside(className, HTMLText_Url, callback_function=null){
+    $.get(HTMLText_Url, function (html_text) {
+        $(className).html(html_text);
+        if (callback_function)
+            callback_function();
+   });
+}
+
 // Untity Function
 function print(textToBePrinted){
     console.log(textToBePrinted);
