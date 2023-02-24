@@ -5,9 +5,9 @@ $(window).on("load", function() {
     $("#preloader").delay(800).fadeOut(700); 
     setTimeout(function(){
         $("#preloader").remove(); 
-        RenderElement("#header", "./Snippet/Header.html");
-        RenderElement("#main", "./Snippet/Main.html");
-        RenderElement("#footer", "./Snippet/Footer.html");
+        $("#header").removeClass("d-none");
+        $("#main").removeClass("d-none");
+        $("#footer").removeClass("d-none");
         setTimeout(function(){
             if (! loadProduct()){
                 loadCategory();

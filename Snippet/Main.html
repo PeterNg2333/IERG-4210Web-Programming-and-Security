@@ -3,25 +3,26 @@
     <!--Shopping list-->
     <section class="col-lg-3 col-md-5 col-sm-4"> 
         <div id="shopping_List">
-            <h4 >
+            <h4 class="">
                 <i class="fa-solid fa-cart-shopping"></i> Shopping List: 
                 <p class="d-inline" id="shopping_list_order_total"> $30 </p>
             </h4>
             <article id="shopping_Detail" class="border border-dark rounded px-2 pt-1">
-                <h6>Shopping List: [Total: <span id="shopping_list_order_total">$30</span>]</h6>
+                <h6 class="shopping_detail_amount">Shopping List: [Total: <span id="shopping_details_order_total">$30</span>]</h6>
                 <hr class="mt-0">
-                <ul class="ps-1 shopping_List_Detail">
-                    <il class="row">
-                        <p class="ps-2"><span class="col-4">- Fish </span><input type="number" class="col-4" size="1" placeholder="1"></input> <span class="col-4">@15 </span></p>
-                    </il>
-                    <il class="row">
-                        <p class="ps-2"><span class="col-4">- Fish </span><input type="number" class="col-4" size="1" placeholder="1"></input> <span class="col-4">@15 </span></p>
-                    </il>
-                </ul>
-                <div class="checkoutButton">
-                    <button type="button"><i class="fa-regular fa-credit-card m-0"></i> Check out</button>
-                </div>
-                
+                <form>
+                    <ul class="ps-1 shopping_List_Detail">
+                        <il class="row">
+                            <p class="ps-2"><span class="col-4">- Fish </span><input type="number" class="col-4" size="1" placeholder="1"></input> <span class="col-4">@$15 </span></p>
+                        </il>
+                        <il class="row">
+                            <p class="ps-2"><span class="col-4">- Fish </span><input type="number" class="col-4" size="1" placeholder="1"></input> <span class="col-4">@$15 </span></p>
+                        </il>
+                    </ul>
+                    <div class="checkoutButton">
+                        <button type="button" class="btn btn-sm"><i class="fa-regular fa-credit-card m-0"></i> Check out</button>
+                    </div>
+                </form>
             </article>
         </div>
     </section>
@@ -30,11 +31,11 @@
 
 <div class="row mt-2">
     <aside id="categoryList" class="col-4">
-        <h4 class="text-white py-1 ps-1 rounded-left"> <i class="fa-solid fa-list"></i> Categories </h4>
-        <ul class="list-group">
-            <il><a href="#Food_Category" onclick="loadFood_Category()" class="list-group-item list-group-item-action"><i class="fa-solid fa-utensils"></i> Food</a></il>
-            <il><a href="#Electric_Category" onclick="loadElectric_Category()" class="list-group-item list-group-item-action"><i class="fa-solid fa-desktop"></i> Electronics</a></il>
-            <il><a href="#Clothing_Category" onclick="loadClothing_Category()" class="list-group-item list-group-item-action"><i class="fa-solid fa-shirt"></i> Clothing, Shoes, & Accessories</a></il>
+        <h4 class="text-white py-1 ps-2 rounded-left"> <i class="fa-solid fa-bars-staggered"></i> Categories </h4>
+        <ul class="list-group" id="categoryList_group">
+            <il><a href="#Food_Category" onclick="loadFood_Category()" class="list-group-item list-group-item-action"> Food</a></il>
+            <il><a href="#Electric_Category" onclick="loadElectric_Category()" class="list-group-item list-group-item-action"> Electronics </a></il>
+            <il><a href="#Clothing_Category" onclick="loadClothing_Category()" class="list-group-item list-group-item-action"> Clothing, Shoes, & Accessories</a></il>
         </ul>
     </aside>
 
