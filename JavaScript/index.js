@@ -8,11 +8,13 @@ $(window).on("load", function() {
         $("#header").removeClass("d-none");
         $("#main").removeClass("d-none");
         $("#footer").removeClass("d-none");
-        setTimeout(function(){
-            if (! loadProduct()){
-                loadCategory();
-            }
-        }, 500);
+
+        
+        // setTimeout(function(){
+        //     if (! loadProduct()){
+        //         loadCategory();
+        //     }
+        // }, 500);
         // Add button handler       
     }, 1200);
 });
