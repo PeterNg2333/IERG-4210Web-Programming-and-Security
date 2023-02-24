@@ -41,8 +41,24 @@ function loadProductHelper(){
         {pid: get_pid},
         function(p_res){
             var res_array = p_res[0]
+            const myNode = document.getElementById("product");
+            myNode.textContent = '';
             res_array.forEach(function(record, i){
                 print(record);
+                var get_cid = record.CID;
+                var get_cName = record.CATEGORY_NAME;
+                var get_desc= record.DESCRIPTION;
+                var get_inv = record.INVENTORY;
+                var get_pid = record.PID;
+                var get_price = record.PRICE;
+                var get_pName = record.PRODUCT_NAME;
+                print(get_cid);
+                print(get_cName);
+                print(get_desc);
+                print(get_inv);
+                print(get_pid);
+                print(get_pName);
+                print(get_price);
             });
         });
     // alert();

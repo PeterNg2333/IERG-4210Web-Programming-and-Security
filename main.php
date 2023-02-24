@@ -57,7 +57,7 @@ if ($get_pid == null || $get_pid == 0){
     }
 }
 else{
-    $product .= "product_detail_page";
+    $product .= "";
 }
 $product .='';
 
