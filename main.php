@@ -30,17 +30,19 @@ else{
     $p_res = ierg4210_prod_fetchAll_by_cid_page($get_cid);
     $cName_res = ierg4210_cat_fetch_by_cid_page($get_cid);
     foreach ($cName_res as $value){
-        $category_url = '<span id="CatergoryPath">> <a href="/main.php/?cid='.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </a></span>';
+        $category_url = '<span id="CatergoryPath">> <a href="/main.php?cid='.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </a></span>';
     }
 }
 foreach ($p_res as $value){
     // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
     $product .= '<div class="col-lg-3 mb-3 px-0" id="P-'.$value["PID"].'">';
     $product .= '    <div class="card mx-2 product_card_display">';
-    $product .= '        <a href="./?pid='.$value["PID"].'"><img class="card-img-top" src="./admin/lib/images/P'.$value["PID"].'.jpg" alt="'.$value["PRODUCT_NAME"].'"></a>';
+    $product .= '        <a href="./#'.$value["PID"].'" onclick="loadProrduct()">';
+    $product .= '             <img class="card-img-top" src="./admin/lib/images/P'.$value["PID"].'.jpg" alt="'.$value["PRODUCT_NAME"].'" id="image-P'.$value["PID"].'">';
+    $product .= '        </a>';
     $product .= '        <div class="card-body card_display_body row">';
     $product .= '           <div class="row">';
-    $product .= '               <h5 class="card-title col-8"><a href="./?pid='.$value["PID"].'">'.$value["PRODUCT_NAME"].'</a></h5>';
+    $product .= '               <h5 class="card-title col-8"><a href="./#'.$value["PID"].'" id="title-P'.$value["PID"].'" onclick="loadProrduct()">'.$value["PRODUCT_NAME"].'</a></h5>';
     $product .= '               <p class="card-text col-4">$15</p>';
     $product .= '           </div>';
     $product .= '           <button type="button" class="btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
