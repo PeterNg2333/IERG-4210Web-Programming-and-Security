@@ -337,9 +337,6 @@ function ierg4210_prod_delete(){
 
 ///////////////// Webpage???????????????????????
 function ierg4210_prod_fetchAll_by_cid_page($CID){
-    if (!preg_match('/^[\d]+$/', $_POST['CID']))
-        throw new Exception("invalid-id");
-
     // DB manipulation
     global $db;
     $db = ierg4210_DB();
@@ -357,9 +354,6 @@ function ierg4210_prod_fetchAll_by_cid_page($CID){
 }
 
 function ierg4210_cat_fetch_by_cid_page($CID){
-    if (!preg_match('/^[\d]+$/', $_POST['CID']))
-        throw new Exception("invalid-id");
-
     // DB manipulation
     global $db;
     $db = ierg4210_DB();
