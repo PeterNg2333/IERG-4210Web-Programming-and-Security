@@ -20,7 +20,7 @@ foreach ($p_res as $value){
     $product .= '        <div class="card-body row">';
     $product .= '            <h5 class="card-title col-8"><a href="./?pid='.$value["PID"].'">'.$value["PRODUCT_NAME"].'</a></h5>';
     $product .= '            <p class="card-text col-4">$15</p>';
-    $product .= '            <button type="button" class="btn btn-primary mt-2"> Add to Shopping Cart</button>';
+    $product .= '            <button type="button" class="btn btn-primary"> Add to Shopping Cart</button>';
     $product .= '        </div>';
     $product .= '   </div>';
     $product .= '</div>';
