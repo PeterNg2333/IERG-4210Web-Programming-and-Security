@@ -16,7 +16,7 @@ foreach ($p_res as $value){
     // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
     $category .= '<div class="col-lg-4 col-md-6 col-sm-12 mb-3 px-0">';
     $category .= '    <div class="card mx-2">';
-    $category .= '        <a href="./?pid='.$value["PID"].'"><img class="card-img-top" src="/admin/lib/images/P'.$value["PID"].'" alt="'.$value["PRODUCT_NAME"].'"></a>';
+    $category .= '        <a href="./?pid='.$value["PID"].'"><img class="card-img-top" src="./admin/lib/images/P'.$value["PID"].'" alt="'.$value["PRODUCT_NAME"].'"></a>';
     $category .= '        <div class="card-body row">';
     $category .= '            <h5 class="card-title col-8"><a href="./?pid='.$value["PID"].'">'.$value["PRODUCT_NAME"].'</a></h5>';
     $category .= '            <p class="card-text col-4">$15</p>';
