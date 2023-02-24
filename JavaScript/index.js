@@ -8,7 +8,10 @@ $(window).on("load", function() {
         $("#header").removeClass("d-none");
         $("#main").removeClass("d-none");
         $("#footer").removeClass("d-none");
-
+        var product_detail_button = document.querySelectorAll(".product_detail_button");
+        product_detail_button.forEach(element => {
+            element.addEventListener("click", loadProrduct);
+        });
         
         // setTimeout(function(){
         //     if (! loadProduct()){
