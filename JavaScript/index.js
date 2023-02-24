@@ -23,12 +23,14 @@ function loadProrduct(e){
     e.preventDefault();
     print(e.target.id);
     print(e);
-    return false
+    loadProductHelper();
 }
 
-function loadProductHelper(){
-    url_id = ($(location).attr('href')).split("#")[1];
-    alert(url_id);
+function loadProductHelper(id=null){
+    if (id==null){
+        url_id = ($(location).attr('href')).split("#")[1];
+        alert(url_id);
+    }
 }
 
 // // load category
