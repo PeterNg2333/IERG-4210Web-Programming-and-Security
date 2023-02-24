@@ -59,6 +59,7 @@ function loadProductHelper(){
                 print(get_pid);
                 print(get_pName);
                 print(get_price);
+                document.getElementById("product").innerHTML="<h4>Testing</h4>"
             });
         });
     // alert();
