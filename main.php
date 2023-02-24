@@ -5,6 +5,9 @@ $p_res = ierg4210_prod_fetchAll();
 if (!preg_match('/^\d*$/', $_GET['cid']))
     throw new Exception("invalid-cid");
 $get_cid = (int) htmlspecialchars(($_GET['cid']));
+if (!preg_match('/^\d*$/', $_GET['pid']))
+    throw new Exception("invalid-pid");
+$get_pid = (int) htmlspecialchars(($_GET['pid']));
 $category = '';
 $product = '';
 $category_url = '';
@@ -33,22 +36,28 @@ else{
         $category_url = '<span id="CatergoryPath">> <a href="/main.php?cid='.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </a></span>';
     }
 }
-foreach ($p_res as $value){
-    // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
-    $product .= '<div class="col-lg-3 mb-3 px-0" id="P-'.$value["PID"].'">';
-    $product .= '    <div class="card mx-2 product_card_display">';
-    $product .= '        <a href="/main.php?pid='.$value["PID"].'" class="product_detail_button">';
-    $product .= '             <img class="card-img-top" src="./admin/lib/images/P'.$value["PID"].'.jpg" alt="'.$value["PRODUCT_NAME"].'" id="imageP'.$value["PID"].'">';
-    $product .= '        </a>';
-    $product .= '        <div class="card-body card_display_body row">';
-    $product .= '           <div class="row">';
-    $product .= '               <h5 class="product_detail_button card-title col-8"><a href="/main.php?pid='.$value["PID"].'" id="titleP-'.$value["PID"].'">'.$value["PRODUCT_NAME"].'</a></h5>';
-    $product .= '               <p class="card-text col-4">$15</p>';
-    $product .= '           </div>';
-    $product .= '           <button type="button" class="btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
-    $product .= '        </div>';
-    $product .= '   </div>';
-    $product .= '</div>';
+
+if ($get_pid == null || $get_pid == 0){
+    foreach ($p_res as $value){
+        // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
+        $product .= '<div class="col-lg-3 mb-3 px-0" id="P-'.$value["PID"].'">';
+        $product .= '    <div class="card mx-2 product_card_display">';
+        $product .= '        <a href="/main.php?pid='.$value["PID"].'" class="product_detail_button">';
+        $product .= '             <img class="card-img-top" src="./admin/lib/images/P'.$value["PID"].'.jpg" alt="'.$value["PRODUCT_NAME"].'" id="imageP'.$value["PID"].'">';
+        $product .= '        </a>';
+        $product .= '        <div class="card-body card_display_body row">';
+        $product .= '           <div class="row">';
+        $product .= '               <h5 class="product_detail_button card-title col-8"><a href="/main.php?pid='.$value["PID"].'" id="titleP-'.$value["PID"].'">'.$value["PRODUCT_NAME"].'</a></h5>';
+        $product .= '               <p class="card-text col-4">$15</p>';
+        $product .= '           </div>';
+        $product .= '           <button type="button" class="btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
+        $product .= '        </div>';
+        $product .= '   </div>';
+        $product .= '</div>';
+    }
+}
+else{
+    $product .= "product_detail_page"
 }
 $product .='';
 
