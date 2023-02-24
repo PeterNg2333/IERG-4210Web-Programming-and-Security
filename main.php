@@ -59,7 +59,7 @@ $product .='';
         <div id="preloader" class="container">
             <div id="loadingImg" class="row">
                 <img src="./Resource/loading-gif.gif"/>
-                <h5> Loading...... </h5>
+                <h5> Loading...... <?php $get_cid ?></h5>
             </div>
         </div>
 
