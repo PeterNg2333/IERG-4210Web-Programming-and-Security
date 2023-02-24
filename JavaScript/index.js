@@ -20,7 +20,9 @@ $(window).on("load", function() {
 });
 
 function loadProrduct(e){
+    e.preventDefault();
     print(e.target.id);
+    print(e);
     return false
 }
 
