@@ -2,6 +2,8 @@
 require __DIR__.'/admin/lib/db.inc.php';
 $c_res = ierg4210_cat_fetchall();
 $p_res = ierg4210_prod_fetchAll();
+if (!preg_match('/^\d*$/', $_GET['cid']))
+    throw new Exception("invalid-cid");
 $get_cid = (int) htmlspecialchars(($_GET['cid']));
 $category = '';
 $product = '';
@@ -13,10 +15,10 @@ foreach ($c_res as $value){
 $category .= '';
 
 
-// if ($get_cid == null){
+if ($get_cid == null || $get_cid="0"){
     $p_res = ierg4210_prod_fetchAll();
     $category_url .= '<span id="CatergoryPath">> You might like it</span>';
-// }
+}
 // else{
 //     $p_res = ierg4210_prod_fetchAll_by_cid_page($get_cid);
 //     $cName_res = ierg4210_cat_fetch_by_cid_page($get_cid);
