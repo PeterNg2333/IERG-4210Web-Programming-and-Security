@@ -59,7 +59,7 @@ $category .= '';
                 $main_html = file_get_contents('./Snippet/Main.html');
                 $category_temp = file_get_contents('./Snippet/Category_item');
                 echo $category_temp;
-                $main_html = str_replace('%category_list%', $category, $main_html);
+                $main_html = str_replace('%category_list%', $category_temp, $main_html);
                 $main_html = str_replace('<!--?PHP--> ', '', $main_html);
                 echo $main_html;
             ?>
