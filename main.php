@@ -30,7 +30,7 @@ else{
     $p_res = ierg4210_prod_fetchAll_by_cid_page($get_cid);
     $cName_res = ierg4210_cat_fetch_by_cid_page($get_cid);
     foreach ($cName_res as $value){
-        $category_url .= '<span id="CatergoryPath">> <a href="/main.php/?cid='.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </a></span>';
+        $category_url = '<span id="CatergoryPath">> <a href="/main.php/?cid='.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </a></span>';
     }
 }
 foreach ($p_res as $value){

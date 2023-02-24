@@ -357,7 +357,7 @@ function ierg4210_cat_fetch_by_cid_page($CID){
     // DB manipulation
     global $db;
     $db = ierg4210_DB();
-    $q = $db->prepare("SELECT * FROM CATEGORIES WHERE CID = ? TOP 1;");
+    $q = $db->prepare("SELECT * FROM CATEGORIES WHERE CID = ? LIMIT 1;");
     $q->bindParam(1, $CID);
 
     if ($q->execute()){
