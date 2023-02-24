@@ -171,7 +171,7 @@ function ierg4210_cat_delete(){
                 exit();
                 };
         }
-    }
+    } 
     header("Content-Type: application/json");
     $result = array("status" => "Failed");
     echo json_encode($result);
