@@ -23,7 +23,6 @@ else{
     foreach ($cName_res as $value){
         $category_url .= '<span id="CatergoryPath">> <a href="/main.php/?cid='.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </a></span>';
     }
-
 }
 foreach ($p_res as $value){
     // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
