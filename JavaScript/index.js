@@ -42,7 +42,7 @@ function loadProductHelper(){
         function(p_res){
             var res_array = p_res[0]
             res_array.forEach(function(record, i){
-                print(reocrd);
+                print(record);
             });
         });
     // alert();
