@@ -121,7 +121,7 @@ function change_category(){
 function change_image(){
     var reader = new FileReader();
     var input = document.querySelector("#product_image");
-    file_check(e.target.files[0].name);
+    file_check(input.files[0].name);
     reader.onload = function (e) {
         $("#image_uploaded_display_section p").removeClass("invisible");
         $("#image_uploaded_display_section img").removeClass("invisible");
