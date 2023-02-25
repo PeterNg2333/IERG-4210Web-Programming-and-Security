@@ -116,8 +116,8 @@ window.addEventListener('scroll', ()=>{
             // print("res_array");
             // print(res_array);
             $.post("admin/admin-process.php?action=prod_count_limit", {} , function(count_res){
-                var count_array = count_res[0]
-                var max_count = count_array[0];
+                var count_array = count_res[0][0];
+                var max_count = count_array["PRODUCT_NUM"];
                 console.log(max_count);
                 // print("count_array");
                 if (current_product_loaded <= max_count){
