@@ -265,7 +265,7 @@ function load_productsCard_by_cid(){
 
                             // show result
                             
-                            $("P-" + pid).removeClass("d-none");
+                            $("#P-" + pid).removeClass("d-none");
                         }
                     );
                 });
