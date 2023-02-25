@@ -74,7 +74,12 @@ function loadProductHelper(){
                             var get_path = '> <a id="cPathRemove" href="/main.php?cid=' + get_cid + '"> '+ get_cName +' </a>';
                             $("#CatergoryPath").html(get_path);
                             // add id
-
+                            var addToCartNum = $("#addToCartNum-000");
+                            addToCartNum.removeAttr('id');
+                            addToCartNum.attr('id', "addToCartNum-" + get_pid);
+                            var addToCart = $("#addToCart-");
+                            addToCart.removeAttr('id');
+                            addToCart.attr('id', "addToCart-" + get_pid);
                             // addEventhandler
                         })
                 });
