@@ -26,7 +26,8 @@ if ($get_cid == null || $get_cid == 0){
     $preload .= '        <h5> Loading...... </h5>';
     $preload .= '    </div>';
     $preload .= '</div>';
-    $p_res = ierg4210_prod_fetchAll();
+    // $p_res = ierg4210_prod_fetchAll();
+    $p_res = ierg4210_prod_fetch_four_page();
     $category_url .= '<span id="CatergoryPath">> <span id="cPathRemove"> You might like it</span></span>';
 }
 else{
