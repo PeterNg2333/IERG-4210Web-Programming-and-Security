@@ -12,6 +12,16 @@ $(window).on("load", function() {
             element.addEventListener("click", loadProrduct);
         });
         loadProductHelper()
+        const url = new URL(window.location);
+        var get_pid = url.searchParams.get("pid");
+        var get_cid = url.searchParams.get("cid");
+        if ((get_pid == null || get_pid == undefined) && (get_cid == null || get_cid == undefined)){
+            // removeinfiniteLoading
+            document.getElementById("LoadingMoreProduct").remove();
+        }
+        else{
+            window.addEventListener('scroll', addProductByScroll)
+        }
         // setTimeout(function(){
         //     if (! loadProduct()){
         //         loadCategory();
@@ -90,9 +100,6 @@ function loadProductHelper(){
                             addToCart.removeAttr('id');
                             addToCart.attr('id', "addToCart-" + get_pid);
 
-                            // removeLoading
-                            document.getElementById("LoadingMoreProduct").remove();
-
                             // addEventhandler
                             document.getElementById("addToCart-" + get_pid).addEventListener("click", addToCart);
                         })
@@ -106,12 +113,11 @@ function loadProductHelper(){
 }
 
 window.loadProductMore = false;
-window.addEventListener('scroll', ()=>{
+function addProductByScroll(){
     var totalHeight = document.body.clientHeight;
     var innerHeight = window.innerHeight;
     var srcoll = window.scrollY;
     var windowHeight = totalHeight - innerHeight
-
 
     if (windowHeight - srcoll <= 28 && window.loadProductMore == false){
         // $("#LoadingMoreProduct").removeClass("d-none");
@@ -192,7 +198,7 @@ window.addEventListener('scroll', ()=>{
     // print("innerHeight: " + innerHeight);
     // print("srcoll" + srcoll);
 
-});
+}
 
 function addToCart(e){
     alert("add event !!")
