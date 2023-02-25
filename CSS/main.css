@@ -80,10 +80,11 @@ aside > h4 {
 }
 
 #LoadingMoreProduct{
-    height: 30px !important;
+    height: 45px !important;
 }
 
 #LoadingMoreProduct_animation{
-    height: 30px !important;
+    height: 45px !important;
+    width: 100%;
     margin: auto !important;
 }
