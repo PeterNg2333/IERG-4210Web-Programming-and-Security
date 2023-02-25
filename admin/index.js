@@ -327,5 +327,12 @@ function file_check(img_name){
     print("image uploead:" + file_name);
     file_type = file_name[file_name.length-1];
     print("file type:" + file_name);
+    accept_type = ["jpg", "png", "jpeg"];
+    if (accept_type.indexOf(file_name) > -1){
+        print("corret type")
+    }
+    else{
+        alert("wrong image type!!!")
+    }
 
 }
