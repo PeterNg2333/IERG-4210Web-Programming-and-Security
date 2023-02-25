@@ -19,14 +19,14 @@ foreach ($c_res as $value){
 $category .= '';
 
 
-if (($get_cid == null || $get_cid == 0) && ($get_pid == null || $get_pid == 0)){
+if ($get_cid == null || $get_cid == 0){
     $preload .= '<div id="preloader" class="container">';
     $preload .= '    <div id="loadingImg" class="row">';
     $preload .= '        <img src="./Resource/loading-gif.gif"/>';
     $preload .= '        <h5> Loading...... </h5>';
     $preload .= '    </div>';
     $preload .= '</div>';
-    $p_res = ierg4210_prod_fetch_four_page();
+    $p_res = ierg4210_prod_fetchAll();
     $category_url .= '<span id="CatergoryPath">> <span id="cPathRemove"> You might like it</span></span>';
 }
 else{
@@ -36,6 +36,7 @@ else{
         $category_url = '<span id="CatergoryPath">> <a id="cPathRemove" href="/main.php?cid='.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </a></span>';
     }
 }
+
 if ($get_pid == null || $get_pid == 0){
     foreach ($p_res as $value){
         // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
