@@ -327,7 +327,7 @@ function file_check(img_name){
     print("image uploead:" + file_name[1]);
     print("image uploead:" + file_name[0]);
     var index = file_name.length-1;
-    print (file_name.length);
+    file_type = file_name[index];
     print("file type:" + String(file_type));
     accept_type = ["jpg", "png", "jpeg"];
     if (accept_type.indexOf(file_type) > -1){
