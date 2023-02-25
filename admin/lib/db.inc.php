@@ -405,7 +405,7 @@ function ierg4210_prod_fetch_four_page(){
     // DB manipulation
     global $db;
     $db = ierg4210_DB();
-    $q = $db->prepare("SELECT * FROM PRODUCTS;");
+    $q = $db->prepare("SELECT * FROM PRODUCTS LEFT JOIN (SELECT PID, (row_number() OVER()) as row_num FROM PRODUCTS) USING(PID) Where ROW_NUM <= 4;");
     if ($q->execute())
          return $q->fetchAll();
 
