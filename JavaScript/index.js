@@ -15,13 +15,15 @@ $(window).on("load", function() {
         const url = new URL(window.location);
         var get_pid = url.searchParams.get("pid");
         var get_cid = url.searchParams.get("cid");
+        print(get_pid);
+        print(get_cid);
         if ((get_pid == null || get_pid == undefined) || (get_cid == null || get_cid == undefined)){
             // removeinfiniteLoading
             document.getElementById("LoadingMoreProduct").remove();
         }
         else{
             alert("a");
-            window.addEventListener('scroll', addProductByScroll)
+            window.addEventListener('scroll', addProductByScroll);
         }
         // setTimeout(function(){
         //     if (! loadProduct()){
