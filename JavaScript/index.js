@@ -104,8 +104,11 @@ function loadProductHelper(){
 window.addEventListener('scroll', ()=>{
     var totalHeight = document.body.clientHeight;
     var innerHeight = window.innerHeight;
-    print("totalHeight" + totalHeight);
-    print("innerHeight" + innerHeight);
+    var srcoll = window.scrollY;
+    print("totalHeight: " + totalHeight);
+    print("innerHeight: " + innerHeight);
+    print("srcoll" + srcoll);
+
 });
 
 // // load category
