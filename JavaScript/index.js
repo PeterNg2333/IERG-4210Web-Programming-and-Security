@@ -1,5 +1,3 @@
-const { load } = require("npm");
-
 $(window).on("load", function() { 
     $("#loadingImg h5").text("Ready").delay(500).fadeOut(500); 
     $("#loadingImg img").delay(500).fadeOut(500); 
