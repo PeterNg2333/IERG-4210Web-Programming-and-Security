@@ -69,10 +69,17 @@ function loadProductHelper(){
                                 get_inv = "Only" + get_inv + "left!"
                             }
                             $("#productDetailInv").text(get_inv);
-                            // add url
+
+                            // add category url
                             $("#CatergoryPath").empty();
                             var get_path = '> <a id="cPathRemove" href="/main.php?cid=' + get_cid + '"> '+ get_cName +' </a>';
                             $("#CatergoryPath").html(get_path);
+
+                            // add product url
+                            $("#productPath a").text("get_pName");
+                            $("#productPath a").attr("href", "/main.php?pid=" + get_pid);
+                            $("#productPath").removeClass("d-none");
+
                             // add id
                             var addToCartNum = $("#addToCartNum-000");
                             addToCartNum.removeAttr('id');
