@@ -1,3 +1,4 @@
+const { load } = require("npm");
 
 $(window).on("load", function() { 
     $("#loadingImg h5").text("Ready").delay(500).fadeOut(500); 
@@ -113,12 +114,23 @@ window.addEventListener('scroll', ()=>{
         print ("loaded product: " + current_product_loaded);
         $.post("admin/admin-process.php?action=prod_fetch_next_four_page", {} , function(p_res){
             var res_array = p_res[0]
-            print("res_array");
-            print(res_array);
+            // print("res_array");
+            // print(res_array);
             $.post("admin/admin-process.php?action=prod_count_limit", {} , function(count_res){
                 var count_array = count_res[0]
-                print("count_array");
-                print(count_array);
+                var max_count = count_array["PRODUCT_NUM"];
+                // print("count_array");
+                if (current_product_loaded <= max_count){
+                    var load_count = current_product_loaded + 1;
+                    var product_html = "";
+                    res_array.forEach(element => {
+                        if (load_count <= current_product_loaded + 6){
+                            print(element);
+                            load_count ++;
+                        }
+                        
+                    });
+                }
 
                 ////////////////////////// End loading
                 window.loadProductMore = false;
