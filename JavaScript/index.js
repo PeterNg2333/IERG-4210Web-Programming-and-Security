@@ -116,6 +116,8 @@ function loadProductHelper(){
 
                             // addEventhandler
                             document.querySelector("#addToCart-" + get_pid).addEventListener("click", addToCart_button);
+                            document.getElementById("LoadingMoreProduct").remove();
+                            window.removeEventListener('scroll', addProductByScroll);
                         })
                 });
             });
