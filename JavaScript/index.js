@@ -58,14 +58,14 @@ function loadProductHelper(){
                         "./Snippet/Product.html",
                         function(){
                             // image
-                            image_url = "./admin/lib/images/P" + get_pid + ".jpg";
+                            var image_url = "./admin/lib/images/P" + get_pid + ".jpg";
                             $("#productDetailImg").attr("src", image_url);
                             $("#productDetailImg").attr("alt", get_pName);
                             // product details
                             $("#productDetailTitle").text(get_pName);
                             $("#productDetailPrice").text(get_price);
                             $("#productDetailDesc").text(get_desc);
-                            if (get_inv >= 3){
+                            if (get_inv <= 3){
                                 get_inv = "Only " + get_inv + " left!"
                             }
                             $("#productDetailInv").text(get_inv);
