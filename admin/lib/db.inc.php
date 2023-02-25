@@ -286,6 +286,7 @@ function ierg4210_prod_edit(){
         echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
         exit();
 }
+
 function ierg4210_prod_delete(){
     if (!preg_match('/^[\d]+$/', $_POST['pid']))
         throw new Exception("invalid-id");
@@ -309,6 +310,14 @@ function ierg4210_prod_delete(){
     $result = array("status" => "Failed");
     echo json_encode($result);
     exit();
+}
+function ierg4210_prod_and_cat_count(){
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("SELECT COUNT(DISTINCT CID), COUNT(DISTINCT PID) AS PRODUCT_NUM, COUNT(DISTINCT CASE WHEN INVENTORY = 0 THEN PID ELSE NULL END) AS OUT_OF_STOCK FROM PRODUCTS LEFT JOIN CATEGORIES USING (CID);");
+    if ($q->execute())
+        return $q->fetchAll();
 }
 
 ///////////////// Webpage////////////////////////////////////
@@ -368,4 +377,54 @@ function ierg4210_prod_fetchOne_by_cid_page(){
     $result = array("status" => "Failed");
     echo json_encode($result);
     exit();
+}
+
+function ierg4210_prod_fetch_next_four_page(){
+    if (!preg_match('/^[\d]+$/', $_POST['load_num']))
+    throw new Exception("invalid-id");
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("Select *, row_num FROM Products LEFT JOIN (SELECT PID, row_number() OVER() as row_num FROM PRODUCTS) USING(PID) Where row_num <= ?;");
+    $load_num = $_POST["load_num"];
+    $load_num = $load_num + 4;
+    $q->bindParam(1, $load_num);
+    if ($q->execute()){
+        header("Content-Type: application/json");
+        $result = $q->fetchAll();
+        echo json_encode(array($result));
+        exit();
     }
+    header("Content-Type: application/json");
+    $result = array("status" => "Failed");
+    echo json_encode($result);
+    exit();
+}
+
+function ierg4210_prod_fetch_four_page(){
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("Select *, row_num FROM Products LEFT JOIN (SELECT PID, row_number() OVER() as row_num FROM PRODUCTS) USING(PID) Where row_num <= 4;");
+    if ($q->execute())
+        return $q->fetchAll();
+}
+
+function ierg4210_prod_count_limit(){
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("Select COUNT(PID) AS PRODUCT_NUM FROM Products;");
+    if ($q->execute()){
+        header("Content-Type: application/json");
+        $result = $q->fetchAll();
+        echo json_encode(array($result));
+        exit();
+    }
+    header("Content-Type: application/json");
+    $result = array("status" => "Failed");
+    echo json_encode($result);
+    exit();
+}
+
+

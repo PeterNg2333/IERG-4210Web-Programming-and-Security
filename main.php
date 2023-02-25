@@ -1,6 +1,6 @@
 <?php
 require __DIR__.'/admin/lib/db.inc.php';
-$c_res = ierg4210_cat_fetchall();
+$c_res = ierg4210_prod_fetch_four_page();
 // $p_res = ierg4210_prod_fetchAll();
 if (!preg_match('/^\d*$/', $_GET['cid']))
     throw new Exception("invalid-cid");
