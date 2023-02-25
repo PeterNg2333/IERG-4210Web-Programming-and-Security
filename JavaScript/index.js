@@ -108,7 +108,7 @@ window.addEventListener('scroll', ()=>{
     var windowHeight = totalHeight - innerHeight
 
 
-    if (windowHeight - srcoll <= 50 && window.loadProductMore == false){
+    if (windowHeight - srcoll <= 28 && window.loadProductMore == false){
         $("#LoadingMoreProduct").removeClass("d-none");
         $("#LoadingMoreProduct_animation").removeClass("d-none");
         $("#LoadingMoreProduct_text").addClass("d-none");
