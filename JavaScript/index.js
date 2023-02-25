@@ -125,7 +125,7 @@ window.addEventListener('scroll', ()=>{
                 var max_count = Number(count_array["PRODUCT_NUM"]);
                 // console.log(max_count);
                 // print("count_array");
-                if (current_product_loaded <= max_count){
+                if (current_product_loaded < max_count){
                     var load_count = 0;
                     // var load_count = current_product_loaded + 1;
                     var product_html = "";
