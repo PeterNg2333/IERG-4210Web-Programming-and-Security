@@ -69,7 +69,7 @@ function loadProductHelper(){
                                 print(Number(get_inv));
                                 print(typeof Number(get_inv));
                                 get_inv = "Only " + get_inv + " left!";
-                                $("#productDetailPrice").addClass("text-danger");
+                                $("#productDetailInv").addClass("text-danger");
                             }
                             $("#productDetailInv").text(get_inv);
 

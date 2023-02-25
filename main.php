@@ -17,6 +17,7 @@ foreach ($c_res as $value){
 }
 $category .= '';
 
+$category_url .= '<span id="CatergoryPath">> <span id="cPathRemove"> You might like it</span></span>';
 
 if (($get_cid == null || $get_cid == 0) && ($get_pid == null || $get_pid == 0)){
     $preload .= '<div id="preloader" class="container">';
@@ -27,7 +28,6 @@ if (($get_cid == null || $get_cid == 0) && ($get_pid == null || $get_pid == 0)){
     $preload .= '</div>';
     // $p_res = ierg4210_prod_fetchAll();
     $p_res = ierg4210_prod_fetchAll();
-    $category_url .= '<span id="CatergoryPath">> <span id="cPathRemove"> You might like it</span></span>';
 }
 else{
     $p_res = ierg4210_prod_fetchAll_by_cid_page($get_cid);
