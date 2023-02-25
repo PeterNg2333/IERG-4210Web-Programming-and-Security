@@ -167,7 +167,7 @@ window.addEventListener('scroll', ()=>{
                 }
 
                 ////////////////////////// End loading
-                $("#product:last-child").after(product_html);
+                $("#product").children().last().html(product_html);
                 setTimeout(function () {
                     window.loadProductMore = false;
                     // $("#LoadingMoreProduct").addClass("d-none");
