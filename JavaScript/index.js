@@ -127,7 +127,7 @@ window.addEventListener('scroll', ()=>{
                     // console.log(load_count);
 
                     res_array.forEach(function(element){
-                        if (load_count > current_product_loaded && load_count <= current_product_loaded + 6){
+                        if (load_count >= current_product_loaded && load_count < current_product_loaded + 6){
                             console.log(element);
                         }
                         else{
