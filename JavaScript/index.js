@@ -15,7 +15,7 @@ $(window).on("load", function() {
         const url = new URL(window.location);
         var get_pid = url.searchParams.get("pid");
         var get_cid = url.searchParams.get("cid");
-        if ((get_pid == null || get_pid == undefined) && (get_cid == null || get_cid == undefined)){
+        if ((get_pid == null || get_pid == undefined) || (get_cid == null || get_cid == undefined)){
             // removeinfiniteLoading
             document.getElementById("LoadingMoreProduct").remove();
         }
