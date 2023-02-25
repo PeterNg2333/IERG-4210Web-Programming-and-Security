@@ -71,10 +71,10 @@ function loadProductHelper(){
                             $("#productDetailInv").text(get_inv);
                             // add url
                             $("#CatergoryPath").empty();
-                            var get_path = '<a id="cPathRemove" href="/main.php?cid=' + get_cid + '"> '+ get_cName +' </a>';
+                            var get_path = '> <a id="cPathRemove" href="/main.php?cid=' + get_cid + '"> '+ get_cName +' </a>';
                             $("#CatergoryPath").html(get_path);
                             // add id
-                            
+
                             // addEventhandler
                         })
                 });
