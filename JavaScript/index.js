@@ -51,11 +51,41 @@ function addToCart_button(e){
     var message = ""
     var text_array = e.target.id.split("-");
     var id = text_array[1];
-    message += "Num: " + document.querySelector("#addToCartNum-" + id).value + "\n"
-    message += "PID: " + id + "\n"
-    alert(message);
+    var num_added = document.querySelector("#addToCartNum-" + id).value;
+    if (num_added != 0){
+        // load local Storage
+        var jsonstr = localStorage.getItem('shoppingList');
+
+        // update local Storage
+        if (jsonstr == undefined){
+            var temp_array = {id: num_added}
+            var jsonstr = localStorage.setItem('shoppingList', JSON.stringify(temp_array));
+            var json = JSON.parse(temp_array);
+        } 
+        else {
+            var json = JSON.parse(jsonstr);
+            if (json.indexOf(id) > -1){
+                json[id] += num_added
+            } 
+            else {
+                json.id = num_added
+            }
+            localStorage.setItem('shoppingList', JSON.stringify(json));
+        }
+        
+        
+        // Refresh shopping list
+        alert(json);
+    } else {
+        alert("Add failed")
+    }
+
 
 }
+
+
+
+function load_shoppingCart(id){}
 
 function loadProductHelper(){
     const url = new URL(window.location);
