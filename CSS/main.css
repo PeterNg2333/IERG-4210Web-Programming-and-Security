@@ -84,6 +84,6 @@ aside > h4 {
 }
 
 #LoadingMoreProduct_animation{
-    margin-left: auto !important;
-    margin-right: auto !important;
+    height: 30px !important;
+    margin: auto !important;
 }
