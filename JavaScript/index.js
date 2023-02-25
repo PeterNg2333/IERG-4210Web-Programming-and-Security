@@ -118,15 +118,16 @@ window.addEventListener('scroll', ()=>{
             $.post("admin/admin-process.php?action=prod_count_limit", {} , function(count_res){
                 var count_array = count_res[0][0];
                 var max_count = count_array["PRODUCT_NUM"];
-                console.log(max_count);
+                // console.log(max_count);
                 // print("count_array");
                 if (current_product_loaded <= max_count){
-                    var load_count = current_product_loaded + 1;
+                    var load_count = 0;
+                    // var load_count = current_product_loaded + 1;
                     var product_html = "";
-                    console.log(load_count);
+                    // console.log(load_count);
 
                     res_array.forEach(function(element){
-                        if (load_count <= current_product_loaded + 6){
+                        if (load_count > current_product_loaded && load_count <= current_product_loaded + 6){
                             console.log(element);
                         }
                         else{
