@@ -18,11 +18,11 @@ $(window).on("load", function() {
         print(get_pid);
         print(get_cid);
         print((get_pid == null || get_pid == undefined) || (get_cid == null || get_cid == undefined))
-        if ((get_pid == null || get_pid == undefined) || (get_cid == null || get_cid == undefined)){
+        if ((get_pid != null || get_pid != undefined) || (get_cid != null || get_cid != undefined)){
             // removeinfiniteLoading
             document.getElementById("LoadingMoreProduct").remove();
         }
-        else if((get_pid != null || get_pid != undefined) || (get_cid != null || get_cid != undefined)){
+        else{
             alert("a");
             window.addEventListener('scroll', addProductByScroll);
         }
