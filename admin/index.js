@@ -253,8 +253,9 @@ function load_productsCard_by_cid(){
 
                             // Event
                             document.querySelector("#"+ "delete_button-" + pid).addEventListener("click", delete_product, false)
-                            document.querySelector("#"+ "delete_button-" + pid).addEventListener("click", delete_product, false)
                             document.querySelector("#"+ "delete_button-" + pid).firstChild.addEventListener("click", delete_product, false)
+                            document.querySelector("#"+ image_input_url).addEventListener("change", change_image_for_productCard)
+                            document.querySelector("#" + "P-" + pid).addEventListener("click", enable_modify)
                             
                             // Drag and Drop
                             var dnd = $("#drag_and_drop-000");
