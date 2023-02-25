@@ -112,7 +112,6 @@ function loadProductHelper(){
 
                             // addEventhandler
                             document.querySelector("#addToCart-" + get_pid).addEventListener("click", addToCart_button);
-                            add
                         })
                 });
             });
