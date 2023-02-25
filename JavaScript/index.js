@@ -106,7 +106,7 @@ window.addEventListener('scroll', ()=>{
     var innerHeight = window.innerHeight;
     var srcoll = window.scrollY;
     var windowHeight = totalHeight - innerHeight
-    if (windowHeight - srcoll <= 60){
+    if (windowHeight - srcoll <= 70){
         alert("time to refresh");
     }
     // print("totalHeight: " + totalHeight);
