@@ -44,7 +44,13 @@ function loadProrduct(e){
 }
 
 function addToCart_button(e){
-    alert("add event !!");
+    var message = ""
+    var text_array = e.target.id.split("-");
+    var id = text_array[1];
+    message += "Num: " + document.querySelector("#addToCart-" + id).value + "\n"
+    message += "PID: " + id + "\n"
+    alert(message);
+
 }
 
 function loadProductHelper(){
