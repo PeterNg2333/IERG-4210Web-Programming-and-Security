@@ -4,9 +4,11 @@
     - JavaScript: JS files
     - Resource: image
     - Snippet: Split HTML components e.g. html file only for one section
+    - admin: source code and the resource for admin panel as well as the image uploaded (no image in this folder)
 #### 2. How to run the web (Need a server to run the page)
   ##### Method A: Use Web Server for Chrome 
- - Use the current folder as the root
- - Open the web with http://127.0.0.1:8887
-  ##### Method B: open my gitpage https://peterng2333.github.io/IERG-4210Web-Programming-and-Security/  (Not recommended)
+  - Deploy in AWS ec2
+  ##### Method B: open my page 
+  - Main page: http://s19.ierg4210.ie.cuhk.edu.hk/main.php
+  - Admin panel: http://s19.ierg4210.ie.cuhk.edu.hk/admin/admin.php
 

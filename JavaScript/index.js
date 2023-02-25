@@ -66,7 +66,7 @@ function loadProductHelper(){
                             $("#productDetailPrice").text(get_price);
                             $("#productDetailDesc").text(get_desc);
                             if (get_inv >= 3){
-                                get_inv = "Only" + get_inv + "left!"
+                                get_inv = "Only " + get_inv + " left!"
                             }
                             $("#productDetailInv").text(get_inv);
 

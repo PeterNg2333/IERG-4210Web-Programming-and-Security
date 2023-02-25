@@ -260,6 +260,10 @@ function load_productsCard_by_cid(){
                             existing_dnd_ele.addEventListener('dragenter', dragEnterHandler, false)
                             existing_dnd_ele.addEventListener('dragleave', dragLeaveHandler, false)
                             existing_dnd_ele.addEventListener('drop', dropHandler, false)
+
+                            // show result
+                            
+                            $("P-" + pid).removeClass("d-none");
                         }
                     );
                 });
