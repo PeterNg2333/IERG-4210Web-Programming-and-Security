@@ -57,9 +57,21 @@ function loadProductHelper(){
                     RenderElementInside("#product",
                         "./Snippet/Product.html",
                         function(){
+                            // image
+                            image_url = "./admin/lib/images/P" + get_pid;
+                            $("#product_detail_image").attr("src", image_url);
+                            // product details
+                            $("#productDetailTitle").text(get_pName);
+                            $("#productDetailPrice").text(get_price);
+                            $("#productDetailTitle").text(get_desc);
+                            if (get_inv >= 3){
+                                get_inv = "Only" + get_inv + "left!"
+                            }
+                            $("#productDetailInv").text(get_inv);
+                            // add id
+                            // addEventhandler
                             print(get_cid);
                             print(get_cName);
-                            print(get_desc);
                             print(get_inv);
                             print(get_pid);
                             print(get_pName);
