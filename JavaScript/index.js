@@ -138,7 +138,7 @@ window.addEventListener('scroll', ()=>{
                             var get_price = element.PRICE;
                             var get_pName = element.PRODUCT_NAME;
 
-                            product_html += '<div class="count_product_loaded" col-lg-3 mb-3 px-0" id="P-'+get_pid +'">';
+                            product_html += '<div class="count_product_loaded col-lg-3 mb-3 px-0" id="P-'+get_pid +'">';
                             product_html += '    <div class="card mx-2 product_card_display">';
                             product_html += '        <a href="/main.php?pid='+ get_pid +'" class="product_detail_button">';
                             product_html += '             <img class="card-img-top" src="./admin/lib/images/P'+get_pid+'.jpg" alt="'+get_pName+'" id="imageP-'+get_pid+'">';
