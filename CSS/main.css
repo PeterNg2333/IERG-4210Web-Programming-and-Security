@@ -80,7 +80,7 @@ aside > h4 {
 }
 
 #LoadingMoreProduct{
-    height: 30px;
+    height: 30px !important;
 }
 
 #LoadingMoreProduct_animation{
