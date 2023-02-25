@@ -42,8 +42,8 @@ function loadProductHelper(){
             {pid: get_pid},
             function(p_res){
                 var res_array = p_res[0]
-                const myNode = document.getElementById("product");
-                myNode.textContent = '';
+                const _myNode = document.getElementById("product");
+                _myNode.textContent = '';
                 res_array.forEach(function(record, i){
                     print(record);
                     var get_cid = record.CID;
@@ -107,6 +107,18 @@ window.addEventListener('scroll', ()=>{
     var srcoll = window.scrollY;
     var windowHeight = totalHeight - innerHeight
     if (windowHeight - srcoll <= 70){
+        var current_product_loaded = document.querySelectorAll(".count_product_loaded").length;
+        $.post("admin/admin-process.php?action=prod_fetch_next_four_page", {} , function(p_res){
+            var res_array = p_res[0]
+            print("res_array");
+            print(res_array);
+        });
+        $.post("admin/admin-process.php?action=prod_count_limit", {} , function(p_res){
+            var count_array = count_res[0]
+            print("count_array");
+            print(count_array);
+        });
+                    
         alert("time to refresh");
     }
     // print("totalHeight: " + totalHeight);

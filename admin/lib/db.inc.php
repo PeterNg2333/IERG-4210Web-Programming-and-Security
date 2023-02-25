@@ -379,27 +379,27 @@ function ierg4210_prod_fetchOne_by_cid_page(){
     exit();
 }
 
-function ierg4210_prod_fetch_next_four_page(){
-    if (!preg_match('/^[\d]+$/', $_POST['load_num']))
-    throw new Exception("invalid-id");
-    // DB manipulation
-    global $db;
-    $db = ierg4210_DB();
-    $q = $db->prepare("Select *, row_num FROM Products LEFT JOIN (SELECT PID, row_number() OVER() as row_num FROM PRODUCTS) USING(PID) Where row_num <= ?;");
-    $load_num = $_POST["load_num"];
-    $load_num = $load_num + 4;
-    $q->bindParam(1, $load_num);
-    if ($q->execute()){
-        header("Content-Type: application/json");
-        $result = $q->fetchAll();
-        echo json_encode(array($result));
-        exit();
-    }
-    header("Content-Type: application/json");
-    $result = array("status" => "Failed");
-    echo json_encode($result);
-    exit();
-}
+// function ierg4210_prod_fetch_next_four_page(){
+//     if (!preg_match('/^[\d]+$/', $_POST['load_num']))
+//     throw new Exception("invalid-id");
+//     // DB manipulation
+//     global $db;
+//     $db = ierg4210_DB();
+//     $q = $db->prepare("Select *, row_num FROM Products LEFT JOIN (SELECT PID, row_number() OVER() as row_num FROM PRODUCTS) USING(PID) Where row_num <= ?;");
+//     $load_num = $_POST["load_num"];
+//     $load_num = $load_num + 4;
+//     $q->bindParam(1, $load_num);
+//     if ($q->execute()){
+//         header("Content-Type: application/json");
+//         $result = $q->fetchAll();
+//         echo json_encode(array($result));
+//         exit();
+//     }
+//     header("Content-Type: application/json");
+//     $result = array("status" => "Failed");
+//     echo json_encode($result);
+//     exit();
+// }
 
 // function ierg4210_prod_fetch_four_page(){
 //     // DB manipulation
@@ -416,6 +416,23 @@ function ierg4210_prod_fetch_next_four_page(){
 //     // if ($q->execute())
 //     //     return $q->fetchAll();
 // }
+
+function ierg4210_prod_fetch_next_four_page(){
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("SELECT * FROM PRODUCTS ORDER BY PID LIMIT 100;");
+    if ($q->execute()){
+        header("Content-Type: application/json");
+        $result = $q->fetchAll();
+        echo json_encode(array($result));
+        exit();
+    }
+    header("Content-Type: application/json");
+    $result = array("status" => "Failed");
+    echo json_encode($result);
+    exit();
+}
 
 function ierg4210_prod_count_limit(){
     // DB manipulation
