@@ -17,13 +17,13 @@ $(window).on("load", function() {
         var get_cid = url.searchParams.get("cid");
         // print(get_pid);
         // print(get_cid);
-        print((get_pid == null || get_pid == undefined) || (get_cid == null || get_cid == undefined))
-        print((get_pid != null || get_pid != undefined) || (get_cid != null || get_cid != undefined))
+        // print((get_pid == null || get_pid == undefined) || (get_cid == null || get_cid == undefined))
+        // print((get_pid != null || get_pid != undefined) || (get_cid != null || get_cid != undefined))
         if ((get_pid != null || get_pid != undefined) || (get_cid != null || get_cid != undefined)){
             // removeinfiniteLoading
             document.getElementById("LoadingMoreProduct").remove();
         }
-        else{
+        else if ((get_pid == null || get_pid == undefined)){
             window.addEventListener('scroll', addProductByScroll);
         }
         // setTimeout(function(){
