@@ -74,3 +74,7 @@ aside > h4 {
     height: 400px !important;
     width: 400px !important;
 }
+
+.productDetail_desc{
+    height: 200px !important;
+}
