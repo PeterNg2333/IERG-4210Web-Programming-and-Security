@@ -20,6 +20,7 @@ $(window).on("load", function() {
             document.getElementById("LoadingMoreProduct").remove();
         }
         else{
+            alert("a");
             window.addEventListener('scroll', addProductByScroll)
         }
         // setTimeout(function(){
