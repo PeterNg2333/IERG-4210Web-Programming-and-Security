@@ -105,9 +105,13 @@ window.addEventListener('scroll', ()=>{
     var totalHeight = document.body.clientHeight;
     var innerHeight = window.innerHeight;
     var srcoll = window.scrollY;
-    print("totalHeight: " + totalHeight);
-    print("innerHeight: " + innerHeight);
-    print("srcoll" + srcoll);
+    var windowHeight = totalHeight - innerHeight
+    if (windowHeight - srcoll <= 60){
+        alert("time to refresh");
+    }
+    // print("totalHeight: " + totalHeight);
+    // print("innerHeight: " + innerHeight);
+    // print("srcoll" + srcoll);
 
 });
 
