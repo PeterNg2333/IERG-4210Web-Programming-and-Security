@@ -153,6 +153,7 @@ function dropHandler(e){
     // print(input.files[0]);
 
     var reader = new FileReader();
+    print("image uploead:" + e.target.files[0].name)
     reader.onload = function (e) {
         $("#"+ temp_id + " img").attr('src', e.target.result);
         $("#"+ temp_id + " img").attr('alt', input.files[0].name);
@@ -234,6 +235,7 @@ function load_productsCard_by_cid(){
                             var image_input_url = "image_input-" + pid;
                             image_input.removeAttr('id');
                             image_input.attr('id', image_input_url);
+                            image_input.attr('alt', "P" + pid);
 
                             var image_uploaded = $("#image_uploaded-000");
                             image_uploaded.removeAttr('id');
@@ -277,6 +279,7 @@ function change_image_for_productCard(e){
     var image_id = "#" +  "image_uploaded-" + text_array[1];
     $(image_id).removeAttr('src');
     $(image_id).removeAttr('alt');
+    print("image uploead:" + e.target.files[0].name)
     reader.onload = function (e) {
         $(image_id).attr('src', e.target.result);
         $(image_id).attr('alt', e.target.files[0].name);
@@ -315,4 +318,5 @@ function enable_modify(e){
     document.querySelector(temp_id + " #create_button").classList.add("btn-success");
 
 }
+
 
