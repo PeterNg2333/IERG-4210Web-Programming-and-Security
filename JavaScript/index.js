@@ -111,7 +111,6 @@ window.addEventListener('scroll', ()=>{
     if (windowHeight - srcoll <= 28 && window.loadProductMore == false){
         $("#LoadingMoreProduct").removeClass("d-none");
         $("#LoadingMoreProduct_animation").removeClass("d-none");
-        $("#LoadingMoreProduct_text").addClass("d-none");
         window.loadProductMore = true;
         var current_product_loaded = document.querySelectorAll(".count_product_loaded").length;
         // print ("loaded product: " + current_product_loaded);
