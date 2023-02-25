@@ -4,7 +4,7 @@
     - JavaScript: JS files
     - Resource: image
     - Snippet: Split HTML components e.g. html file only for one section
-    - admin: source code and the resource for admin panel as well as the image uploaded (no image in this folder)
+    - admin: source code and the resource for admin panel as well as the image uploaded
 #### 2. How to run the web (Need a server to run the page)
   ##### Method A: Use Web Server for Chrome 
   - Deploy in AWS ec2
