@@ -86,10 +86,15 @@ function loadProductHelper(){
                             var addToCartNum = $("#addToCartNum-000");
                             addToCartNum.removeAttr('id');
                             addToCartNum.attr('id', "addToCartNum-" + get_pid);
-                            var addToCart = $("#addToCart-");
+                            var addToCart = $("#addToCart-000");
                             addToCart.removeAttr('id');
                             addToCart.attr('id', "addToCart-" + get_pid);
+
+                            // removeLoading
+                            document.getElementById("LoadingMoreProduct").remove();
+
                             // addEventhandler
+                            document.getElementById("addToCart-" + get_pid).addEventListener("click", addToCart);
                         })
                 });
             });
@@ -146,10 +151,10 @@ window.addEventListener('scroll', ()=>{
                             product_html += '        <div class="card-body card_display_body row">';
                             product_html += '           <div class="row">';
                             product_html += '               <h5 class="product_detail_button card-title col-8"><a href="/main.php?pid='+get_pid+'" id="titleP-'+get_pid+'">'+get_pName+'</a></h5>';
-                            product_html += '               <p class="card-text col-4">' + get_price + '</p>';
+                            product_html += '               <p class="card-text col-4">$' + get_price + '</p>';
                             product_html += '           </div>';
                             product_html += '           <input id="addToCartNum-'+get_pid+'" type=hidden value="1" />';
-                            product_html += '           <button type="button" id="addToCart-'+get_pid+'" class="addToCart btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
+                            product_html += '           <button type="button" id="addToCart-'+ get_pid+'" onclick="addToCart(e)" class="addToCart btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
                             product_html += '        </div>';
                             product_html += '   </div>';
                             product_html += '</div>';
@@ -188,6 +193,11 @@ window.addEventListener('scroll', ()=>{
     // print("srcoll" + srcoll);
 
 });
+
+function addToCart(e){
+    alert("add event !!")
+}
+
 
 // // load category
 // function loadCategory(){
