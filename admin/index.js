@@ -154,7 +154,7 @@ function dropHandler(e){
     // print(input.files[0]);
 
     var reader = new FileReader();
-    file_check(e.target.files[0].name);
+    file_check(input.files[0].name);
     reader.onload = function (e) {
         $("#"+ temp_id + " img").attr('src', e.target.result);
         $("#"+ temp_id + " img").attr('alt', input.files[0].name);
