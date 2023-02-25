@@ -58,9 +58,9 @@ function loadProductHelper(){
                         "./Snippet/Product.html",
                         function(){
                             // image
-                            image_url = "./admin/lib/images/P" + get_pid;
-                            $("#product_detail_image").attr("src", image_url);
-                            $("#product_detail_image").attr("alt", get_pName);
+                            image_url = "./admin/lib/images/P" + get_pid + ".jpg";
+                            $(".product_detail_image").attr("src", image_url);
+                            $(".product_detail_image").attr("alt", get_pName);
                             // product details
                             $("#productDetailTitle").text(get_pName);
                             $("#productDetailPrice").text(get_price);
