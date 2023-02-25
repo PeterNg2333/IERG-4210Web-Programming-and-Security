@@ -121,6 +121,7 @@ function change_category(){
 function change_image(){
     var reader = new FileReader();
     var input = document.querySelector("#product_image");
+    file_check(e.target.files[0].name);
     reader.onload = function (e) {
         $("#image_uploaded_display_section p").removeClass("invisible");
         $("#image_uploaded_display_section img").removeClass("invisible");
@@ -144,8 +145,8 @@ function dropHandler(e){
     var temp_id = e.target.id;
     var input = document.querySelector("#" + temp_id).parentNode.children[0];
     input.files = e.dataTransfer.files;
-    print(temp_id)
-    print(input.files[0])
+    // print(temp_id)
+    // print(input.files[0])
     // print("datatranfer");
     // print(e.dataTransfer.files);
     // print("")
@@ -153,7 +154,7 @@ function dropHandler(e){
     // print(input.files[0]);
 
     var reader = new FileReader();
-    print("image uploead:" + e.target.files[0].name)
+    file_check(e.target.files[0].name);
     reader.onload = function (e) {
         $("#"+ temp_id + " img").attr('src', e.target.result);
         $("#"+ temp_id + " img").attr('alt', input.files[0].name);
@@ -248,12 +249,13 @@ function load_productsCard_by_cid(){
                             var delete_button = $("#delete_button-000");
                             delete_button.removeAttr('id');
                             delete_button.attr('id', "delete_button-" + pid);
+                            $(".fa-solid.fa-trash-can").attr('id', "delete_buttonIcon-" + pid);
 
                             // Event
-                            document.querySelector("#"+ "delete_button-" + pid).addEventListener("click", delete_product)
-                            document.querySelector("#"+ image_input_url).addEventListener("change", change_image_for_productCard)
-                            document.querySelector("#" + "P-" + pid).addEventListener("click", enable_modify)
-
+                            document.querySelector("#"+ "delete_button-" + pid).addEventListener("click", delete_product, false)
+                            document.querySelector("#"+ "delete_button-" + pid).addEventListener("click", delete_product, false)
+                            document.querySelector("#"+ "delete_button-" + pid).firstChild.addEventListener("click", delete_product, false)
+                            
                             // Drag and Drop
                             var dnd = $("#drag_and_drop-000");
                             dnd.removeAttr('id');
@@ -279,7 +281,7 @@ function change_image_for_productCard(e){
     var image_id = "#" +  "image_uploaded-" + text_array[1];
     $(image_id).removeAttr('src');
     $(image_id).removeAttr('alt');
-    print("image uploead:" + e.target.files[0].name)
+    file_check(e.target.files[0].name);
     reader.onload = function (e) {
         $(image_id).attr('src', e.target.result);
         $(image_id).attr('alt', e.target.files[0].name);
@@ -319,4 +321,6 @@ function enable_modify(e){
 
 }
 
-
+function file_check(img_name){
+    print("image uploead:" + img_name)
+}
