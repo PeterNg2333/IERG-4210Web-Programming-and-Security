@@ -78,3 +78,12 @@ aside > h4 {
 #productDetailDesc{
     height: 200px !important;
 }
+
+#LoadingMoreProduct{
+    height: 30px;
+}
+
+#LoadingMoreProduct_animation{
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
