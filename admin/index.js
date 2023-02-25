@@ -324,9 +324,9 @@ function enable_modify(e){
 function file_check(img_name){
     
     var file_name = img_name.split(".");
-    print("image uploead:" + typeof file_name);
+    print("image uploead:" + str(file_name));
     file_type = file_name[file_name.length-1];
-    print("file type:" + typeof file_name);
+    print("file type:" + str(file_name));
     accept_type = ["jpg", "png", "jpeg"];
     if (accept_type.indexOf(file_name) > -1){
         print("corret type")
