@@ -115,7 +115,7 @@ window.addEventListener('scroll', ()=>{
             var res_array = p_res[0]
             print("res_array");
             print(res_array);
-            $.post("admin/admin-process.php?action=prod_count_limit", {} , function(p_res){
+            $.post("admin/admin-process.php?action=prod_count_limit", {} , function(count_res){
                 var count_array = count_res[0]
                 print("count_array");
                 print(count_array);
