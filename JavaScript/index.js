@@ -43,6 +43,10 @@ function loadProrduct(e){
     loadProductHelper();
 }
 
+function addToCart(e){
+    alert("add event !!");
+}
+
 function loadProductHelper(){
     const url = new URL(window.location);
     var get_pid = url.searchParams.get("pid");
@@ -101,7 +105,7 @@ function loadProductHelper(){
                             addToCart.attr('id', "addToCart-" + get_pid);
 
                             // addEventhandler
-                            document.getElementById("addToCart-" + get_pid).addEventListener("click", addToCart);
+                            document.querySelector("#addToCart-" + get_pid).addEventListener("click", addToCart);
                         })
                 });
             });
@@ -160,7 +164,7 @@ function addProductByScroll(){
                             product_html += '               <p class="card-text col-4">$' + get_price + '</p>';
                             product_html += '           </div>';
                             product_html += '           <input id="addToCartNum-'+get_pid+'" type=hidden value="1" />';
-                            product_html += '           <button type="button" id="addToCart-'+ get_pid+'" onclick="addToCart(e)" class="addToCart btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
+                            product_html += '           <button type="button" id="addToCart-'+ get_pid+'" onclick="addToCart(event)" class="addToCart btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
                             product_html += '        </div>';
                             product_html += '   </div>';
                             product_html += '</div>';
@@ -200,9 +204,7 @@ function addProductByScroll(){
 
 }
 
-function addToCart(e){
-    alert("add event !!")
-}
+
 
 
 // // load category
