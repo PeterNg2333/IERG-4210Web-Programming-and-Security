@@ -101,6 +101,13 @@ function loadProductHelper(){
     // alert();
 }
 
+window.addEventListener('scroll', ()=>{
+    var totalHeight = document.body.clientHeight;
+    var innerHeight = window.innerHeight;
+    print("totalHeight" + totalHeight);
+    print("innerHeight" + innerHeight);
+});
+
 // // load category
 // function loadCategory(){
 //     url_id = ($(location).attr('href')).split("#")[1]
