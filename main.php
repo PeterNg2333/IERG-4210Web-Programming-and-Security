@@ -53,7 +53,7 @@ if ($get_pid == null || $get_pid == 0){
             $product .= '               <h5 class="product_detail_button card-title col-8"><a href="/main.php?pid='.$value["PID"].'" id="titleP-'.$value["PID"].'">'.$value["PRODUCT_NAME"].'</a></h5>';
             $product .= '               <p class="card-text col-4">$15</p>';
             $product .= '           </div>';
-            $product .= '           <input id="addToCartNum-'.$value["PID"].'" type=hidden/>';
+            $product .= '           <input id="addToCartNum-'.$value["PID"].'" type=hidden value=1/>';
             $product .= '           <button type="button" id="addToCart-'.$value["PID"].'" class="addToCart btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
             $product .= '        </div>';
             $product .= '   </div>';
