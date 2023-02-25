@@ -133,7 +133,7 @@ window.addEventListener('scroll', ()=>{
 
                     res_array.forEach(function(element){
                         if (load_count >= current_product_loaded && load_count < current_product_loaded + 6){
-                            console.log(element);
+                            // console.log(element);
                             var get_pid = element.PID;
                             var get_price = element.PRICE;
                             var get_pName = element.PRODUCT_NAME;
@@ -156,7 +156,7 @@ window.addEventListener('scroll', ()=>{
 
                         }
                         else{
-                            console.log("Unloaded: " + load_count);
+                            // console.log("Unloaded: " + load_count);
                         }
                         
                         load_count ++;
@@ -165,7 +165,8 @@ window.addEventListener('scroll', ()=>{
                 }else if (max_count == current_product_loaded){
                     $("#LoadingMoreProduct_text").text("It's the end")
                 }
-
+                print(max_count);
+                print(current_product_loaded);
                 ////////////////////////// End loading
                 $("#product").children().last().after(product_html);
                 setTimeout(function () {
