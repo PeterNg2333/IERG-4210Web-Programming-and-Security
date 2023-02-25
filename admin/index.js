@@ -322,9 +322,9 @@ function enable_modify(e){
 }
 
 function file_check(img_name){
-    
+    var img_name = String(img_name)
     var file_name = img_name.split(".");
-    print("image uploead:" + String(file_name));
+    print("image uploead:" + img_name);
     file_type = file_name[file_name.length-1];
     print("file type:" + String(file_name));
     accept_type = ["jpg", "png", "jpeg"];
