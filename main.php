@@ -42,7 +42,7 @@ if ($get_pid == null || $get_pid == 0){
     foreach ($p_res as $value){
         if ($count < 6){
             // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
-            $product .= '<div class="count_product_loaded col-lg-3 mb-3 px-0" id="P-'.$value["PID"].'">';
+            $product .= '<div class="count_product_loaded col-lg-3 col-md-6 mb-3 px-0" id="P-'.$value["PID"].'">';
             $product .= '    <div class="card mx-2 product_card_display">';
             $product .= '        <a href="/main.php?pid='.$value["PID"].'" class="product_detail_button">';
             $product .= '             <img class="card-img-top" src="./admin/lib/images/P'.$value["PID"].'.jpg" alt="'.$value["PRODUCT_NAME"].'" id="imageP-'.$value["PID"].'">';
