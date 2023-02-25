@@ -76,7 +76,7 @@ function loadProductHelper(){
                             $("#CatergoryPath").html(get_path);
 
                             // add product url
-                            $("#productPath a").text("get_pName");
+                            $("#productPath a").text(get_pName);
                             $("#productPath a").attr("href", "/main.php?pid=" + get_pid);
                             $("#productPath").removeClass("d-none");
 
