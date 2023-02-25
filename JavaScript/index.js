@@ -122,7 +122,7 @@ window.addEventListener('scroll', ()=>{
             // print(res_array);
             $.post("admin/admin-process.php?action=prod_count_limit", {} , function(count_res){
                 var count_array = count_res[0][0];
-                var max_count = count_array["PRODUCT_NUM"];
+                var max_count = Number(count_array["PRODUCT_NUM"]);
                 // console.log(max_count);
                 // print("count_array");
                 if (current_product_loaded <= max_count){
@@ -162,6 +162,9 @@ window.addEventListener('scroll', ()=>{
                         load_count ++;
                         $("#product").after(product_html);
                     });
+
+                }else if (max_count == current_product_loaded){
+                    $("#LoadingMoreProduct_text").text("It's the end")
                 }
 
                 ////////////////////////// End loading
@@ -175,7 +178,7 @@ window.addEventListener('scroll', ()=>{
         });
 
                     
-        alert("time to refresh");
+        // alert("time to refresh");
     }
     // print("totalHeight: " + totalHeight);
     // print("innerHeight: " + innerHeight);
