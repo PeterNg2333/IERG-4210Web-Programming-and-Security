@@ -44,7 +44,7 @@ function loadProductHelper(){
                 const _myNode = document.getElementById("product");
                 _myNode.textContent = '';
                 res_array.forEach(function(record, i){
-                    print(record);
+                    // print(record);
                     var get_cid = record.CID;
                     var get_cName = record.CATEGORY_NAME;
                     var get_desc= record.DESCRIPTION;
@@ -129,9 +129,29 @@ window.addEventListener('scroll', ()=>{
                     res_array.forEach(function(element){
                         if (load_count >= current_product_loaded && load_count < current_product_loaded + 6){
                             console.log(element);
+                            var get_pid = element.PID;
+                            var get_price = element.PRICE;
+                            var get_pName = element.PRODUCT_NAME;
+
+                            $product += '<div class="count_product_loaded" col-lg-3 mb-3 px-0" id="P-'+get_pid +'">';
+                            $product += '    <div class="card mx-2 product_card_display">';
+                            $product += '        <a href="/main.php?pid='+ get_pid +'" class="product_detail_button">';
+                            $product += '             <img class="card-img-top" src="./admin/lib/images/P'+get_pid+'.jpg" alt="'+get_pName+'" id="imageP-'+get_pid+'">';
+                            $product += '        </a>';
+                            $product += '        <div class="card-body card_display_body row">';
+                            $product += '           <div class="row">';
+                            $product += '               <h5 class="product_detail_button card-title col-8"><a href="/main.php?pid='+get_pid+'" id="titleP-'+get_pid+'">'+get_pName+'</a></h5>';
+                            $product += '               <p class="card-text col-4">' + get_price + '</p>';
+                            $product += '           </div>';
+                            $product += '           <input id="addToCartNum-'+get_pid+'" type=hidden value="1" />';
+                            $product += '           <button type="button" id="addToCart-'+get_pid+'" class="addToCart btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
+                            $product += '        </div>';
+                            $product += '   </div>';
+                            $product += '</div>';
+
                         }
                         else{
-                            console.log("Unloaded: " + element);
+                            console.log("Unloaded: " + load_count);
                         }
                         load_count ++;
                         
