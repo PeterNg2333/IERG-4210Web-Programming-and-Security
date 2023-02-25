@@ -106,8 +106,12 @@ window.addEventListener('scroll', ()=>{
     var innerHeight = window.innerHeight;
     var srcoll = window.scrollY;
     var windowHeight = totalHeight - innerHeight
-    if (windowHeight - srcoll <= 70 && window.loadProductMore == false){
+
+
+    if (windowHeight - srcoll <= 50 && window.loadProductMore == false){
         $("#LoadingMoreProduct").removeClass("d-none");
+        $("#LoadingMoreProduct_animation").removeClass("d-none");
+        $("#LoadingMoreProduct_text").addClass("d-none");
         window.loadProductMore = true;
         var current_product_loaded = document.querySelectorAll(".count_product_loaded").length;
         // print ("loaded product: " + current_product_loaded);
@@ -162,6 +166,10 @@ window.addEventListener('scroll', ()=>{
                 ////////////////////////// End loading
                 window.loadProductMore = false;
                 $("#LoadingMoreProduct").addClass("d-none");
+                $("#LoadingMoreProduct_animation").addClass("d-none");
+                $("#LoadingMoreProduct_text").removeClass("d-none");
+                
+                
             });
         });
 
