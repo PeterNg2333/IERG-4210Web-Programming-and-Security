@@ -160,7 +160,7 @@ window.addEventListener('scroll', ()=>{
                         }
                         
                         load_count ++;
-                        $("#product").after(product_html);
+                        $("#product").last().after(product_html);
                     });
 
                 }else if (max_count == current_product_loaded){
