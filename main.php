@@ -53,7 +53,7 @@ if ($get_pid == null || $get_pid == 0){
             $product .= '               <p class="card-text col-4">$'.$value["PRICE"].'</p>';
             $product .= '           </div>';
             $product .= '           <input id="addToCartNum-'.$value["PID"].'" type=hidden value="1" />';
-            $product .= '           <button type="button" id="addToCart-'.$value["PID"].'" onclick="addToCart(event)" class="addToCart btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
+            $product .= '           <button type="button" id="addToCart-'.$value["PID"].'" onclick="addToCart_button(event)" class="addToCart btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
             $product .= '        </div>';
             $product .= '   </div>';
             $product .= '</div>';
