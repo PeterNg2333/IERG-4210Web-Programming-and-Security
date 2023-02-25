@@ -66,7 +66,9 @@ function loadProductHelper(){
                             $("#productDetailPrice").text(get_price);
                             $("#productDetailDesc").text(get_desc);
                             if (Number(get_inv) <= 3){
-                                get_inv = "Only " + get_inv + " left!"
+                                print(Number(get_inv));
+                                print(typeof Number(get_inv));
+                                get_inv = "Only " + get_inv + " left!";
                                 $("#productDetailPrice").addClass("text-danger");
                             }
                             $("#productDetailInv").text(get_inv);
