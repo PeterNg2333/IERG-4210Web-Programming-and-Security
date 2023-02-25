@@ -59,8 +59,8 @@ function loadProductHelper(){
                         function(){
                             // image
                             image_url = "./admin/lib/images/P" + get_pid + ".jpg";
-                            $(".product_detail_image").attr("src", image_url);
-                            $(".product_detail_image").attr("alt", get_pName);
+                            $("#productDetailImg").attr("src", image_url);
+                            $("#productDetailImg").attr("alt", get_pName);
                             // product details
                             $("#productDetailTitle").text(get_pName);
                             $("#productDetailPrice").text(get_price);
@@ -69,14 +69,13 @@ function loadProductHelper(){
                                 get_inv = "Only" + get_inv + "left!"
                             }
                             $("#productDetailInv").text(get_inv);
+                            // add url
+                            $("#CatergoryPath").empty();
+                            var get_path = '<a id="cPathRemove" href="/main.php?cid=' + get_cid + '"> '+ get_cName +' </a>';
+                            $("#CatergoryPath").html(get_path);
                             // add id
+                            
                             // addEventhandler
-                            print(get_cid);
-                            print(get_cName);
-                            print(get_inv);
-                            print(get_pid);
-                            print(get_pName);
-                            print(get_price);
                         })
                 });
             });
