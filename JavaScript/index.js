@@ -22,7 +22,7 @@ $(window).on("load", function() {
             // removeinfiniteLoading
             document.getElementById("LoadingMoreProduct").remove();
         }
-        else{
+        else if((get_pid != null || get_pid != undefined) || (get_cid != null || get_cid != undefined)){
             alert("a");
             window.addEventListener('scroll', addProductByScroll);
         }
