@@ -109,7 +109,8 @@ window.addEventListener('scroll', ()=>{
     if (windowHeight - srcoll <= 70 && window.loadProductMore == false){
         window.loadProductMore = true;
         var current_product_loaded = document.querySelectorAll(".count_product_loaded").length;
-        print ("loaded product: " + current_product_loaded);
+        // print ("loaded product: " + current_product_loaded);
+
         $.post("admin/admin-process.php?action=prod_fetch_next_four_page", {} , function(p_res){
             var res_array = p_res[0]
             // print("res_array");
@@ -121,11 +122,16 @@ window.addEventListener('scroll', ()=>{
                 if (current_product_loaded <= max_count){
                     var load_count = current_product_loaded + 1;
                     var product_html = "";
+                    print(load_count);
+
                     res_array.forEach(element => {
                         if (load_count <= current_product_loaded + 6){
                             print(element);
-                            load_count ++;
                         }
+                        else{
+                            print("Unloaded: " + element);
+                        }
+                        load_count ++;
                         
                     });
                 }
