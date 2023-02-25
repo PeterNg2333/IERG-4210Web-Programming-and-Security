@@ -13,13 +13,12 @@ $product = '';
 $category_url = '';
 $preload = "";
 foreach ($c_res as $value){
-    // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
     $category .= '<il><a href="main.php?cid='.$value["CID"].'" id="cid-'.$value["CID"].'" class="list-group-item list-group-item-action">'.$value["CATEGORY_NAME"].'</a></il>';
 }
 $category .= '';
 
 
-if ($get_cid == null || $get_cid == 0){
+if (($get_cid == null || $get_cid == 0) && ($get_pid == null || $get_pid == 0)){
     $preload .= '<div id="preloader" class="container">';
     $preload .= '    <div id="loadingImg" class="row">';
     $preload .= '        <img src="./Resource/loading-gif.gif"/>';
