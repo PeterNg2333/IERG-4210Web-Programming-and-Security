@@ -405,7 +405,7 @@ function ierg4210_prod_fetch_four_page(){
     // DB manipulation
     global $db;
     $db = ierg4210_DB();
-    $q = $db->prepare("SELECT *, (row_number() OVER()) as row_num FROM PRODUCTS;");
+    $q = $db->prepare("SELECT * FROM PRODUCTS;");
     if ($q->execute())
          return $q->fetchAll();
 
