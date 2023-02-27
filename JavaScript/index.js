@@ -78,11 +78,13 @@ function addToCart_button(e){
                     element.orderAmount = Number(element.orderAmount) + Number(num_added);
                     print("Update: element: " + element)
                     addOrUpdate = false;
+                    alert("Update success!");
                 }
             });
-            print("is insert? " + addOrUpdate);
             if (addOrUpdate == true){
-                json.push({id: inputed_id, orderAmount: num_added});  
+                json.push({id: inputed_id, orderAmount: num_added});
+                alert("Added success!");
+
             }   
             // if (json.indexOf(id) > -1){
             //     json[id] += num_added
@@ -91,11 +93,11 @@ function addToCart_button(e){
             //     json.id = num_added
             // }
             localStorage.setItem('shoppingList', JSON.stringify(json));
+            
         }
         
         
         // Refresh shopping list
-        alert(json);
     } else {
         alert("Add failed")
     }
@@ -105,7 +107,32 @@ function addToCart_button(e){
 
 function load_shoppingCart(){
     var json = JSON.parse(window.localStorage.getItem("ShoppingList"))
-    var shoppingList = $("#PlaceToInsert_orderedItem").children.remove()
+    var shoppingList = $("#PlaceToInsert_orderedItem").children
+    if (json.length > 0){
+        shoppingList.children().remove();
+    }
+    json.array.forEach(element => {
+        temp_id = element.id;
+        temp_orderAmount = element;
+        $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
+            {pid: temp_id},
+            function(p_res){
+                var res_array = p_res[0]
+                var record = res_array[0]
+                print(record);
+                var get_cid = record.CID;
+                var get_cName = record.CATEGORY_NAME;
+                var get_desc= record.DESCRIPTION;
+                var get_inv = record.INVENTORY;
+                var get_pid = record.PID;
+                var get_price = record.PRICE;
+                var get_pName = record.PRODUCT_NAME;
+                
+                
+
+        });
+    });
+    
 }
 
 function loadProductHelper(){
