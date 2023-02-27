@@ -254,7 +254,7 @@ function addProductByScroll(){
                             product_html += '               <p class="card-text col-4">$' + get_price + '</p>';
                             product_html += '           </div>';
                             product_html += '           <input id="addToCartNum-'+get_pid+'" type=hidden value="1" />';
-                            product_html += '           <button type="button" id="addToCart-'+ get_pid+'" onclick="addToCart_button(e)" class="addToCart btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
+                            product_html += '           <button type="button" id="addToCart-'+ get_pid+'" onclick="addToCart_button(event)" class="addToCart btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
                             product_html += '        </div>';
                             product_html += '   </div>';
                             product_html += '</div>';
