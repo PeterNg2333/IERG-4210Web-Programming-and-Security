@@ -111,7 +111,7 @@ function load_shoppingCart(){
     if (!(json === "" & json === null) && json.length > 0){
         shoppingList.children().remove();
     }
-    json.array.forEach(element => {
+    json.forEach(element => {
         temp_id = element.id;
         temp_orderAmount = element;
         $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
