@@ -52,6 +52,7 @@ function addToCart_button(e){
     var text_array = e.target.id.split("-");
     var inputed_id = text_array[1];
     var num_added = document.querySelector("#addToCartNum-" + inputed_id).value;
+    print("value added: " + num_added)
     if (num_added != 0){
         // load local Storage
         var jsonstr = localStorage.getItem('shoppingList');
