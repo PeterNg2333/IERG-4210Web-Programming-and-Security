@@ -17,8 +17,8 @@
 }
 
 /* Shopping list */
-.shopping_List_Detail{
-    list-style-type:square;
+#PlaceToInsert_orderedItem{
+    list-style-type:square !important;
 }
 
 .checkoutButton > button{
