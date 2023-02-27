@@ -121,7 +121,6 @@ function load_shoppingCart(){
     json.forEach(element => {
         var temp_id = element.id;
         var temp_orderAmount = element;
-        countIfLastElement ++ ;
         $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
             {pid: temp_id},
             function(p_res){
@@ -144,7 +143,7 @@ function load_shoppingCart(){
                 shoppingList_html += '    <span id="shopping_price_P-000" class="col-3"> @$15 </span> ';
                 shoppingList_html += '</p> ';
                 shoppingList_html += '</il> ';
-
+                counter ++ ;
                 if (counter == array_length){
                     print(shoppingList_html);
                     print(counter);
