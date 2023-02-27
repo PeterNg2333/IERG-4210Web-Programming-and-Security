@@ -52,6 +52,9 @@ function addToCart_button(e){
     var text_array = e.target.id.split("-");
     var inputed_id = text_array[1];
     var num_added = document.querySelector("#addToCartNum-" + inputed_id).value;
+    if (Number(num_added) < 0) {
+        alert("You cannot order " + num_added + " items")
+    }
     print("value added: " + num_added)
     if (num_added != 0){
         // load local Storage
