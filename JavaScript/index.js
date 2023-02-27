@@ -58,7 +58,7 @@ function addToCart_button(e){
         var jsonstr = localStorage.getItem('shoppingList');
 
         // update local Storage
-        if (jsonstr == undefined || jsonstr == null){
+        if (jsonstr === "" || jsonstr === null){
             var new_empty_array = []
             new_empty_array.push({id: inputed_id, orderAmount: num_added})
             var jsonstr = localStorage.setItem('shoppingList', JSON.stringify(new_empty_array));
