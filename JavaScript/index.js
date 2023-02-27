@@ -103,9 +103,10 @@ function addToCart_button(e){
 
 }
 
-
-
-function load_shoppingCart(id){}
+function load_shoppingCart(){
+    var json = JSON.parse(window.localStorage.getItem("ShoppingList"))
+    var shoppingList = $("#PlaceToInsert_orderedItem").children.remove()
+}
 
 function loadProductHelper(){
     const url = new URL(window.location);
