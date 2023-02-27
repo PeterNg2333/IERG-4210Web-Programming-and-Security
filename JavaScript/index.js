@@ -57,6 +57,7 @@ function addToCart_button(e){
     var num_added = document.querySelector("#addToCartNum-" + inputed_id).value;
     if (Number(num_added) < 0) {
         alert("You cannot order " + num_added + " items")
+        return;
     }
     print("value added: " + num_added)
     if (num_added != 0){
@@ -136,11 +137,11 @@ function load_shoppingCart(){
                 var get_pName = record.PRODUCT_NAME;
 
                 // HTML
-                shoppingList_html += '<il class="row" id="shopping_P-000"> ';
+                shoppingList_html += '<il class="row" id="shopping_P-"' + get_pid + '"> ';
                 shoppingList_html += '<p class="ps-2"> ';
-                shoppingList_html += '    <span class="col-5" id="shopping_price_P-000" >- Fish </span> ';
-                shoppingList_html += '    <input id="shopping_num_P-000" type="number" class="col-4" size="1" placeholder="1" /> ';
-                shoppingList_html += '    <span id="shopping_price_P-000" class="col-3"> @$15 </span> ';
+                shoppingList_html += '    <span class="col-5" id="shopping_price_P-' + get_pid + '" >- '+ get_pName + ' </span> ';
+                shoppingList_html += '    <input id="shopping_num_P-' + get_pid + '" type="number" class="col-4" size="1" value= "' + temp_orderAmount + '" /> ';
+                shoppingList_html += '    <span id="shopping_price_P-'+ get_pid + '" class="col-3"> @$' + get_price + '</span> ';
                 shoppingList_html += '</p> ';
                 shoppingList_html += '</il> ';
                 counter ++ ;
