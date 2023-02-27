@@ -138,9 +138,9 @@ function load_shoppingCart(){
                 shoppingList_html += '<il id="shopping_P-"' + get_pid + '"> ';
                 shoppingList_html += '<p class="ps-2 row shoppingList_Item"> ';
                 shoppingList_html += '-'
-                shoppingList_html += '    <span class="col-5 shopping_name" id="shopping_name_P-' + get_pid + '" > '+ get_pName + ' </span> ';
+                shoppingList_html += '    <span class="col-6 shopping_name" id="shopping_name_P-' + get_pid + '" > '+ get_pName + ' </span> ';
                 shoppingList_html += '    <input id="shopping_num_P-' + get_pid + '" type="number" class="col-3 shopping_num" onchange="updateOrderAmount(event)" value= "'+ temp_orderAmount +'" /> ';
-                shoppingList_html += '    <span id="shopping_price_P-'+ get_pid + '" class="col-3 shopping_price"> @$' + ordervalue + '</span> ';
+                shoppingList_html += '    <span id="shopping_price_P-'+ get_pid + '" class="col-2 shopping_price"> @$' + ordervalue + '</span> ';
                 shoppingList_html += '</p> ';
                 shoppingList_html += '</il> ';
 
