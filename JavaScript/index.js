@@ -161,7 +161,7 @@ function load_shoppingCart(){
 function updateOrderAmount(e){
     var text_array = e.target.id.split("-");
     var inputed_id = text_array[1];
-    alert("update" + id);
+    alert("update" + inputed_id);
     $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
         {pid: inputed_id},
         function(p_res){    
