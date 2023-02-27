@@ -185,7 +185,7 @@ function updateOrderAmount(e){
                 count ++
             });
             delete json[target_index];
-            alert("Item: " + inputed_id + " is deleted");
+            print("Item: " + inputed_id + " is deleted");
         }
 
         // Update list
