@@ -138,9 +138,9 @@ function load_shoppingCart(){
                 shoppingList_html += '<il id="shopping_P-"' + get_pid + '"> ';
                 shoppingList_html += '<p class="ps-2 row shoppingList_Item"> ';
                 shoppingList_html += '-'
-                shoppingList_html += '    <span class="col-6 shopping_name" id="shopping_name_P-' + get_pid + '" > '+ get_pName + ' </span> ';
+                shoppingList_html += '    <span class="col-5 shopping_name" id="shopping_name_P-' + get_pid + '" > '+ get_pName + ' </span> ';
                 shoppingList_html += '    <input id="shopping_num_P-' + get_pid + '" type="number" class="col-3 shopping_num" onchange="updateOrderAmount(event)" value= "'+ temp_orderAmount +'" /> ';
-                shoppingList_html += '    <span id="shopping_price_P-'+ get_pid + '" class="col-2 shopping_price"> @$' + ordervalue + '</span> ';
+                shoppingList_html += '    <span id="shopping_price_P-'+ get_pid + '" class="col-3 shopping_price"> @$' + ordervalue + '</span> ';
                 shoppingList_html += '</p> ';
                 shoppingList_html += '</il> ';
 
@@ -161,18 +161,78 @@ function load_shoppingCart(){
 function updateOrderAmount(e){
     var text_array = e.target.id.split("-");
     var inputed_id = text_array[1];
-    alert("update" + inputed_id);
+    var newOrderAmount = document.getElementById("shopping_num_P-" + inputed_id).value;
+
+
     $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
         {pid: inputed_id},
         function(p_res){    
         var res_array = p_res[0];
         var record = res_array[0];
         var get_inv = record.INVENTORY;
-        var get_pid = record.PID;
         var get_price = record.PRICE;
-        var get_pName = record.PRODUCT_NAME;
+
+        // Delete when order amount is 0
+        if (newOrderAmount <= 0){
+            document.getElementById("shopping_num_P-" + inputed_id).remove();
+            var json = JSON.parse(window.localStorage.getItem("shoppingList"));
+            var count = 0;
+            var target_index = -1;
+            json.forEach(element => {
+                if (Number(element.id) === Number(inputed_id)){
+                    target_index = count;
+                } 
+                count ++
+            });
+            delete json[target_index];
+            alert("Item: " + inputed_id + " is deleted");
+        }
+
+        // Update list
+        else{
+            var json = JSON.parse(window.localStorage.getItem("shoppingList"));
+            json.forEach(element => {
+                if (Number(element.id) === Number(inputed_id)){
+                    element.orderAmount = newOrderAmount;
+                } 
+            });
+            window.localStorage.setItem('shoppingList', JSON.stringify(json));
+        }
+
+        // HTML
+        var json = JSON.parse(window.localStorage.getItem("shoppingList"));
+        var shoppingList = $("#PlaceToInsert_orderedItem");
+        var orderSum = 0;
+        var array_length = json.length;
+        var counter = 0;
+        if (!(json === "" & json === null) && json.length > 0){
+            shoppingList.html('<il class="text-secondary m-auto mb-1"> The shopping Cart is empty !!!</il>');
+        }
+        json.forEach(element => {
+            var temp_id = element.id;
+            var temp_orderAmount = element.orderAmount;
+            $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
+                {pid: temp_id},
+                function(p_res){    
+                    var res_array = p_res[0];
+                    var record = res_array[0];
+                    var get_price = record.PRICE;
+                    var ordervalue = Number(get_price)*Number(temp_orderAmount);
+                    $("#shopping_price_P-" + temp_id).text("$" + ordervalue);
+                    orderSum += ordervalue;
+                    counter ++ ;
+                    if (counter == array_length){
+                        $("#PlaceToInsert_orderedItem").html(shoppingList_html);
+                        $("#shopping_list_order_total").text("$" + orderSum);
+                        $("#shopping_details_order_total").text("$" + orderSum);
+                    }
+            });
+        });
+        
     });
 }
+
+
 
 function loadProductHelper(){
     const url = new URL(window.location);
