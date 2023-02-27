@@ -135,7 +135,7 @@ function load_shoppingCart(){
 
                 var ordervalue = Number(get_price)*Number(temp_orderAmount)
                 // HTML
-                shoppingList_html += '<il id="shopping_P-"' + get_pid + '"> ';
+                shoppingList_html += '<il id="shopping_P-' + get_pid + '"> ';
                 shoppingList_html += '<p class="ps-2 row shoppingList_Item"> ';
                 shoppingList_html += '-'
                 shoppingList_html += '    <span class="col-5 shopping_name" id="shopping_name_P-' + get_pid + '" > '+ get_pName + ' </span> ';
