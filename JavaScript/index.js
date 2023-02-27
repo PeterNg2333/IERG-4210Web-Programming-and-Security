@@ -65,7 +65,7 @@ function addToCart_button(e){
 
             /////
             var json = JSON.parse(jsonstr);
-            print("add new array: " + stringify(json))
+            print("add new array: " + json)
         } 
         else {
             var json = JSON.parse(jsonstr);
