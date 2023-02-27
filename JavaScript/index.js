@@ -54,7 +54,7 @@ function addToCart_button(e){
     var num_added = document.querySelector("#addToCartNum-" + inputed_id).value;
     if (num_added != 0){
         // load local Storage
-        var jsonstr = JSON.parse(localStorage.getItem('shoppingList'));
+        var jsonstr = localStorage.getItem('shoppingList');
 
         // update local Storage
         if (jsonstr == undefined || jsonstr == null){
