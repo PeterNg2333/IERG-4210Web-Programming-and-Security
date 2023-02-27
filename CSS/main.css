@@ -44,6 +44,8 @@
 
 #shopping_details_order_total{
     color: #051f5c;
+    font-weight: bold;
+    font-size: 110%;
 }
 
 .checkoutButton > button {
