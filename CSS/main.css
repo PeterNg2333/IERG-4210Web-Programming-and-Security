@@ -42,14 +42,18 @@
    z-index:99999;
 }
 
+#shopping_details_order_total{
+    color: #051f5c;
+}
+
 .checkoutButton > button {
-    width: 105px;
+    width: 110px;
     height: 30px;
 
 }
 
 .shopping_name{
-    font-size: bold;
+    font-weight: bold;
 }
 
 
