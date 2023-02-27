@@ -114,20 +114,20 @@ function load_shoppingCart(){
     var json = JSON.parse(window.localStorage.getItem("shoppingList"));
     var shoppingList = $("#PlaceToInsert_orderedItem");
     var shoppingList_html = '';
+    var orderSum = 0;
     var counter = 0;
     var array_length = json.length;
     if (!(json === "" & json === null) && json.length > 0){
         shoppingList.children().remove();
     }
     json.forEach(element => {
+        var temp_id = element.id;
+        var temp_orderAmount = element.orderAmount;
         $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
             {pid: temp_id},
-            function(p_res){
-                var temp_id = element.id;
-                var temp_orderAmount = element.orderAmount;
+            function(p_res){    
                 var res_array = p_res[0]
                 var record = res_array[0]
-                print(record);
                 var get_cid = record.CID;
                 var get_cName = record.CATEGORY_NAME;
                 var get_desc= record.DESCRIPTION;
@@ -136,20 +136,25 @@ function load_shoppingCart(){
                 var get_price = record.PRICE;
                 var get_pName = record.PRODUCT_NAME;
 
+                var ordervalue = Number(get_price)*Number(temp_orderAmount)
                 // HTML
                 shoppingList_html += '<il id="shopping_P-"' + get_pid + '"> ';
                 shoppingList_html += '<p class="ps-2 row shoppingList_Item"> ';
                 shoppingList_html += '    <span class="col-4 shopping_name" id="shopping_name_P-' + get_pid + '" >- '+ get_pName + ' </span> ';
                 shoppingList_html += '    <input id="shopping_num_P-' + get_pid + '" type="number" class="col-2 shopping_num"  value= "'+ temp_orderAmount + '" /> ';
-                shoppingList_html += '    <span id="shopping_price_P-'+ get_pid + '" class="col-3 shopping_price"> @$' + (Number(get_price)*Number(temp_orderAmount)) + '</span> ';
+                shoppingList_html += '    <span id="shopping_price_P-'+ get_pid + '" class="col-3 shopping_price"> @$' + ordervalue + '</span> ';
                 shoppingList_html += '</p> ';
                 shoppingList_html += '</il> ';
+
+                orderSum += ordervalue;
                 counter ++ ;
                 if (counter == array_length){
                     print(shoppingList_html);
                     print(counter);
                     print("Max: " + array_length);
                     $("#PlaceToInsert_orderedItem").html(shoppingList_html);
+                    $("#shopping_list_order_total").text("$" + orderSum);
+                    $("#shopping_details_order_total").text("$" + orderSum);
                 }
         });
     });
