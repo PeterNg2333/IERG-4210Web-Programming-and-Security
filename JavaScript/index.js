@@ -50,7 +50,7 @@ function loadProrduct(e){
 function addToCart_button(e){
     var message = ""
     var text_array = e.target.id.split("-");
-    var id = text_array[1];
+    var inputed_id = text_array[1];
     var num_added = document.querySelector("#addToCartNum-" + id).value;
     if (num_added != 0){
         // load local Storage
@@ -58,20 +58,28 @@ function addToCart_button(e){
 
         // update local Storage
         if (jsonstr == undefined){
-            var temp_array = []
-            
-            temp_array.id = num_added
-            var jsonstr = localStorage.setItem('shoppingList', JSON.stringify(temp_array));
+            var new_empty_array = []
+            new_empty_array.push({id: inputed_id, orderAmount: num_added})
+            var jsonstr = localStorage.setItem('shoppingList', JSON.stringify(new_empty_array));
+
+            /////
             var json = JSON.parse(temp_array);
+            print("add new array: " + stringify(json))
         } 
         else {
             var json = JSON.parse(jsonstr);
-            if (json.indexOf(id) > -1){
-                json[id] += num_added
-            } 
-            else {
-                json.id = num_added
-            }
+            json.forEach(element => {
+                if (Number(element.id) === Number(inputed_id)){
+                    element.orderAmount += num_added;
+                    print("Update: element: " + element)
+                }
+            });
+            // if (json.indexOf(id) > -1){
+            //     json[id] += num_added
+            // } 
+            // else {
+            //     json.id = num_added
+            // }
             localStorage.setItem('shoppingList', JSON.stringify(json));
         }
         
