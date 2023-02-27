@@ -174,17 +174,16 @@ function updateOrderAmount(e){
         if (newOrderAmount <= 0){
             document.getElementById("shopping_P-" + inputed_id).remove();
             var json = JSON.parse(window.localStorage.getItem("shoppingList"));
-            var count = 0;
-            var target_index = -1;
+            var newJson = [];
             json.forEach(element => {
                 if (Number(element.id) === Number(inputed_id)){
-                    target_index = count;
-                } 
-                count ++
+                }
+                else{
+                    newJson.push(element)
+                }
             });
-            delete json[target_index];
             print("Item: " + inputed_id + " is deleted");
-            window.localStorage.setItem('shoppingList', JSON.stringify(json));
+            window.localStorage.setItem('shoppingList', JSON.stringify(newJson));
         }
 
         // Update list
