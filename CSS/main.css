@@ -17,10 +17,6 @@
 }
 
 /* Shopping list */
-#PlaceToInsert_orderedItem{
-    list-style-type:square !important;
-}
-
 .checkoutButton > button{
     color: white;
     background-color: #051f5c;
