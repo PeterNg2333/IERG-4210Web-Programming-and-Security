@@ -56,7 +56,7 @@
 
 .shopping_name{
     font-weight: bold;
-    word-wrap: break-word;
+    word-wrap: break-all;
 }
 
 
