@@ -113,7 +113,7 @@ function load_shoppingCart(){
     var json = JSON.parse(window.localStorage.getItem("shoppingList"));
     var shoppingList = $("#PlaceToInsert_orderedItem");
     var shoppingList_html = '';
-    var countIer = 0;
+    var counter = 0;
     var array_length = json.length;
     if (!(json === "" & json === null) && json.length > 0){
         shoppingList.children().remove();
