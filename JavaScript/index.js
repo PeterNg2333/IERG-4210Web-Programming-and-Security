@@ -141,12 +141,9 @@ function load_shoppingCart(){
                 shoppingList_html += '    <span id="shopping_price_P-000" class="col-3"> @$15 </span> '
                 shoppingList_html += '</p> '
                 shoppingList_html += '</il> '
-                
-                
-
         });
     });
-    shoppingList_html(shoppingList_html);
+    shoppingList_html.html(shoppingList_html);
 
     
 }
