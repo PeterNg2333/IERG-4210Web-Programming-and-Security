@@ -112,13 +112,13 @@ function addToCart_button(e){
 function load_shoppingCart(){
     var json = JSON.parse(window.localStorage.getItem("shoppingList"));
     var shoppingList = $("#PlaceToInsert_orderedItem");
-    var shoppingList_html = "";
+    var shoppingList_html = '';
     if (!(json === "" & json === null) && json.length > 0){
         shoppingList.children().remove();
     }
     json.forEach(element => {
-        temp_id = element.id;
-        temp_orderAmount = element;
+        var temp_id = element.id;
+        var temp_orderAmount = element;
         $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
             {pid: temp_id},
             function(p_res){
@@ -143,6 +143,7 @@ function load_shoppingCart(){
                 shoppingList_html += '</il> '
         });
     });
+    print(shoppingList);
     $("#PlaceToInsert_orderedItem").html(shoppingList_html);
 
     
