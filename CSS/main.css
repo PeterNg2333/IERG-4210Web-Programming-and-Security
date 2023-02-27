@@ -28,6 +28,10 @@
     font:70%
  }
 
+.shopping_num{
+    height: 20px;
+}
+
 #shopping_List:hover #shopping_Detail{
    height: auto;
    width: 300px;

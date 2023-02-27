@@ -126,11 +126,8 @@ function load_shoppingCart(){
         $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
             {pid: temp_id},
             function(p_res){    
-                var res_array = p_res[0]
-                var record = res_array[0]
-                var get_cid = record.CID;
-                var get_cName = record.CATEGORY_NAME;
-                var get_desc= record.DESCRIPTION;
+                var res_array = p_res[0];
+                var record = res_array[0];
                 var get_inv = record.INVENTORY;
                 var get_pid = record.PID;
                 var get_price = record.PRICE;
@@ -140,8 +137,8 @@ function load_shoppingCart(){
                 // HTML
                 shoppingList_html += '<il id="shopping_P-"' + get_pid + '"> ';
                 shoppingList_html += '<p class="ps-2 row shoppingList_Item"> ';
-                shoppingList_html += '    <span class="col-4 shopping_name" id="shopping_name_P-' + get_pid + '" >- '+ get_pName + ' </span> ';
-                shoppingList_html += '    <input id="shopping_num_P-' + get_pid + '" type="number" class="col-2 shopping_num"  value= "'+ temp_orderAmount + '" /> ';
+                shoppingList_html += '    <span class="col-7 shopping_name" id="shopping_name_P-' + get_pid + '" >- '+ get_pName + ' </span> ';
+                shoppingList_html += '    <input id="shopping_num_P-' + get_pid + '" type="number" class="col-2 shopping_num"  value= "'+ temp_orderAmount +'" /> ';
                 shoppingList_html += '    <span id="shopping_price_P-'+ get_pid + '" class="col-3 shopping_price"> @$' + ordervalue + '</span> ';
                 shoppingList_html += '</p> ';
                 shoppingList_html += '</il> ';
