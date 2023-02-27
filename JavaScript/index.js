@@ -162,8 +162,6 @@ function updateOrderAmount(e){
     var text_array = e.target.id.split("-");
     var inputed_id = text_array[1];
     var newOrderAmount = document.getElementById("shopping_num_P-" + inputed_id).value;
-
-
     $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
         {pid: inputed_id},
         function(p_res){    
@@ -174,7 +172,7 @@ function updateOrderAmount(e){
 
         // Delete when order amount is 0
         if (newOrderAmount <= 0){
-            document.getElementById("shopping_num_P-" + inputed_id).remove();
+            document.getElementById("shopping_P-" + inputed_id).remove();
             var json = JSON.parse(window.localStorage.getItem("shoppingList"));
             var count = 0;
             var target_index = -1;
@@ -229,7 +227,6 @@ function updateOrderAmount(e){
         }
         else{
             shoppingList.html('<il class="text-secondary m-auto mb-1"> The shopping Cart is empty !!!</il>');
-            return;
         }
     });
 }
