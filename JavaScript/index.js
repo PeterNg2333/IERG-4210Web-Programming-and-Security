@@ -122,6 +122,8 @@ function load_shoppingCart(){
         var temp_id = element.id;
         var temp_orderAmount = element;
         countIfLastElement ++ ;
+        print(countIfLastElement);
+        print("Max: " + lastElementIndex);
         $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
             {pid: temp_id},
             function(p_res){
