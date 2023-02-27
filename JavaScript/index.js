@@ -206,28 +206,31 @@ function updateOrderAmount(e){
         var array_length = json.length;
         var counter = 0;
         if (!(json === "" & json === null) && json.length > 0){
-            shoppingList.html('<il class="text-secondary m-auto mb-1"> The shopping Cart is empty !!!</il>');
-        }
-        json.forEach(element => {
-            var temp_id = element.id;
-            var temp_orderAmount = element.orderAmount;
-            $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
-                {pid: temp_id},
-                function(p_res){    
-                    var res_array = p_res[0];
-                    var record = res_array[0];
-                    var get_price = record.PRICE;
-                    var ordervalue = Number(get_price)*Number(temp_orderAmount);
-                    $("#shopping_price_P-" + temp_id).text("$" + ordervalue);
-                    orderSum += ordervalue;
-                    counter ++ ;
-                    if (counter == array_length){
-                        $("#shopping_list_order_total").text("$" + orderSum);
-                        $("#shopping_details_order_total").text("$" + orderSum);
-                    }
+            json.forEach(element => {
+                var temp_id = element.id;
+                var temp_orderAmount = element.orderAmount;
+                $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
+                    {pid: temp_id},
+                    function(p_res){    
+                        var res_array = p_res[0];
+                        var record = res_array[0];
+                        var get_price = record.PRICE;
+                        var ordervalue = Number(get_price)*Number(temp_orderAmount);
+                        $("#shopping_price_P-" + temp_id).text("$" + ordervalue);
+                        orderSum += ordervalue;
+                        counter ++ ;
+                        if (counter == array_length){
+                            $("#shopping_list_order_total").text("$" + orderSum);
+                            $("#shopping_details_order_total").text("$" + orderSum);
+                        }
+                });
             });
-        });
-        
+            
+        }
+        else{
+            shoppingList.html('<il class="text-secondary m-auto mb-1"> The shopping Cart is empty !!!</il>');
+            return;
+        }
     });
 }
 
