@@ -63,7 +63,7 @@ function addToCart_button(e){
             var jsonstr = localStorage.setItem('shoppingList', JSON.stringify(new_empty_array));
 
             /////
-            var json = JSON.parse(temp_array);
+            var json = JSON.parse(jsonstr);
             print("add new array: " + stringify(json))
         } 
         else {
