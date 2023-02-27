@@ -107,7 +107,7 @@ function addToCart_button(e){
 
 function load_shoppingCart(){
     var json = JSON.parse(window.localStorage.getItem("shoppingList"))
-    var shoppingList = $("#PlaceToInsert_orderedItem").children
+    var shoppingList = $("#PlaceToInsert_orderedItem")
     if (!(json === "" & json === null) && json.length > 0){
         shoppingList.children().remove();
     }
