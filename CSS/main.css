@@ -8,16 +8,19 @@
     width: 270px;
 }
 
+
+
+
 .checkoutButton{
    margin-left: 60%;  
    margin-top: -5%;
 }
 
+/* Shopping list */
 .checkoutButton > button{
     color: white;
     background-color: #051f5c;
 }
-
 
 #shopping_List{
     height: 35px;
@@ -25,7 +28,7 @@
  }
 
  .shoppingList_Item{
-    font-size:70%
+    font-size: 87%
  }
 
 .shopping_num{
@@ -40,10 +43,17 @@
 }
 
 .checkoutButton > button {
-    width: 75px;
+    width: 105px;
     height: 30px;
 
 }
+
+.shopping_name{
+    font-size: bold;
+}
+
+
+/* URL path */
 
 #path{
     font-size: 150%;
