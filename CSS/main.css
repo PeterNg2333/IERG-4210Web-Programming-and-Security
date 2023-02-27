@@ -24,8 +24,13 @@
     overflow: hidden
  }
 
+ .shoppingList_Item{
+    font:70%
+ }
+
 #shopping_List:hover #shopping_Detail{
    height: auto;
+   width: auto;
    position: absolute;
    z-index:99999;
 }
@@ -88,3 +93,4 @@ aside > h4 {
     width: 100%;
     margin: auto !important;
 }
+
