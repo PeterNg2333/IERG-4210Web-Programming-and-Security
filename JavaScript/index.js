@@ -222,7 +222,6 @@ function updateOrderAmount(e){
                     orderSum += ordervalue;
                     counter ++ ;
                     if (counter == array_length){
-                        $("#PlaceToInsert_orderedItem").html(shoppingList_html);
                         $("#shopping_list_order_total").text("$" + orderSum);
                         $("#shopping_details_order_total").text("$" + orderSum);
                     }
