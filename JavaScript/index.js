@@ -72,12 +72,17 @@ function addToCart_button(e){
         } 
         else {
             var json = JSON.parse(jsonstr);
+            var addOrUpdate = false
             json.forEach(element => {
                 if (Number(element.id) === Number(inputed_id)){
                     element.orderAmount = Number(element.orderAmount) + Number(num_added);
                     print("Update: element: " + element)
+                    addOrUpdate = true;
                 }
             });
+            if (addOrUpdate == true){
+                json.push({id: inputed_id, orderAmount: num_added});  
+            }   
             // if (json.indexOf(id) > -1){
             //     json[id] += num_added
             // } 
