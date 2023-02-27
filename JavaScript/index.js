@@ -106,8 +106,9 @@ function addToCart_button(e){
 }
 
 function load_shoppingCart(){
-    var json = JSON.parse(window.localStorage.getItem("shoppingList"))
-    var shoppingList = $("#PlaceToInsert_orderedItem")
+    var json = JSON.parse(window.localStorage.getItem("shoppingList"));
+    var shoppingList = $("#PlaceToInsert_orderedItem");
+    var shoppingList_html = "";
     if (!(json === "" & json === null) && json.length > 0){
         shoppingList.children().remove();
     }
@@ -127,6 +128,15 @@ function load_shoppingCart(){
                 var get_pid = record.PID;
                 var get_price = record.PRICE;
                 var get_pName = record.PRODUCT_NAME;
+
+                // HTML
+                shoppingList_html += '<il class="row" id="shopping_P-000"> '
+                shoppingList_html += '<p class="ps-2"> '
+                shoppingList_html += '    <span class="col-5" id="shopping_price_P-000" >- Fish </span> '
+                shoppingList_html += '    <input id="shopping_num_P-000" type="number" class="col-4" size="1" placeholder="1" /> '
+                shoppingList_html += '    <span id="shopping_price_P-000" class="col-3"> @$15 </span> '
+                shoppingList_html += '</p> '
+                shoppingList_html += '</il> '
                 
                 
 
