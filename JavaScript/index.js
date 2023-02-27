@@ -15,6 +15,8 @@ $(window).on("load", function() {
         const url = new URL(window.location);
         var get_pid = url.searchParams.get("pid");
         var get_cid = url.searchParams.get("cid");
+        load_shoppingCart();
+
         // print(get_pid);
         // print(get_cid);
         // print((get_pid == null || get_pid == undefined) || (get_cid == null || get_cid == undefined))
@@ -26,6 +28,7 @@ $(window).on("load", function() {
         else if ((get_pid == null || get_pid == undefined)){
             window.addEventListener('scroll', addProductByScroll);
         }
+        
         // setTimeout(function(){
         //     if (! loadProduct()){
         //         loadCategory();
@@ -93,6 +96,7 @@ function addToCart_button(e){
             //     json.id = num_added
             // }
             localStorage.setItem('shoppingList', JSON.stringify(json));
+            load_shoppingCart();
             
         }
         
@@ -142,6 +146,8 @@ function load_shoppingCart(){
 
         });
     });
+    shoppingList_html(shoppingList_html);
+
     
 }
 
