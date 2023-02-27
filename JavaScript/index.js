@@ -137,7 +137,7 @@ function load_shoppingCart(){
                 // HTML
                 shoppingList_html += '<il id="shopping_P-"' + get_pid + '"> ';
                 shoppingList_html += '<p class="ps-2 row shoppingList_Item"> ';
-                shoppingList_html += '    <span class="col-5 shopping_name" id="shopping_name_P-' + get_pid + '" >- '+ get_pName + ' </span> ';
+                shoppingList_html += '    <span class="col-5 shopping_name" id="shopping_name_P-' + get_pid + '" > '+ get_pName + ' </span> ';
                 shoppingList_html += '    <input id="shopping_num_P-' + get_pid + '" type="number" class="col-3 shopping_num" onchange="updateOrderAmount(event)" value= "'+ temp_orderAmount +'" /> ';
                 shoppingList_html += '    <span id="shopping_price_P-'+ get_pid + '" class="col-3 shopping_price"> @$' + ordervalue + '</span> ';
                 shoppingList_html += '</p> ';
@@ -158,7 +158,19 @@ function load_shoppingCart(){
 }
 
 function updateOrderAmount(e){
-    alert("update");
+    var text_array = e.target.id.split("-");
+    var inputed_id = text_array[1];
+    alert("update" + id);
+    $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
+        {pid: inputed_id},
+        function(p_res){    
+        var res_array = p_res[0];
+        var record = res_array[0];
+        var get_inv = record.INVENTORY;
+        var get_pid = record.PID;
+        var get_price = record.PRICE;
+        var get_pName = record.PRODUCT_NAME;
+    });
 }
 
 function loadProductHelper(){
