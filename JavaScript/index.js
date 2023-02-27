@@ -184,6 +184,7 @@ function updateOrderAmount(e){
             });
             delete json[target_index];
             print("Item: " + inputed_id + " is deleted");
+            window.localStorage.setItem('shoppingList', JSON.stringify(json));
         }
 
         // Update list
