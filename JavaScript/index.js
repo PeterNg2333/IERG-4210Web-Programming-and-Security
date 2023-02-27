@@ -71,7 +71,7 @@ function addToCart_button(e){
             var json = JSON.parse(jsonstr);
             json.forEach(element => {
                 if (Number(element.id) === Number(inputed_id)){
-                    element.orderAmount += num_added;
+                    element.orderAmount += Number(num_added);
                     print("Update: element: " + element)
                 }
             });
