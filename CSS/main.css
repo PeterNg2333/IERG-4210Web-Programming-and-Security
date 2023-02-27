@@ -17,6 +17,10 @@
 }
 
 /* Shopping list */
+.shopping_List_Detail{
+    list-style-type:square;
+}
+
 .checkoutButton > button{
     color: white;
     background-color: #051f5c;
