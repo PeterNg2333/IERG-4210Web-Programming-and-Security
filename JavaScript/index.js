@@ -143,7 +143,7 @@ function load_shoppingCart(){
                 shoppingList_html += '</il> '
         });
     });
-    shoppingList_html.html(shoppingList_html);
+    $("#PlaceToInsert_orderedItem").html(shoppingList_html);
 
     
 }
