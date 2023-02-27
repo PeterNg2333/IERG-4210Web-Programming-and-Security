@@ -63,7 +63,7 @@ function addToCart_button(e){
         // update local Storage
         if (jsonstr === "" || jsonstr === null){
             var new_empty_array = []
-            new_empty_array.push({id: inputed_id, orderAmount: num_added})
+            new_empty_array.push({id: inputed_id, orderAmount: Number(num_added)})
             localStorage.setItem('shoppingList', JSON.stringify(new_empty_array));
 
             /////
@@ -106,9 +106,9 @@ function addToCart_button(e){
 }
 
 function load_shoppingCart(){
-    var json = JSON.parse(window.localStorage.getItem("ShoppingList"))
+    var json = JSON.parse(window.localStorage.getItem("shoppingList"))
     var shoppingList = $("#PlaceToInsert_orderedItem").children
-    if (json.length > 0){
+    if (!(json === "" & json === null) && json.length > 0){
         shoppingList.children().remove();
     }
     json.array.forEach(element => {
