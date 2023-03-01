@@ -8,12 +8,14 @@
     width: 270px;
 }
 
-
-
-
 .checkoutButton{
    margin-left: 60%;  
    margin-top: -5%;
+}
+
+/* Product card */
+.card-title{
+    word-break: break-all;
 }
 
 /* Shopping list */
