@@ -214,7 +214,7 @@ function updateOrderAmount(e){
                         var record = res_array[0];
                         var get_price = record.PRICE;
                         var ordervalue = Number(get_price)*Number(temp_orderAmount);
-                        $("#shopping_price_P-" + temp_id).text("@$" + ordervalue);
+                        $("#shopping_price_P-" + temp_id).text(" @$" + ordervalue);
                         orderSum += ordervalue;
                         counter ++ ;
                         if (counter == array_length){
