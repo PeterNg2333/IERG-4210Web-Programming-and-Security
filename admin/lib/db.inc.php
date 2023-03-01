@@ -355,7 +355,7 @@ function ierg4210_cat_fetch_by_cid_page($CID){
     exit();
 }
 
-function ierg4210_prod_fetchOne_by_cid_page(){
+function ierg4210_prod_fetchOne_by_pid_page(){
     if (!preg_match('/^[\d]+$/', $_POST['pid']))
         throw new Exception("invalid-id");
 

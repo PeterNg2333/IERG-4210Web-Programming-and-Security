@@ -123,7 +123,7 @@ function load_shoppingCart(){
     json.forEach(element => {
         var temp_id = element.id;
         var temp_orderAmount = element.orderAmount;
-        $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
+        $.post("admin/admin-process.php?action=prod_fetchOne_by_pid_page", 
             {pid: temp_id},
             function(p_res){    
                 var res_array = p_res[0];
@@ -162,7 +162,8 @@ function updateOrderAmount(e){
     var text_array = e.target.id.split("-");
     var inputed_id = text_array[1];
     var newOrderAmount = document.getElementById("shopping_num_P-" + inputed_id).value;
-    $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
+    // Updated Product
+    $.post("admin/admin-process.php?action=prod_fetchOne_by_pid_page", 
         {pid: inputed_id},
         function(p_res){    
         var res_array = p_res[0];
@@ -207,7 +208,8 @@ function updateOrderAmount(e){
             json.forEach(element => {
                 var temp_id = element.id;
                 var temp_orderAmount = element.orderAmount;
-                $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
+                // All product remain the shopping cart
+                $.post("admin/admin-process.php?action=prod_fetchOne_by_pid_page", 
                     {pid: temp_id},
                     function(p_res){    
                         var res_array = p_res[0];
@@ -237,7 +239,7 @@ function loadProductHelper(){
     const url = new URL(window.location);
     var get_pid = url.searchParams.get("pid");
     if (get_pid != null || get_pid != undefined){
-        $.post("admin/admin-process.php?action=prod_fetchOne_by_cid_page", 
+        $.post("admin/admin-process.php?action=prod_fetchOne_by_pid_page", 
             {pid: get_pid},
             function(p_res){
                 var res_array = p_res[0]
