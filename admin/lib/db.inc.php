@@ -237,6 +237,7 @@ function ierg4210_prod_edit(){
         // Note: Take care of the permission of destination folder (hints: current user is apache)
             if (($q->execute()) && (file_exists($filePath))){
                 unlink($filePath);
+                exit();
             };
             $uploadResult = move_uploaded_file($_FILES["file"]["tmp_name"], $filePath);
             if ($uploadResult){
