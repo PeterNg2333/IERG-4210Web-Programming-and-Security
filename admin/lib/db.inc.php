@@ -93,6 +93,8 @@ function ierg4210_prod_insert() {
     exit();
 }
 // TODO: add other functions here to make the whole application complete
+
+/////////////////////////////// Admin (Need Auth) /////////////////////////////////////
 function ierg4210_cat_insert() {
     if (!preg_match('/^[\w\-\&\_\ ]+$/', $_POST['Cname']))
         throw new Exception("invalid-name");
@@ -178,7 +180,106 @@ function ierg4210_cat_delete(){
     exit();
 }
 
-function ierg4210_prod_delete_by_cid(){}
+function ierg4210_prod_edit(){
+    // input validation or sanitization
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+
+    // TODO: complete the rest of the INSERT command
+    if (!preg_match('/^\d*$/', $_POST['cid']))
+        throw new Exception("invalid-cid");
+    $_POST['cid'] = (int) $_POST['cid'];
+    if (!preg_match('/^[\w\- ]+$/', $_POST['name']))
+        throw new Exception("invalid-name");
+    if (!preg_match('/^[\d\.]+$/', $_POST['price']))
+        throw new Exception("invalid-price");
+    if (!preg_match('/^[\d]+$/', $_POST['inventory']))
+        throw new Exception("invalid-inventory");
+    if (!preg_match('/^[\w\- ]+$/', $_POST['description']))
+        throw new Exception("invalid-description");
+    if (!preg_match('/^[\d]+$/', $_POST['pid']))
+        throw new Exception("invalid-id");
+
+    /////////////////////////////////////////////
+    $sql="UPDATE PRODUCTS SET cid = ?, product_name = ?, inventory = ?, price =?, description = ? Where pid = ?;";
+    $q = $db->prepare($sql);
+
+
+        $cid = $_POST["cid"];
+        $name = $_POST["name"];
+        $price = $_POST["price"];
+        $desc = $_POST["description"];
+        $inv = $_POST["inventory"];
+        $pid = $_POST["pid"];
+
+        $sql="UPDATE PRODUCTS SET cid = ?, product_name = ?, inventory = ?, price =?, description = ? Where pid = ?;";
+        $q = $db->prepare($sql);
+        $q->bindParam(1, $cid);
+        $q->bindParam(2, $name);
+        $q->bindParam(3, $inv);
+        $q->bindParam(4, $price);
+        $q->bindParam(5, $desc);
+        $q->bindParam(6, $pid);
+        $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" . $pid . ".jpg";
+
+        // Copy the uploaded file to a folder which can be publicly accessible at incl/img/[pid].jpg
+        if ($_FILES["file"]["error"] == 0
+            && $_FILES["file"]["type"] == "image/jpeg" 
+                || $_FILES["file"]["type"] == "image/png" 
+                || $_FILES["file"]["type"] == "image/jpg"
+            && mime_content_type($_FILES["file"]["tmp_name"]) == "image/jpeg" 
+                || mime_content_type($_FILES["file"]["tmp_name"]) == "image/png" 
+                || mime_content_type($_FILES["file"]["tmp_name"]) == "image/jpg" 
+            && $_FILES["file"]["size"] < 5000000) 
+
+        {
+        // Note: Take care of the permission of destination folder (hints: current user is apache)
+            if (($q->execute()) && (file_exists($filePath))){
+                unlink($filePath);
+            };
+            $uploadResult = move_uploaded_file($_FILES["file"]["tmp_name"], $filePath);
+            if ($uploadResult){
+                // redirect back to original page; you may comment it during debug
+                header('Location: admin.php');
+                exit();
+            }
+        } 
+        else if($q->execute()) {
+            header('Location: admin.php');
+            exit();
+        }
+    header('Content-Type: text/html; charset=utf-8');
+    echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
+    exit();
+}
+
+function ierg4210_prod_delete(){
+if (!preg_match('/^[\d]+$/', $_POST['pid']))
+    throw new Exception("invalid-id");
+// DB manipulation
+global $db;
+$pid = $_POST["pid"];
+
+$db = ierg4210_DB();
+$q = $db->prepare("DELETE FROM products where PID = ?;");
+$q->bindParam(1, $pid);
+$filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" . $pid . ".jpg";
+if (($q->execute()) && (file_exists($filePath))){
+    unlink($filePath);
+    header("Content-Type: application/json");
+    $result = array("status" => "Success");
+    echo json_encode($result);
+    exit();
+};
+
+header("Content-Type: application/json");
+$result = array("status" => "Failed");
+echo json_encode($result);
+exit();
+}
+
+///////////////// Admin (No need Auth) ////////////////////////////////////
 
 function ierg4210_prod_fetchAll_by_cid(){
     if (!preg_match('/^[\d]+$/', $_POST['CID']))
@@ -213,114 +314,17 @@ function ierg4210_prod_fetchAll(){
          return $q->fetchAll();
 }
 
-function ierg4210_prod_edit(){
-        // input validation or sanitization
-        // DB manipulation
-        global $db;
-        $db = ierg4210_DB();
-    
-        // TODO: complete the rest of the INSERT command
-        if (!preg_match('/^\d*$/', $_POST['cid']))
-            throw new Exception("invalid-cid");
-        $_POST['cid'] = (int) $_POST['cid'];
-        if (!preg_match('/^[\w\- ]+$/', $_POST['name']))
-            throw new Exception("invalid-name");
-        if (!preg_match('/^[\d\.]+$/', $_POST['price']))
-            throw new Exception("invalid-price");
-        if (!preg_match('/^[\d]+$/', $_POST['inventory']))
-            throw new Exception("invalid-inventory");
-        if (!preg_match('/^[\w\- ]+$/', $_POST['description']))
-            throw new Exception("invalid-description");
-        if (!preg_match('/^[\d]+$/', $_POST['pid']))
-            throw new Exception("invalid-id");
-    
-        /////////////////////////////////////////////
-        $sql="UPDATE PRODUCTS SET cid = ?, product_name = ?, inventory = ?, price =?, description = ? Where pid = ?;";
-        $q = $db->prepare($sql);
 
-    
-            $cid = $_POST["cid"];
-            $name = $_POST["name"];
-            $price = $_POST["price"];
-            $desc = $_POST["description"];
-            $inv = $_POST["inventory"];
-            $pid = $_POST["pid"];
-    
-            $sql="UPDATE PRODUCTS SET cid = ?, product_name = ?, inventory = ?, price =?, description = ? Where pid = ?;";
-            $q = $db->prepare($sql);
-            $q->bindParam(1, $cid);
-            $q->bindParam(2, $name);
-            $q->bindParam(3, $inv);
-            $q->bindParam(4, $price);
-            $q->bindParam(5, $desc);
-            $q->bindParam(6, $pid);
-            $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" . $pid . ".jpg";
-    
-            // Copy the uploaded file to a folder which can be publicly accessible at incl/img/[pid].jpg
-            if ($_FILES["file"]["error"] == 0
-                && $_FILES["file"]["type"] == "image/jpeg" 
-                    || $_FILES["file"]["type"] == "image/png" 
-                    || $_FILES["file"]["type"] == "image/jpg"
-                && mime_content_type($_FILES["file"]["tmp_name"]) == "image/jpeg" 
-                    || mime_content_type($_FILES["file"]["tmp_name"]) == "image/png" 
-                    || mime_content_type($_FILES["file"]["tmp_name"]) == "image/jpg" 
-                && $_FILES["file"]["size"] < 5000000) 
-
-            {
-            // Note: Take care of the permission of destination folder (hints: current user is apache)
-                if (($q->execute()) && (file_exists($filePath))){
-                    unlink($filePath);
-                };
-                $uploadResult = move_uploaded_file($_FILES["file"]["tmp_name"], $filePath);
-                if ($uploadResult){
-                    // redirect back to original page; you may comment it during debug
-                    header('Location: admin.php');
-                    exit();
-                }
-            } 
-            else if($q->execute()) {
-                header('Location: admin.php');
-                exit();
-            }
-        header('Content-Type: text/html; charset=utf-8');
-        echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
-        exit();
-}
-
-function ierg4210_prod_delete(){
-    if (!preg_match('/^[\d]+$/', $_POST['pid']))
-        throw new Exception("invalid-id");
-    // DB manipulation
-    global $db;
-    $pid = $_POST["pid"];
-
-    $db = ierg4210_DB();
-    $q = $db->prepare("DELETE FROM products where PID = ?;");
-    $q->bindParam(1, $pid);
-    $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" . $pid . ".jpg";
-    if (($q->execute()) && (file_exists($filePath))){
-        unlink($filePath);
-        header("Content-Type: application/json");
-        $result = array("status" => "Success");
-        echo json_encode($result);
-        exit();
-    };
-
-    header("Content-Type: application/json");
-    $result = array("status" => "Failed");
-    echo json_encode($result);
-    exit();
-}
 function ierg4210_prod_and_cat_count(){
     // DB manipulation
     global $db;
     $db = ierg4210_DB();
-    $q = $db->prepare("SELECT COUNT(DISTINCT CID), COUNT(DISTINCT PID) AS PRODUCT_NUM, COUNT(DISTINCT CASE WHEN INVENTORY = 0 THEN PID ELSE NULL END) AS OUT_OF_STOCK FROM PRODUCTS LEFT JOIN CATEGORIES USING (CID);");
+    $q = $db->prepare("SELECT COUNT(DISTINCT CID) AS CATEGORY_NUM, COUNT(DISTINCT PID) AS PRODUCT_NUM, COUNT(DISTINCT CASE WHEN INVENTORY = 0 THEN PID ELSE NULL END) AS OUT_OF_STOCK FROM PRODUCTS LEFT JOIN CATEGORIES USING (CID);");
     if ($q->execute())
         return $q->fetchAll();
 }
 
-///////////////// Webpage////////////////////////////////////
+///////////////// Webpage (No need ) ////////////////////////////////////
 function ierg4210_prod_fetchAll_by_cid_page($CID){
     // DB manipulation
     global $db;
@@ -379,6 +383,55 @@ function ierg4210_prod_fetchOne_by_pid_page(){
     exit();
 }
 
+function ierg4210_prod_fetch_next_four_page(){
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("SELECT * FROM PRODUCTS ORDER BY PID LIMIT 100;");
+    if ($q->execute()){
+        header("Content-Type: application/json");
+        $result = $q->fetchAll();
+        echo json_encode(array($result));
+        exit();
+    }
+    header("Content-Type: application/json");
+    $result = array("status" => "Failed");
+    echo json_encode($result);
+    exit();
+}
+
+function ierg4210_prod_count_limit(){
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("Select COUNT(PID) AS PRODUCT_NUM FROM Products;");
+    if ($q->execute()){
+        header("Content-Type: application/json");
+        $result = $q->fetchAll();
+        echo json_encode(array($result));
+        exit();
+    }
+    header("Content-Type: application/json");
+    $result = array("status" => "Failed");
+    echo json_encode($result);
+    exit();
+}
+
+///////////////////////////////////////////// Auth /////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // function ierg4210_prod_fetch_next_four_page(){
 //     if (!preg_match('/^[\d]+$/', $_POST['load_num']))
 //     throw new Exception("invalid-id");
@@ -416,39 +469,3 @@ function ierg4210_prod_fetchOne_by_pid_page(){
 //     // if ($q->execute())
 //     //     return $q->fetchAll();
 // }
-
-function ierg4210_prod_fetch_next_four_page(){
-    // DB manipulation
-    global $db;
-    $db = ierg4210_DB();
-    $q = $db->prepare("SELECT * FROM PRODUCTS ORDER BY PID LIMIT 100;");
-    if ($q->execute()){
-        header("Content-Type: application/json");
-        $result = $q->fetchAll();
-        echo json_encode(array($result));
-        exit();
-    }
-    header("Content-Type: application/json");
-    $result = array("status" => "Failed");
-    echo json_encode($result);
-    exit();
-}
-
-function ierg4210_prod_count_limit(){
-    // DB manipulation
-    global $db;
-    $db = ierg4210_DB();
-    $q = $db->prepare("Select COUNT(PID) AS PRODUCT_NUM FROM Products;");
-    if ($q->execute()){
-        header("Content-Type: application/json");
-        $result = $q->fetchAll();
-        echo json_encode(array($result));
-        exit();
-    }
-    header("Content-Type: application/json");
-    $result = array("status" => "Failed");
-    echo json_encode($result);
-    exit();
-}
-
-
