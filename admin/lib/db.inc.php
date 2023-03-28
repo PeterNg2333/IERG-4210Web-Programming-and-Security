@@ -222,7 +222,7 @@ function ierg4210_prod_edit(){
         $q->bindParam(5, $desc);
         $q->bindParam(6, $pid);
         $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" . $pid . ".jpg";
-        echo empty($_FILES["file"]);
+        
         
         // Copy the uploaded file to a folder which can be publicly accessible at incl/img/[pid].jpg
         if ($_FILES["file"]["error"] == 0
@@ -252,8 +252,9 @@ function ierg4210_prod_edit(){
             header('Location: admin.php');
             exit();
         }
-    header('Content-Type: text/html; charset=utf-8');
-    exit();
+
+    return empty($_FILES["file"]);
+    // header('Content-Type: text/html; charset=utf-8');
     // echo 'Invalid file detected. <br/><a href="javascript:history.back();">Back to admin panel.</a>';
     // exit();
 }
