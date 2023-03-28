@@ -419,7 +419,22 @@ function ierg4210_prod_count_limit(){
 
 ///////////////////////////////////////////// Auth /////////////////////////////////////////////////
 
-
+function ierg4210_login(){
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("Select COUNT(PID) AS PRODUCT_NUM FROM Products;");
+    if ($q->execute()){
+        header("Content-Type: application/json");
+        $result = $q->fetchAll();
+        echo json_encode(array($result));
+        exit();
+    }
+    header("Content-Type: application/json");
+    $result = array("status" => "Failed");
+    echo json_encode($result);
+    exit();
+}
 
 
 
