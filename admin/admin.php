@@ -41,7 +41,7 @@ foreach ($res_cat_fetchall as $value){
             <?php 
                 $header_html = file_get_contents('./Snippet_admin/header_admin.html');
                 echo $header_html;
-                echo $res_number;
+                echo $res_number[0];
             ?>
         </header>
 
