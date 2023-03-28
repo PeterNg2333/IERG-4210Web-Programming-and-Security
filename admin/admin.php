@@ -1,6 +1,7 @@
 <?php
 require __DIR__.'/lib/db.inc.php';
 $res_cat_fetchall = ierg4210_cat_fetchall();
+$res_number = ierg4210_prod_and_cat_count();
 $options = '';
 
 foreach ($res_cat_fetchall as $value){
@@ -45,6 +46,7 @@ foreach ($res_cat_fetchall as $value){
         <main id="main" class="container mt-3 d-none">
             <?php 
                 $main_html = file_get_contents('./Snippet_admin/main_admin.html');
+                $main_html = str_replace('%Categories_NUM%', $res_number["CATEGORY_NUM"], $main_html);
                 $main_html = str_replace('%category_options%', $options, $main_html);
                 $main_html = str_replace('<!--?PHP--> ', '', $main_html);
                 
