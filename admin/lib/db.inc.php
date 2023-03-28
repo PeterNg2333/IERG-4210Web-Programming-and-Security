@@ -224,7 +224,7 @@ function ierg4210_prod_edit(){
         $filePath = "/var/www/IERG-4210Web-Programming-and-Security/admin/lib/images/P" . $pid . ".jpg";
     
         // Copy the uploaded file to a folder which can be publicly accessible at incl/img/[pid].jpg
-        if (($_FILES["file"]["error"] == 4 )
+        if (($_FILES["file"]["error"] == "4" || $_FILES["file"]["name"] == "")
             ||($_FILES["file"]["error"] == 0
                 && $_FILES["file"]["type"] == "image/jpeg" 
                     || $_FILES["file"]["type"] == "image/png" 
