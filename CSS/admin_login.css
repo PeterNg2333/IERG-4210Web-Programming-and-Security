@@ -1,7 +1,7 @@
 /* Login*/
 
 .loginHeader{
-    size: bold;
+    font-weight: bold;
 }
 
 .loginInput{
