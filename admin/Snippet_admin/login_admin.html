@@ -1,37 +1,33 @@
-<section className="col-lg-6 logInFormBg border border-dark">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Inventroy4210</title>
+        <link rel="icon" type="image/x-icon" href="../Resource/Admin_Panel_Icon.avif"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="../CSS/index.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/admin.css">
+    </head>
+        
+    <body>
+
+<section className="col-lg-6 border border-dark">
     <div className="container h-100">
       <div className="row align-items-center h-100">
-        <div className="col-8 text-center mx-auto">
-          <h3 className="mb-4">Hello! Welcome Back :</h3>
+        <form className="col-8 text-center mx-auto">
           <label for="username">Username</label>
-          <br />
-          <input
-            className="text"
-            id="username"
-            name="username"
-            onChange={handleUsername}
-            value={username}
-            required
-          />
-          <br />
-          <br />
+          <input className="text" id="username" name="username" required />
           <label for="password">Password</label>
-          <br />
-          <input
-            type="password"
-            id="password"
-            name="password"
-            onChange={handlePassword}
-            value={password}
-            required
-          />
-          <br />
-          <input className="mt-3" type="checkbox" name="rememberMe" />{" "}
-          Remember Me <br />
-          <button className="login-btn" onClick={fetchLogin}>
-            Login
-          </button>
-        </div>
+          <input type="password" id="password" name="password" required/>
+          <button className="login-btn" > Login </button>
+        </form>
       </div>
     </div>
   </section>
+
+</body>
