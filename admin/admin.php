@@ -7,6 +7,8 @@ $options = '';
 foreach ($res_cat_fetchall as $value){
     $options .= '<option value="'.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </option>';
 }
+
+
 ?>
 
 
@@ -39,12 +41,14 @@ foreach ($res_cat_fetchall as $value){
             <?php 
                 $header_html = file_get_contents('./Snippet_admin/header_admin.html');
                 echo $header_html;
+                echo $res_number["CATEGORY_NUM"];
             ?>
         </header>
 
         <!-- Main Content -->
         <main id="main" class="container mt-3 d-none">
             <?php 
+            
                 $main_html = file_get_contents('./Snippet_admin/main_admin.html');
                 $main_html = str_replace('%Categories_NUM%', $res_number["CATEGORY_NUM"], $main_html);
                 $main_html = str_replace('%category_options%', $options, $main_html);
