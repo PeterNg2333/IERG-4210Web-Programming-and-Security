@@ -41,7 +41,8 @@ foreach ($res_cat_fetchall as $value){
             <?php 
                 $header_html = file_get_contents('./Snippet_admin/header_admin.html');
                 echo $header_html;
-                echo $res_number[0];
+                $c = $res_number[0];
+                echo $c["CATEGORY_NUM"];
             ?>
         </header>
 
@@ -50,7 +51,7 @@ foreach ($res_cat_fetchall as $value){
             <?php 
             
                 $main_html = file_get_contents('./Snippet_admin/main_admin.html');
-                $main_html = str_replace('%Categories_NUM%', $res_number["CATEGORY_NUM"], $main_html);
+                $main_html = str_replace('%Categories_NUM%', $res_number[0]["CATEGORY_NUM"], $main_html);
                 $main_html = str_replace('%category_options%', $options, $main_html);
                 $main_html = str_replace('<!--?PHP--> ', '', $main_html);
                 
