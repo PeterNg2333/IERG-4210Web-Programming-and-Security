@@ -12,3 +12,6 @@
   - Main page: https://secure.s19.ierg4210.ie.cuhk.edu.hk/main.php
   - Admin panel: https://secure.s19.ierg4210.ie.cuhk.edu.hk/admin/admin.php
 
+Admin: admin1155143402@gmail.com, admin123!
+
+Normal user: user1155143402@gmail.com user123!
