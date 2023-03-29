@@ -38,7 +38,7 @@ require __DIR__.'/lib/db.inc.php';
 
       <!-- CSRF -->
         <?php 
-          echo '<input type="hidden" name="nonce" value="'. csrf_getNonce("changePd"). '/>'; 
+          echo '<input type="hidden" name="nonce" value="'. csrf_getNonce("changePd"). '" />'; 
         ?> 
 
         <div class="form-outline text-center mb-4 mx-auto">
