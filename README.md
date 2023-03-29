@@ -11,7 +11,9 @@
   ##### Method B: open my page 
   - Main page: https://secure.s19.ierg4210.ie.cuhk.edu.hk/main.php
   - Admin panel: https://secure.s19.ierg4210.ie.cuhk.edu.hk/admin/admin.php
+  - Login: https://secure.s19.ierg4210.ie.cuhk.edu.hk/admin/login_admin.php
+  - Change password https://secure.s19.ierg4210.ie.cuhk.edu.hk/admin/change_password_admin.php
 
-Admin: admin1155143402@gmail.com, admin123!
-
-Normal user: user1155143402@gmail.com user123!
+#### 3. Account
+  - Admin: admin1155143402@gmail.com, admin123!
+  - Normal user: user1155143402@gmail.com user123!
