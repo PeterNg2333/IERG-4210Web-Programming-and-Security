@@ -14,8 +14,9 @@ if (empty($_REQUEST['action']) || !preg_match('/^\w+$/', $_REQUEST['action'])) {
 $auth=auth();
 $action = $_REQUEST['action'];
 if(	($action == "cat_insert" || $action == "cat_edit" || $action == "cat_delete" || $action == "prod_edit" || $action == "prod_delete" || $action == "prod_insert")
-	&& $auth == false){
+	|| $auth == false){
     header('Location: login_admin.html',true,302);
+	exit();
 }
 
 
