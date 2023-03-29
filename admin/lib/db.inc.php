@@ -623,26 +623,29 @@ function auth(){
 
         $cookie_token = json_decode($_COOKIE['auth'], true);
         $username = $cookie_token['em'];
-        $password = $cookie_token['k'];
+        $k = $cookie_token['k'];
         $q = $db_account->prepare("Select * FROM USER WHERE EMAIL = ? LIMIT 1;");
-        return $password;
-        // $q->bindParam(1, $username);
+        $q->bindParam(1, $username);
 
-        // if ($q->execute()){
-        //     header("Content-Type: application/json");
-        //     $result = $q->fetchAll();
-        //     if (empty($result[0])){
-        //         return "Wrong-email_or_password";
-        //     }
-        //     $user = $result[0];
-        //     $user_email = $user["EMAIL"];
-        //     $user_password = $user["PASSWORD"];
-        //     $user_salt = $user["SALT"];
-        //     if ($user_password == hash_hmac('sha256', $password, $user_salt)){
-        //         $_SESSION['auth'] = $_COOKIE['auth'];
-        //         return $user_email;
-        //     }
-        // }
+        if ($q->execute()){
+            header("Content-Type: application/json");
+            $result = $q->fetchAll();
+            if (empty($result[0])){
+                return "Wrong-email_or_password";
+            }
+            $user = $result[0];
+            $user_email = $user["EMAIL"];
+            $user_password = $user["PASSWORD"];
+            $user_salt = $user["SALT"]; 
+            $exp = time() + 3600 * 24 * 1;
+            if ($k == hash_hmac('sha256', $exp . $user_password, $user_salt)){
+                $_SESSION['auth'] = $_COOKIE['auth'];
+                return $user_email;
+            }
+            else {
+                header('Location: login_admin.html', true, 302);
+            }
+        }
     }
 
     return false;
