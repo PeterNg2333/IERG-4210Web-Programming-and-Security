@@ -489,9 +489,9 @@ function ierg4210_login(){
     // }
 
     if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $_POST['username']))
-        throw new Exception("invalid-email_or_password");
+        throw new Exception("invalid-email");
     if (!preg_match('/^[\w\-\@\!\' ]+$/', $_POST['password']))
-        throw new Exception("invalid-email_or_password");
+        throw new Exception("invalid-password");
     $username = $_POST["username"];
     $password = $_POST["password"];
 
