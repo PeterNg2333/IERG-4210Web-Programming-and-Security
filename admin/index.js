@@ -300,6 +300,7 @@ function delete_product(e){
                 alert("Delete Success!!");
                 location.reload()
             }
+            
             else {
                 alert("Delete Failed!!");
             }

@@ -17,6 +17,7 @@ if(	($action == "cat_insert" || $action == "cat_edit" || $action == "cat_delete"
 	&& $auth == false){
     // header('Location: login_admin.html',true,302);
 	echo json_encode(array('failed'=>'auth-error'));
+	exit();
 }
 
 
