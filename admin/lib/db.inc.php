@@ -672,8 +672,8 @@ function csrf_verifyNonce($action, $receivedNonce){
     throw new Exception('csrf-attack');
 }
 
-function csrf_test(){
-    return $_SESSION['csrf_nonce'];
+function csrf_test($action){
+    return $action;// $_SESSION['csrf_nonce'];
 }
 
 function secure_level($action){
