@@ -1,3 +1,7 @@
+<?php
+require __DIR__.'/lib/db.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -31,9 +35,11 @@
         <div class="form-outline text-center  mb-4 mx-auto"> 
           <input class="loginInput" type="password" id="new_password_2" name="new_password_2" placeholder="Re-enter new password" required/>
         </div>
-        
-        <!-- CSRF -->
-        <input type="hidden" name="nonce" value=<?php csrf_getNonce("changePd") ?>/>
+
+      <!-- CSRF -->
+        <?php 
+          echo '<input type="hidden" name="nonce" value="'. csrf_getNonce("changePd"). '/>'; 
+        ?> 
 
         <div class="form-outline text-center mb-4 mx-auto">
           <button class="btn btn-warning btn-block loginInput" > Submit </button>
