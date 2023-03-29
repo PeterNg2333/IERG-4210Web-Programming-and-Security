@@ -13,8 +13,8 @@ $(window).on("load", function() {
         });
         loadProductHelper()
         const url = new URL(window.location);
-        var get_pid = url.searchParams.get("pid");
-        var get_cid = url.searchParams.get("cid");
+        var get_pid = int_sanitization(url.searchParams.get("pid"));
+        var get_cid = int_sanitization(url.searchParams.get("cid"));
         load_shoppingCart();
 
         // print(get_pid);
@@ -43,7 +43,7 @@ function loadProrduct(e){
     print(e.target.id);
     print(e);
     var text_array = e.target.id.split("-");
-    var id = text_array[1];
+    var id = int_sanitization(text_array[1]);
     const url = new URL(window.location);
     url.searchParams.set('pid', id);
     window.history.pushState({}, '', url);
