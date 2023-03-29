@@ -604,6 +604,10 @@ function ierg4210_exit(){
     // unset($_SESSION['auth']);
     // header('Location: login_admin.html', true, 302);
     // exit();
+
+
+    // temp
+    unset($_SESSION['auth']);
     return auth();
 }
 
