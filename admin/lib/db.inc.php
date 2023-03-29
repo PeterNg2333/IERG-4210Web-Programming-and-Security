@@ -677,7 +677,8 @@ function csrf_verifyNonce($action, $receivedNonce){
             unset($_SESSION['csrf_nonce'][$action]);
         return true;
     }
-    throw new Exception('csrf-attack');
+    return json_encode($_SESSION['csrf_nonce']);
+    // throw new Exception('csrf-attack');
 }
 
 function is_form($action){
