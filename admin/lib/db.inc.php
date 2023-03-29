@@ -526,7 +526,7 @@ function ierg4210_login(){
                 header('Location: ../main.php', true, 302);
             } 
         }else {
-            throw new Exception('Wrong Credentials');
+            throw new Exception('auth-error');
         }
     }
     header('Content-Type: text/html; charset=utf-8');
@@ -535,9 +535,65 @@ function ierg4210_login(){
 }
 
 
+function ierg4210_changePd(){
+    global $db_account;
+    $db_account = ierg4210_DB_account();
 
+    if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $_POST['username']))
+        throw new Exception("invalid-email");
+    if (!preg_match('/^[\w\-\@\!\' ]+$/', $_POST['old_password']))
+        throw new Exception("invalid-old-password");
+    if (!preg_match('/^[\w\-\@\!\' ]+$/', $_POST['new_password_1']))
+        throw new Exception("invalid-new-password");
+    if (!preg_match('/^[\w\-\@\!\' ]+$/', $_POST['new_password_2']))
+        throw new Exception("invalid-new-password");
+    if ($_POST["new_password_1"] != $_POST["new_password_2"]){
+        throw new Exception("new-password-unmatched");
+    }
+    $username = $_POST["username"];
+    $password = $_POST["old_password"];
+    $new_password_1 = $_POST["new_password_1"];
 
+    // checking
+    $q = $db_account->prepare("Select * FROM USER WHERE EMAIL = ? LIMIT 1;");
+    $q->bindParam(1, $username);
+    if ($q->execute()){
+        header("Content-Type: application/json");
+        $result = $q->fetchAll();
+        if (empty($result[0])){
+            return "Wrong-email_or_password";
+        }
+        $user = $result[0];
+        $user_email = $user["EMAIL"];
+        $user_password = $user["PASSWORD"];
+        $user_salt = $user["SALT"];
+        if ($user_password == hash_hmac('sha256', $password, $user_salt) ){
+            // When successfully authenticated,
+            // 1. create authentication token
+            $new_salt = mt_rand();
+            $new_password =  hash_hmac('sha256', $new_password_1, $new_salt);
+            $q2 = $db_account->prepare("UPDATE USER SET PASSWORD = ?, SALT = $new_salt  WHERE EMAIL = ?");
+            $q2->bindParam(1, $new_password);
+            $q2->bindParam(2, $user_email);
+            if (! $q2->execute()){
+                return "SQL failed!";
+            }
 
+            // 2. redirect back to login page and clear cookie
+                ierg4210_exit();
+        } 
+        else {
+            throw new Exception('auth-error');
+        }
+    }
+    header('Content-Type: text/html; charset=utf-8');
+    echo 'Error. <br/><a href="javascript:history.back();">Back to Login.</a>';
+    exit();
+}
+
+function ierg4210_exit(){
+    return 1;
+}
 
 
 
