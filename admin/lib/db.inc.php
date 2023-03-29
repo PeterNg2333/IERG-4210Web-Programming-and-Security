@@ -678,8 +678,7 @@ function csrf_test($action, $receivedNonce){
     // }
     // return $_SESSION['csrf_nonce'];
     return $receivedNonce;
-    
-    
+
 }
 
 function secure_level($action){

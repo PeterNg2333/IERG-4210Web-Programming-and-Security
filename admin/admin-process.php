@@ -15,8 +15,7 @@ $auth=auth();
 $action = $_REQUEST['action'];
 if (secure_level($action)){
 	// echo json_encode(csrf_verifyNonce($action, $_POST['nonce']));
-	echo json_encode(array(csrf_test($action, $_POST['nonce'])));
-	exit();
+	csrf_test($action, $_POST['nonce']);
 }
 if(	(secure_level($action))
 	&& $auth == false ){
