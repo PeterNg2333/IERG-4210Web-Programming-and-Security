@@ -2,7 +2,7 @@
 <section class="row mb-1" id="title_and_button">
     <h4 class="col-8 ms-5 me-2"></h4>
     <form id="modify_category" class="col-3 navbar navbar-expand-lg mx-2">
-        <input type="text" name="Cname" placeholder="Enter Category Name" class="mx-1">
+        <input type="text" name="Cname" placeholder="Enter Category Name" pattern="^\d*$" class="mx-1">
 
         <!-- CSRF -->
         <input type="hidden" id="cat_insert_nonce" name="nonce" value="%cat_insert_nonce%"/>

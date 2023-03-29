@@ -20,7 +20,7 @@ $(window).on("load", function() {
         document.querySelector("#edit_category").addEventListener("click", edit_category);
         document.querySelector("#Category_dropDown").addEventListener("change", change_category);
         document.querySelector("#product_image").addEventListener("change", change_image);
-        document.getElementById('cid_input').value = document.getElementById('Category_dropDown').value;
+        document.getElementById('cid_input').value = int_sanitization(document.getElementById('Category_dropDown').value);
         document.getElementById('delete_category').addEventListener("click", delete_category);
         setTimeout(function(){
             change_category();
@@ -47,17 +47,17 @@ function is_exist_category(text, array){
 
 function add_category(){
     var temp_name = document.querySelector("#modify_category > input").value.trim();
+    var _nonce = document.getElementById("cat_insert_nonce").value;
+
     if (is_exist_category(temp_name, window.ierg4210_category_list)){
         alert("The category: " + temp_name + " is already there");
         return ;
     }
-    var _nonce = document.getElementById("cat_insert_nonce").value;
     $.post("admin-process.php?action=cat_insert", 
         {Cname: temp_name,
          nonce: _nonce
         },
         function(json){
-            console.log(String(json));
             if (json.status == "Success"){
                 alert("Add Success!!");
                 location.reload()

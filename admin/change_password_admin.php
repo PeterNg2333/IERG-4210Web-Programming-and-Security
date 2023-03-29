@@ -24,16 +24,16 @@ require __DIR__.'/lib/db.inc.php';
     <form class="mx-auto" method="POST" action="./admin-auth.php?action=changePd">
         <h3 class="text-center mx-auto mb-4 loginHeader"> SIGN IN TO YOUR ACCOUNT</h3>
         <div class="form-outline text-center  mb-4 mx-auto">  
-            <input class="loginInput" id="username" name="username" placeholder="User name" required />
+            <input class="loginInput" id="username" name="username" placeholder="User name" required pattern="^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$"/>
         </div> 
         <div class="form-outline text-center  mb-4 mx-auto"> 
-          <input class="loginInput" type="password" id="old_password" name="old_password" placeholder="Old password" required/>
+          <input class="loginInput" type="password" id="old_password" name="old_password" placeholder="Old password" pattern="^[\w\-\@\!\' ]+$" required/>
         </div>
         <div class="form-outline text-center  mb-4 mx-auto"> 
-          <input class="loginInput" type="password" id="new_password_1" name="new_password_1" placeholder="New password" required/>
+          <input class="loginInput" type="password" id="new_password_1" name="new_password_1" placeholder="New password" pattern="^[\w\-\@\!\' ]+$" required/>
         </div>
         <div class="form-outline text-center  mb-4 mx-auto"> 
-          <input class="loginInput" type="password" id="new_password_2" name="new_password_2" placeholder="Re-enter new password" required/>
+          <input class="loginInput" type="password" id="new_password_2" name="new_password_2" placeholder="Re-enter new password" pattern="^[\w\-\@\!\' ]+$" required/>
         </div>
 
       <!-- CSRF -->

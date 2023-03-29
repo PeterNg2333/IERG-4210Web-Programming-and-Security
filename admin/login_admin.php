@@ -24,10 +24,10 @@ require __DIR__.'/lib/db.inc.php';
     <form class="mx-auto" method="POST" action="./admin-auth.php?action=login">
         <h3 class="text-center mx-auto mb-4 loginHeader"> SIGN IN TO YOUR ACCOUNT</h3>
         <div class="form-outline text-center  mb-4 mx-auto">  
-            <input class="loginInput" id="username" name="username" placeholder="User name"  required />
+            <input class="loginInput" id="username" name="username" placeholder="User name" required pattern="^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$"/>
         </div> 
         <div class="form-outline text-center  mb-4 mx-auto"> 
-          <input class="loginInput" type="password" id="password" name="password" placeholder="Password"  required/>
+          <input class="loginInput" type="password" id="password" name="password" placeholder="Password" pattern="^[\w\-\@\!\' ]+$" required/>
         </div>
 
         <!-- CSRF -->

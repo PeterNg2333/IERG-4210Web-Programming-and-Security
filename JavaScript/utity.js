@@ -30,3 +30,20 @@ function print(textToBePrinted){
 function getid(event){
     return
 };
+
+// XXS 
+function escapeQuotes(string_input){
+    return string_input.replace(/"/g, '&quot;').replace(/'/g, '&quot;');
+}
+
+function string_sanitization(input){
+    input = String(input);
+    var sanitized_input = escapeQuotes(input.escapeHTML());
+    return sanitized_input;
+}
+
+function int_sanitization(input){
+    input = String(input);
+    var sanitized_input = escapeQuotes(input.escapeHTML());
+    return Number(sanitized_input);
+}
