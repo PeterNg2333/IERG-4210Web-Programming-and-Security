@@ -36,13 +36,11 @@
     <form class="col-8">
         <label for="Category_dropDown">Show & Create By: </label>
         <select id="Category_dropDown" class="text-primary">
-
-        <!-- CSRF -->
-        <input type="hidden" name="nonce" value="%cat_edit_nonce%"/> 
-        <input type="hidden" name="nonce" value="%cat_delete_nonce%"/>  
-
             <!--?PHP--> %category_options% <!--?PHP--> 
         </select>
+        <!-- CSRF -->
+        <input type="hidden" name="cat_edit_nonce" value="%cat_edit_nonce%"/> 
+        <input type="hidden" name="cat_delete_nonce" value="%cat_delete_nonce%"/>  
         <button type="button" id="edit_category" class="btn btn-success btn-sm mx-1 nav-item">Edit</button>
         <button type="button" id="delete_category" class="btn btn-danger btn-sm mx-1 nav-item">Delete</button>
     </form>
