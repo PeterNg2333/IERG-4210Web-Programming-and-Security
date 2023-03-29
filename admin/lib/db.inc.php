@@ -608,6 +608,12 @@ function ierg4210_exit(){
 
 
 
+function auth(){
+
+}
+
+
+
 
 
 
