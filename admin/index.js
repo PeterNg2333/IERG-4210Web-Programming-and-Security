@@ -60,7 +60,7 @@ function add_category(){
             }            
             else if (json.failed == "auth-error"){
                 alert("Auth Error!!");
-                window.location.href = "login_admin.html";
+                window.location.href = "login_admin.php";
             }
             else {
                 alert("Add Failed!!");
@@ -89,7 +89,7 @@ function edit_category(){
                 }
                 else if (json.failed == "auth-error"){
                     alert("Auth Error!!");
-                    window.location.href = "login_admin.html";
+                    window.location.href = "login_admin.php";
                 }
                 else {
                     alert("Edit Failed!!");
@@ -112,7 +112,7 @@ function delete_category(){
             }
             else if (json.failed == "auth-error"){
                 alert("Auth Error!!");
-                window.location.href = "login_admin.html";
+                window.location.href = "login_admin.php";
             }
             else {
                 alert("Delete Failed!!");
@@ -314,7 +314,7 @@ function delete_product(e){
             }
             else if (json.failed == "auth-error"){
                 alert("Auth Error!!");
-                window.location.href = "login_admin.html";
+                window.location.href = "login_admin.php";
             }
             else {
                 alert("Delete Failed!!");

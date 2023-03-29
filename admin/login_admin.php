@@ -20,18 +20,31 @@
     <form class="mx-auto" method="POST" action="./admin-auth.php?action=login">
         <h3 class="text-center mx-auto mb-4 loginHeader"> SIGN IN TO YOUR ACCOUNT</h3>
         <div class="form-outline text-center  mb-4 mx-auto">  
-            <input class="loginInput" id="username" name="username" placeholder="User name" value="admin1155143402@gmail.com" required />
+            <input class="loginInput" id="username" name="username" placeholder="User name"  required />
         </div> 
         <div class="form-outline text-center  mb-4 mx-auto"> 
-          <input class="loginInput" type="password" id="password" name="password" placeholder="Password" value="admin123!" required/>
+          <input class="loginInput" type="password" id="password" name="password" placeholder="Password"  required/>
         </div>
         <div class="form-outline text-center mb-4 mx-auto">
           <button class="btn btn-primary btn-block loginInput" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Login &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </button>
         </div>
         <div class="form-outline text-center mb-4 mx-auto">
-          <a href="./change_password_admin.html" > Change password </button>
+          <a href="./change_password_admin.php" > Change password </button>
         </div>
         </form>
+        <div class="mt-5">
+          <div class="mt-5">
+             for checking only
+          </div>
+          <div>
+            <span>admin email: admin1155143402@gmail.com</span>
+            <span> password: admin123! </span>
+          </div>
+          <div>
+            <span>normal user email: user1155143402@gmail.com</span>
+            <span> password: user123! </span>
+          </div>
+        </div>
   </section>
 
 </body>
