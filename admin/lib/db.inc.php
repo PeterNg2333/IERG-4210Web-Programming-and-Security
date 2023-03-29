@@ -1,4 +1,5 @@
 <?php
+session_start();
 function ierg4210_DB() {
 	// connect to the database
 	// TODO: change the following path if needed
@@ -596,7 +597,13 @@ function ierg4210_changePd(){
 }
 
 function ierg4210_exit(){
-    return 1;
+    unset($_COOKIE['auth']);
+    $exp = time() - 3600 * 24 * 1;
+    setcookie('auth', json_encode(""), $exp, true, true);
+
+    unset($_SESSION['auth']);
+    header('Location: login_admin.html', true, 302);
+    exit();
 }
 
 
