@@ -555,12 +555,7 @@ function ierg4210_changePd(){
         throw new Exception("invalid-new-password");
     if (!preg_match('/^[\w\-\@\!\' ]+$/', $_POST['new_password_2']))
         throw new Exception("invalid-new-password");
-    if ($_POST["new_password_1"] != $_POST["new_password_2"]){
-        throw new Exception("new-password-unmatched");
-    }
-    if ($_POST["old_password"] == $_POST["new_password_1"]){
-        throw new Exception("same_password");
-    }
+    
     $username = email_sanitization($_POST["username"]);
     $password = password_sanitization($_POST["old_password"]);
     $new_password_1 = password_sanitization($_POST["new_password_1"]);
@@ -579,7 +574,14 @@ function ierg4210_changePd(){
         $user_password = $user["PASSWORD"];
         $user_salt = $user["SALT"];
         if ($user_password == hash_hmac('sha256', $password, $user_salt) ){
+
             // When successfully authenticated,
+            if ($_POST["old_password"] == $_POST["new_password_1"]){
+                throw new Exception("same_password");
+            }
+            if ($_POST["new_password_1"] != $_POST["new_password_2"]){
+                throw new Exception("new-password-unmatched");
+            }
             // 1. create authentication token
             $new_salt = mt_rand();
             $new_password =  hash_hmac('sha256', $new_password_1, $new_salt);
