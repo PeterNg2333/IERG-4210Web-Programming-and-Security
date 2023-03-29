@@ -610,7 +610,14 @@ function ierg4210_exit(){
 
 
 function auth(){
+    if (!empty($_SESSION['auth'])){
+        return $_SESSION['auth']['em'];
+    }
+    if (!empty($_COOKIE['auth'])) {
+        return json_decode($_COOKIE['auth'], true);
+    }
 
+    return false;
 }
 
 
