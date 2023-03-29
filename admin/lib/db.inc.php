@@ -572,9 +572,10 @@ function ierg4210_changePd(){
             // 1. create authentication token
             $new_salt = mt_rand();
             $new_password =  hash_hmac('sha256', $new_password_1, $new_salt);
-            $q2 = $db_account->prepare("UPDATE USER SET PASSWORD = ?, SALT = $new_salt  WHERE EMAIL = ?");
+            $q2 = $db_account->prepare("UPDATE USER SET PASSWORD = ?, SALT = ?  WHERE EMAIL = ?");
             $q2->bindParam(1, $new_password);
-            $q2->bindParam(2, $user_email);
+            $q2->bindParam(2, $new_salt);
+            $q2->bindParam(3, $user_email);
             if (! $q2->execute()){
                 return "SQL failed!";
             }
