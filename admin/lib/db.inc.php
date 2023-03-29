@@ -602,7 +602,7 @@ function ierg4210_exit(){
     setcookie('auth', json_encode(""), $exp, "/", "secure.s19.ierg4210.ie.cuhk.edu.hk", true, true);
 
     unset($_SESSION['auth']);
-    header('Location: ../admin/login_admin.html', true, 302);
+    header('Location: login_admin.html', true, 302);
     exit();
 }
 
