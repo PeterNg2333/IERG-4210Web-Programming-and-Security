@@ -31,6 +31,7 @@ function ierg4210_cat_fetchall() {
 
 // Since this form will take file upload, we use the tranditional (simpler) rather than AJAX form submission.
 // Therefore, after handling the request (DB insert and file copy), this function then redirects back to admin.html
+/////////////////////////////// Admin (Need Auth) /////////////////////////////////////
 function ierg4210_prod_insert() {
     // input validation or sanitization
     // DB manipulation
@@ -95,7 +96,6 @@ function ierg4210_prod_insert() {
 }
 // TODO: add other functions here to make the whole application complete
 
-/////////////////////////////// Admin (Need Auth) /////////////////////////////////////
 function ierg4210_cat_insert() {
     if (!preg_match('/^[\w\-\&\_\ ]+$/', $_POST['Cname']))
         throw new Exception("invalid-name");
@@ -643,14 +643,13 @@ function auth(){
             if ($k == hash_hmac('sha256', $exp . $user_password, $user_salt)){
                 $_SESSION['auth'] = $_COOKIE['auth'];
                 return $user_email;
+            } else {
+                header('Location: login_admin.html', true, 302);
             }
-            // else {
-            //     header('Location: login_admin.html', true, 302);
-            // }
         }
     }
 
-    return $k. " & ". hash_hmac('sha256', $exp . $user_password, $user_salt). " & ". hash_hmac('sha256', $exp . $user_password, $user_salt);
+    return false;
 }
 
 
