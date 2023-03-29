@@ -57,6 +57,7 @@ function add_category(){
          nonce: _nonce
         },
         function(json){
+            print(json);
             if (json.status == "Success"){
                 alert("Add Success!!");
                 location.reload()
