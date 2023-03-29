@@ -46,8 +46,8 @@ function is_exist_category(text, array){
 }
 
 function add_category(){
-    var temp_name = document.querySelector("#modify_category > input").value.trim();
-    var _nonce = document.getElementById("cat_insert_nonce").value;
+    var temp_name = string_sanitization(document.querySelector("#modify_category > input").value.trim());
+    var _nonce = string_sanitization(document.getElementById("cat_insert_nonce").value);
 
     if (is_exist_category(temp_name, window.ierg4210_category_list)){
         alert("The category: " + temp_name + " is already there");
@@ -82,8 +82,8 @@ function edit_category(){
     }
     if (new_name != null || new_name != " "){
         var temp_name = new_name.trim();
-        var selectelement = document.getElementById('Category_dropDown').value.trim();
-        var _nonce = document.getElementById("cat_edit_nonce").value;
+        var selectelement = int_sanitization(document.getElementById('Category_dropDown').value.trim());
+        var _nonce = string_sanitization(document.getElementById("cat_edit_nonce").value);
         $.post("admin-process.php?action=cat_edit", 
             {Cname: temp_name,
             CID: selectelement,
@@ -110,8 +110,8 @@ function edit_category(){
 }
 
 function delete_category(){
-    var selectelement = document.getElementById('Category_dropDown').value.trim();
-    var _nonce = document.getElementById("cat_delete_nonce").value;
+    var selectelement = int_sanitization(document.getElementById('Category_dropDown').value.trim());
+    var _nonce = string_sanitization(document.getElementById("cat_delete_nonce").value);
     $.post("admin-process.php?action=cat_delete", 
         {CID: selectelement,
         nonce: _nonce
@@ -134,9 +134,9 @@ function delete_category(){
 
 function change_category(){
     var selectedOpt = document.getElementById('Category_dropDown');
-    document.getElementById('cid_input').value = selectedOpt.value;
+    document.getElementById('cid_input').value = int_sanitization(selectedOpt.value);
     // document.getElementById('cid_display_name').value = selectement.name;
-    document.getElementById('cid_display_name').value = selectedOpt.options[selectedOpt.selectedIndex].text;
+    document.getElementById('cid_display_name').value = string_sanitization(selectedOpt.options[selectedOpt.selectedIndex].text);
     // alert(document.getElementById('cid_input').value);
     load_productsCard_by_cid();
 }
@@ -190,7 +190,7 @@ function dropHandler(e){
 }
 
 function load_productsCard_by_cid(){
-    var selectement = document.getElementById('Category_dropDown').value;
+    var selectement = int_sanitization(document.getElementById('Category_dropDown').value);
     $.post("admin-process.php?action=prod_fetchAll_by_cid", 
             {CID: selectement},
             function(p_res){
@@ -290,7 +290,7 @@ function load_productsCard_by_cid(){
                             existing_dnd_ele.addEventListener('drop', dropHandler, false)
 
                             // nonce
-                            _nonce = document.getElementById("prod_edit_nonce").value;
+                            _nonce = string_sanitization(document.getElementById("prod_edit_nonce").value);
                             var product_nonce = $("#prod_edit_nonce-000");
                             product_nonce.val(_nonce);
                             product_nonce.removeAttr('id');
@@ -322,7 +322,7 @@ function change_image_for_productCard(e){
 function delete_product(e){
     var text_array = e.target.id.split("-")
     var temp_id  = text_array[1];
-    var _nonce = document.getElementById("prod_delete_nonce").value;
+    var _nonce = string_sanitization(document.getElementById("prod_delete_nonce").value);
     $.post("admin-process.php?action=prod_delete", 
         {pid: temp_id,
         nonce: _nonce},
