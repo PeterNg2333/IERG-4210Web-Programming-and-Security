@@ -645,7 +645,7 @@ function auth(){
                 $_SESSION['auth'] = $_COOKIE['auth'];
                 return $user_email;
             } else {
-                return false;
+                return "falsea";
             }
         }
     }
