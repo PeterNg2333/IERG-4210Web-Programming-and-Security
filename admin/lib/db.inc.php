@@ -429,6 +429,12 @@ function ierg4210_prod_count_limit(){
 }
 
 ///////////////////////////////////////////// Auth /////////////////////////////////////////////////
+function is_admin_action($action){
+    if ($action == "cat_insert" || $action == "cat_edit" || $action == "cat_delete" || $action == "prod_edit" || $action == "prod_delete" || $action == "prod_insert"){
+        return true;
+    }
+}
+
 
 function ierg4210_DB_account() {
 	// connect to the database
@@ -672,17 +678,18 @@ function csrf_verifyNonce($action, $receivedNonce){
     throw new Exception('csrf-attack');
 }
 
-function csrf_test($action, $receivedNonce){
-    // if (isset($receivedNonce) && $_SESSION['csrf_nonce'][$action] == $receivedNonce){
-    //     return false;
-    // }
-    // return $_SESSION['csrf_nonce'];
-    return $receivedNonce;
 
-}
-
-function secure_level($action){
-    if ($action == "cat_insert" || $action == "cat_edit" || $action == "cat_delete" || $action == "prod_edit" || $action == "prod_delete" || $action == "prod_insert"){
+function is_form($action){
+    if ($action == "cat_insert" 
+        || $action == "cat_edit" 
+        || $action == "cat_delete" 
+        || $action == "prod_edit" 
+        || $action == "prod_delete" 
+        || $action == "prod_insert"
+        || $action == "check_out" 
+        || $action == "login"
+        || $action == "changePd"
+        ){
         return true;
     }
 }

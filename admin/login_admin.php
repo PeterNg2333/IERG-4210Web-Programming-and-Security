@@ -25,13 +25,17 @@
         <div class="form-outline text-center  mb-4 mx-auto"> 
           <input class="loginInput" type="password" id="password" name="password" placeholder="Password"  required/>
         </div>
+
+        <!-- CSRF -->
+        <input type="hidden" name="nonce" value=<?php csrf_getNonce("login") ?>/>
+
         <div class="form-outline text-center mb-4 mx-auto">
           <button class="btn btn-primary btn-block loginInput" > Login </button>
         </div>
+        </form>
         <div class="form-outline text-center mb-4 mx-auto">
           <a href="./change_password_admin.php" > Change password </a>
         </div>
-        </form>
         <div class="mt-5">
           <div class="mt-5">
              for checking only

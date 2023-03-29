@@ -31,8 +31,12 @@
         <div class="form-outline text-center  mb-4 mx-auto"> 
           <input class="loginInput" type="password" id="new_password_2" name="new_password_2" placeholder="Re-enter new password" required/>
         </div>
+        
+        <!-- CSRF -->
+        <input type="hidden" name="nonce" value=<?php csrf_getNonce("changePd") ?>/>
+
         <div class="form-outline text-center mb-4 mx-auto">
-          <button class="btn btn-warning btn-block loginInput" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Submit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </button>
+          <button class="btn btn-warning btn-block loginInput" > Submit </button>
         </div>
         </form>
   </section>

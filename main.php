@@ -108,6 +108,7 @@ $product .='';
                 $main_html = str_replace('%category_list%', $category, $main_html);
                 $main_html = str_replace('%product_list%', $product, $main_html);
                 $main_html = str_replace('%CatergoryPath%', $category_url, $main_html);
+                $main_html = str_replace('%check_out_nonce%', csrf_getNonce("check_out"), $main_html);
                 $main_html = str_replace('<!--?PHP--> ', '', $main_html);
                 echo $main_html;
             ?>
