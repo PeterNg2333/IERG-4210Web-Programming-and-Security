@@ -479,21 +479,22 @@ function ierg4210_login(){
     //     return "failed!";
     // }
 
-    $p1 =  hash_hmac('sha256', "admin123!", "123123123123");
-    $p2 =  hash_hmac('sha256', "user123!", "456456456456");
-    return  $p1. ' & '. $p2 ;
+    // // Testing
+    // $p1 =  hash_hmac('sha256', "admin123!", "123123123123");
+    // $p2 =  hash_hmac('sha256', "user123!", "456456456456");
+    // return  $p1. ' & '. $p2 ;
 
-    // $q = $db_account->prepare("Select * FROM USER;");
-    // if ($q->execute()){
-    //     header("Content-Type: application/json");
-    //     $result = $q->fetchAll();
-    //     echo json_encode(array($result));
-    //     exit();
-    // }
-    // header("Content-Type: application/json");
-    // $result = array("status" => "Failed");
-    // echo json_encode($result);
-    // exit();
+    $q = $db_account->prepare("Select * FROM USER;");
+    if ($q->execute()){
+        header("Content-Type: application/json");
+        $result = $q->fetchAll();
+        echo json_encode(array($result));
+        exit();
+    }
+    header("Content-Type: application/json");
+    $result = array("status" => "Failed");
+    echo json_encode($result);
+    exit();
 }
 
 
