@@ -14,8 +14,8 @@ if (empty($_REQUEST['action']) || !preg_match('/^\w+$/', $_REQUEST['action'])) {
 $auth=auth();
 $action = $_REQUEST['action'];
 if (secure_level($action)){
-	// csrf_verifyNonce($_REQUEST['action'], $_POST['nonce']);
-	echo json_encode(array(csrf_test()));
+	echo json_encode(csrf_verifyNonce($action, $_POST['nonce']));
+	// echo json_encode(array(csrf_test()));
 	exit();
 }
 if(	(secure_level($action))
