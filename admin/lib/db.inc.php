@@ -502,8 +502,10 @@ function ierg4210_login(){
         $result = $q->fetchAll();
         if (empty($result[0])){
             return "Wrong-email_or_password";
-        }   
-        echo json_encode(array($result));
+        }
+
+        echo json_encode($result[0]);
+        // echo json_encode(array($result));
         exit();
     }
     header("Content-Type: application/json");
