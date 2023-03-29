@@ -515,7 +515,7 @@ function ierg4210_login(){
                 $exp = time() + 3600 * 24 * 1;
                 $hash = hash_hmac('sha256', $exp . $user_password, $user_salt);
                 $token = array('em'=>$user_email, 'exp'=>$exp, 'k'=> ($hash));
-                setcookie('auth', json_encode($token), $exp, true, true);
+                setcookie('auth', json_encode($token), $exp, "/", "secure.s19.ierg4210.ie.cuhk.edu.hk", true, true);
                 $_SESSION['auth'] = $token;
                 session_regenerate_id();
 
