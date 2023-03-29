@@ -57,7 +57,7 @@ function add_category(){
          nonce: _nonce
         },
         function(json){
-            console.log(json);
+            console.log(String(json));
             if (json.status == "Success"){
                 alert("Add Success!!");
                 location.reload()
