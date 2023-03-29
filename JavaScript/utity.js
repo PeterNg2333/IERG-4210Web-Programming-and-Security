@@ -48,6 +48,6 @@ function string_sanitization(input){
 
 function int_sanitization(input){
     input = String(input);
-    var sanitized_input = escapeQuotes(input.escapeHTML(input));
+    var sanitized_input = escapeQuotes(escapeHTML(input));
     return Number(sanitized_input);
 }
