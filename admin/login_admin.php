@@ -29,7 +29,7 @@
           <button class="btn btn-primary btn-block loginInput" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Login &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </button>
         </div>
         <div class="form-outline text-center mb-4 mx-auto">
-          <a href="./change_password_admin.php" > Change password </button>
+          <a href="./change_password_admin.php" > Change password </a>
         </div>
         </form>
         <div class="mt-5">
