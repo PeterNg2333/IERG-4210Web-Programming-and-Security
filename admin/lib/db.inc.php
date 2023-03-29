@@ -508,13 +508,29 @@ function ierg4210_login(){
         $user_password = $user["PASSWORD"];
         $user_salt = $user["SALT"];
         $user_flag = $user["FLAG"];
-        echo json_encode($user_email);
-        // echo json_encode(array($result));
-        exit();
+        if ($user_password == hash_hmac('sha256', $password, $user_salt)){
+            // When successfully authenticated,
+            // 1. create authentication token
+                $exp = time() + 3600 * 24 * 1;
+                $hash = hash_hmac('sha256', $exp . $user_password, $user_salt);
+                $token = array('em'=>$user_email, 'exp'=>$exp, 'k'=> ($hash));
+                setcookie('auth', json_encode($token), $exp, true, true);
+                $_SESSION['auth'] = $token;
+                session_regenerate_id();
+
+            // 2. redirect to admin.php
+            if ($user_flag==1){
+                header('Location: admin.php', true, 302);
+            } 
+            else{
+                header('Location: ../main.php', true, 302);
+            } 
+        }else {
+            throw new Exception('Wrong Credentials');
+        }
     }
-    header("Content-Type: application/json");
-    $result = array("status" => "Failed");
-    echo json_encode($result);
+    header('Content-Type: text/html; charset=utf-8');
+    echo 'Wrong Password or Username. <br/><a href="javascript:history.back();">Back to Login.</a>';
     exit();
 }
 
