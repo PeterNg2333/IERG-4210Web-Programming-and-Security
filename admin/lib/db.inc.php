@@ -641,11 +641,11 @@ function auth(){
             $user_salt = $user["SALT"]; 
             $user_flag = $user["FLAG"]; 
              
-            if ($k == hash_hmac('sha256', $exp . $user_password, $user_salt && $user_flag == 1)){
+            if ($k == hash_hmac('sha256', $exp . $user_password, $user_salt)){
                 $_SESSION['auth'] = $_COOKIE['auth'];
                 return $user_email;
             } else {
-                return "falsea";
+                return "false";
             }
         }
     }
