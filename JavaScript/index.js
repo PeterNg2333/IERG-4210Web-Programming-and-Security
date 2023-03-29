@@ -53,8 +53,8 @@ function loadProrduct(e){
 function addToCart_button(e){
     var message = ""
     var text_array = e.target.id.split("-");
-    var inputed_id = text_array[1];
-    var num_added = document.querySelector("#addToCartNum-" + inputed_id).value;
+    var inputed_id = int_sanitization(text_array[1]);
+    var num_added = int_sanitization(document.querySelector("#addToCartNum-" + inputed_id).value);
     if (Number(num_added) < 0) {
         alert("You cannot order " + num_added + " items")
         return;
@@ -121,8 +121,8 @@ function load_shoppingCart(){
         shoppingList.children().remove();
     }
     json.forEach(element => {
-        var temp_id = element.id;
-        var temp_orderAmount = element.orderAmount;
+        var temp_id = int_sanitization(element.id);
+        var temp_orderAmount = int_sanitization(element.orderAmount);
         $.post("admin/admin-process.php?action=prod_fetchOne_by_pid_page", 
             {pid: temp_id},
             function(p_res){    
@@ -160,8 +160,8 @@ function load_shoppingCart(){
 
 function updateOrderAmount(e){
     var text_array = e.target.id.split("-");
-    var inputed_id = text_array[1];
-    var newOrderAmount = document.getElementById("shopping_num_P-" + inputed_id).value;
+    var inputed_id = int_sanitization(text_array[1]);
+    var newOrderAmount = int_sanitization(document.getElementById("shopping_num_P-" + inputed_id).value);
     // Updated Product
     $.post("admin/admin-process.php?action=prod_fetchOne_by_pid_page", 
         {pid: inputed_id},
