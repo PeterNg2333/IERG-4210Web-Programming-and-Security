@@ -483,16 +483,26 @@ function ierg4210_login(){
     // $p1 =  hash_hmac('sha256', "admin123!", "123123123123");
     // $p2 =  hash_hmac('sha256', "user123!", "456456456456");
     // return  $p1. ' & '. $p2 ;
-    $q2 = $db_account->prepare("UPDATE USER SET FLAG = 0 WHERE EMAIL = 'user1155143402@gmail.com';");
-    if (! $q2->execute()){
-        return "failed!";
-    }
+    // $q2 = $db_account->prepare("UPDATE USER SET FLAG = 0 WHERE EMAIL = 'user1155143402@gmail.com';");
+    // if (! $q2->execute()){
+    //     return "failed!";
+    // }
 
+    if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $_POST['username']))
+        throw new Exception("invalid-email_or_password");
+    if (!preg_match('/^[\w\-\@\!\' ]+$/', $_POST['password']))
+        throw new Exception("invalid-email_or_password");
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
-    $q = $db_account->prepare("Select * FROM USER;");
+    $q = $db_account->prepare("Select * FROM USER WHERE EMAIL = ? LIMIT 1;");
+    $q->bindParam(1, $p2);
     if ($q->execute()){
         header("Content-Type: application/json");
         $result = $q->fetchAll();
+        if (empty($result[0])){
+            return "Wrong-email_or_password";
+        }   
         echo json_encode(array($result));
         exit();
     }
