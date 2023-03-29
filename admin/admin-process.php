@@ -15,7 +15,8 @@ $auth=auth();
 $action = $_REQUEST['action'];
 if(	($action == "cat_insert" || $action == "cat_edit" || $action == "cat_delete" || $action == "prod_edit" || $action == "prod_delete" || $action == "prod_insert")
 	|| $auth == false){
-    header('Location: login_admin.html',true,302);
+    // header('Location: login_admin.html',true,302);
+	echo json_encode(array('failed'=>'undefined'));
 	exit();
 }
 
