@@ -453,8 +453,19 @@ function ierg4210_login(){
     // DB manipulation
     global $db_account;
     $db_account = ierg4210_DB_account();
-    $q1 = $db_account->prepare("UPDATE USER SET SALT = '789789789' WHERE EMAIL = 'user1155143402@gmail.com';");
+    
+    // First time
+    $p1 =  hash_hmac('sha256', "admin123!", "123123123123");
+    $q1 = $db_account->prepare("UPDATE USER SET PASSWORD = ? WHERE EMAIL = 'user1155143402@gmail.com';");
+    $q1->bindParam(1, $p1);
     if (! $q1->execute()){
+        return "failed!";
+    }
+
+    $p2 =  hash_hmac('sha256', "user123!", "789789789");
+    $q2 = $db_account->prepare("UPDATE USER SET PASSWORD = ? WHERE EMAIL = 'user1155143402@gmail.com';");
+    $q2->bindParam(1, $p2);
+    if (! $q2->execute()){
         return "failed!";
     }
 
