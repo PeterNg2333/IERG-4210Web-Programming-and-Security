@@ -3,6 +3,10 @@
     <h4 class="col-8 ms-5 me-2"></h4>
     <form id="modify_category" class="col-3 navbar navbar-expand-lg mx-2">
         <input type="text" name="Cname" placeholder="Enter Category Name" class="mx-1">
+
+        <!-- CSRF -->
+        <input type="hidden" name="nonce" value="%cat_insert_nonce%"/>
+
         <button type="button" id="add_category" class="btn btn-primary btn-sm mx-1 nav-item">Add New</button>
     </form>
 </section>
@@ -32,6 +36,11 @@
     <form class="col-8">
         <label for="Category_dropDown">Show & Create By: </label>
         <select id="Category_dropDown" class="text-primary">
+
+        <!-- CSRF -->
+        <input type="hidden" name="nonce" value="%cat_edit_nonce%"/> 
+        <input type="hidden" name="nonce" value="%cat_delete_nonce%"/>  
+
             <!--?PHP--> %category_options% <!--?PHP--> 
         </select>
         <button type="button" id="edit_category" class="btn btn-success btn-sm mx-1 nav-item">Edit</button>
@@ -95,6 +104,10 @@
                         <img class="image_uploaded_display invisible" id="image_display" src="" alt="" >
                     </div>
                 </div>
+
+                <!-- CSRF -->
+                <input type="hidden" name="nonce" value="%prod_insert_nonce%"/>
+
                 <div class="col-1">
                     <button type="submit" class="btn btn-primary btn-sm mb-1 mx-1 nav-item">
                         <i class="fa-solid fa-plus"></i>

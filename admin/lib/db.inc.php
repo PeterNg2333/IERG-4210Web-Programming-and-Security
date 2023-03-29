@@ -597,18 +597,18 @@ function ierg4210_changePd(){
 }
 
 function ierg4210_exit(){
-    // unset($_COOKIE['auth']);
-    // $exp = time() - 3600 * 24 * 1;
-    // setcookie('auth', json_encode(""), $exp, "/", "secure.s19.ierg4210.ie.cuhk.edu.hk", true, true);
+    unset($_COOKIE['auth']);
+    $exp = time() - 3600 * 24 * 1;
+    setcookie('auth', json_encode(""), $exp, "/", "secure.s19.ierg4210.ie.cuhk.edu.hk", true, true);
 
-    // unset($_SESSION['auth']);
-    // header('Location: login_admin.php', true, 302);
-    // exit();
+    unset($_SESSION['auth']);
+    header('Location: login_admin.php', true, 302);
+    exit();
 
 
     // temp
-    unset($_SESSION['auth']);
-    return auth();
+    // unset($_SESSION['auth']);
+    // return auth();
 }
 
 
@@ -654,8 +654,23 @@ function auth(){
     return false;
 }
 
+///////////////////////////////////////////// Security/////////////////////////////////////////////////
+function csrf_getNonce($action){
+    $nonce = mt_rand() . mt_rand();
+    if (!isset($_SESSION['csrf_nonce']))
+        $_SESSION['csrf_nonce'] = array();
+    $_SESSION['csrf_nonce'][string_validation($action)] = $nonce;
+    return $nonce;
+}
 
-
+function csrf_verifyNonce($action, $receivedNonce){
+    if (isset($receivedNonce) && $_SESSION['csrf_nonce'][$action] == $receivedNonce) {
+        if ($_SESSION['auth']==null)
+            unset($_SESSION['csrf_nonce'][$action]);
+        return true;
+    }
+    throw new Exception('csrf-attack');
+}
 
 
 
