@@ -646,9 +646,10 @@ function auth(){
             $user_email = $user["EMAIL"];
             $user_password = $user["PASSWORD"];
             $user_salt = $user["SALT"]; 
-            $user_flag = $user["FLAG"]; 
-             
-            if ($k == hash_hmac('sha256', $exp . $user_password, $user_salt) && $user_flag == 1){
+            // $user_flag = $user["FLAG"]; 
+            // if ($k == hash_hmac('sha256', $exp . $user_password, $user_salt) && $user_flag == 1){
+            if ($k == hash_hmac('sha256', $exp . $user_password, $user_salt)){
+            
                 $_SESSION['auth'] = $_COOKIE['auth'];
                 return $user_email;
             } 
@@ -677,8 +678,8 @@ function csrf_verifyNonce($action, $receivedNonce){
             unset($_SESSION['csrf_nonce'][$action]);
         return true;
     }
-    return json_encode($_SESSION['csrf_nonce']);
-    // throw new Exception('csrf-attack');
+    // return json_encode($_SESSION['csrf_nonce']);
+    throw new Exception('csrf-attack');
 }
 
 function is_form($action){
