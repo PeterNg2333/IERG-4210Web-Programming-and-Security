@@ -639,11 +639,15 @@ function auth(){
             $user_email = $user["EMAIL"];
             $user_password = $user["PASSWORD"];
             $user_salt = $user["SALT"]; 
+            $user_flag = $user["FLAG"]; 
              
-            if ($k == hash_hmac('sha256', $exp . $user_password, $user_salt)){
+            if ($k == hash_hmac('sha256', $exp . $user_password, $user_salt && $user_flag == 1)){
                 $_SESSION['auth'] = $_COOKIE['auth'];
                 return $user_email;
-            } else {
+            } else if ($user_flag != 1) {
+                return "you are not admin";
+            }
+            else {
                 header('Location: login_admin.php', true, 302);
             }
         }
