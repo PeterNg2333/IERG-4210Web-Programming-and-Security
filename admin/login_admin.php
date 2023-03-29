@@ -26,7 +26,7 @@
           <input class="loginInput" type="password" id="password" name="password" placeholder="Password"  required/>
         </div>
         <div class="form-outline text-center mb-4 mx-auto">
-          <button class="btn btn-primary btn-block loginInput" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Login &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </button>
+          <button class="btn btn-primary btn-block loginInput" > Login </button>
         </div>
         <div class="form-outline text-center mb-4 mx-auto">
           <a href="./change_password_admin.php" > Change password </a>
