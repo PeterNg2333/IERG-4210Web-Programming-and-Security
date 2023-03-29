@@ -49,5 +49,8 @@ function string_sanitization(input){
 function int_sanitization(input){
     input = String(input);
     var sanitized_input = escapeQuotes(escapeHTML(input));
+    if (Number(sanitized_input) === NaN){
+        return undefined;
+    }
     return Number(sanitized_input);
 }

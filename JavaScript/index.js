@@ -313,7 +313,7 @@ function addProductByScroll(){
     var srcoll = window.scrollY;
     var windowHeight = totalHeight - innerHeight
 
-    if (windowHeight - srcoll <= 35 && window.loadProductMore == false){
+    if (windowHeight - srcoll <= 28 && window.loadProductMore == false){
         // $("#LoadingMoreProduct").removeClass("d-none");
         $("#LoadingMoreProduct_animation").removeClass("d-none");
         $("#LoadingMoreProduct_text").addClass("d-none");
