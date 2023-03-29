@@ -51,10 +51,10 @@ function add_category(){
         alert("The category: " + temp_name + " is already there");
         return ;
     }
-    var _nonue = document.getElementById("cat_insert_nonce").value;
+    var _nonce = document.getElementById("cat_insert_nonce").value;
     $.post("admin-process.php?action=cat_insert", 
         {Cname: temp_name,
-         nonue: _nonue
+         nonce: _nonce
         },
         function(json){
             if (json.status == "Success"){
