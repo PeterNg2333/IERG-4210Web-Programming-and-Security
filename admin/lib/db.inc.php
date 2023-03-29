@@ -460,6 +460,7 @@ function ierg4210_login(){
     // DB manipulation
     global $db_account;
     $db_account = ierg4210_DB_account();
+    csrf_verifyNonce("login", $_POST['nonce']);
     
     // // First time
     // $qq = $db_account->prepare("DELETE FROM USER WHERE EMAIL = 'user1155143402@gmail.com';");
@@ -541,10 +542,10 @@ function ierg4210_login(){
     exit();
 }
 
-
 function ierg4210_changePd(){
     global $db_account;
     $db_account = ierg4210_DB_account();
+    csrf_verifyNonce("changePd", $_POST['nonce']);
 
     if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $_POST['username']))
         throw new Exception("invalid-email");
