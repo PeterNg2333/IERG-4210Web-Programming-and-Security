@@ -607,7 +607,7 @@ function ierg4210_exit(){
 
 
     // temp
-    unset($_SESSION['auth']);
+    // unset($_SESSION['auth']);
     return auth();
 }
 
