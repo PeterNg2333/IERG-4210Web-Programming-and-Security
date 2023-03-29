@@ -672,7 +672,11 @@ function csrf_verifyNonce($action, $receivedNonce){
     throw new Exception('csrf-attack');
 }
 
-
+function secure_level($action){
+    if ($action == "cat_insert" || $action == "cat_edit" || $action == "cat_delete" || $action == "prod_edit" || $action == "prod_delete" || $action == "prod_insert"){
+        return true;
+    }
+}
 
 
 // function ierg4210_prod_fetch_next_four_page(){

@@ -13,8 +13,11 @@ if (empty($_REQUEST['action']) || !preg_match('/^\w+$/', $_REQUEST['action'])) {
 // Auth action
 $auth=auth();
 $action = $_REQUEST['action'];
-if(	($action == "cat_insert" || $action == "cat_edit" || $action == "cat_delete" || $action == "prod_edit" || $action == "prod_delete" || $action == "prod_insert")
-	&& $auth == false){
+if (secure_level($action)){
+	csrf_verifyNonce($_REQUEST['action'], $_POST['nonce']);
+}
+if(	(secure_level($action))
+	&& $auth == false ){
     // header('Location: login_admin.php',true,302);
 	echo json_encode(array('failed'=>'auth-error'));
 	exit();
