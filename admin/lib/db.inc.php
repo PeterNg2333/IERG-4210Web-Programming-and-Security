@@ -429,11 +429,31 @@ function ierg4210_prod_count_limit(){
 
 ///////////////////////////////////////////// Auth /////////////////////////////////////////////////
 
+function ierg4210_DB_account() {
+	// connect to the database
+	// TODO: change the following path if needed
+	// Warning: NEVER put your db in a publicly accessible location
+	$db_account = new PDO('sqlite:/var/www/account.db');
+
+	// enable foreign key support
+	$db_account->query('PRAGMA foreign_keys = ON;');
+
+	// FETCH_ASSOC:
+	// Specifies that the fetch method shall return each row as an
+	// array indexed by column name as returned in the corresponding
+	// result set. If the result set contains multiple columns with
+	// the same name, PDO::FETCH_ASSOC returns only a single value
+	// per column name.
+	$db_account->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+	return $db_account;
+}
+
 function ierg4210_login(){
     // DB manipulation
-    global $db;
-    $db = ierg4210_DB();
-    $q = $db->prepare("Select COUNT(PID) AS PRODUCT_NUM FROM Products;");
+    global $db_account;
+    $db_account = ierg4210_DB_account();
+    $q = $db_account->prepare("Select * FROM USER;");
     if ($q->execute()){
         header("Content-Type: application/json");
         $result = $q->fetchAll();
