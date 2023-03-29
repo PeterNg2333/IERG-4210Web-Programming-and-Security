@@ -550,7 +550,7 @@ function ierg4210_changePd(){
     if ($_POST["new_password_1"] != $_POST["new_password_2"]){
         throw new Exception("new-password-unmatched");
     }
-    if ($_POST["old_password"] != $_POST["new_password_1"]){
+    if ($_POST["old_password"] == $_POST["new_password_1"]){
         throw new Exception("same_password");
     }
     $username = $_POST["username"];
