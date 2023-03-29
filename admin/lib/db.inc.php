@@ -618,7 +618,30 @@ function auth(){
         return $_SESSION['auth']['em'];
     }
     if (!empty($_COOKIE['auth'])) {
-        return json_decode($_COOKIE['auth'], true);
+        global $db_account;
+        $db_account = ierg4210_DB_account();
+
+        $cookie_token = json_decode($_COOKIE['auth'], true);
+        $username = $cookie_token['em'];
+        $password = $cookie_token['k'];
+        $q = $db_account->prepare("Select * FROM USER WHERE EMAIL = ? LIMIT 1;");
+        $q->bindParam(1, $username);
+
+        if ($q->execute()){
+            header("Content-Type: application/json");
+            $result = $q->fetchAll();
+            if (empty($result[0])){
+                return "Wrong-email_or_password";
+            }
+            $user = $result[0];
+            $user_email = $user["EMAIL"];
+            $user_password = $user["PASSWORD"];
+            $user_salt = $user["SALT"];
+            if ($user_password == hash_hmac('sha256', $password, $user_salt)){
+                $_SESSION['auth'] = $_COOKIE['auth'];
+                return $user_email;
+            }
+        }
     }
 
     return false;
