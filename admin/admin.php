@@ -57,10 +57,10 @@ foreach ($res_cat_fetchall as $value){
                 $main_html = str_replace('%Products_NUM%', $res_number[0]["PRODUCT_NUM"], $main_html);
                 $main_html = str_replace('%Out of Stock_NUM%', $res_number[0]["OUT_OF_STOCK"], $main_html);
                 $main_html = str_replace('%category_options%', $options, $main_html);
-                // $main_html = str_replace('%prod_insert_nonce%', csrf_getNonce("prod_insert"), $main_html);
-                // $main_html = str_replace('%cat_insert_nonce%', csrf_getNonce("cat_insert"), $main_html);
-                // $main_html = str_replace('%cat_edit_nonce%', csrf_getNonce("cat_edit"), $main_html);
-                // $main_html = str_replace('%cat_delete_nonce%', csrf_getNonce("cat_delete"), $main_html);
+                $main_html = str_replace('%prod_insert_nonce%', csrf_getNonce("prod_insert"), $main_html);
+                $main_html = str_replace('%cat_insert_nonce%', csrf_getNonce("cat_insert"), $main_html);
+                $main_html = str_replace('%cat_edit_nonce%', csrf_getNonce("cat_edit"), $main_html);
+                $main_html = str_replace('%cat_delete_nonce%', csrf_getNonce("cat_delete"), $main_html);
 
                 $main_html = str_replace('<!--?PHP--> ', '', $main_html);
                 

@@ -5,7 +5,7 @@
         <input type="text" name="Cname" placeholder="Enter Category Name" class="mx-1">
 
         <!-- CSRF -->
-        <input type="hidden" name="nonce" value="%cat_insert_nonce%"/>
+        <input type="hidden" id="cat_insert_nonce" name="nonce" value="%cat_insert_nonce%"/>
 
         <button type="button" id="add_category" class="btn btn-primary btn-sm mx-1 nav-item">Add New</button>
     </form>
@@ -39,8 +39,8 @@
             <!--?PHP--> %category_options% <!--?PHP--> 
         </select>
         <!-- CSRF -->
-        <input type="hidden" name="cat_edit_nonce" value="%cat_edit_nonce%"/> 
-        <input type="hidden" name="cat_delete_nonce" value="%cat_delete_nonce%"/>  
+        <input type="hidden" id="cat_edit_nonce" name="nonce" value="%cat_edit_nonce%"/> 
+        <input type="hidden" id="cat_delete_nonce"name="nonce" value="%cat_delete_nonce%"/>  
         <button type="button" id="edit_category" class="btn btn-success btn-sm mx-1 nav-item">Edit</button>
         <button type="button" id="delete_category" class="btn btn-danger btn-sm mx-1 nav-item">Delete</button>
     </form>
@@ -104,7 +104,7 @@
                 </div>
 
                 <!-- CSRF -->
-                <input type="hidden" name="nonce" value="%prod_insert_nonce%"/>
+                <input type="hidden" id="prod_insert_nonce" name="nonce" value="%prod_insert_nonce%"/>
 
                 <div class="col-1">
                     <button type="submit" class="btn btn-primary btn-sm mb-1 mx-1 nav-item">
