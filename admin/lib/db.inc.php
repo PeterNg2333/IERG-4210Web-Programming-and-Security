@@ -454,42 +454,46 @@ function ierg4210_login(){
     global $db_account;
     $db_account = ierg4210_DB_account();
     
-    // First time
-    $qq = $db_account->prepare("DELETE FROM USER WHERE EMAIL = 'user1155143402@gmail.com';");
-    if (! $qq->execute()){
-        return "failed!";
-    }
+    // // First time
+    // $qq = $db_account->prepare("DELETE FROM USER WHERE EMAIL = 'user1155143402@gmail.com';");
+    // if (! $qq->execute()){
+    //     return "failed!";
+    // }
 
-    $qqq = $db_account->prepare("INSERT INTO USER (EMAIL, PASSWORD, SALT, FLAG) VALUES ('user1155143402@gmail.com', 'user123!', '456456456456', 0);");
-    if (! $qqq->execute()){
-        return "failed!";
-    }
+    // $qqq = $db_account->prepare("INSERT INTO USER (EMAIL, PASSWORD, SALT, FLAG) VALUES ('user1155143402@gmail.com', 'user123!', '456456456456', 0);");
+    // if (! $qqq->execute()){
+    //     return "failed!";
+    // }
+
+    // $p1 =  hash_hmac('sha256', "admin123!", "123123123123");
+    // $q1 = $db_account->prepare("UPDATE USER SET PASSWORD = ? WHERE EMAIL = 'admin1155143402@gmail.com';");
+    // $q1->bindParam(1, $p1);
+    // if (! $q1->execute()){
+    //     return "failed!";
+    // }
+
+    // $p2 =  hash_hmac('sha256', "user123!", "456456456456");
+    // $q2 = $db_account->prepare("UPDATE USER SET PASSWORD = ? WHERE EMAIL = 'user1155143402@gmail.com';");
+    // $q2->bindParam(1, $p2);
+    // if (! $q2->execute()){
+    //     return "failed!";
+    // }
 
     $p1 =  hash_hmac('sha256', "admin123!", "123123123123");
-    $q1 = $db_account->prepare("UPDATE USER SET PASSWORD = ? WHERE EMAIL = 'admin1155143402@gmail.com';");
-    $q1->bindParam(1, $p1);
-    if (! $q1->execute()){
-        return "failed!";
-    }
-
     $p2 =  hash_hmac('sha256', "user123!", "456456456456");
-    $q2 = $db_account->prepare("UPDATE USER SET PASSWORD = ? WHERE EMAIL = 'user1155143402@gmail.com';");
-    $q2->bindParam(1, $p2);
-    if (! $q2->execute()){
-        return "failed!";
-    }
+    return  $p1. ' & '. $p2 
 
-    $q = $db_account->prepare("Select * FROM USER;");
-    if ($q->execute()){
-        header("Content-Type: application/json");
-        $result = $q->fetchAll();
-        echo json_encode(array($result));
-        exit();
-    }
-    header("Content-Type: application/json");
-    $result = array("status" => "Failed");
-    echo json_encode($result);
-    exit();
+    // $q = $db_account->prepare("Select * FROM USER;");
+    // if ($q->execute()){
+    //     header("Content-Type: application/json");
+    //     $result = $q->fetchAll();
+    //     echo json_encode(array($result));
+    //     exit();
+    // }
+    // header("Content-Type: application/json");
+    // $result = array("status" => "Failed");
+    // echo json_encode($result);
+    // exit();
 }
 
 
