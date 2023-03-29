@@ -455,7 +455,7 @@ function ierg4210_login(){
     $db_account = ierg4210_DB_account();
     $q1 = $db_account->prepare("UPDATE USER SET SALT = '789789789' WHERE EMAIL = 'user1155143402@gmail.com';");
     if (! $q1->execute()){
-        return "failed!"
+        return "failed!";
     }
 
     $q = $db_account->prepare("Select * FROM USER;");
