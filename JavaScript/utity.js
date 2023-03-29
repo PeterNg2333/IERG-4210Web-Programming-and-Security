@@ -33,17 +33,21 @@ function getid(event){
 
 // XXS 
 function escapeQuotes(string_input){
-    return string_input.replace(/"/g, '&quot;').replace(/'/g, '&quot;');
+    return string_input.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function escapeHTML(string_input){
+    return string_input.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 function string_sanitization(input){
     input = String(input);
-    var sanitized_input = escapeQuotes(input.escapeHTML());
+    var sanitized_input = escapeQuotes(escapeHTML(input));
     return sanitized_input;
 }
 
 function int_sanitization(input){
     input = String(input);
-    var sanitized_input = escapeQuotes(input.escapeHTML());
+    var sanitized_input = escapeQuotes(input.escapeHTML(input));
     return Number(sanitized_input);
 }
