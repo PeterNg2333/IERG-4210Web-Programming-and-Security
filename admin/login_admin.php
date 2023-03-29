@@ -27,7 +27,7 @@ require __DIR__.'/lib/db.inc.php';
             <input class="loginInput" id="username" name="username" placeholder="User name" required pattern="^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$"/>
         </div> 
         <div class="form-outline text-center  mb-4 mx-auto"> 
-          <input class="loginInput" type="password" id="password" name="password" placeholder="Password" pattern="^[\w\-\@\!\' ]+$" required/>
+          <input class="loginInput" type="password" id="password" name="password" placeholder="Password" pattern="^[\w\-\@\!\']+$" required/>
         </div>
 
         <!-- CSRF -->
