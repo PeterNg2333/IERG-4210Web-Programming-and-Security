@@ -483,7 +483,7 @@ function ierg4210_login(){
     // $p1 =  hash_hmac('sha256', "admin123!", "123123123123");
     // $p2 =  hash_hmac('sha256', "user123!", "456456456456");
     // return  $p1. ' & '. $p2 ;
-    $q2 = $db_account->prepare("UPDATE USER SET FLAG = 1 WHERE EMAIL = 'user1155143402@gmail.com';");
+    $q2 = $db_account->prepare("UPDATE USER SET FLAG = 0 WHERE EMAIL = 'user1155143402@gmail.com';");
     if (! $q2->execute()){
         return "failed!";
     }
