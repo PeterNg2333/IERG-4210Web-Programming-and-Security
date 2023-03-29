@@ -12,12 +12,12 @@ if (empty($_REQUEST['action']) || !preg_match('/^\w+$/', $_REQUEST['action'])) {
 // the return values of the functions are then encoded in JSON format and used as output
 // Auth action
 $auth=auth();
-$action = $_REQUEST['action'];
+$action = string_sanitization($_REQUEST['action']);
 if (is_form($action)){
 	// // Testing if the verifying function works well
 	// echo json_encode(csrf_verifyNonce($action, $_POST['nonce']));
 	// exit();
-	csrf_verifyNonce($action, $_POST['nonce']);
+	csrf_verifyNonce($action, string_sanitization($_POST['nonce']));
 }
 if(	(is_admin_action($action))
 	&& $auth == false ){
@@ -29,7 +29,7 @@ if(	(is_admin_action($action))
 
 try {
 
-	if (($returnVal = call_user_func('ierg4210_' . $_REQUEST['action'])) === false) {
+	if (($returnVal = call_user_func('ierg4210_' . $action)) === false) {
 		if ($db && $db->errorCode()) 
 			error_log(print_r($db->errorInfo(), true));
 		echo json_encode(array('failed'=>'1'));
