@@ -82,8 +82,12 @@ function edit_category(){
     if (new_name != null || new_name != " "){
         var temp_name = new_name.trim();
         var selectelement = document.getElementById('Category_dropDown').value.trim();
+        var _nonce = document.getElementById("cat_edit_nonce").value;
         $.post("admin-process.php?action=cat_edit", 
-            {Cname: temp_name, CID: selectelement},
+            {Cname: temp_name,
+            CID: selectelement,
+            nonce: _nonce
+            },
             function(json){
                 if (json.status == "Success"){
                     alert("Edit Success!!");
@@ -106,8 +110,11 @@ function edit_category(){
 
 function delete_category(){
     var selectelement = document.getElementById('Category_dropDown').value.trim();
+    var _nonce = document.getElementById("cat_delete_nonce").value;
     $.post("admin-process.php?action=cat_delete", 
-        {CID: selectelement},
+        {CID: selectelement,
+        nonce: _nonce
+        },
         function(json){
             if (json.status == "Success"){
                 alert("Delete Success!!");
@@ -281,6 +288,9 @@ function load_productsCard_by_cid(){
                             existing_dnd_ele.addEventListener('dragleave', dragLeaveHandler, false)
                             existing_dnd_ele.addEventListener('drop', dropHandler, false)
 
+                            // nonce
+                            
+                            
                             // show result
                             
                             $("#P-" + pid).removeClass("d-none");
@@ -308,8 +318,10 @@ function change_image_for_productCard(e){
 function delete_product(e){
     var text_array = e.target.id.split("-")
     var temp_id  = text_array[1];
+    var _nonce = document.querySelector(".prod_delete_nonce").value;
     $.post("admin-process.php?action=prod_delete", 
-        {pid: temp_id},
+        {pid: temp_id,
+        nonce: _nonce},
         function(json){
             if (json.status == "Success"){
                 alert("Delete Success!!");
