@@ -584,7 +584,7 @@ function ierg4210_changePd(){
             }
 
             // 2. redirect back to login page and clear cookie
-                ierg4210_exit();
+                return ierg4210_exit();
         } 
         else {
             throw new Exception('auth-error');
