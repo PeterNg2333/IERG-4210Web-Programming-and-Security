@@ -659,7 +659,7 @@ function csrf_getNonce($action){
     $nonce = mt_rand() . mt_rand();
     if (!isset($_SESSION['csrf_nonce']))
         $_SESSION['csrf_nonce'] = array();
-    $_SESSION['csrf_nonce'][string_validation($action)] = $nonce;
+    $_SESSION['csrf_nonce'][$action] = $nonce;
     return $nonce;
 }
 
