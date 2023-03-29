@@ -642,13 +642,13 @@ function auth(){
                 $_SESSION['auth'] = $_COOKIE['auth'];
                 return $user_email;
             }
-            else {
-                header('Location: login_admin.html', true, 302);
-            }
+            // else {
+            //     header('Location: login_admin.html', true, 302);
+            // }
         }
     }
 
-    return false;
+    return $k. " & ". hash_hmac('sha256', $exp . $user_password, $user_salt);
 }
 
 
