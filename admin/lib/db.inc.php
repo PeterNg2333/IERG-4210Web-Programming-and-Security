@@ -624,6 +624,7 @@ function auth(){
         $cookie_token = json_decode($_COOKIE['auth'], true);
         $username = $cookie_token['em'];
         $k = $cookie_token['k'];
+        $exp = $cookie_token['exp'];
 
         $q = $db_account->prepare("Select * FROM USER WHERE EMAIL = ? LIMIT 1;");
         $q->bindParam(1, $username);
@@ -638,7 +639,7 @@ function auth(){
             $user_email = $user["EMAIL"];
             $user_password = $user["PASSWORD"];
             $user_salt = $user["SALT"]; 
-            $exp = time() + 3600 * 24 * 1;
+             
             if ($k == hash_hmac('sha256', $exp . $user_password, $user_salt)){
                 $_SESSION['auth'] = $_COOKIE['auth'];
                 return $user_email;
