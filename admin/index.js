@@ -57,6 +57,10 @@ function add_category(){
             if (json.status == "Success"){
                 alert("Add Success!!");
                 location.reload()
+            }            
+            else if (json.failed == "auth-error"){
+                alert("Auth Error!!");
+                location.reload();
             }
             else {
                 alert("Add Failed!!");
@@ -83,6 +87,10 @@ function edit_category(){
                     location.reload()
                     return ;
                 }
+                else if (json.failed == "auth-error"){
+                    alert("Auth Error!!");
+                    location.reload();
+                }
                 else {
                     alert("Edit Failed!!");
                     return ;
@@ -101,6 +109,10 @@ function delete_category(){
             if (json.status == "Success"){
                 alert("Delete Success!!");
                 location.reload()
+            }
+            else if (json.failed == "auth-error"){
+                alert("Auth Error!!");
+                location.reload();
             }
             else {
                 alert("Delete Failed!!");
@@ -298,9 +310,12 @@ function delete_product(e){
         function(json){
             if (json.status == "Success"){
                 alert("Delete Success!!");
-                location.reload()
+                location.reload();
             }
-            
+            else if (json.failed == "auth-error"){
+                alert("Auth Error!!");
+                location.reload();
+            }
             else {
                 alert("Delete Failed!!");
             }
