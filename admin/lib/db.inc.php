@@ -66,11 +66,11 @@ function ierg4210_prod_insert() {
         && $_FILES["file"]["size"] < 5000000) 
 
     {
-        $cid = $_POST["cid"];
-        $name = $_POST["name"];
-        $price = $_POST["price"];
-        $desc = $_POST["description"];
-        $inv = $_POST["inventory"];
+        $cid = int_sanitization($_POST["cid"]);
+        $name = string_sanitization($_POST["name"]);
+        $price = int_sanitization($_POST["price"]);
+        $desc = string_sanitization($_POST["description"]);
+        $inv = int_sanitization($_POST["inventory"]);
 
         $sql="INSERT INTO products (cid, product_name, inventory, price, description) VALUES (?, ?, ?, ?, ?);";
         $q = $db->prepare($sql);
@@ -101,7 +101,7 @@ function ierg4210_cat_insert() {
         throw new Exception("invalid-name");
     // DB manipulation
     global $db;
-    $Cname = $_POST["Cname"];
+    $Cname = string_sanitization($_POST["Cname"]);
 
     $db = ierg4210_DB();
     $q = $db->prepare("INSERT INTO categories (CID, CATEGORY_NAME) VALUES (NULL, ?)");
@@ -129,8 +129,8 @@ function ierg4210_cat_edit(){
     global $db;
     $db = ierg4210_DB();
     $q = $db->prepare("UPDATE CATEGORIES SET CATEGORY_NAME = ? WHERE CID = ?;");
-    $Cname = $_POST["Cname"];
-    $CID = $_POST["CID"];
+    $Cname = string_sanitization($_POST["Cname"]);
+    $CID = int_sanitization($_POST["CID"]);
     $q->bindParam(1, $Cname);
     $q->bindParam(2, $CID);
 
@@ -153,7 +153,7 @@ function ierg4210_cat_delete(){
     // DB manipulation
     global $db;
     $db = ierg4210_DB();
-    $CID = $_POST["CID"];
+    $CID = int_sanitization($_POST["CID"]);
 
     $q_get_product = $db->prepare("SELECT PID FROM PRODUCTS LEFT JOIN CATEGORIES USING(CID) WHERE CID = ? LIMIT 100;");
     $q_get_product ->bindParam(1, $CID);
@@ -207,12 +207,12 @@ function ierg4210_prod_edit(){
     $q = $db->prepare($sql);
 
 
-        $cid = $_POST["cid"];
-        $name = $_POST["name"];
-        $price = $_POST["price"];
-        $desc = $_POST["description"];
-        $inv = $_POST["inventory"];
-        $pid = $_POST["pid"];
+        $cid = int_sanitization($_POST["cid"]);
+        $name = string_sanitization($_POST["name"]);
+        $price = int_sanitization($_POST["price"]);
+        $desc = string_sanitization($_POST["description"]);
+        $inv = int_sanitization($_POST["inventory"]);
+        $pid = int_sanitization($_POST["pid"]);
 
         $sql="UPDATE PRODUCTS SET cid = ?, product_name = ?, inventory = ?, price =?, description = ? Where pid = ?;";
         $q = $db->prepare($sql);
@@ -270,7 +270,7 @@ if (!preg_match('/^[\d]+$/', $_POST['pid']))
     throw new Exception("invalid-id");
 // DB manipulation
 global $db;
-$pid = $_POST["pid"];
+$pid = int_sanitization($_POST["pid"]);
 
 $db = ierg4210_DB();
 $q = $db->prepare("DELETE FROM products where PID = ?;");
@@ -300,7 +300,7 @@ function ierg4210_prod_fetchAll_by_cid(){
     global $db;
     $db = ierg4210_DB();
     $q = $db->prepare("SELECT * FROM PRODUCTS LEFT JOIN CATEGORIES USING(CID) WHERE CID = ? LIMIT 100;");
-    $CID = $_POST["CID"];
+    $CID = int_sanitization($_POST["CID"]);
     $q->bindParam(1, $CID);
 
     if ($q->execute()){
@@ -378,7 +378,7 @@ function ierg4210_prod_fetchOne_by_pid_page(){
     global $db;
     $db = ierg4210_DB();
     $q = $db->prepare("SELECT * FROM PRODUCTS LEFT JOIN CATEGORIES USING(CID) WHERE PID = ? LIMIT 1;");
-    $pid = $_POST["pid"];
+    $pid = int_sanitization($_POST["pid"]);
     $q->bindParam(1, $pid);
 
     if ($q->execute()){
@@ -460,7 +460,7 @@ function ierg4210_login(){
     // DB manipulation
     global $db_account;
     $db_account = ierg4210_DB_account();
-    csrf_verifyNonce("login", $_POST['nonce']);
+    csrf_verifyNonce("login", int_sanitization($_POST['nonce']));
     
     // // First time
     // $qq = $db_account->prepare("DELETE FROM USER WHERE EMAIL = 'user1155143402@gmail.com';");
@@ -500,8 +500,8 @@ function ierg4210_login(){
         throw new Exception("invalid-email");
     if (!preg_match('/^[\w\-\@\!\' ]+$/', $_POST['password']))
         throw new Exception("invalid-password");
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+    $username = email_sanitization($_POST["username"]);
+    $password = password_sanitization($_POST["password"]);
 
     $q = $db_account->prepare("Select * FROM USER WHERE EMAIL = ? LIMIT 1;");
     $q->bindParam(1, $username);
@@ -545,7 +545,7 @@ function ierg4210_login(){
 function ierg4210_changePd(){
     global $db_account;
     $db_account = ierg4210_DB_account();
-    csrf_verifyNonce("changePd", $_POST['nonce']);
+    csrf_verifyNonce("changePd", int_sanitization($_POST['nonce']));
 
     if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $_POST['username']))
         throw new Exception("invalid-email");
@@ -561,9 +561,9 @@ function ierg4210_changePd(){
     if ($_POST["old_password"] == $_POST["new_password_1"]){
         throw new Exception("same_password");
     }
-    $username = $_POST["username"];
-    $password = $_POST["old_password"];
-    $new_password_1 = $_POST["new_password_1"];
+    $username = email_sanitization($_POST["username"]);
+    $password = password_sanitization($_POST["old_password"]);
+    $new_password_1 = password_sanitization($_POST["new_password_1"]);
 
     // checking
     $q = $db_account->prepare("Select * FROM USER WHERE EMAIL = ? LIMIT 1;");
@@ -661,7 +661,8 @@ function auth(){
     return false;
 }
 
-///////////////////////////////////////////// Security/////////////////////////////////////////////////
+///////////////////////////////////////////// Security /////////////////////////////////////////////////
+/// CSRF attack
 function csrf_getNonce($action){
     $nonce = mt_rand() . mt_rand();
     if (!isset($_SESSION['csrf_nonce']))
@@ -679,7 +680,6 @@ function csrf_verifyNonce($action, $receivedNonce){
     throw new Exception('csrf-attack');
 }
 
-
 function is_form($action){
     if ($action == "cat_insert" 
         || $action == "cat_edit" 
@@ -694,6 +694,38 @@ function is_form($action){
         return true;
     }
 }
+
+/// XXS
+function int_sanitization($input){
+    $input = (int)htmlspecialchars($input);
+    $sanitized_input = filter_var($input, FILTER_VALIDATE_INT);
+    return $sanitized_input;
+}
+
+function float_sanitization($input){
+    $input = (float)htmlspecialchars($input);
+    $sanitized_input = filter_var($input, FILTER_VALIDATE_FLOAT);
+    return $sanitized_input;
+}
+
+function string_sanitization($input){
+    $input = (String)htmlspecialchars($input);
+    $sanitized_input = filter_var($input, FILTER_SANITIZE_STRING);
+    return $sanitized_input;
+}
+
+function email_sanitization($input){
+    $input = (String)htmlspecialchars($input);
+    $sanitized_input = filter_var($input, FILTER_VALIDATE_EMAIL);
+    return $sanitized_input;
+}
+
+function password_sanitization($input){
+    $input = (String)htmlspecialchars($input);
+    $sanitized_input = filter_var($input, FILTER_SANITIZE_EMAIL);
+    return $sanitized_input;
+}
+
 
 
 // function ierg4210_prod_fetch_next_four_page(){
