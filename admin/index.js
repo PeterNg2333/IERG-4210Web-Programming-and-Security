@@ -289,7 +289,7 @@ function load_productsCard_by_cid(){
                             existing_dnd_ele.addEventListener('drop', dropHandler, false)
 
                             // nonce
-                            _nonce = document.getElementById("prod_edit_nonce");
+                            _nonce = document.getElementById("prod_edit_nonce").value;
                             var product_nonce = $("#prod_edit_nonce-000");
                             product_nonce.val(_nonce);
                             product_nonce.removeAttr('id');
