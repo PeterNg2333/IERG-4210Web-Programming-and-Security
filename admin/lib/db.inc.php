@@ -503,8 +503,12 @@ function ierg4210_login(){
         if (empty($result[0])){
             return "Wrong-email_or_password";
         }
-
-        echo json_encode($result[0]);
+        $user = $result[0];
+        $user_email = $user["EMAIL"];
+        $user_password = $user["PASSWORD"];
+        $user_salt = $user["SALT"];
+        $user_flag = $user["FLAG"];
+        echo json_encode($user_email);
         // echo json_encode(array($result));
         exit();
     }
