@@ -677,7 +677,7 @@ function csrf_test($action, $receivedNonce){
     //     return false;
     // }
     // return $_SESSION['csrf_nonce'];
-    return isset($receivedNonce). " & ". $_SESSION['csrf_nonce'][$action] == $receivedNonce;
+    return $receivedNonce;
     
     
 }
