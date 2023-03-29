@@ -61,6 +61,11 @@ foreach ($res_cat_fetchall as $value){
                 $main_html = str_replace('%cat_insert_nonce%', csrf_getNonce("cat_insert"), $main_html);
                 $main_html = str_replace('%cat_edit_nonce%', csrf_getNonce("cat_edit"), $main_html);
                 $main_html = str_replace('%cat_delete_nonce%', csrf_getNonce("cat_delete"), $main_html);
+                $main_html = str_replace('%prod_delete_nonce%', csrf_getNonce("prod_delete"), $main_html);
+                $main_html = str_replace('%prod_edit_nonce%', csrf_getNonce("prod_edit"), $main_html);
+
+                
+                
 
                 $main_html = str_replace('<!--?PHP--> ', '', $main_html);
                 

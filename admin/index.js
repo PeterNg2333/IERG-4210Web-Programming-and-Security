@@ -289,7 +289,10 @@ function load_productsCard_by_cid(){
                             existing_dnd_ele.addEventListener('drop', dropHandler, false)
 
                             // nonce
-                            
+                            _nonce = document.getElementById("prod_edit_nonce");
+                            var product_nonce = $("#prod_edit_nonce-000");
+                            product_nonce.val(_nonce);
+                            product_nonce.removeAttr('id');
                             
                             // show result
                             
@@ -318,7 +321,7 @@ function change_image_for_productCard(e){
 function delete_product(e){
     var text_array = e.target.id.split("-")
     var temp_id  = text_array[1];
-    var _nonce = document.querySelector(".prod_delete_nonce").value;
+    var _nonce = document.getElementById("prod_delete_nonce").value;
     $.post("admin-process.php?action=prod_delete", 
         {pid: temp_id,
         nonce: _nonce},

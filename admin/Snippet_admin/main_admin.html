@@ -78,6 +78,10 @@
     <ul class="container" id="list_of_record" >
         <!-- Empty List-->
         <il id="product_input" class=" mb-2">
+            <!-- CSRF for product-->
+            <input type="hidden" id="prod_edit_nonce" class="prod_edit_nonce" name="nonce" value="%prod_edit_nonce%"/>
+            <input type="hidden" id="prod_delete_nonce" name="prod_delete_nonce" value="%prod_delete_nonce%"/>
+
             <form class="form-group row" id="prod_insert" method="POST" action="admin-process.php?action=prod_insert" enctype="multipart/form-data">
                 <div>
                     <input class="product_insert"  id="cid_input" name="cid" type="hidden">
