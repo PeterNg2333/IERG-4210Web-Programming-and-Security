@@ -599,7 +599,7 @@ function ierg4210_changePd(){
 function ierg4210_exit(){
     unset($_COOKIE['auth']);
     $exp = time() - 3600 * 24 * 1;
-    setcookie('auth', json_encode(""), $exp, true, true);
+    setcookie('auth', json_encode(""), $exp, "/", "secure.s19.ierg4210.ie.cuhk.edu.hk", true, true);
 
     unset($_SESSION['auth']);
     header('Location: login_admin.html', true, 302);
