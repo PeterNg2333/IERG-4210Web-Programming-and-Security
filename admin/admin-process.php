@@ -15,9 +15,9 @@ $auth=auth();
 $action = $_REQUEST['action'];
 if (is_form($action)){
 	// // Testing if the verifying function works well
-	echo json_encode(csrf_verifyNonce($action, $_POST['nonce']));
-	exit();
-	// csrf_verifyNonce($action, $_POST['nonce']);
+	// echo json_encode(csrf_verifyNonce($action, $_POST['nonce']));
+	// exit();
+	csrf_verifyNonce($action, $_POST['nonce']);
 }
 if(	(is_admin_action($action))
 	&& $auth == false ){
