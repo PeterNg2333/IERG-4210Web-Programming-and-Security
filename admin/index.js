@@ -76,6 +76,11 @@ function add_category(){
 
 function edit_category(){
     var new_name = prompt("Enter the new category name", "name")
+    new_name = string_sanitization(new_name);
+    if (! new_name.match(/^[\w\-\ ]+$/)) {
+        alert("invalid name");
+        return ;
+    }
     if (is_exist_category(new_name , window.ierg4210_category_list)){
         alert("The category: " + new_name + " is already there");
         return ;
