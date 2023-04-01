@@ -128,10 +128,10 @@ function load_shoppingCart(){
             function(p_res){    
                 var res_array = p_res[0];
                 var record = res_array[0];
-                var get_inv = record.INVENTORY;
-                var get_pid = record.PID;
-                var get_price = record.PRICE;
-                var get_pName = record.PRODUCT_NAME;
+                var get_inv = int_sanitization(record.INVENTORY);
+                var get_pid = int_sanitization(record.PID);
+                var get_price = int_sanitization(record.PRICE);
+                var get_pName = string_sanitization(record.PRODUCT_NAME);
 
                 var ordervalue = Number(get_price)*Number(temp_orderAmount)
                 // HTML
@@ -168,8 +168,8 @@ function updateOrderAmount(e){
         function(p_res){    
         var res_array = p_res[0];
         var record = res_array[0];
-        var get_inv = record.INVENTORY;
-        var get_price = record.PRICE;
+        var get_inv = int_sanitization(record.INVENTORY);
+        var get_price = int_sanitization(record.PRICE);
 
         // Delete when order amount is 0
         if (newOrderAmount <= 0){
@@ -214,7 +214,7 @@ function updateOrderAmount(e){
                     function(p_res){    
                         var res_array = p_res[0];
                         var record = res_array[0];
-                        var get_price = record.PRICE;
+                        var get_price = int_sanitization(record.PRICE);
                         var ordervalue = Number(get_price)*Number(temp_orderAmount);
                         $("#shopping_price_P-" + temp_id).text(" @$" + ordervalue);
                         orderSum += ordervalue;
@@ -247,13 +247,13 @@ function loadProductHelper(){
                 _myNode.textContent = '';
                 res_array.forEach(function(record, i){
                     // print(record);
-                    var get_cid = record.CID;
-                    var get_cName = record.CATEGORY_NAME;
-                    var get_desc= record.DESCRIPTION;
-                    var get_inv = record.INVENTORY;
-                    var get_pid = record.PID;
-                    var get_price = record.PRICE;
-                    var get_pName = record.PRODUCT_NAME;
+                    var get_cid = int_sanitization(record.CID);
+                    var get_cName = string_sanitization(record.CATEGORY_NAME);
+                    var get_desc= string_sanitization(record.DESCRIPTION);
+                    var get_inv = int_sanitization(record.INVENTORY);
+                    var get_pid = int_sanitization(record.PID);
+                    var get_price = int_sanitization(record.PRICE);
+                    var get_pName = string_sanitization(record.PRODUCT_NAME);
                     document.getElementById("product").innerHTML="<h4>Testing</h4>"
                     RenderElementInside("#product",
                         "./Snippet/Product.html",
@@ -327,7 +327,7 @@ function addProductByScroll(){
             // print(res_array);
             $.post("admin/admin-process.php?action=prod_count_limit", {} , function(count_res){
                 var count_array = count_res[0][0];
-                var max_count = Number(count_array["PRODUCT_NUM"]);
+                var max_count = int_sanitization(Number(count_array["PRODUCT_NUM"]));
                 // console.log(max_count);
                 // print("count_array");
                 if (current_product_loaded < max_count){
@@ -339,9 +339,9 @@ function addProductByScroll(){
                     res_array.forEach(function(element){
                         if (load_count >= current_product_loaded && load_count < current_product_loaded + 6){
                             // console.log(element);
-                            var get_pid = element.PID;
-                            var get_price = element.PRICE;
-                            var get_pName = element.PRODUCT_NAME;
+                            var get_pid = int_sanitization(element.PID);
+                            var get_price = int_sanitization(element.PRICE);
+                            var get_pName = string_sanitization(element.PRODUCT_NAME);
 
                             product_html += '<div class="count_product_loaded col-lg-3 col-md-6 mb-3 px-0" id="P-'+get_pid +'">';
                             product_html += '    <div class="card mx-2 product_card_display">';

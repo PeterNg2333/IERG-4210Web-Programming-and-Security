@@ -205,11 +205,11 @@ function load_productsCard_by_cid(){
                     res_array.forEach(function(record, i){
                         var cid = record["CID"];
                         // var Cname = record["CATEGORY_NAME"];
-                        var pid = record["PID"];
-                        var Pname = record["PRODUCT_NAME"];
-                        var price = record["PRICE"];
-                        var inv = record["INVENTORY"];
-                        var description = record["DESCRIPTION"];
+                        var pid = int_sanitization(record["PID"]);
+                        var Pname = string_sanitization(record["PRODUCT_NAME"]);
+                        var price = int_sanitization(record["PRICE"]);
+                        var inv = int_sanitization(record["INVENTORY"]);
+                        var description = string_sanitization(record["DESCRIPTION"]);
                         // print(record);
                         RenderElementAfter("#product_input"
                             , "./Snippet_admin/product_card_admin.html"
