@@ -4,16 +4,18 @@ $c_res = ierg4210_cat_fetchall();
 // $p_res = ierg4210_prod_fetchAll();
 if (!preg_match('/^\d*$/', $_GET['cid']))
     throw new Exception("invalid-cid");
-$get_cid = (int) htmlspecialchars(($_GET['cid']));
+$get_cid = int_sanitization(($_GET['cid']));
 if (!preg_match('/^\d*$/', $_GET['pid']))
     throw new Exception("invalid-pid");
-$get_pid = (int) htmlspecialchars(($_GET['pid']));
+$get_pid = int_sanitization(($_GET['pid']));
 $category = '';
 $product = '';
 $category_url = '';
 $preload = "";
 foreach ($c_res as $value){
-    $category .= '<il><a href="main.php?cid='.$value["CID"].'" id="cid-'.$value["CID"].'" class="list-group-item list-group-item-action">'.$value["CATEGORY_NAME"].'</a></il>';
+    $cid = string_sanitization($value["CID"]);
+    $c_name = string_sanitization($value["CATEGORY_NAME"]);
+    $category .= '<il><a href="main.php?cid='.$cid.'" id="cid-'.$cid.'" class="list-group-item list-group-item-action">'.$c_name.'</a></il>';
 }
 $category .= '';
 
@@ -33,7 +35,9 @@ else{
     $p_res = ierg4210_prod_fetchAll_by_cid_page($get_cid);
     $cName_res = ierg4210_cat_fetch_by_cid_page($get_cid);
     foreach ($cName_res as $value){
-        $category_url = '<span id="CatergoryPath">> <a id="cPathRemove" href="/main.php?cid='.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </a></span>';
+        $cid = string_sanitization($value["CID"]);
+        $c_name = string_sanitization($value["CATEGORY_NAME"]);
+        $category_url = '<span id="CatergoryPath">> <a id="cPathRemove" href="/main.php?cid='.$cid.'"> '.$c_name.' </a></span>';
     }
 }
 
@@ -41,19 +45,20 @@ if ($get_pid == null || $get_pid == 0){
     $count = 0;
     foreach ($p_res as $value){
         if ($count < 6){
+
             // $products .= '<li><a href = "'.$value["CID"].'"> '.$value["CATEGORIES_NAME"].'</a></li>';
-            $product .= '<div class="count_product_loaded col-lg-3 col-md-6 mb-3 px-0" id="P-'.$value["PID"].'">';
+            $product .= '<div class="count_product_loaded col-lg-3 col-md-6 mb-3 px-0" id="P-'.string_sanitization($value["PID"]).'">';
             $product .= '    <div class="card mx-2 product_card_display">';
-            $product .= '        <a href="/main.php?pid='.$value["PID"].'" class="product_detail_button">';
-            $product .= '             <img class="card-img-top" src="./admin/lib/images/P'.$value["PID"].'.jpg" alt="'.$value["PRODUCT_NAME"].'" id="imageP-'.$value["PID"].'">';
+            $product .= '        <a href="/main.php?pid='.string_sanitization($value["PID"]).'" class="product_detail_button">';
+            $product .= '             <img class="card-img-top" src="./admin/lib/images/P'.string_sanitization($value["PID"]).'.jpg" alt="'.string_sanitization($value["PRODUCT_NAME"]).'" id="imageP-'.string_sanitization($value["PID"]).'">';
             $product .= '        </a>';
             $product .= '        <div class="card-body card_display_body row">';
             $product .= '           <div class="row">';
-            $product .= '               <h5 class="product_detail_button card-title col-8"><a href="/main.php?pid='.$value["PID"].'" id="titleP-'.$value["PID"].'">'.$value["PRODUCT_NAME"].'</a></h5>';
-            $product .= '               <p class="card-text col-4">$'.$value["PRICE"].'</p>';
+            $product .= '               <h5 class="product_detail_button card-title col-8"><a href="/main.php?pid='.string_sanitization($value["PID"]).'" id="titleP-'.string_sanitization($value["PID"]).'">'.string_sanitization($value["PRODUCT_NAME"]).'</a></h5>';
+            $product .= '               <p class="card-text col-4">$'.string_sanitization($value["PRICE"]).'</p>';
             $product .= '           </div>';
-            $product .= '           <input id="addToCartNum-'.$value["PID"].'" type=hidden value="1" />';
-            $product .= '           <button type="button" id="addToCart-'.$value["PID"].'" onclick="addToCart_button(event)" class="addToCart btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
+            $product .= '           <input id="addToCartNum-'.string_sanitization($value["PID"]).'" type=hidden value="1" />';
+            $product .= '           <button type="button" id="addToCart-'.string_sanitization($value["PID"]).'" onclick="addToCart_button(event)" class="addToCart btn btn-primary btn-block product_card_display_button"> Add to Shopping Cart</button>';
             $product .= '        </div>';
             $product .= '   </div>';
             $product .= '</div>';
@@ -108,7 +113,7 @@ $product .='';
                 $main_html = str_replace('%category_list%', $category, $main_html);
                 $main_html = str_replace('%product_list%', $product, $main_html);
                 $main_html = str_replace('%CatergoryPath%', $category_url, $main_html);
-                $main_html = str_replace('%check_out_nonce%', csrf_getNonce("check_out"), $main_html);
+                $main_html = str_replace('%check_out_nonce%', string_sanitization(csrf_getNonce("check_out")), $main_html);
                 $main_html = str_replace('<!--?PHP--> ', '', $main_html);
                 echo $main_html;
             ?>

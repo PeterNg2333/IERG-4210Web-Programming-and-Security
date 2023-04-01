@@ -9,7 +9,7 @@ $res_number = ierg4210_prod_and_cat_count();
 $options = '';
 
 foreach ($res_cat_fetchall as $value){
-    $options .= '<option value="'.$value["CID"].'"> '.$value["CATEGORY_NAME"].' </option>';
+    $options .= '<option value="'.string_sanitization($value["CID"]).'"> '.string_sanitization($value["CATEGORY_NAME"]).' </option>';
 }
 
 
@@ -53,16 +53,16 @@ foreach ($res_cat_fetchall as $value){
             <?php 
             
                 $main_html = file_get_contents('./Snippet_admin/main_admin.html');
-                $main_html = str_replace('%Categories_NUM%', $res_number[0]["CATEGORY_NUM"], $main_html);
-                $main_html = str_replace('%Products_NUM%', $res_number[0]["PRODUCT_NUM"], $main_html);
-                $main_html = str_replace('%Out of Stock_NUM%', $res_number[0]["OUT_OF_STOCK"], $main_html);
+                $main_html = str_replace('%Categories_NUM%', string_sanitization($res_number[0]["CATEGORY_NUM"]), $main_html);
+                $main_html = str_replace('%Products_NUM%', string_sanitization($res_number[0]["PRODUCT_NUM"]), $main_html);
+                $main_html = str_replace('%Out of Stock_NUM%', string_sanitization($res_number[0]["OUT_OF_STOCK"]), $main_html);
                 $main_html = str_replace('%category_options%', $options, $main_html);
-                $main_html = str_replace('%prod_insert_nonce%', csrf_getNonce("prod_insert"), $main_html);
-                $main_html = str_replace('%cat_insert_nonce%', csrf_getNonce("cat_insert"), $main_html);
-                $main_html = str_replace('%cat_edit_nonce%', csrf_getNonce("cat_edit"), $main_html);
-                $main_html = str_replace('%cat_delete_nonce%', csrf_getNonce("cat_delete"), $main_html);
-                $main_html = str_replace('%prod_delete_nonce%', csrf_getNonce("prod_delete"), $main_html);
-                $main_html = str_replace('%prod_edit_nonce%', csrf_getNonce("prod_edit"), $main_html);
+                $main_html = str_replace('%prod_insert_nonce%', string_sanitization(csrf_getNonce("prod_insert")), $main_html);
+                $main_html = str_replace('%cat_insert_nonce%', string_sanitization(csrf_getNonce("cat_insert")), $main_html);
+                $main_html = str_replace('%cat_edit_nonce%', string_sanitization(csrf_getNonce("cat_edit")), $main_html);
+                $main_html = str_replace('%cat_delete_nonce%', string_sanitization(csrf_getNonce("cat_delete")), $main_html);
+                $main_html = str_replace('%prod_delete_nonce%', string_sanitization(csrf_getNonce("prod_delete")), $main_html);
+                $main_html = str_replace('%prod_edit_nonce%', string_sanitization(csrf_getNonce("prod_edit")), $main_html);
 
                 
                 
