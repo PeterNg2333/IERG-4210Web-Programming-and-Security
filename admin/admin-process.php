@@ -20,7 +20,8 @@ if (is_form($action)){
 	csrf_verifyNonce($action, string_sanitization($_POST['nonce']));
 }
 if(	(is_admin_action($action))
-	&& $auth == false ){
+	&& $auth == false 
+	&& is_admin($auth) == false){
     // header('Location: login_admin.php',true,302);
 	echo json_encode(array('failed'=>'auth-error'));
 	exit();

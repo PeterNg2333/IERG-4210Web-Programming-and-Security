@@ -709,6 +709,24 @@ function auth(){
     return false;
 }
 
+function is_admin($email){
+    global $db_account;
+    $db_account = ierg4210_DB_account();
+    $email = email_sanitization($email);
+    $q = $db_account->prepare("Select FLAG FROM USER WHERE EMAIL = ? LIMIT 1;");
+    $q->bindParam(1, $email);
+    if ($q->execute()){
+        $result = $q->fetchAll();
+        if (empty($result[0])){
+            return "Wrong-email_or_password";
+        }
+        else if ($result[0][1] = 1){
+            return true;
+        }
+        return false;
+    }
+}
+
 ///////////////////////////////////////////// Security /////////////////////////////////////////////////
 /// CSRF attack
 function csrf_getNonce($action){
