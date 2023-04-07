@@ -38,7 +38,14 @@ if ($auth = false) {
 
         <!-- Main -->
         <main id="main" class="container">
-            <div class="row">asd</div>
+            <div class="row mt-5">
+                <ul class="mt-2">
+                    <?php 
+                    $user_email = $user;
+                     echo last_five_orders($user_email);
+                    ?>
+                </ul>
+            </div>
         </main>
         <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
         <script src="JavaScript/utity.js"></script>

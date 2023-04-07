@@ -474,6 +474,24 @@ function store_order($user, $productList, $currency, $totalPrice, $paymentStatus
     return false;
 }
 
+function last_five_orders($user_email){
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $user_email = email_sanitization($user_email);
+    $q = $db->prepare("SELECT * FROM USER_ORDERS WHERE USER = ? ORDER BY OID LIMIT 5;");
+    $q->bindParam(1, $user_email);
+
+
+    if ($q->execute()){
+        header("Content-Type: application/json");
+        $result = $q->fetchAll();
+        return json_encode($result);
+    };
+
+    return false;
+}
+
 ///////////////////////////////////////////// Auth /////////////////////////////////////////////////
 function is_admin_action($action){
     if ($action == "cat_insert" || $action == "cat_edit" || $action == "cat_delete" || $action == "prod_edit" || $action == "prod_delete" || $action == "prod_insert"){
