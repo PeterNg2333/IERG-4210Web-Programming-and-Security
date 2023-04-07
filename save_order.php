@@ -15,17 +15,17 @@ function save_order($order) {
   /* @TODO Comment out the current return statement */
   /* ========== REGION START ========== */
   file_put_contents("order.json", json_encode($order, JSON_PRETTY_PRINT));
-  // $purchase= $order -> {'purchase_units'}[0];
-  // echo json_encode(array($purchase));
+  $purchase= $order -> {'purchase_units'}[0];
+  echo json_encode(array($purchase));
 
   /* ========== REGION END ========== */
 
   /* @TODO Your Implementation Here. */
   /* ========== REGION START ========== */
 
-  $user = auth();
-  $purchase = $order -> {'purchase_units'}[0];
-  $payer = $order -> {'payer'};
+  // $user = auth();
+  // $purchase = $order -> {'purchase_units'}[0];
+  // $payer = $order -> {'payer'};
   // if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $user ))
   //       throw new Exception("invalid-email");
   // if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $payer-> {'email_address'}))
@@ -45,7 +45,7 @@ function save_order($order) {
   // if($user){
   //   echo json_encode($user);
   // }
-  echo json_encode(array($purchase));
+  // echo json_encode(array($purchase));
   
 
 
