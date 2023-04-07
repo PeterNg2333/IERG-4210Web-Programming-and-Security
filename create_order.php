@@ -106,15 +106,12 @@ function create_order($cart)
     $order_value = $order_value + ($quantity*$quantity);
   }
 
-  
-
-
   $order = json_decode(array("purchase_units" => []));
-  $order -> purchase_units[0]->items = $items;
   $order -> purchase_units[0]->amount->currency_code = "USD";
-  $order -> purchase_units[0]->amount->currency_code = $order_value;
-  $order -> purchase_units[0]->amount->breakdown->item_total->currency_code = $order_value;
+  $order -> purchase_units[0]->amount->value = $order_value;
+  $order -> purchase_units[0]->amount->breakdown->item_total->currency_code = "USD";
   $order -> purchase_units[0]->amount->breakdown->item_total->value = $order_value;
+  $order -> purchase_units[0]->items = $items;
   $order->purchase_units[0]->custom_id = gen_digest(array($order->purchase_units[0]->amount->currency_code));
   $order->purchase_units[0]->invoice_id = gen_uuid(); // invoice_id must be unique to avoid crashes.
 
