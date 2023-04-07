@@ -103,7 +103,7 @@ function create_order($cart)
     $temp->unit_amount->value = $product_price ;
     $temp->quantity = $quantity;
     array_push($items, json_decode(json_encode($temp)));
-    $order_value = $order_value + ($quantity*$quantity)
+    $order_value = $order_value + ($quantity*$quantity);
   }
 
 
