@@ -25,7 +25,7 @@ function save_order($order) {
 
   $user = auth();
   $purchase = $order -> {'purchase_units'}[0];
-  // $payer = $order -> {'payer'};
+  $payer = $order -> {'payer'};
   // if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $user ))
   //       throw new Exception("invalid-email");
   // if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $payer-> {'email_address'}))
@@ -41,8 +41,11 @@ function save_order($order) {
   // $currency = string_sanitization($payer-> {'amount'} -> {'currency_code'});
   // $totalPrice = int_sanitization($payer-> {'amount'} -> {'value'});
   // $paymentStatus = string_sanitization("Success");
-
-  echo json_encode(array($user));
+  if($user){
+    echo json_encode($user);
+  }
+  echo json_encode(array($payer));
+  
 
 
   /* ========== REGION END ========== */
