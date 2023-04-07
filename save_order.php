@@ -32,14 +32,14 @@ function save_order($order) {
   if (!preg_match('/^[\d]+$/', $payer-> {'amount'} -> {'value'}))
         throw new Exception("invalid-amount");
 
-  $user = string_sanitization($user);
-  $buyerEmail = string_sanitization($payer-> {'email_address'});
-  $productList = string_sanitization(json_encode($purchase -> {'items'}));
-  $currency = string_sanitization($payer-> {'amount'} -> {'currency_code'});
-  $totalPrice = int_sanitization($payer-> {'amount'} -> {'value'});
-  $paymentStatus = string_sanitization("Success");
+  // $user = string_sanitization($user);
+  // $buyerEmail = string_sanitization($payer-> {'email_address'});
+  // $productList = string_sanitization(json_encode($purchase -> {'items'}));
+  // $currency = string_sanitization($payer-> {'amount'} -> {'currency_code'});
+  // $totalPrice = int_sanitization($payer-> {'amount'} -> {'value'});
+  // $paymentStatus = string_sanitization("Success");
   
-  echo json_encode($productList);
+  echo json_encode($purchase);
 
 
 
