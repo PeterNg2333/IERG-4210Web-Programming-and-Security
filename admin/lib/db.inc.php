@@ -453,6 +453,27 @@ function get_prod_by_pid($pid){
     exit();
 }
 
+function store_order($user, $productList, $currency, $totalPrice, $paymentStatus, $buyerEmail){
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("INSERT INTO USER_ORDERS (OID, USER, PRODUCTLIST, CURRENCY , TOTALPRICE, PAYMENT_STATUS, BUYER_EMAIL) VALUES (NULL, ?, ?, ?, ?, ?, ?)");
+    $q->bindParam(1, $user);
+    $q->bindParam(2, $productList);
+    $q->bindParam(3, $currency);
+    $q->bindParam(4, $totalPrice);
+    $q->bindParam(5, $paymentStatus);
+    $q->bindParam(6, $buyerEmail);
+
+    if ($q->execute()){
+        header("Content-Type: application/json");
+        $result = $q->fetchAll();
+        return $result;
+    };
+
+    return false;
+}
+
 ///////////////////////////////////////////// Auth /////////////////////////////////////////////////
 function is_admin_action($action){
     if ($action == "cat_insert" || $action == "cat_edit" || $action == "cat_delete" || $action == "prod_edit" || $action == "prod_delete" || $action == "prod_insert"){
@@ -644,7 +665,6 @@ function ierg4210_exit(){
     // unset($_SESSION['auth']);
     // return auth();
 }
-
 
 
 function auth(){
