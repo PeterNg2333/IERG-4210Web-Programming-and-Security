@@ -722,9 +722,9 @@ function is_admin($email){
         }
         $flag = $result["FLAG"];
         if ($flag  == "1"){
-            return $flag;
+            return json_encode($flag);
         }
-        return $flag;
+        return json_encode($flag);
 
     }
 }
