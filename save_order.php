@@ -2,7 +2,7 @@
 
 /* @TODO It is free to add helper functions here. */
 /* ========== REGION START ========== */
-
+// require __DIR__.'/admin/lib/db.inc.php';
 
 
 /* ========== REGION END ========== */
@@ -15,18 +15,19 @@ function save_order($order) {
   /* @TODO Comment out the current return statement */
   /* ========== REGION START ========== */
   file_put_contents("order.json", json_encode($order, JSON_PRETTY_PRINT));
-  $purchase = $order -> {'purchase_units'}[0] -> {'items'};
-  header('Content-Type: text/html; charset=utf-8');
-  echo json_encode($purchase);
-  exit();
+
+
   /* ========== REGION END ========== */
 
   /* @TODO Your Implementation Here. */
   /* ========== REGION START ========== */
+  $purchase = $order -> {'purchase_units'}[0];
+  $payer = $order -> {'payer'};
 
 
-
-
+  header('Content-Type: text/html; charset=utf-8');
+  echo json_encode($payer);
+  exit();
   /* ========== REGION END ========== */
 }
 
