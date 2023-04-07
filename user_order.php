@@ -22,7 +22,7 @@ if ($auth = false) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"/>
         <link rel="stylesheet" type="text/css" href="CSS/index.css">
-        <link rel="stylesheet" type="text/css" href="CSS/main.css">
+        <!-- <link rel="stylesheet" type="text/css" href="CSS/main.css"> -->
     </head>
     <body>
 
@@ -34,6 +34,11 @@ if ($auth = false) {
                 echo $header_html;
             ?>
         </header>
+
+        <!-- Main -->
+        <main id="main" class="container">
+            <div class="row">asd</div>
+        </main>
         <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
         <script src="JavaScript/utity.js"></script>
         <script src="JavaScript/index.js"></script>
