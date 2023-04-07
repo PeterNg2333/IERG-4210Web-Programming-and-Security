@@ -8,7 +8,7 @@
 /* ========== REGION END ========== */
 
 /**
- * This function saves the order into the databse.
+ * This function saves the order into the database.
  * @param order an object containing order details
  */
 function save_order($order) {

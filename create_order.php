@@ -37,8 +37,7 @@ function create_order($cart)
 {
   /* @TODO Comment out the current return statement */
   /* ========== REGION START ========== */
-  $json = <<<HEREA
-  {
+  $json = '{
     "purchase_units": [
       {
         "amount": {
@@ -71,8 +70,8 @@ function create_order($cart)
         ]
       }
     ]
-  }
-  HEREA;
+  }';
+  
 
   $order = json_decode($json);
 
