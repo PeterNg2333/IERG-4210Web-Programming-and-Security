@@ -2,6 +2,11 @@
 require __DIR__.'/admin/lib/db.inc.php';
 $c_res = ierg4210_cat_fetchall();
 // $p_res = ierg4210_prod_fetchAll();
+$user = email_sanitization(auth());
+if (! $auth) {
+    $user = "Guest";
+}
+
 if (!preg_match('/^\d*$/', $_GET['cid']))
     throw new Exception("invalid-cid");
 $get_cid = int_sanitization(($_GET['cid']));
@@ -102,6 +107,7 @@ $product .='';
         <header id="header" class="container-fiuld d-none">
             <?php 
                 $header_html = file_get_contents('./Snippet/Header.html');
+                $header_html = str_replace('%User%', $user, $header_html);
                 echo $header_html;
             ?>
         </header>
