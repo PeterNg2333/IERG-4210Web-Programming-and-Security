@@ -2,8 +2,7 @@
 
 /* @TODO It is free to add helper functions here. */
 /* ========== REGION START ========== */
-
-
+require __DIR__.'/lib/db.inc.php';
 
 /* ========== REGION END ========== */
 
@@ -83,8 +82,12 @@ function create_order($cart)
 
   /* @TODO Your Implementation here */
   /* ========== REGION START ========== */
+  $order_amount = 0;
+  $items = array();
+
+
   $order = json_decode(array("purchase_units" => []));
-  $order -> purchase_units[0]->items = $cart[0];
+  $order -> purchase_units[0]->items = $cart;
 
 
   // $json = array("purchase_units" => $cart);
