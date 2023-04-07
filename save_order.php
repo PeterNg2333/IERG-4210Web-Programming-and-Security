@@ -2,7 +2,7 @@
 
 /* @TODO It is free to add helper functions here. */
 /* ========== REGION START ========== */
-// require __DIR__.'/admin/lib/db.inc.php';
+require __DIR__.'/admin/lib/db.inc.php';
 
 
 /* ========== REGION END ========== */
@@ -24,9 +24,10 @@ function save_order($order) {
   $purchase = $order -> {'purchase_units'}[0];
   $amount = $order -> {'purchase_units'}[0] -> {'amount'};
   $payer = $order -> {'payer'};
+  $user = auth();
 
-  // if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $user ))
-  //       throw new Exception("invalid-email");
+  if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $user ))
+        throw new Exception("invalid-email");
   if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $payer-> {'email_address'}))
         throw new Exception("invalid-email");
   if (!preg_match('/^[\w]+$/', $amount -> {'currency_code'}))
@@ -34,19 +35,18 @@ function save_order($order) {
   if (!preg_match('/^[\d]+$/', (int)($amount -> {'value'})))
         throw new Exception("invalid-amount");
 
-  // $user = string_sanitization($user);
-  // $buyerEmail = string_sanitization($payer-> {'email_address'});
-  // $productList = string_sanitization(json_encode($purchase -> {'items'}));
-  // $currency = string_sanitization($payer-> {'amount'} -> {'currency_code'});
-  // $totalPrice = int_sanitization($payer-> {'amount'} -> {'value'});
-  // $paymentStatus = string_sanitization("Success");
+  $user = string_sanitization($user);
+  $buyerEmail = string_sanitization($payer-> {'email_address'});
+  $productList = string_sanitization(json_encode($purchase -> {'items'}));
+  $currency = string_sanitization($payer-> {'amount'} -> {'currency_code'});
+  $totalPrice = int_sanitization($payer-> {'amount'} -> {'value'});
+  $paymentStatus = string_sanitization("Success");
 
-    // $user = string_sanitization($user);
-  $buyerEmail = $payer-> {'email_address'};
-  $productList = json_encode($purchase -> {'items'});
-  $currency = $amount -> {'currency_code'};
-  $totalPrice = $amount -> {'value'};
-  $paymentStatus = "Success";
+  // $buyerEmail = $payer-> {'email_address'};
+  // $productList = json_encode($purchase -> {'items'});
+  // $currency = $amount -> {'currency_code'};
+  // $totalPrice = $amount -> {'value'};
+  // $paymentStatus = "Success";
   header('Content-Type: text/html; charset=utf-8');
   echo json_encode(array($buyerEmail, $currency, $totalPrice, $paymentStatus, $productList));
   exit();
