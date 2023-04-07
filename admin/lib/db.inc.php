@@ -724,7 +724,7 @@ function is_admin($email){
         //     return true;
         // }
         // return false;
-        return $result[0];
+        return $result[0][1];
     }
 }
 
