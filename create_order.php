@@ -83,7 +83,7 @@ function create_order($cart)
 
   /* @TODO Your Implementation here */
   /* ========== REGION START ========== */
-  $order = $cart;
+  $order = $cart[0];
 
 
   // $json = array("purchase_units" => $cart);
