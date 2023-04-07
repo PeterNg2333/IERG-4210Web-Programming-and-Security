@@ -50,6 +50,7 @@ foreach ($res_cat_fetchall as $value){
         <header id="header" class="container-lg d-none">
             <?php 
                 $header_html = file_get_contents('./Snippet_admin/header_admin.html');
+                $header_html = str_replace('%Admin%', email_sanitization($auth), $header_html);
                 echo $header_html;
             ?>
         </header>
