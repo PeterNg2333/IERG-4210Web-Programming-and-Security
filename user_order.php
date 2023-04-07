@@ -43,6 +43,7 @@ if ($auth = false) {
                     <?php 
                     $user_email = $user;
                     $order = last_five_orders($user_email);
+                    echo $order ;
                     // echo json_decode(last_five_orders($user_email))[0];
                     foreach ($c_res as $value){
                         // $productList = json_decode($value["PRODUCTLIST"]);
