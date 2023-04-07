@@ -83,16 +83,15 @@ function create_order($cart)
 
   /* @TODO Your Implementation here */
   /* ========== REGION START ========== */
-  $json = [];
-  return $cart[0];
+  $json = $cart;
 
 
-  // $order = json_decode($json);
+  $order = json_decode($json);
 
-  // $order->purchase_units[0]->custom_id = gen_digest(array($order->purchase_units[0]->amount->currency_code));
-  // $order->purchase_units[0]->invoice_id = gen_uuid(); // invoice_id must be unique to avoid crashes.
+  $order->purchase_units[0]->custom_id = gen_digest(array($order->purchase_units[0]->amount->currency_code));
+  $order->purchase_units[0]->invoice_id = gen_uuid(); // invoice_id must be unique to avoid crashes.
 
-  // return json_encode($order);
+  return json_encode($order);
   /* ========== REGION END ========== */
 }
 
@@ -100,6 +99,5 @@ function create_order($cart)
 $json = file_get_contents("php://input");
 $cart = json_decode($json);
 echo create_order($cart);
-exit;
 
 ?>
