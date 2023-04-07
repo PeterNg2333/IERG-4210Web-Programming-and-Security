@@ -47,7 +47,10 @@
 
 }
 
-/*  */
+/* Header  */
+.account_name{
+    overflow: hidden !important;
+}
 
 /* Footer */
 .footerBg{
@@ -66,3 +69,4 @@
 
 
 }
+

@@ -138,7 +138,7 @@ $product .='';
         <script src="JavaScript/index.js"></script>
 
         <script src="https://www.paypal.com/sdk/js?client-id=<?php echo json_decode(file_get_contents("secret.json"))->client_id; ?>"></script>
-        <script src="cart.js"></script>
+        <script src="JavaScript/cart.js"></script>
         <script>
             paypal.Buttons({
             /* Sets up the transaction when a payment button is clicked */
