@@ -479,7 +479,7 @@ function last_five_orders($user_email){
     global $db;
     $db = ierg4210_DB();
     $user_email = email_sanitization($user_email);
-    $q = $db->prepare("SELECT * FROM USER_ORDERS WHERE USER = ? ORDER BY OID LIMIT 5;");
+    $q = $db->prepare("SELECT * FROM USER_ORDERS WHERE USER = ? ORDER BY OID DESC LIMIT 5;");
     $q->bindParam(1, $user_email);
 
 
