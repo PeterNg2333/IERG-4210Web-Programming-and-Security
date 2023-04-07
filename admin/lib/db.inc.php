@@ -484,7 +484,6 @@ function last_five_orders($user_email){
 
 
     if ($q->execute()){
-        header("Content-Type: application/json");
         $result = $q->fetchAll();
         return json_encode($result);
     };

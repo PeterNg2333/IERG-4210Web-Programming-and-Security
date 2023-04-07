@@ -42,7 +42,7 @@ if ($auth = false) {
                 <ul class="mt-2">
                     <?php 
                     $user_email = $user;
-                     echo last_five_orders($user_email);
+                    echo last_five_orders($user_email);
                     ?>
                 </ul>
             </div>
