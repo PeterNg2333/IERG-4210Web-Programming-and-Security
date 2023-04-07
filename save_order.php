@@ -23,10 +23,30 @@ function save_order($order) {
   /* ========== REGION START ========== */
   $purchase = $order -> {'purchase_units'}[0];
   $payer = $order -> {'payer'};
+  // if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $user ))
+  //       throw new Exception("invalid-email");
+  if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $payer-> {'email_address'}))
+        throw new Exception("invalid-email");
+  if (!preg_match('/^[\w]+$/', $payer-> {'amount'} -> {'currency_code'}))
+        throw new Exception("invalid-currency_code");
+  if (!preg_match('/^[\d]+$/', $payer-> {'amount'} -> {'value'}))
+        throw new Exception("invalid-amount");
 
+  // $user = string_sanitization($user);
+  // $buyerEmail = string_sanitization($payer-> {'email_address'});
+  // $productList = string_sanitization(json_encode($purchase -> {'items'}));
+  // $currency = string_sanitization($payer-> {'amount'} -> {'currency_code'});
+  // $totalPrice = int_sanitization($payer-> {'amount'} -> {'value'});
+  // $paymentStatus = string_sanitization("Success");
 
+    // $user = string_sanitization($user);
+  $buyerEmail = $payer-> {'email_address'};
+  $productList = json_encode($purchase -> {'items'});
+  $currency = $payer-> {'amount'} -> {'currency_code'};
+  $totalPrice = $payer-> {'amount'} -> {'value'};
+  $paymentStatus = "Success";
   header('Content-Type: text/html; charset=utf-8');
-  echo json_encode($payer);
+  echo json_encode(array($buyerEmail, $productList, $currency, $totalPrice, $paymentStatus));
   exit();
   /* ========== REGION END ========== */
 }
