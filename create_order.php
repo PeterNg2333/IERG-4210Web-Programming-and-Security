@@ -89,7 +89,7 @@ function create_order($cart)
     $quantity = $item->quantity;
 
     $temp = array("name" => $pid, "unit_amount" => "2","quantity" => $quantity);
-    array_push($items, json_decode($temp));
+    array_push($items, $pid);
   }
 
 
