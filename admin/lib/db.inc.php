@@ -428,6 +428,31 @@ function ierg4210_prod_count_limit(){
     exit();
 }
 
+
+///////////////////////////////////////////// Payment /////////////////////////////////////////////////
+function get_prod_by_pid($pid){
+    if (!preg_match('/^[\d]+$/', $pid))
+        throw new Exception("invalid-id");
+
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("SELECT * FROM PRODUCTS WHERE PID = ? LIMIT 1;");
+    $pid = int_sanitization($pid);
+    $q->bindParam(1, $pid);
+
+    if ($q->execute()){
+        header("Content-Type: application/json");
+        $result = $q->fetchAll();
+        return json_encode(array($result));
+    };
+
+    header("Content-Type: application/json");
+    $result = array("status" => "Failed");
+    echo json_encode($result);
+    exit();
+}
+
 ///////////////////////////////////////////// Auth /////////////////////////////////////////////////
 function is_admin_action($action){
     if ($action == "cat_insert" || $action == "cat_edit" || $action == "cat_delete" || $action == "prod_edit" || $action == "prod_delete" || $action == "prod_insert"){

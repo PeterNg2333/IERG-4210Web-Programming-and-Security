@@ -85,11 +85,16 @@ function create_order($cart)
   $order_value = 0;
   $items = array();
   foreach($cart as $item){
-    $pid = $item->pid;
-    $quantity = $item->quantity;
+    if (!preg_match('/^[\d]+$/', $item->pid))
+      throw new Exception("invalid-pid");
+    if (!preg_match('/^[\d]+$/', $item->quantity))
+      throw new Exception("invalid-quantity");
+    $pid = int_sanitization($item->pid);
+    $quantity = int_sanitization($item->quantity);
+    $product = get_prod_by_pid($pid);
 
     $temp = array("name" => $pid, "unit_amount" => "2","quantity" => $quantity);
-    array_push($items, $pid);
+    array_push($items, $product);
   }
 
 
