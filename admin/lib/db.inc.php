@@ -720,11 +720,12 @@ function is_admin($email){
         if (empty($result[0])){
             return "Wrong-email_or_password";
         }
-        // else if ($result[0][1] = "1"){
-        //     return true;
-        // }
-        // return false;
-        return json_encode($result);
+        $flag = $result["FLAG"];
+        if ($flag  == "1"){
+            return true;
+        }
+        return false;
+
     }
 }
 

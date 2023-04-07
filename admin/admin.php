@@ -4,12 +4,11 @@ $auth=auth();
 if($auth==false ){
     header('Location: login_admin.php',true,302);
 }
-    echo is_admin($auth);
+
+if (is_admin($auth) == false){
+    echo "Please login in with Admin account";
     exit();
-// if (is_admin($auth) == false){
-//     echo "Please login in with Admin account";
-//     exit();
-// }
+}
 $res_cat_fetchall = ierg4210_cat_fetchall();
 $res_number = ierg4210_prod_and_cat_count();
 $options = '';
