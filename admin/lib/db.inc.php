@@ -485,8 +485,7 @@ function last_five_orders($user_email){
 
     if ($q->execute()){
         $result = $q->fetchAll();
-        echo json_encode($result);
-        exit();
+        return $result;
     };
 }
 
