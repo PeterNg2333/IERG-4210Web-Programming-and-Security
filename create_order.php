@@ -100,5 +100,6 @@ function create_order($cart)
 $json = file_get_contents("php://input");
 $cart = json_decode($json);
 echo create_order($cart);
+exit;
 
 ?>
