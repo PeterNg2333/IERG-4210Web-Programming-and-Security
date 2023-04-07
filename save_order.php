@@ -29,8 +29,8 @@ function save_order($order) {
   //       throw new Exception("invalid-email");
   // if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $payer-> {'email_address'}))
   //       throw new Exception("invalid-email");
-  // if (!preg_match('/^[\w]+$/', $amount -> {'currency_code'}))
-  //       throw new Exception("invalid-currency_code");
+  if (!preg_match('/^[\w]+$/', $amount -> {'currency_code'}))
+        throw new Exception("invalid-currency_code");
   if (!preg_match('/^[\d]+$/', (int)($amount -> {'value'})))
         throw new Exception("invalid-amount");
 
