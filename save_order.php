@@ -31,8 +31,8 @@ function save_order($order) {
   //       throw new Exception("invalid-email");
   // if (!preg_match('/^[\w]+$/', $amount -> {'currency_code'}))
   //       throw new Exception("invalid-currency_code");
-  if (!preg_match('/^[\d]+$/', $amount -> {'value'}))
-        throw new Exception("invalid-amount");
+  // if (!preg_match('/^[\d]+$/', $amount -> {'value'}))
+  //       throw new Exception("invalid-amount");
 
   // $user = string_sanitization($user);
   // $buyerEmail = string_sanitization($payer-> {'email_address'});
