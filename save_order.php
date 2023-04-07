@@ -41,9 +41,10 @@ function save_order($order) {
   // $currency = string_sanitization($payer-> {'amount'} -> {'currency_code'});
   // $totalPrice = int_sanitization($payer-> {'amount'} -> {'value'});
   // $paymentStatus = string_sanitization("Success");
-  if($user){
-    echo json_encode($user);
-  }
+
+  // if($user){
+  //   echo json_encode($user);
+  // }
   echo json_encode($payer);
   
 
