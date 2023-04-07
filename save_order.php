@@ -25,13 +25,13 @@ function save_order($order) {
   $amount = $order -> {'purchase_units'}[0] -> {'amount'};
   $payer = $order -> {'payer'};
 
-  if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $user ))
-        throw new Exception("invalid-email");
+  // if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $user ))
+  //       throw new Exception("invalid-email");
   if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $payer-> {'email_address'}))
         throw new Exception("invalid-email");
-  if (!preg_match('/^[\w]+$/', $payer-> {'amount'} -> {'currency_code'}))
+  if (!preg_match('/^[\w]+$/', $amount -> {'currency_code'}))
         throw new Exception("invalid-currency_code");
-  if (!preg_match('/^[\d]+$/', $payer-> {'amount'} -> {'value'}))
+  if (!preg_match('/^[\d]+$/', $amount -> {'value'}))
         throw new Exception("invalid-amount");
 
   // $user = string_sanitization($user);
