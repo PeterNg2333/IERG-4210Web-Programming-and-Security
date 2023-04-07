@@ -101,12 +101,12 @@ function create_order($cart)
     $temp->name = $product_name;
     $temp->unit_amount = $product_price;
     $temp->quantity = $quantity;
-    array_push($items, json_encode($temp));
+    array_push($items, json_decode($temp));
   }
 
 
   $order = json_decode(array("purchase_units" => []));
-  $order -> purchase_units[0]->items = json_decode($items);
+  $order -> purchase_units[0]->items = $items;
   
 
 
