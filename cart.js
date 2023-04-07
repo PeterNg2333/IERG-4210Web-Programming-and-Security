@@ -5,19 +5,19 @@
 function getCartItems() {
   /* @TODO Comment out the current return statement */
   /* ========== REGION START ========== */
-  return [
-    {
-      pid: 1, quantity: 1,
-    },
-    {
-      pid: 2, quantity: 2
-    }
-  ];
+  // return [
+  //   {
+  //     pid: 1, quantity: 1,
+  //   },
+  //   {
+  //     pid: 2, quantity: 2
+  //   }
+  // ];
   /* ========== REGION END ========== */
 
   /* @TODO Your Implementation Here. */
   /* ========== REGION START ========== */
-
+  return localStorage.getItem('shoppingList');
 
 
   /* ========== REGION END ========== */
@@ -29,7 +29,7 @@ function getCartItems() {
 function clearCart() {
   /* @TODO Your Implementation Here. */
   /* ========== REGION START ========== */
-
+  localStorage.clear();
 
 
   /* ========== REGION END ========== */ 
