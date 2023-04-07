@@ -93,26 +93,23 @@ function create_order($cart)
     $pid = int_sanitization($item->pid);
     $product = get_prod_by_pid($pid)[0];
 
-    $product_name = $product["PRODUCT_NAME"];
-    $product_price = $product["PRICE"];
+    $product_name = string_sanitization($product["PRODUCT_NAME"]);
+    $product_price = int_sanitization($product["PRICE"]);
     $quantity = int_sanitization($item->quantity);
 
     $temp = new stdClass();
     $temp->name = $product_name;
-    $temp->unit_amount = $product_price;
+    $temp->unit_amount->currency_code = "USD";
+    $temp->unit_amount->value = $product_price ;
     $temp->quantity = $quantity;
     array_push($items, json_decode(json_encode($temp)));
+    $order_value = $order_value + ($quantity*$quantity)
   }
 
 
   $order = json_decode(array("purchase_units" => []));
   $order -> purchase_units[0]->items = $items;
-  
-
-
-  // $json = array("purchase_units" => $cart);
-  // $order = json_encode($json);
-
+  $order -> purchase_units[0]->amount = $order_value;
   $order->purchase_units[0]->custom_id = gen_digest(array($order->purchase_units[0]->amount->currency_code));
   $order->purchase_units[0]->invoice_id = gen_uuid(); // invoice_id must be unique to avoid crashes.
 
