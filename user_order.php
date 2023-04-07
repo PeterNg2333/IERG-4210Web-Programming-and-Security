@@ -44,7 +44,7 @@ if ($auth = false) {
                     $user_email = $user;
                     $order = last_five_orders($user_email);
                     // echo json_decode(last_five_orders($user_email))[0];
-                    echo json_encode($order);
+                    echo $order[0];
 
                     ?>
                 </ul>
