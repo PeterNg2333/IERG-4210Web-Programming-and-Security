@@ -84,8 +84,7 @@ function create_order($cart)
   /* @TODO Your Implementation here */
   /* ========== REGION START ========== */
   $json = [];
-  echo $cart;
-  exit;
+  return $cart;
 
 
   // $order = json_decode($json);
