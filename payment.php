@@ -3,6 +3,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="0.001; url='https://secure.s19.ierg4210.ie.cuhk.edu.hk/main.php'" />
   <!-- Ensures optimal rendering on mobile devices -->
 </head>
 
