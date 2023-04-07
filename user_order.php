@@ -43,9 +43,9 @@ if ($auth = false) {
                     <?php 
                     $user_email = $user;
                     $order = last_five_orders($user_email);
-                    echo $order ;
+                    // echo json_decode($order);
                     // echo json_decode(last_five_orders($user_email))[0];
-                    foreach ($c_res as $value){
+                    foreach ($order as $value){
                         // $productList = json_decode($value["PRODUCTLIST"]);
                         $currency = string_sanitization($value["CURRENCY"]);
                         $totalPrice = int_sanitization($value["TOTALPRICE"]);
