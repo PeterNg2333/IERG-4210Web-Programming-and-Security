@@ -12,8 +12,7 @@ require __DIR__.'/admin/lib/db.inc.php';
  */
 function gen_digest($array)
 {
-  $salt = mt_rand()*mt_rand();
-  $digest = hash("sha256", implode(";", $array).$salt);
+  $digest = hash("sha256", implode(";", $array));
   return $digest;
 }
 
@@ -85,6 +84,7 @@ function create_order($cart)
   /* ========== REGION START ========== */
   $order_value = 0;
   $items = array();
+  $salt = mt_rand()*mt_rand();
   foreach($cart as $item){
     if (!preg_match('/^[\d]+$/', $item->pid))
       throw new Exception("invalid-pid");
@@ -113,7 +113,7 @@ function create_order($cart)
   $order -> purchase_units[0]->amount->breakdown->item_total->currency_code = "USD";
   $order -> purchase_units[0]->amount->breakdown->item_total->value = $order_value;
   $order -> purchase_units[0]->items = $items;
-  $order->purchase_units[0]->custom_id = gen_digest(array(json_encode($order)));
+  $order->purchase_units[0]->custom_id = gen_digest(array(json_encode($order), $salt, "sb-ywvit25424931@business.example.com"));
   $order->purchase_units[0]->invoice_id = gen_uuid(); // invoice_id must be unique to avoid crashes.
 
   return json_encode($order);
