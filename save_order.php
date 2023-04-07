@@ -25,12 +25,12 @@ function save_order($order) {
   $payer = $order -> {'payer'};
   // if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $user ))
   //       throw new Exception("invalid-email");
-  if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $payer-> {'email_address'}))
-        throw new Exception("invalid-email");
-  if (!preg_match('/^[\w]+$/', $payer-> {'amount'} -> {'currency_code'}))
-        throw new Exception("invalid-currency_code");
-  if (!preg_match('/^[\d]+$/', $payer-> {'amount'} -> {'value'}))
-        throw new Exception("invalid-amount");
+  // if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $payer-> {'email_address'}))
+  //       throw new Exception("invalid-email");
+  // if (!preg_match('/^[\w]+$/', $payer-> {'amount'} -> {'currency_code'}))
+  //       throw new Exception("invalid-currency_code");
+  // if (!preg_match('/^[\d]+$/', $payer-> {'amount'} -> {'value'}))
+  //       throw new Exception("invalid-amount");
 
   // $user = string_sanitization($user);
   // $buyerEmail = string_sanitization($payer-> {'email_address'});
@@ -41,7 +41,7 @@ function save_order($order) {
 
     // $user = string_sanitization($user);
   $buyerEmail = $payer-> {'email_address'};
-  $productList = json_encode($purchase -> {'items'});
+  // $productList = json_encode($purchase -> {'items'});
   $currency = $payer-> {'amount'} -> {'currency_code'};
   $totalPrice = $payer-> {'amount'} -> {'value'};
   $paymentStatus = "Success";
