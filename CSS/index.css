@@ -52,6 +52,10 @@
     overflow: hidden !important;
 }
 
+.account_name{
+    width: 250px;
+}
+
 /* Footer */
 .footerBg{
     background:radial-gradient(circle farthest-corner at right,#0d1449,#051f5c);
