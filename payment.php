@@ -27,7 +27,7 @@
           body: JSON.stringify(getCartItems(), null, 2)
         }).then(response => response.json());
 
-        console.log(order_details);
+        // console.log(order_details);
 
         return actions.order.create(order_details);
       },

@@ -17,6 +17,7 @@ function save_order($order) {
   file_put_contents("order.json", json_encode($order, JSON_PRETTY_PRINT));
   $purchase = $order -> {'purchase_units'}[0] -> {'items'};
   echo json_encode($purchase);
+  exit;
   /* ========== REGION END ========== */
 
   /* @TODO Your Implementation Here. */
