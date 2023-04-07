@@ -724,7 +724,7 @@ function is_admin($email){
         if ($flag  == "1"){
             return true;
         }
-        return json_encode(array($flag));
+        return false;
 
     }
 }
