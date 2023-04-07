@@ -43,12 +43,12 @@ function save_order($order) {
 
     // $user = string_sanitization($user);
   $buyerEmail = $payer-> {'email_address'};
-  // $productList = json_encode($purchase -> {'items'});
+  $productList = json_encode($purchase -> {'items'});
   $currency = $amount -> {'currency_code'};
   $totalPrice = $amount -> {'value'};
   $paymentStatus = "Success";
   header('Content-Type: text/html; charset=utf-8');
-  echo json_encode(array($buyerEmail, $currency, $totalPrice, $paymentStatus));
+  echo json_encode(array($buyerEmail, $currency, $totalPrice, $paymentStatus, $productList));
   exit();
   /* ========== REGION END ========== */
 }
