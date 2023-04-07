@@ -42,7 +42,7 @@ function create_order($cart)
       {
         "amount": {
           "currency_code": "USD",
-          "value": 5,
+          "value": 11,
           "breakdown": {
             "item_total": {
               "currency_code": "USD",
