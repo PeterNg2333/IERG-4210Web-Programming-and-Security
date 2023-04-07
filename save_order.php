@@ -2,7 +2,7 @@
 
 /* @TODO It is free to add helper functions here. */
 /* ========== REGION START ========== */
-require __DIR__.'/admin/lib/db.inc.php';
+// require __DIR__.'/admin/lib/db.inc.php';
 
 
 /* ========== REGION END ========== */
