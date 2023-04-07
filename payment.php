@@ -46,9 +46,9 @@
               },
               body: JSON.stringify(orderData, null, 2)
             });
-
+            
             clearCart(); // Clear the web shop cart
-            window.location.href = "payment.php"; // Redirect to another page
+            // window.location.href = "main.php"; // Redirect to another page
           });
       },
     }).render('#paypal-button-container');
