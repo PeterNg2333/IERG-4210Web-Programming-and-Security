@@ -12,7 +12,8 @@ require __DIR__.'/admin/lib/db.inc.php';
  */
 function gen_digest($array)
 {
-  $digest = hash("sha256", implode(";", $array));
+  $salt = mt_rand()*mt_rand();
+  $digest = hash("sha256", implode(";", $array), $salt);
   return $digest;
 }
 
