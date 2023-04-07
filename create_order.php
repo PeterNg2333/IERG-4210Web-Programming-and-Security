@@ -89,12 +89,19 @@ function create_order($cart)
       throw new Exception("invalid-pid");
     if (!preg_match('/^[\d]+$/', $item->quantity))
       throw new Exception("invalid-quantity");
+
     $pid = int_sanitization($item->pid);
-    $quantity = int_sanitization($item->quantity);
     $product = get_prod_by_pid($pid)[0];
 
-    $temp = array("name" => $pid, "unit_amount" => "2","quantity" => $quantity);
-    array_push($items, $product);
+    $product_name = $product["PRODUCT_NAME"];
+    $product_price = $product["PRICE"];
+    $quantity = int_sanitization($item->quantity);
+
+    $temp = new stdClass();
+    $temp->name = $product_name;
+    $temp->unit_amount = $product_price;
+    $temp->quantity = $quantity;
+    array_push($items, json_encode($temp));
   }
 
 
