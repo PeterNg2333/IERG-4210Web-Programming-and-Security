@@ -106,7 +106,7 @@ function create_order($cart)
 
 
   $order = json_decode(array("purchase_units" => []));
-  $order -> purchase_units[0]->items = $items;
+  $order -> purchase_units[0]->items = json_decode($items);
   
 
 
