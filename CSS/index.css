@@ -49,11 +49,8 @@
 
 /* Header  */
 .account_name{
-    overflow: hidden !important;
-}
-
-.account_name{
     width: 250px;
+    overflow: hidden !important;
 }
 
 /* Footer */
