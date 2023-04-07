@@ -21,7 +21,7 @@ function save_order($order) {
   /* @TODO Your Implementation Here. */
   /* ========== REGION START ========== */
   // $user = auth();
-  $purchase = $order -> {'purchase_units'}[0];
+  $purchase = $order -> {'purchase_units'};
   // $payer = $order -> {'payer'};
   // if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $user ))
   //       throw new Exception("invalid-email");
