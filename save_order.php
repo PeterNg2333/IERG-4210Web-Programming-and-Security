@@ -2,7 +2,7 @@
 
 /* @TODO It is free to add helper functions here. */
 /* ========== REGION START ========== */
-require __DIR__.'/admin/lib/db.inc.php';
+
 
 
 /* ========== REGION END ========== */
@@ -15,38 +15,14 @@ function save_order($order) {
   /* @TODO Comment out the current return statement */
   /* ========== REGION START ========== */
   file_put_contents("order.json", json_encode($order, JSON_PRETTY_PRINT));
-  $purchase= $order -> {'purchase_units'}[0];
-  echo json_encode($purchase);
-
+  $purchase = $order -> {'purchase_units'}[0] -> {'items'};
+  echo json_encode($purchase );
   /* ========== REGION END ========== */
 
   /* @TODO Your Implementation Here. */
   /* ========== REGION START ========== */
 
-  // $user = auth();
-  // $purchase = $order -> {'purchase_units'}[0];
-  // $payer = $order -> {'payer'};
-  // if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $user ))
-  //       throw new Exception("invalid-email");
-  // if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $payer-> {'email_address'}))
-  //       throw new Exception("invalid-email");
-  // if (!preg_match('/^[\w]+$/', $payer-> {'amount'} -> {'currency_code'}))
-  //       throw new Exception("invalid-currency_code");
-  // if (!preg_match('/^[\d]+$/', $payer-> {'amount'} -> {'value'}))
-  //       throw new Exception("invalid-amount");
 
-  // $user = string_sanitization($user);
-  // $buyerEmail = string_sanitization($payer-> {'email_address'});
-  // $productList = string_sanitization(json_encode($purchase -> {'items'}));
-  // $currency = string_sanitization($payer-> {'amount'} -> {'currency_code'});
-  // $totalPrice = int_sanitization($payer-> {'amount'} -> {'value'});
-  // $paymentStatus = string_sanitization("Success");
-
-  // if($user){
-  //   echo json_encode($user);
-  // }
-  // echo json_encode(array($purchase));
-  
 
 
   /* ========== REGION END ========== */
