@@ -22,6 +22,7 @@ if ($auth = false) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"/>
         <link rel="stylesheet" type="text/css" href="CSS/index.css">
+        <link rel="stylesheet" type="text/css" href="CSS/order.css">
         <!-- <link rel="stylesheet" type="text/css" href="CSS/main.css"> -->
     </head>
     <body>
