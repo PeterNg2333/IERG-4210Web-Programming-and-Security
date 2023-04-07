@@ -37,7 +37,7 @@ function save_order($order) {
 
   $user = email_sanitization($user);
   $buyerEmail = email_sanitization($payer-> {'email_address'});
-  $productList = email_sanitization(json_encode($purchase -> {'items'}));
+  $productList = json_encode($purchase -> {'items'});
   $currency = string_sanitization($amount -> {'currency_code'});
   $totalPrice = int_sanitization($amount -> {'value'});
   $paymentStatus = string_sanitization("Success");
