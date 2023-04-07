@@ -18,7 +18,7 @@ function getCartItems() {
   /* @TODO Your Implementation Here. */
   /* ========== REGION START ========== */
   console.log(localStorage.getItem('shoppingList'))
-  return localStorage.getItem('shoppingList');
+  return JSON.parse(localStorage.getItem('shoppingList'));
 
 
   /* ========== REGION END ========== */
