@@ -444,7 +444,7 @@ function get_prod_by_pid($pid){
     if ($q->execute()){
         header("Content-Type: application/json");
         $result = $q->fetchAll();
-        return json_encode(array($result));
+        return array($result);
     };
 
     header("Content-Type: application/json");

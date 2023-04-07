@@ -91,7 +91,7 @@ function create_order($cart)
       throw new Exception("invalid-quantity");
     $pid = int_sanitization($item->pid);
     $quantity = int_sanitization($item->quantity);
-    $product = get_prod_by_pid($pid);
+    $product = get_prod_by_pid($pid)[0]->{"PRODUCT_NAME"};
 
     $temp = array("name" => $pid, "unit_amount" => "2","quantity" => $quantity);
     array_push($items, $product);
