@@ -15,7 +15,7 @@ function save_order($order) {
   /* @TODO Comment out the current return statement */
   /* ========== REGION START ========== */
   file_put_contents("order.json", json_encode($order, JSON_PRETTY_PRINT));
-  echo json_encode($order);
+  echo json_encode($order)["purchase_units"];
   /* ========== REGION END ========== */
 
   /* @TODO Your Implementation Here. */
