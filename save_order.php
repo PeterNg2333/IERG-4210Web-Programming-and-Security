@@ -22,7 +22,9 @@ function save_order($order) {
   /* @TODO Your Implementation Here. */
   /* ========== REGION START ========== */
   $purchase = $order -> {'purchase_units'}[0];
+  $amount = $order -> {'purchase_units'}[0] -> {'amount'};
   $payer = $order -> {'payer'};
+
   // if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $user ))
   //       throw new Exception("invalid-email");
   // if (!preg_match('/^[\w\-\/][\w\'\-\/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$/', $payer-> {'email_address'}))
@@ -42,11 +44,11 @@ function save_order($order) {
     // $user = string_sanitization($user);
   $buyerEmail = $payer-> {'email_address'};
   // $productList = json_encode($purchase -> {'items'});
-  $currency = $payer-> {'amount'} -> {'currency_code'};
-  $totalPrice = $payer-> {'amount'} -> {'value'};
+  $currency = $amount -> {'currency_code'};
+  $totalPrice = $amount -> {'value'};
   $paymentStatus = "Success";
   header('Content-Type: text/html; charset=utf-8');
-  echo json_encode(array($buyerEmail, $productList, $currency, $totalPrice, $paymentStatus));
+  echo json_encode(array($buyerEmail, $currency, $totalPrice, $paymentStatus));
   exit();
   /* ========== REGION END ========== */
 }
