@@ -44,7 +44,7 @@ function save_order($order) {
   if($user){
     echo json_encode($user);
   }
-  echo json_encode(array($payer));
+  echo json_encode($payer);
   
 
 
