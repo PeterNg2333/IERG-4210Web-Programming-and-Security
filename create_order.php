@@ -83,11 +83,11 @@ function create_order($cart)
 
   /* @TODO Your Implementation here */
   /* ========== REGION START ========== */
-  $cart;
+  $order = $cart;
 
 
-  $json = array("purchase_units" => $cart[0]);
-  $order = json_encode($json );
+  // $json = array("purchase_units" => $cart);
+  // $order = json_encode($json);
 
   $order->purchase_units[0]->custom_id = gen_digest(array($order->purchase_units[0]->amount->currency_code));
   $order->purchase_units[0]->invoice_id = gen_uuid(); // invoice_id must be unique to avoid crashes.
