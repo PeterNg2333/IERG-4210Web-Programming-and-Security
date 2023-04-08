@@ -17,3 +17,7 @@
 #### 3. Account
   - Admin: admin1155143402@gmail.com, admin123!
   - Normal user: user1155143402@gmail.com user123!
+
+#### 4. Phase 5 Sample Code Update 
+  - payment.php: embeded into main.php (original payment.php is invalid now)
+  - cart.js: moved to Javascript folder
