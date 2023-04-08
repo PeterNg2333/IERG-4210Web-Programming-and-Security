@@ -72,8 +72,8 @@ if ($auth = false) {
                                         echo '<li class="list-group-item user_order_item container">';
                                         // '. $item_name." ".$item_price." ".$item_quantity.
                                         echo '  <div class="row">';
-                                        echo '      <span class="col-4">'.$item_name.'</span';
-                                        echo '      <span class="col-3">$'.$currency." ".$item_price.'</span';
+                                        echo '      <span class="col-4">'.$item_name.'</span>';
+                                        echo '      <span class="col-3">$'.$currency." ".$item_price.'</span>';
                                         echo '      <span class="col-2">#'.$item_quantity.'</span>';
                                         echo '  </div>';
                                         echo'</li>';
