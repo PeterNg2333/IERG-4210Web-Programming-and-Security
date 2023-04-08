@@ -204,7 +204,12 @@ function updateOrderAmount(e){
         var json = JSON.parse(window.localStorage.getItem("shoppingList"));
         var shoppingList = $("#PlaceToInsert_orderedItem");
         var orderSum = 0;
-        var array_length = json.length;
+        if (json === "" & json === null){
+            var array_length = 0;
+        }
+        else{
+            var array_length = json.length;
+        }
         var counter = 0;
         if (!(json === "" & json === null) && json.length > 0){
             json.forEach(element => {
