@@ -41,20 +41,20 @@ if ($auth = false) {
             <div class="row mt-5">
                 <ul class="mt-2">
                     <?php 
-                    $user_email = $user;
-                    $order = last_five_orders($user_email);
-                    // echo json_decode($order);
-                    // echo json_decode(last_five_orders($user_email))[0];
-                    foreach ($order as $value){
-                        $productList = json_decode($value["PRODUCTLIST"]);
-                        $currency = string_sanitization($value["CURRENCY"]);
-                        $totalPrice = int_sanitization($value["TOTALPRICE"]);
-                        $paymentStatus = string_sanitization($value["PAYMENT_STATUS"]);
-                        $nuyerEmail = email_sanitization($value["BUYER_EMAILS"]);
-                        foreach ($productList as $item){
-                            echo '<li>'.json_encode($item).'</li>';
-                        }
-                    }
+                    // $user_email = $user;
+                    // $order = last_five_orders($user_email);
+                    // // echo json_decode($order);
+                    // // echo json_decode(last_five_orders($user_email))[0];
+                    // foreach ($order as $value){
+                    //     $productList = json_decode($value["PRODUCTLIST"]);
+                    //     $currency = string_sanitization($value["CURRENCY"]);
+                    //     $totalPrice = int_sanitization($value["TOTALPRICE"]);
+                    //     $paymentStatus = string_sanitization($value["PAYMENT_STATUS"]);
+                    //     $nuyerEmail = email_sanitization($value["BUYER_EMAILS"]);
+                    //     foreach ($productList as $item){
+                    //         echo '<li>'.json_encode($item).'</li>';
+                    //     }
+                    // }
                     ?>
                 </ul>
             </div>
