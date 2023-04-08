@@ -7,7 +7,8 @@
 }
 
 .user_order_info{
-    font-size:120%;
+    font-size:116%;
+    font-style: italic;
     text-decoration: underline;
 }
 
@@ -23,5 +24,5 @@
 .card-text_p{
     margin-bottom: 5px !important;
     margin-left: 5px !important;
-    font-size:95% !important;
+    font-size:99% !important;
 }
