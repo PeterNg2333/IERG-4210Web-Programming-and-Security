@@ -150,6 +150,7 @@ $product .='';
                 if (document.querySelector(".account_name ").innerText === " Guest"){
                     alert("Please login before purchase");
                     window.location.href = "admin/login_admin.php";
+                    return;
                 }
                 // Sample code
                 let order_details = await fetch("create_order.php", {
