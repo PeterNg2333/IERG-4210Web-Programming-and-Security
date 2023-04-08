@@ -4,7 +4,7 @@ body {
 
 .table_row td{
     overflow: auto !important;
-    word-break: break-all !important;
+    word-break: break-all;
 }
 
 .total_price{
