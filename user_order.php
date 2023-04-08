@@ -51,7 +51,7 @@ if ($auth = false) {
                         $totalPrice = int_sanitization($value["TOTALPRICE"]);
                         $paymentStatus = string_sanitization($value["PAYMENT_STATUS"]);
                         $nuyerEmail = email_sanitization($value["BUYER_EMAILS"]);
-                        echo '<li>'.json_encode($productList[0]).'</li>';
+                        echo '<li>'.$productList[0].'</li>';
                         
                     }
 
