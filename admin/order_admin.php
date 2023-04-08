@@ -74,9 +74,15 @@ if (is_admin($auth) == false){
                     echo'   <td>'.$customId.'</td>';
                     echo'   <td class="total_price">'.$currency."$&nbsp;".$totalPrice.'</td>';
                     echo'   <td>';
+                    echo '      <ul class="list-group ">';
                             foreach ($productList as $item){
-                                echo '<span>'.json_encode($item).'</span>';
+                                $item_name = string_sanitization($item->{'name'});
+                                $item_price = int_sanitization($item->{'unit_amount'}->{'value'});
+                                $item_quantity = int_sanitization($item->{'quantity'});
+
+                                echo '<il>'.$item_name.$currency.": $ ".$item_price."*#".$item_quantity..'</il>';
                             }
+                    echo '      </ul>';
                     echo'   </td>';
                     echo'   <td>'.$paymentStatus.'</td>';
                     echo'   <td>'.$buyerEmail.'</td>';

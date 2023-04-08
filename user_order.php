@@ -75,7 +75,6 @@ if ($auth = false) {
                         
 
                                     foreach ($productList as $item){
-                                        $temp_item = json_encode($item); 
                                         $item_name = string_sanitization($item->{'name'});
                                         $item_price = int_sanitization($item->{'unit_amount'}->{'value'});
                                         $item_quantity = int_sanitization($item->{'quantity'});
