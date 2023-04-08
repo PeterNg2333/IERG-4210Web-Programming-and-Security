@@ -48,8 +48,7 @@ if (is_admin($auth) == false){
                     <th scope="col">USER</th>
                     <th scope="col">INVOICE_ID</th>
                     <th scope="col">CUSTOM_ID</th>
-                    <th scope="col">CURRENCY</th>
-                    <th scope="col">TOTAL PRICE</th>
+                    <th scope="col">$TOTAL PRICE</th>
                     <th scope="col">PRODUCT LIST</th>
                     <th scope="col">PAYMENT_STATUS</th>
                     <th scope="col">BUYER PAYPAL</th>
@@ -73,8 +72,7 @@ if (is_admin($auth) == false){
                     echo'   <td>'.$userEmail.'</td>';
                     echo'   <td>'.$invoiceId.'</td>';
                     echo'   <td>'.$customId.'</td>';
-                    echo'   <td>'.$currency.'</td>';
-                    echo'   <td>'.$totalPrice.'</td>';
+                    echo'   <td>'.$currency."$ ".$totalPrice.'</td>';
                     echo'   <td>';
                             foreach ($productList as $item){
                                 echo '<span>'.json_encode($item).'</span>';
