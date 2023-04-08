@@ -231,6 +231,8 @@ function updateOrderAmount(e){
         }
         else{
             shoppingList.html('<il class="text-secondary m-auto mb-1"> The shopping Cart is empty !!!</il>');
+            $("#shopping_list_order_total").text("$" + orderSum);
+            $("#shopping_details_order_total").text("$" + orderSum);
         }
     });
 }
