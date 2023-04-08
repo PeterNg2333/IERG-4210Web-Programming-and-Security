@@ -69,10 +69,10 @@ if (is_admin($auth) == false){
                     $invoiceId = string_sanitization($value["INVOICE_ID"]);
                     echo' <tr class="table_row">';
                     echo'   <th scope="row">'.$oid.'</th>';
-                    echo'   <td>'.$userEmail.'</td>';
+                    echo'   <td class="whole_line">'.$userEmail.'</td>';
                     echo'   <td>'.$invoiceId.'</td>';
                     echo'   <td>'.$customId.'</td>';
-                    echo'   <td class="total_price">'.$currency."$&nbsp;".$totalPrice.'</td>';
+                    echo'   <td class="whole_line">'.$currency."$&nbsp;".$totalPrice.'</td>';
                     echo'   <td>';
                     echo '      <ul class="list-group">';
                             foreach ($productList as $item){

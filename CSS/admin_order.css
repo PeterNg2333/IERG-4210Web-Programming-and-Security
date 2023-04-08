@@ -7,7 +7,7 @@ body {
     word-break: break-all;
 }
 
-.total_price{
+.whole_line{
     word-break: normal !important;
 }
 
