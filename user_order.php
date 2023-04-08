@@ -69,7 +69,14 @@ if ($auth = false) {
                                         $item_price = int_sanitization($item->{'unit_amount'}->{'value'});
                                         $item_quantity = int_sanitization($item->{'quantity'});
                                         
-                                        echo '<li class="list-group-item user_order_item">'. $item_name." ".$item_price." ".$item_quantity.'</li>';
+                                        echo '<li class="list-group-item user_order_item container">';
+                                        // '. $item_name." ".$item_price." ".$item_quantity.
+                                        echo '  <div class="row">';
+                                        echo '      <span class="col-8">'.$item_name.'</span';
+                                        echo '      <span class="col-2">$'.$currency." ".$item_price.'</span';
+                                        echo '      <span class="col-2">'.$item_quantity.'</span';
+                                        echo '  </div>';
+                                        echo'</li>';
                                     }
                         echo '      </ul>';
                         echo '  </div>';
