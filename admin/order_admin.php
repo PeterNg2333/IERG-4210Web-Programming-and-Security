@@ -42,7 +42,7 @@ if (is_admin($auth) == false){
         </header>
         <main id="main" class="container-lg mt-3">
             <table class="table">
-                <thead class="thead-dark">
+                <thead class="thead-dark bg-dark text-white">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">USER</th>
