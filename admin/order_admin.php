@@ -42,42 +42,53 @@ if (is_admin($auth) == false){
         </header>
         <main id="main" class="container-lg">
             <table class="table">
-                <thead>
+                <thead class="thead-dark">
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">USER</th>
+                <th scope="col">INVOICE_ID</th>
+                <th scope="col">CUSTOM_ID</th>
+                <th scope="col">CURRENCY</th>
+                <th scope="col">TOTAL PRICE</th>
+                <th scope="col">PRODUCT LIST</th>
+                <th scope="col">PAYMENT_STATUS</th>
+                <th scope="col">BUYER PAYPAL</th>
+                
                 </tr>
             </thead>
+            <tbody>
             <?php
                 $order = order_fetchAll();
                 foreach ($order as $value){
-                    echo json_encode($value);
+                    $oid = int_sanitization($value["OID"]);
+                    $userEmail = email_sanitization($value["USER"]);
+                    $productList = json_decode($value["PRODUCTLIST"]);
+                    $currency = string_sanitization($value["CURRENCY"]);
+                    $totalPrice = int_sanitization($value["TOTALPRICE"]);
+                    $paymentStatus = string_sanitization($value["PAYMENT_STATUS"]);
+                    $buyerEmail = email_sanitization($value["BUYER_EMAIL"]);
+                    $customId = string_sanitization($value["CUSTOM_ID"]);
+                    $invoiceId = string_sanitization($value["INVOICE_ID"]);
+                    echo' <tr>';
+                    echo'   <th scope="row">'.$oid.'</th>';
+                    echo'   <td>'.$userEmail.'</td>';
+                    echo'   <td>'.$invoiceId.'</td>';
+                    echo'   <td>'.$customId.'</td>';
+                    echo'   <td>'.$currency.'</td>';
+                    echo'   <td>'.$totalPrice.'</td>';
+                    echo'   <td>'.$productLis.'</td>';
+                    echo'   <td>'.$paymentStatus.'</td>';
+                    echo'   <td>'.$buyerEmail.'</td>';
+
+                    echo' </tr>';
+                    // echo json_encode($value);
                 }
                 
             ?>
+            </tbody>
 
-                <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    </tr>
-                </tbody>
+                
+
             </table>
         </main>
 
