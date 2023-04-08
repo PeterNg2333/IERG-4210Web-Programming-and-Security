@@ -44,16 +44,15 @@ if (is_admin($auth) == false){
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
-                <th scope="col">#</th>
-                <th scope="col">USER</th>
-                <th scope="col">INVOICE_ID</th>
-                <th scope="col">CUSTOM_ID</th>
-                <th scope="col">CURRENCY</th>
-                <th scope="col">TOTAL PRICE</th>
-                <th scope="col">PRODUCT LIST</th>
-                <th scope="col">PAYMENT_STATUS</th>
-                <th scope="col">BUYER PAYPAL</th>
-                
+                    <th scope="col">#</th>
+                    <th scope="col">USER</th>
+                    <th scope="col">INVOICE_ID</th>
+                    <th scope="col">CUSTOM_ID</th>
+                    <th scope="col">CURRENCY</th>
+                    <th scope="col">TOTAL PRICE</th>
+                    <th scope="col">PRODUCT LIST</th>
+                    <th scope="col">PAYMENT_STATUS</th>
+                    <th scope="col">BUYER PAYPAL</th>
                 </tr>
             </thead>
             <tbody>
@@ -76,7 +75,7 @@ if (is_admin($auth) == false){
                     echo'   <td>'.$customId.'</td>';
                     echo'   <td>'.$currency.'</td>';
                     echo'   <td>'.$totalPrice.'</td>';
-                    echo'   <td>'.$productLis.'</td>';
+                    echo'   <td>'.json_encode($productLis).'</td>';
                     echo'   <td>'.$paymentStatus.'</td>';
                     echo'   <td>'.$buyerEmail.'</td>';
 
