@@ -41,6 +41,15 @@ if (is_admin($auth) == false){
             ?>
         </header>
         <main id="main" class="container-lg">
+            <table class="table">
+                <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+                </tr>
+            </thead>
             <?php
                 $order = order_fetchAll();
                 foreach ($order as $value){
@@ -48,15 +57,7 @@ if (is_admin($auth) == false){
                 }
                 
             ?>
-            <table class="table">
-                <thead>
-                    <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                    </tr>
-                </thead>
+
                 <tbody>
                     <tr>
                     <th scope="row">1</th>
