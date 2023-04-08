@@ -5,6 +5,7 @@ $c_res = ierg4210_cat_fetchall();
 $user = email_sanitization(auth());
 if ($auth = false) {
     $user = "Guest";
+    echo $user;
 }
 
 if (!preg_match('/^\d*$/', $_GET['cid']))
