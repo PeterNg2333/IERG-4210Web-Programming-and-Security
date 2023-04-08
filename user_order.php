@@ -52,12 +52,9 @@ if ($auth = false) {
                         $paymentStatus = string_sanitization($value["PAYMENT_STATUS"]);
                         $nuyerEmail = email_sanitization($value["BUYER_EMAILS"]);
                         foreach ($productList as $item){
-                            echo '<li>'.$item.'</li>';
+                            echo '<li>'.json_encode($item).'</li>';
                         }
-                        
-                        
                     }
-
                     ?>
                 </ul>
             </div>
