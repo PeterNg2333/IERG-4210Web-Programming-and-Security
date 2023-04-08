@@ -117,7 +117,7 @@ function load_shoppingCart(){
     var orderSum = 0;
     var counter = 0;
     var array_length = json_length(json);
-    if (!(json === "" & json === null) && json.length > 0){
+    if (!(json === "" || json === null) && json.length > 0){
         shoppingList.children().remove();
     }
     json.forEach(element => {
@@ -204,7 +204,7 @@ function updateOrderAmount(e){
         var orderSum = 0;
         var array_length = json_length(json);
         var counter = 0;
-        if (!(json === "" & json === null) && json.length > 0){
+        if (!(json === "" ||  json === null) && json.length > 0){
             json.forEach(element => {
                 var temp_id = element.id;
                 var temp_orderAmount = element.orderAmount;
@@ -398,7 +398,7 @@ function addProductByScroll(){
 
 
 function json_length(json){
-    if (json === "" & json === null){
+    if (json === "" || json === null){
         var array_length = 0;
     }
     else{
