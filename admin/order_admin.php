@@ -84,8 +84,8 @@ if (is_admin($auth) == false){
                             }
                     echo '      </ul>';
                     echo'   </td>';
-                    echo'   <td>'.'<span class="badge badge-pill badge-info bg-info"><a class="text_primary">'.$paymentStatus.'</a></span></td>';
-                    echo'   <td>'.$buyerEmail.'</td>';
+                    echo'   <td>'.'<span class="badge badge-pill badge-info bg-info">'.$paymentStatus.'/span></td>';
+                    echo'   <td><a class="text_primary">'.$buyerEmail.'</a><</td>';
 
                     echo' </tr>';
                     // echo json_encode($value);
