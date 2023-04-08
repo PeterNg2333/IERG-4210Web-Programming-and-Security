@@ -61,7 +61,10 @@ function save_order($order) {
 
   /* ========== REGION END ========== */
 }
-
+$user = auth();
+if ($user == false){
+      header('Location: admin/login_admin.php',true,302);
+}
 $json = file_get_contents("php://input");
 $order = json_decode($json);
 save_order($order);
