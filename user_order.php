@@ -51,7 +51,7 @@ if ($auth = false) {
                         $currency = string_sanitization($value["CURRENCY"]);
                         $totalPrice = int_sanitization($value["TOTALPRICE"]);
                         $paymentStatus = string_sanitization($value["PAYMENT_STATUS"]);
-                        $buyerEmail = email_sanitization($value["BUYER_EMAILS"]);
+                        $buyerEmail = email_sanitization($value["BUYER_EMAIL"]);
                         $customId = string_sanitization($value["CUSTOM_ID"]);
                         $invoiceId = string_sanitization($value["INVOICE_ID"]);
 
