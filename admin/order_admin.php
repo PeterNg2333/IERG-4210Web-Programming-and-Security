@@ -50,7 +50,7 @@ if (is_admin($auth) == false){
                     <th scope="col">CUSTOM_ID</th>
                     <th scope="col">$TOTAL&nbsp;PRICE</th>
                     <th scope="col">PRODUCT LIST</th>
-                    <th scope="col">PAYMENT_STATUS</th>
+                    <th scope="col">STATUS</th>
                     <th scope="col">BUYER PAYPAL</th>
                 </tr>
             </thead>
