@@ -31,6 +31,16 @@ function getid(event){
     return
 };
 
+function json_length(json){
+    if (json === "" & json === null){
+        var array_length = 0;
+    }
+    else{
+        var array_length = json.length;
+    }
+    return array_length
+}
+
 // XXS 
 function escapeQuotes(string_input){
     return string_input.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
