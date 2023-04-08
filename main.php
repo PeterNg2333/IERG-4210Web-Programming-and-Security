@@ -7,7 +7,7 @@ if ($auth = false) {
     $user = "Guest";
     
 }
-echo $user;
+
 
 if (!preg_match('/^\d*$/', $_GET['cid']))
     throw new Exception("invalid-cid");
@@ -117,6 +117,7 @@ $product .='';
         <!-- Main Content -->
         <main id="main" class="container d-none">
             <?php 
+            echo $user;
                 $main_html = file_get_contents('./Snippet/Main.html');
                 $main_html = str_replace('%category_list%', $category, $main_html);
                 $main_html = str_replace('%product_list%', $product, $main_html);
