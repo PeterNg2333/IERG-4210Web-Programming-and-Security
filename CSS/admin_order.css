@@ -14,5 +14,9 @@ body {
 .item_name{
     font-weight: bold;
     font-style: italic;
+    
+}
+
+.items{
     word-break: normal !important;
 }
