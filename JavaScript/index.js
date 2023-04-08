@@ -74,6 +74,7 @@ function addToCart_button(e){
             var json = JSON.parse(localStorage.getItem('shoppingList'));
             // print("add new array: " + json)
             alert("Added success!");
+            load_shoppingCart();
         } 
         else {
             var json = JSON.parse(jsonstr);
