@@ -61,7 +61,13 @@ if ($auth = false) {
                         echo '  <div class="card-body">';
                         echo '      <h6 class="card-title user_order_info">Information:</h6>';
                         echo '      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>';
-                        echo '      <ul class="list-group">';
+                        echo '      <ul class="list-group container">';
+                        echo '          <li class="list-group-item user_order_item row">';
+                        echo '              <span class="col-4 user_order_item_header">Item</span>';
+                        echo '              <span class="col-2 user_order_item_header">$Price</span>';
+                        echo '              <span class="col-2 user_order_item_header">#Quantity</span>';
+                        echo'           </li>';
+                        
 
                                     foreach ($productList as $item){
                                         $temp_item = json_encode($item); 
@@ -69,13 +75,11 @@ if ($auth = false) {
                                         $item_price = int_sanitization($item->{'unit_amount'}->{'value'});
                                         $item_quantity = int_sanitization($item->{'quantity'});
                                         
-                                        echo '<li class="list-group-item user_order_item container">';
+                                        echo '<li class="list-group-item user_order_item row">';
                                         // '. $item_name." ".$item_price." ".$item_quantity.
-                                        echo '  <div class="row">';
-                                        echo '      <span class="col-4">'.$item_name.'</span>';
-                                        echo '      <span class="col-3">$'.$currency." ".$item_price.'</span>';
-                                        echo '      <span class="col-2">#'.$item_quantity.'</span>';
-                                        echo '  </div>';
+                                        echo '   <span class="col-4">'.$item_name.'</span>';
+                                        echo '   <span class="col-2">$'.$currency." ".$item_price.'</span>';
+                                        echo '   <span class="col-2">#'.$item_quantity.'</span>';
                                         echo'</li>';
                                     }
                         echo '      </ul>';
