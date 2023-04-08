@@ -45,8 +45,8 @@ function save_order($order) {
   $currency = string_sanitization($amount -> {'currency_code'});
   $totalPrice = int_sanitization($amount -> {'value'});
   $paymentStatus = "Success";
-  $customId = $purchase -> {'custom_id'};
-  $invoiceId = $purchase -> {'invoice_id'};
+  $customId = string_sanitization($purchase -> {'custom_id'});
+  $invoiceId = string_sanitization($purchase -> {'invoice_id'});
 
   // $buyerEmail = $payer-> {'email_address'};
   // $productList = json_encode($purchase -> {'items'});
