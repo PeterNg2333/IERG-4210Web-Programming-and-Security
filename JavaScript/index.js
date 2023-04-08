@@ -119,7 +119,8 @@ function load_shoppingCart(){
     var array_length = json_length(json);
     if (!(json === "" || json === null) && json.length > 0){
         shoppingList.children().remove();
-    }
+        
+    
     json.forEach(element => {
         var temp_id = int_sanitization(element.id);
         var temp_orderAmount = int_sanitization(element.orderAmount);
@@ -154,8 +155,10 @@ function load_shoppingCart(){
                     $("#shopping_list_order_total").text("$" + orderSum);
                     $("#shopping_details_order_total").text("$" + orderSum);
                 }
+
         });
     });
+}
 }
 
 function updateOrderAmount(e){
