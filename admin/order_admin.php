@@ -25,6 +25,7 @@ if (is_admin($auth) == false){
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"/>
         <link rel="stylesheet" type="text/css" href="../CSS/index.css">
         <link rel="stylesheet" type="text/css" href="../CSS/admin.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/admin_order.css">
     </head>
         
     <body>
@@ -33,7 +34,7 @@ if (is_admin($auth) == false){
             <?php 
                 $header_html = file_get_contents('./Snippet_admin/header_admin.html');
                 $header_html = str_replace('%Admin%', email_sanitization($auth), $header_html);
-                $header_html = str_replace('order_admin.php', "order_admin.php", $header_html);
+                $header_html = str_replace('order_admin.php', "admin.php", $header_html);
                 $header_html = str_replace('Order', "Panel", $header_html);
                 $header_html = str_replace('fas fa-history', "fa-solid fa-unlock-keyhole", $header_html);
                 echo $header_html;
