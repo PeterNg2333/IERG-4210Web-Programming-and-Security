@@ -108,8 +108,6 @@ function addToCart_button(e){
     } else {
         alert("Add failed")
     }
-
-
 }
 
 function load_shoppingCart(){
