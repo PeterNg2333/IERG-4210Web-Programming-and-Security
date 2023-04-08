@@ -72,7 +72,7 @@ if (is_admin($auth) == false){
                     echo'   <td class="whole_line"><a class="text_primary">'.$userEmail.'</a></td>';
                     echo'   <td>'.$invoiceId.'</td>';
                     echo'   <td>'.$customId.'</td>';
-                    echo'   <td class="whole_line">'.$currency."$&nbsp;".$totalPrice.'</td>';
+                    echo'   <td class="whole_line"><span class="item_value">'.$currency."$&nbsp;".$totalPrice.'</span></td>';
                     echo'   <td>';
                     echo '      <ul class="list-group">';
                             foreach ($productList as $item){
@@ -80,7 +80,7 @@ if (is_admin($auth) == false){
                                 $item_price = int_sanitization($item->{'unit_amount'}->{'value'});
                                 $item_quantity = int_sanitization($item->{'quantity'});
                                 $item_name = str_replace(" ", "&nbsp", $item_name);
-                                echo '<il class="mb-1 items"><span class="item_name text-secondary">•&nbsp'.$item_name.':&nbsp'.'</span>'.$currency.'$<span class="item_value">'.$item_price."*".$item_quantity.'</span>&nbsp</il>';
+                                echo '<il class="mb-1 items"><span class="item_name text-secondary">•&nbsp'.$item_name.':&nbsp'.'</span>'.$currency.'<span class="item_value">$'.$item_price."*".$item_quantity.'</span>&nbsp</il>';
                             }
                     echo '      </ul>';
                     echo'   </td>';
