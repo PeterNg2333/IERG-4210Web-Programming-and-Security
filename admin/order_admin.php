@@ -69,7 +69,7 @@ if (is_admin($auth) == false){
                     $invoiceId = string_sanitization($value["INVOICE_ID"]);
                     echo' <tr class="table_row">';
                     echo'   <th scope="row">'.$oid.'</th>';
-                    echo'   <td class="whole_line">'.$userEmail.'</td>';
+                    echo'   <td class="whole_line"><a class="text_primary">'.$userEmail.'</a></td>';
                     echo'   <td>'.$invoiceId.'</td>';
                     echo'   <td>'.$customId.'</td>';
                     echo'   <td class="whole_line">'.$currency."$&nbsp;".$totalPrice.'</td>';
@@ -80,11 +80,11 @@ if (is_admin($auth) == false){
                                 $item_price = int_sanitization($item->{'unit_amount'}->{'value'});
                                 $item_quantity = int_sanitization($item->{'quantity'});
                                 $item_name = str_replace(" ", "&nbsp", $item_name);
-                                echo '<il class="mb-1 items"><span class="item_name text-primary">•&nbsp'.$item_name.':&nbsp'.'</span>'.$currency.'$<span class="item_value">'.$item_price."*".$item_quantity.'</span>&nbsp</il>';
+                                echo '<il class="mb-1 items"><span class="item_name text-secondary">•&nbsp'.$item_name.':&nbsp'.'</span>'.$currency.'$<span class="item_value">'.$item_price."*".$item_quantity.'</span>&nbsp</il>';
                             }
                     echo '      </ul>';
                     echo'   </td>';
-                    echo'   <td>'.'<span class="badge badge-pill badge-info bg-info">'.$paymentStatus.'</span></td>';
+                    echo'   <td>'.'<span class="badge badge-pill badge-info bg-info"><a class="text_primary">'.$paymentStatus.'</a></span></td>';
                     echo'   <td>'.$buyerEmail.'</td>';
 
                     echo' </tr>';
