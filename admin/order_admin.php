@@ -39,7 +39,7 @@ if (is_admin($auth) == false){
                 echo $header_html;
             ?>
         </header>
-        <main id="main">
+        <main id="main" class="container-lg">
             <?php
                 $order = order_fetchAll();
                 foreach ($order as $value){
