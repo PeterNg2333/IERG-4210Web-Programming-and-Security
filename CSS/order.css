@@ -5,3 +5,8 @@
 .user_order_item{
     font-size:12px
 }
+
+.user_order_info{
+    font-size:120%;
+    font-weight: bold;
+}

@@ -57,9 +57,9 @@ if ($auth = false) {
 
                         // HTML
                         echo '<div class="card mt-5" >';
-                        echo '  <h5 class="card-header">Invoice: <a>'.$invoiceId.'</a></h5>';
+                        echo '  <h5 class="card-header font-weight-bold">Invoice: <a class="text_primary">'.$invoiceId.'</a></h5>';
                         echo '  <div class="card-body">';
-                        echo '      <h6 class="card-title">Info: <span>'.$buyerEmail.'</span> </h6>';
+                        echo '      <h6 class="card-title user_order_info">Information:</h6>';
                         echo '      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>';
                         echo '      <ul class="list-group">';
 
