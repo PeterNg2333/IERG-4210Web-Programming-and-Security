@@ -117,7 +117,6 @@ $product .='';
         <!-- Main Content -->
         <main id="main" class="container d-none">
             <?php 
-            echo $user."121";
                 $main_html = file_get_contents('./Snippet/Main.html');
                 $main_html = str_replace('%category_list%', $category, $main_html);
                 $main_html = str_replace('%product_list%', $product, $main_html);
@@ -147,6 +146,12 @@ $product .='';
             /* Sets up the transaction when a payment button is clicked */
             createOrder: async (data, actions) => {
                 /* [TODO] create an order from localStorage */
+                // Extra check //
+                if (document.querySelector(".account_name ").innerText === " Guest"){
+                    alert("Please login before purchase");
+                    window.location.href = "admin/login_admin.php";
+                }
+                // Sample code
                 let order_details = await fetch("create_order.php", {
                 method: "POST",
                 headers: {
