@@ -68,7 +68,7 @@ if (is_admin($auth) == false){
                     $buyerEmail = email_sanitization($value["BUYER_EMAIL"]);
                     $customId = string_sanitization($value["CUSTOM_ID"]);
                     $invoiceId = string_sanitization($value["INVOICE_ID"]);
-                    echo' <tr>';
+                    echo' <tr class="table_row">';
                     echo'   <th scope="row">'.$oid.'</th>';
                     echo'   <td>'.$userEmail.'</td>';
                     echo'   <td>'.$invoiceId.'</td>';

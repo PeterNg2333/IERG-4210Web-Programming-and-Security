@@ -1,3 +1,8 @@
 body {
     background-color: white;
 }
+
+.table_row td{
+    overflow: auto !important;
+    word-break: break-all !important;
+}
