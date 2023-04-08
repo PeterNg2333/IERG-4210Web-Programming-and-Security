@@ -61,6 +61,5 @@ if ($auth = false) {
         </main>
         <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
         <script src="JavaScript/utity.js"></script>
-        <script src="JavaScript/index.js"></script>
         <script src="JavaScript/user_order.js"></script>
     </body>
