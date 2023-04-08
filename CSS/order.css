@@ -8,5 +8,10 @@
 
 .user_order_info{
     font-size:120%;
+    text-decoration: underline;
+}
+
+.user_order_title{
+    font-size:120%;
     font-weight: bold;
 }
