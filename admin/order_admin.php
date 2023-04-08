@@ -72,7 +72,7 @@ if (is_admin($auth) == false){
                     echo'   <td>'.$userEmail.'</td>';
                     echo'   <td>'.$invoiceId.'</td>';
                     echo'   <td>'.$customId.'</td>';
-                    echo'   <td class="total_price">'.$currency."$ ".$totalPrice.'</td>';
+                    echo'   <td class="total_price">'.$currency."$".$totalPrice.'</td>';
                     echo'   <td>';
                             foreach ($productList as $item){
                                 echo '<span>'.json_encode($item).'</span>';
