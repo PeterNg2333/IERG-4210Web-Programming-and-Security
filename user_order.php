@@ -65,7 +65,11 @@ if ($auth = false) {
 
                                     foreach ($productList as $item){
                                         $temp_item = json_encode($item); 
-                                        echo '<li class="list-group-item">'. $item->{'name'} .'</li>';
+                                        $item_name = string_sanitization($item->{'name'});
+                                        $item_price = int_sanitization($item->{'unit_amount'}->{'value'});
+                                        $item_quantity = int_sanitization($item->{'quantity'});
+                                        
+                                        echo '<li class="list-group-item user_order_item">'. $item_name." ".$item_price." ".$item_quantity.'</li>';
                                     }
                         echo '      </ul>';
                         echo '  </div>';
