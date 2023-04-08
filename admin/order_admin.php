@@ -40,6 +40,13 @@ if (is_admin($auth) == false){
             ?>
         </header>
         <main id="main">
+            <?php
+                $order = order_fetchAll();
+                foreach ($order as $value){
+                    echo json_encode($value);
+                }
+                
+            ?>
             <table class="table">
                 <thead>
                     <tr>

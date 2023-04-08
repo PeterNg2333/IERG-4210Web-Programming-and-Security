@@ -491,6 +491,17 @@ function last_five_orders($user_email){
     };
 }
 
+function order_fetchAll(){
+    // DB manipulation
+    global $db;
+    $db = ierg4210_DB();
+    $q = $db->prepare("SELECT * FROM USER_ORDERS ORDER BY OID DESC;");
+    if ($q->execute()){
+        $result = $q->fetchAll();
+        return $result;
+    };
+}
+
 ///////////////////////////////////////////// Auth /////////////////////////////////////////////////
 function is_admin_action($action){
     if ($action == "cat_insert" || $action == "cat_edit" || $action == "cat_delete" || $action == "prod_edit" || $action == "prod_delete" || $action == "prod_insert"){
