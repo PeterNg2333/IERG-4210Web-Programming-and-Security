@@ -56,13 +56,14 @@ if ($auth = false) {
                         $invoiceId = string_sanitization($value["INVOICE_ID"]);
 
                         // HTML
-                        echo '<div class="card mt-5" >';
+                        echo '<div class="card" >';
                         echo '  <h5 class="card-header user_order_title">Invoice: <a class="text_primary">'.$invoiceId.'</a></h5>';
                         echo '  <div class="card-body">';
                         echo '      <h6 class="card-title user_order_info">Information:</h6>';
                         echo '      <p class="card-text"> Paypal Account: '.'<span>'.'<a class="text_primary">'.$buyerEmail.'</a></span></p>';
-                        echo '      <p class="card-text"> Total Value: $'.'<span>'.$currency." ".$totalPrice.'</span></p>';
-                        echo '      <p class="card-text"> Status: '.'<span class="badge badge-pill badge-info">'.$paymentStatus.'</span></p>';
+                        echo '      <p class="card-text"> Total Value: '.'<span>'.$currency."$ ".$totalPrice.'</span></p>';
+                        echo '      <p class="card-text"> Status: '.'<span class="badge badge-pill badge-info bg-info">'.$paymentStatus.'</span></p>';
+                        echo '      <p class="card-text"> Items: </p>';
                         echo '      <ul class="list-group ">';
                         echo '          <li class="list-group-item user_order_item container">';
                         echo '              <div class="row">';
@@ -71,8 +72,6 @@ if ($auth = false) {
                         echo '                  <span class="col-2 user_order_item_header">#Quantity</span>';
                         echo '              </div>';
                         echo'           </li>';
-                        
-
                                     foreach ($productList as $item){
                                         $temp_item = json_encode($item); 
                                         $item_name = string_sanitization($item->{'name'});
@@ -83,7 +82,7 @@ if ($auth = false) {
                                         // '. $item_name." ".$item_price." ".$item_quantity.
                                         echo '   <div class="row">';
                                         echo '      <span class="col-4">'.$item_name.'</span>';
-                                        echo '      <span class="col-2">$'.$currency." ".$item_price.'</span>';
+                                        echo '      <span class="col-2">'.$currency."$ ".$item_price.'</span>';
                                         echo '      <span class="col-2">#'.$item_quantity.'</span>';
                                         echo '   </div>';
                                         echo'</li>';
@@ -91,6 +90,7 @@ if ($auth = false) {
                         echo '      </ul>';
                         echo '  </div>';
                         echo '</div>';
+                        echo ' <div class=" mb-5"> </div>';
                         // echo json_encode($value);
                         // Purchase items
 
