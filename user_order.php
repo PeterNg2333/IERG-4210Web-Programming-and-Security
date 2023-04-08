@@ -65,12 +65,12 @@ if ($auth = false) {
 
                                     foreach ($productList as $item){
                                         $temp_item = json_encode($item); 
-                                        echo '<li class="list-group-item">'.$temp_item['name'] .'</li>';
+                                        echo '<li class="list-group-item">'.json_encode($item['name']) .'</li>';
                                     }
                         echo '      </ul>';
                         echo '  </div>';
                         echo '</div>';
-                                                // echo json_encode($value);
+                        // echo json_encode($value);
                         // Purchase items
 
                     }
