@@ -10,3 +10,9 @@ body {
 .total_price{
     word-break: normal !important;
 }
+
+.item_name{
+    font-weight: bold;
+    font-style: italic;
+    font-size:116%;
+}
