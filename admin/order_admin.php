@@ -40,7 +40,7 @@ if (is_admin($auth) == false){
                 echo $header_html;
             ?>
         </header>
-        <main id="main" class="container-lg mt-5">
+        <main id="main" class="container-lg mt-3">
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
