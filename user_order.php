@@ -60,7 +60,9 @@ if ($auth = false) {
                         echo '  <h5 class="card-header user_order_title">Invoice: <a class="text_primary">'.$invoiceId.'</a></h5>';
                         echo '  <div class="card-body">';
                         echo '      <h6 class="card-title user_order_info">Information:</h6>';
-                        echo '      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>';
+                        echo '      <p class="card-text"> Paypal Account: '.'<span>'.'<a class="text_primary">'.$buyerEmail.'</a></span></p>';
+                        echo '      <p class="card-text"> Total Value: $'.'<span>'.$currency." ".$totalPrice.'</span></p>';
+                        echo '      <p class="card-text"> Status: '.'<span class="badge badge-pill badge-info">'.$paymentStatus.'</span></p>';
                         echo '      <ul class="list-group ">';
                         echo '          <li class="list-group-item user_order_item container">';
                         echo '              <div class="row">';
