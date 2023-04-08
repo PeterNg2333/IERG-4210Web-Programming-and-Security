@@ -34,10 +34,10 @@ function save_order($order) {
         throw new Exception("invalid-currency_code");
   if (!preg_match('/^[\d]+$/', (int)($amount -> {'value'})))
         throw new Exception("invalid-amount");
-  if (!preg_match('/^[\w]+$/', $purchase -> {'custom_id'}))
-      throw new Exception("invalid-custom_id");
-  if (!preg_match('/^[\w]+$/', $purchase -> {'invoice_id'}))
-      throw new Exception("invalid-invoice_id");
+//   if (!preg_match('/^[\w]+$/', $purchase -> {'custom_id'}))
+//       throw new Exception("invalid-custom_id");
+//   if (!preg_match('/^[\w]+$/', $purchase -> {'invoice_id'}))
+//       throw new Exception("invalid-invoice_id");
 
   $user = email_sanitization($user);
   $buyerEmail = email_sanitization($payer-> {'email_address'});
