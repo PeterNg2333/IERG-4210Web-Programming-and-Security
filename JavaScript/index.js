@@ -397,6 +397,16 @@ function addProductByScroll(){
 }
 
 
+function json_length(json){
+    if (json === "" & json === null){
+        var array_length = 0;
+    }
+    else{
+        var array_length = json.length;
+    }
+    return array_length
+}
+
 
 
 // // load category
