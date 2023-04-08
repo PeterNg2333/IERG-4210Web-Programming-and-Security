@@ -46,12 +46,12 @@ if ($auth = false) {
                     // echo json_decode($order);
                     // echo json_decode(last_five_orders($user_email))[0];
                     foreach ($order as $value){
-                        // $productList = json_decode($value["PRODUCTLIST"]);
+                        $productList = json_decode($value["PRODUCTLIST"]);
                         $currency = string_sanitization($value["CURRENCY"]);
                         $totalPrice = int_sanitization($value["TOTALPRICE"]);
                         $paymentStatus = string_sanitization($value["PAYMENT_STATUS"]);
                         $nuyerEmail = email_sanitization($value["BUYER_EMAILS"]);
-                        echo '<li>'.$currency.'</li>';
+                        echo '<li>'.json_encode($productList[0]).'</li>';
                         
                     }
 
