@@ -80,7 +80,7 @@ if (is_admin($auth) == false){
                                 $item_price = int_sanitization($item->{'unit_amount'}->{'value'});
                                 $item_quantity = int_sanitization($item->{'quantity'});
 
-                                echo '<il>'.$item_name.$currency.": $ ".$item_price."*#".$item_quantity..'</il>';
+                                echo '<il>'.$item_name.$currency.": $ ".$item_price."*#".$item_quantity.'</il>';
                             }
                     echo '      </ul>';
                     echo'   </td>';
