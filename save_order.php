@@ -34,13 +34,19 @@ function save_order($order) {
         throw new Exception("invalid-currency_code");
   if (!preg_match('/^[\d]+$/', (int)($amount -> {'value'})))
         throw new Exception("invalid-amount");
+  if (!preg_match('/^[\w]+$/', $purchase -> {'custom_id'}))
+      throw new Exception("invalid-custom_id");
+  if (!preg_match('/^[\w]+$/', $purchase -> {'invoice_id'}))
+      throw new Exception("invalid-custom_id");
 
   $user = email_sanitization($user);
   $buyerEmail = email_sanitization($payer-> {'email_address'});
   $productList = json_encode($purchase -> {'items'});
   $currency = string_sanitization($amount -> {'currency_code'});
   $totalPrice = int_sanitization($amount -> {'value'});
-  $paymentStatus = string_sanitization("Success");
+  $paymentStatus = "Success";
+  $customId = string_sanitization($purchase -> {'custom_id'});
+  $invoiceId = string_sanitization($purchase -> {'invoice_id'});
 
   // $buyerEmail = $payer-> {'email_address'};
   // $productList = json_encode($purchase -> {'items'});
@@ -51,7 +57,7 @@ function save_order($order) {
   // echo json_encode(array($buyerEmail, $currency, $totalPrice, $paymentStatus, $productList));
   // exit();
 
-  return store_order($user, $productList, $currency, $totalPrice, $paymentStatus, $buyerEmail);
+  return store_order($user, $productList, $currency, $totalPrice, $paymentStatus, $buyerEmail, $customId, $invoiceId);
 
   /* ========== REGION END ========== */
 }

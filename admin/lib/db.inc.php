@@ -453,17 +453,19 @@ function get_prod_by_pid($pid){
     exit();
 }
 
-function store_order($user, $productList, $currency, $totalPrice, $paymentStatus, $buyerEmail){
+function store_order($user, $productList, $currency, $totalPrice, $paymentStatus, $buyerEmail, $customId, $invoiceId){
     // DB manipulation
     global $db;
     $db = ierg4210_DB();
-    $q = $db->prepare("INSERT INTO USER_ORDERS (OID, USER, PRODUCTLIST, CURRENCY , TOTALPRICE, PAYMENT_STATUS, BUYER_EMAIL) VALUES (NULL, ?, ?, ?, ?, ?, ?)");
+    $q = $db->prepare("INSERT INTO USER_ORDERS (OID, USER, PRODUCTLIST, CURRENCY , TOTALPRICE, PAYMENT_STATUS, BUYER_EMAIL, CUSTOM_ID, INVOICE_ID) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)");
     $q->bindParam(1, $user);
     $q->bindParam(2, $productList);
     $q->bindParam(3, $currency);
     $q->bindParam(4, $totalPrice);
     $q->bindParam(5, $paymentStatus);
     $q->bindParam(6, $buyerEmail);
+    $q->bindParam(7, $customId);
+    $q->bindParam(8, $invoiceId);
 
     if ($q->execute()){
         header("Content-Type: application/json");
