@@ -61,8 +61,8 @@ if ($auth = false) {
                         echo '  <div class="card-body">';
                         echo '      <h6 class="card-title user_order_info">Information:</h6>';
                         echo '      <p class="card-text card-text_p"> Paypal Account: '.'<span>'.'<a class="text_primary">'.$buyerEmail.'</a></span></p>';
-                        echo '      <p class="card-text card-text_p"> Total Value: '.'<span>'.$currency."$ ".$totalPrice.'</span></p>';
-                        echo '      <p class="card-text card-text_p"> Status: '.'<span class="badge badge-pill badge-info bg-info">'.$paymentStatus.'</span></p>';
+                        echo '      <p class="card-text card-text_p"> Total Value: '.'<span class="total_value">'.$currency."$ ".$totalPrice.'</span></p>';
+                        echo '      <p class="card-text card-text_p"> Payment Status: '.'<span class="badge badge-pill badge-info bg-info">'.$paymentStatus.'</span></p>';
                         echo '      <p class="card-text card-text_p"> Items: </p>';
                         echo '      <ul class="list-group ">';
                         echo '          <li class="list-group-item user_order_item container">';
@@ -104,3 +104,4 @@ if ($auth = false) {
         <script src="JavaScript/utity.js"></script>
         <script src="JavaScript/user_order.js"></script>
     </body>
+</html>

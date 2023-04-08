@@ -26,3 +26,7 @@
     margin-left: 5px !important;
     font-size:99% !important;
 }
+
+.total_value{
+    font-weight: bold;
+}
