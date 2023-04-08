@@ -51,7 +51,10 @@ if ($auth = false) {
                         $totalPrice = int_sanitization($value["TOTALPRICE"]);
                         $paymentStatus = string_sanitization($value["PAYMENT_STATUS"]);
                         $nuyerEmail = email_sanitization($value["BUYER_EMAILS"]);
-                        echo '<li>'.$productList[0].'</li>';
+                        foreach ($productList as $item){
+                            echo '<li>'.$item.'</li>';
+                        }
+                        
                         
                     }
 
