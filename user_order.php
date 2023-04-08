@@ -61,14 +61,18 @@ if ($auth = false) {
                         echo '  <div class="card-body">';
                         echo '      <h6 class="card-title">Info: <span>'.$buyerEmail.'</span> </h6>';
                         echo '      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>';
-                        echo '      <a href="#" class="btn btn-primary">Go somewhere</a>';
+                        echo '      <ul class="list-group">';
+
+                                    foreach ($productList as $item){
+                                        // $temp_item = json_encode($item); 
+                                        echo '<li class="list-group-item">'.$item["name"].'</li>';
+                                    }
+                        echo '      </ul>';
                         echo '  </div>';
                         echo '</div>';
                         echo json_encode($value);
                         // Purchase items
-                        foreach ($productList as $item){
-                            echo '<li>'.json_encode($item).'</li>';
-                        }
+
                     }
                     ?>
                 </ul>
