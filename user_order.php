@@ -45,12 +45,27 @@ if ($auth = false) {
                     $order = last_five_orders($user_email);
                     // echo json_decode($order);
                     // echo json_decode(last_five_orders($user_email))[0];
+
                     foreach ($order as $value){
                         $productList = json_decode($value["PRODUCTLIST"]);
                         $currency = string_sanitization($value["CURRENCY"]);
                         $totalPrice = int_sanitization($value["TOTALPRICE"]);
                         $paymentStatus = string_sanitization($value["PAYMENT_STATUS"]);
-                        $nuyerEmail = email_sanitization($value["BUYER_EMAILS"]);
+                        $buyerEmail = email_sanitization($value["BUYER_EMAILS"]);
+                        $customId = string_sanitization($value["CUSTOM_ID"]);
+                        $invoiceId = string_sanitization($value["INVOICE_ID"]);
+
+                        // HTML
+                        echo '<div class="card">';
+                        echo '  <h5 class="card-header">Order: <a>'.$invoiceId.'</a></h5>';
+                        echo '  <div class="card-body">';
+                        echo '      <h6 class="card-title">Info: <span>'.$buyerEmail.'</span> </h6>';
+                        echo '      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>';
+                        echo '      <a href="#" class="btn btn-primary">Go somewhere</a>';
+                        echo '  </div>';
+                        echo '</div>';
+
+                        // Purchase items
                         foreach ($productList as $item){
                             echo '<li>'.json_encode($item).'</li>';
                         }
