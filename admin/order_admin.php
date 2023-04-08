@@ -80,7 +80,7 @@ if (is_admin($auth) == false){
                                 $item_price = int_sanitization($item->{'unit_amount'}->{'value'});
                                 $item_quantity = int_sanitization($item->{'quantity'});
                                 $item_name = str_replace(" ", "&nbsp", $item_name);
-                                echo '<il class="mb-1 items">•&nbsp<span class="item_name text-primary">'.$item_name.":&nbsp"."</span><span>".$currency."$".$item_price."*".$item_quantity.'</span>&nbspunits</il>';
+                                echo '<il class="mb-1 items"><span class="item_name text-primary">•&nbsp'.$item_name.":&nbsp"."</span>".$currency."$<span item_value>".$item_price."*".$item_quantity.'</span>&nbspunits</il>';
                             }
                     echo '      </ul>';
                     echo'   </td>';
