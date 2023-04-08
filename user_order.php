@@ -64,8 +64,8 @@ if ($auth = false) {
                         echo '      <ul class="list-group">';
 
                                     foreach ($productList as $item){
-                                        // $temp_item = json_encode($item); 
-                                        echo '<li class="list-group-item">'.$item["name"].'</li>';
+                                        $temp_item = json_decode($item); 
+                                        echo '<li class="list-group-item">'.$temp_item["name"].'</li>';
                                     }
                         echo '      </ul>';
                         echo '  </div>';
