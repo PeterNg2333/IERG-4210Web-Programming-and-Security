@@ -56,8 +56,8 @@ if ($auth = false) {
                         $invoiceId = string_sanitization($value["INVOICE_ID"]);
 
                         // HTML
-                        echo '<div class="card">';
-                        echo '  <h5 class="card-header">Order: <a>'.$invoiceId.'</a></h5>';
+                        echo '<div class="card mt-5" >';
+                        echo '  <h5 class="card-header">Invoice: <a>'.$invoiceId.'</a></h5>';
                         echo '  <div class="card-body">';
                         echo '      <h6 class="card-title">Info: <span>'.$buyerEmail.'</span> </h6>';
                         echo '      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>';
@@ -65,12 +65,12 @@ if ($auth = false) {
 
                                     foreach ($productList as $item){
                                         $temp_item = json_encode($item); 
-                                        echo '<li class="list-group-item">'.$temp_item .'</li>';
+                                        echo '<li class="list-group-item">'.$temp_item['name'] .'</li>';
                                     }
                         echo '      </ul>';
                         echo '  </div>';
                         echo '</div>';
-                        // echo json_encode($value);
+                                                // echo json_encode($value);
                         // Purchase items
 
                     }
