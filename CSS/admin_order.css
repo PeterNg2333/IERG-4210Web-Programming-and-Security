@@ -6,3 +6,7 @@ body {
     overflow: auto !important;
     word-break: break-all !important;
 }
+
+.total_price{
+    word-break: normal !important;
+}
