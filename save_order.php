@@ -34,10 +34,10 @@ function save_order($order) {
         throw new Exception("invalid-currency_code");
   if (!preg_match('/^[\d]+$/', (int)($amount -> {'value'})))
         throw new Exception("invalid-amount");
-  if (!preg_match('/^[\w]+$/', $purchase -> {'custom_id'}))
-      throw new Exception("invalid-custom_id");
-  if (!preg_match('/^[\w]+$/', $purchase -> {'invoice_id'}))
-      throw new Exception("invalid-custom_id");
+//   if (!preg_match('/^[\w]+$/', $purchase -> {'custom_id'}))
+//       throw new Exception("invalid-custom_id");
+//   if (!preg_match('/^[\w]+$/', $purchase -> {'invoice_id'}))
+//       throw new Exception("invalid-invoice_id");
 
   $user = email_sanitization($user);
   $buyerEmail = email_sanitization($payer-> {'email_address'});
@@ -45,8 +45,8 @@ function save_order($order) {
   $currency = string_sanitization($amount -> {'currency_code'});
   $totalPrice = int_sanitization($amount -> {'value'});
   $paymentStatus = "Success";
-  $customId = string_sanitization($purchase -> {'custom_id'});
-  $invoiceId = string_sanitization($purchase -> {'invoice_id'});
+  $customId = $purchase -> {'custom_id'};
+  $invoiceId = $purchase -> {'invoice_id'};
 
   // $buyerEmail = $payer-> {'email_address'};
   // $productList = json_encode($purchase -> {'items'});
