@@ -75,7 +75,7 @@ if (is_admin($auth) == false){
                     echo'   <td>'.$customId.'</td>';
                     echo'   <td>'.$currency.'</td>';
                     echo'   <td>'.$totalPrice.'</td>';
-                    echo'   <td>'.json_encode($productLis).'</td>';
+                    echo'   <td>'.json_decode($productLis).'</td>';
                     echo'   <td>'.$paymentStatus.'</td>';
                     echo'   <td>'.$buyerEmail.'</td>';
 
