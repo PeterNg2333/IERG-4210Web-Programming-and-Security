@@ -1,6 +1,6 @@
 <?php
 require __DIR__.'/lib/db.inc.php';
-$auth=auth();
+$auth=email_sanitization(auth());
 if($auth==false ){
     header('Location: login_admin.php',true,302);
 }
@@ -50,7 +50,7 @@ foreach ($res_cat_fetchall as $value){
         <header id="header" class="container-lg d-none">
             <?php 
                 $header_html = file_get_contents('./Snippet_admin/header_admin.html');
-                $header_html = str_replace('%Admin%', email_sanitization($auth), $header_html);
+                $header_html = str_replace('%Admin%', $auth, $header_html);
                 echo $header_html;
             ?>
         </header>

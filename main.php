@@ -3,9 +3,8 @@ require __DIR__.'/admin/lib/db.inc.php';
 $c_res = ierg4210_cat_fetchall();
 // $p_res = ierg4210_prod_fetchAll();
 $user = email_sanitization(auth());
-if ($auth == false) {
+if ($user == false) {
     $user = "Guest";
-    
 }
 
 
