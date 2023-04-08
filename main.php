@@ -173,7 +173,7 @@ $product .='';
                     });
                     
                     clearCart(); // Clear the web shop cart
-                    alrer("Purchase Success!! Go back to main page now !");
+                    alret("Purchase Success!! Go back to main page now !");
                     window.location.href = "main.php"; // Redirect to another page
                 });
             },
