@@ -64,7 +64,7 @@ if ($auth = false) {
                         echo '      <a href="#" class="btn btn-primary">Go somewhere</a>';
                         echo '  </div>';
                         echo '</div>';
-
+                        echo $value;
                         // Purchase items
                         foreach ($productList as $item){
                             echo '<li>'.json_encode($item).'</li>';
