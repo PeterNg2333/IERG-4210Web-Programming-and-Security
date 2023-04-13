@@ -62,7 +62,6 @@ function add_category(){
          nonce: _nonce
         },
         function(json){
-            print(typeof json);
             if (json.status == "Success"){
                 alert("Add Success!!");
                 location.reload()
@@ -75,6 +74,7 @@ function add_category(){
                 alert("Add Failed!!");
                 document.querySelector("#modify_category > input").value = "";
             }
+            console.log("asd");
         }
     );
 }
