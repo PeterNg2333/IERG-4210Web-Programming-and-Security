@@ -64,8 +64,8 @@ function add_category(){
         function(json){
             // var jsonStr = json.replace(/^while\(1\);/, "");
             // var jsonObj = JSON.parse(jsonStr);
-            print (typeof jsonObj);
-            print (jsonObj);
+            print (typeof json);
+            print (json);
             if (json.status == "Success"){
                 alert("Add Success!!");
                 location.reload()
