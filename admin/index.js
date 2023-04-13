@@ -74,7 +74,6 @@ function add_category(){
                 alert("Add Failed!!");
                 document.querySelector("#modify_category > input").value = "";
             }
-            console.log("asd");
         }
     );
 }
