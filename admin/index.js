@@ -53,19 +53,16 @@ function add_category(){
         alert("The category: " + temp_name + " is already there");
         return ;
     }
-    // if (! temp_name.match(/^[\w\-\ ]+$/)) {
-    //     alert("invalid name");
-    //     return ;
-    // }
+    if (! temp_name.match(/^[\w\-\ ]+$/)) {
+        alert("invalid name");
+        return ;
+    }
     $.post("admin-process.php?action=cat_insert", 
         {Cname: temp_name,
          nonce: _nonce
         },
         function(json){
-            // var jsonStr = json.replace(/^while\(1\);/, "");
-            // var jsonObj = JSON.parse(jsonStr);
-            print (typeof json);
-            print (json);
+            print(json.status);
             if (json.status == "Success"){
                 alert("Add Success!!");
                 location.reload()
