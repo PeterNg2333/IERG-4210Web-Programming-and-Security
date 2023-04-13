@@ -40,8 +40,8 @@ $(window).on("load", function() {
 
 function loadProrduct(e){
     e.preventDefault();
-    print(e.target.id);
-    print(e);
+    // print(e.target.id);
+    // print(e);
     var text_array = e.target.id.split("-");
     var id = int_sanitization(text_array[1]);
     const url = new URL(window.location);
@@ -59,7 +59,7 @@ function addToCart_button(e){
         alert("You cannot order " + num_added + " items")
         return;
     }
-    print("value added: " + num_added)
+    // print("value added: " + num_added)
     if (num_added != 0){
         // load local Storage
         var jsonstr = localStorage.getItem('shoppingList');
@@ -82,7 +82,7 @@ function addToCart_button(e){
             json.forEach(element => {
                 if (Number(element.id) === Number(inputed_id)){
                     element.orderAmount = String(Number(element.orderAmount) + Number(num_added));
-                    print("Update: element: " + element)
+                    // print("Update: element: " + element)
                     addOrUpdate = false;
                     alert("Update success!");
                 }
@@ -148,9 +148,9 @@ function load_shoppingCart(){
                 orderSum += ordervalue;
                 counter ++ ;
                 if (counter == array_length){
-                    print(shoppingList_html);
-                    print(counter);
-                    print("Max: " + array_length);
+                    // print(shoppingList_html);
+                    // print(counter);
+                    // print("Max: " + array_length);
                     $("#PlaceToInsert_orderedItem").html(shoppingList_html);
                     $("#shopping_list_order_total").text("$" + orderSum);
                     $("#shopping_details_order_total").text("$" + orderSum);
@@ -186,7 +186,7 @@ function updateOrderAmount(e){
                     newJson.push(element)
                 }
             });
-            print("Item: " + inputed_id + " is deleted");
+            // print("Item: " + inputed_id + " is deleted");
             window.localStorage.setItem('shoppingList', JSON.stringify(newJson));
         }
 
@@ -272,8 +272,8 @@ function loadProductHelper(){
                             $("#productDetailPrice").text(get_price);
                             $("#productDetailDesc").text(get_desc);
                             if (Number(get_inv) <= 3){
-                                print(Number(get_inv));
-                                print(typeof Number(get_inv));
+                                // print(Number(get_inv));
+                                // print(typeof Number(get_inv));
                                 get_inv = "Only " + get_inv + " left!";
                                 $("#productDetailInv").addClass("text-danger");
                             }
@@ -306,7 +306,8 @@ function loadProductHelper(){
             });
         }
         else {
-            print("it is not a product detail page");
+            return true;
+            // print("it is not a product detail page");
         }
     // alert();
 }
@@ -375,8 +376,8 @@ function addProductByScroll(){
                 }else if (max_count == current_product_loaded){
                     $("#LoadingMoreProduct_text").text("It's the end")
                 }
-                print(max_count);
-                print(current_product_loaded);
+                // print(max_count);
+                // print(current_product_loaded);
                 ////////////////////////// End loading
                 $("#product").children().last().after(product_html);
                 setTimeout(function () {

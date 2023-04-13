@@ -42,19 +42,6 @@ require __DIR__.'/lib/db.inc.php';
         <div class="form-outline text-center mb-4 mx-auto">
           <a href="./change_password_admin.php" > Change password </a>
         </div>
-        <div class="mt-5">
-          <div class="mt-5">
-             for checking only
-          </div>
-          <div>
-            <span>admin email: admin1155143402@gmail.com</span>
-            <span> password: admin123! </span>
-          </div>
-          <div>
-            <span>normal user email: user1155143402@gmail.com</span>
-            <span> password: user123! </span>
-          </div>
-        </div>
   </section>
 
 </body>

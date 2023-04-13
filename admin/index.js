@@ -350,12 +350,12 @@ function delete_product(e){
 function enable_modify(e){
     var text_array = e.target.id.split("-");
     var temp_id = "#P-" + text_array[1];
-    print (temp_id)
+    // print (temp_id)
     var nodeArray = document.querySelectorAll(temp_id + " .product_input")
-    print (nodeArray);
+    // print (nodeArray);
     nodeArray.forEach(element => {
         element.removeAttribute("disabled");
-        print(element);
+        // print(element);
     });
     document.querySelector(temp_id + " #create_button").classList.remove("btn-secondary");
     document.querySelector(temp_id + " #create_button").classList.add("btn-success");
@@ -369,7 +369,8 @@ function file_check(img_name){
     file_type = file_name[index];
     accept_type = ["jpg", "png", "jpeg"];
     if (accept_type.indexOf(file_type) > -1){
-        print("corret type")
+        return true;
+        // print("corret type")
     }
     else{
         alert("wrong image type!!!")
