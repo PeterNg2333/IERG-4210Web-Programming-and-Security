@@ -62,6 +62,9 @@ function add_category(){
          nonce: _nonce
         },
         function(json){
+            var jsonStr = json.replace(/^while\(1\);/, "");
+            var jsonObj = JSON.parse(jsonStr);
+            print (jsonObj);
             if (json.status == "Success"){
                 alert("Add Success!!");
                 location.reload()
