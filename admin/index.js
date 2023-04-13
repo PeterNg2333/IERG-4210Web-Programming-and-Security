@@ -53,6 +53,10 @@ function add_category(){
         alert("The category: " + temp_name + " is already there");
         return ;
     }
+    if (! temp_name.match(/^[\w\-\ ]+$/)) {
+        alert("invalid name");
+        return ;
+    }
     $.post("admin-process.php?action=cat_insert", 
         {Cname: temp_name,
          nonce: _nonce
