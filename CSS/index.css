@@ -62,12 +62,12 @@
 }
 
 /* For all invalid input */
-input:invalid {
+/* input:invalid {
     background-color: ivory;
     border: none;
     outline: 2px solid red;
     border-radius: 5px;
-  }
+  } */
 
 /********** Super extra small devices) **********/
 @media (max-width: 800px) {
