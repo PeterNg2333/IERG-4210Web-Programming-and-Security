@@ -49,14 +49,14 @@ function add_category(){
     var temp_name = string_sanitization(document.querySelector("#modify_category > input").value.trim());
     var _nonce = string_sanitization(document.getElementById("cat_insert_nonce").value);
 
-    // if (is_exist_category(temp_name, window.ierg4210_category_list)){
-    //     alert("The category: " + temp_name + " is already there");
-    //     return ;
-    // }
-    if (! temp_name.match(/^[\w\-\ ]+$/)) {
-        alert("invalid name");
+    if (is_exist_category(temp_name, window.ierg4210_category_list)){
+        alert("The category: " + temp_name + " is already there");
         return ;
     }
+    // if (! temp_name.match(/^[\w\-\ ]+$/)) {
+    //     alert("invalid name");
+    //     return ;
+    // }
     $.post("admin-process.php?action=cat_insert", 
         {Cname: temp_name,
          nonce: _nonce
