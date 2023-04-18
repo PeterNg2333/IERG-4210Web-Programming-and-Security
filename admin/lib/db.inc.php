@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(['cookie_httponly' => true, 'cookie_secure' => true,]);
 function ierg4210_DB() {
 	// connect to the database
 	// TODO: change the following path if needed
